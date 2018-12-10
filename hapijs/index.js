@@ -10,6 +10,7 @@ const AdminBroPlugin = require('admin-bro-hapijs')
 const AdminModel = require('../mongoose/admin-model')
 const ArticleModel = require('../mongoose/article-model')
 const ArticleDecorator = require('./article-decorator')
+const AdminDecorator = require('./admin-decorator')
 
 require('../mongoose/blog-post-model')
 require('../mongoose/comment-model')
@@ -44,6 +45,9 @@ const start = async () => {
       resources: [{
         resource: ArticleModel,
         decorator: ArticleDecorator,
+      }, {
+        resource: AdminModel,
+        decorator: AdminDecorator,
       }, new PostCode()],
       branding: {
         companyName: 'Amazing c.o.',
