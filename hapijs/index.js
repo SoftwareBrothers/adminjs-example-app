@@ -1,6 +1,9 @@
 const AdminBro = require('admin-bro')
 const AdminBroMongoose = require('admin-bro-mongoose')
+const AdminBroSequelizejs = require('admin-bro-sequelizejs')
+// console.log(AdminBroSequelizejs.Database.isAdapterFor instanceof AdminBro.BaseDatabase)
 AdminBro.registerAdapter(AdminBroMongoose)
+AdminBro.registerAdapter(AdminBroSequelizejs)
 
 const Hapi = require('hapi')
 const mongoose = require('mongoose')
@@ -11,6 +14,8 @@ const AdminModel = require('../mongoose/admin-model')
 const ArticleModel = require('../mongoose/article-model')
 const ArticleDecorator = require('./article-decorator')
 const AdminDecorator = require('./admin-decorator')
+
+const SequelizeDb = require('../sequelize/models')
 
 require('../mongoose/blog-post-model')
 require('../mongoose/comment-model')
@@ -36,12 +41,12 @@ const createAdminIfNone = async () => {
 const start = async () => {
   try {
     const server = Hapi.server({ port: process.env.PORT || 8080 })
-    const connection = await mongoose.connect(process.env.MONGO_URL)
+    const mongooseConnection = await mongoose.connect(process.env.MONGO_URL)
 
     await createAdminIfNone()
 
     const adminBroOptions = {
-      databases: [connection],
+      databases: [mongooseConnection, SequelizeDb],
       resources: [{
         resource: ArticleModel,
         decorator: ArticleDecorator,

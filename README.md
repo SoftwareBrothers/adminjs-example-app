@@ -2,6 +2,17 @@
 
 Example application using [admin-bro](https://github.com/SoftwareBrothers/admin-bro)
 
+## Developing the app
+
+The best way of developing the app is to do this via https://github.com/SoftwareBrothers/admin-bro-dev.
+
+To create postgres database (via sequelizejs) run:
+
+```
+npm run sequelize db:create
+npm run sequelize db:migrate
+```
+
 ## License
 
 AdminBro is Copyright © 2018 SoftwareBrothers.co. It is free software, and may be redistributed under the terms specified in the [LICENSE](LICENSE) file.
