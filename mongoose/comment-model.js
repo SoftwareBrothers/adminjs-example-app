@@ -3,7 +3,10 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const CommentSchema = new Schema({
-  content: String,
+  content: {
+    type: String,
+    required: true,
+  },
   createdAt: Date,
   createdBy: String,
   parentCommentId: String,

@@ -1,7 +1,6 @@
 const AdminBro = require('admin-bro')
 const AdminBroMongoose = require('admin-bro-mongoose')
 const AdminBroSequelizejs = require('admin-bro-sequelizejs')
-// console.log(AdminBroSequelizejs.Database.isAdapterFor instanceof AdminBro.BaseDatabase)
 AdminBro.registerAdapter(AdminBroMongoose)
 AdminBro.registerAdapter(AdminBroSequelizejs)
 

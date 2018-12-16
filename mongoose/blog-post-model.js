@@ -3,8 +3,14 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const BlogPostSchema = new Schema({
-  content: String,
-  title: String,
+  content: {
+    type: String,
+    required: true,
+  },
+  title: {
+    type: String,
+    required: true,
+  },
   createdAt: Date,
   createdBy: String,
   tags: String,
