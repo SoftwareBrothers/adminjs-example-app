@@ -6,10 +6,10 @@ class PostCode extends BaseResource {
     super(params)
     this.totalCount = 0
     this._properties = [
-      new BaseProperty({ path: 'name', type: 'string' }),
-      new BaseProperty({ path: 'id', type: 'string', isId: true }),
-      new BaseProperty({ path: 'lat', type: 'string' }),
-      new BaseProperty({ path: 'lng', type: 'string' }),
+      new BaseProperty({ path: 'name', type: 'string', isSortable: false }),
+      new BaseProperty({ path: 'id', type: 'string', isId: true, isSortable: false }),
+      new BaseProperty({ path: 'lat', type: 'string', isSortable: false }),
+      new BaseProperty({ path: 'lng', type: 'string', isSortable: false }),
     ]
   }
 

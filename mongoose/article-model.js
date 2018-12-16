@@ -3,9 +3,18 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const ArticleSchema = new Schema({
-  title: String,
-  content: String,
-  author: String,
+  title: {
+    type: String,
+    required: true,
+  },
+  content: {
+    type: String,
+    required: true,
+  },
+  author: {
+    type: String,
+    required: true,
+  },
   createdAt: Date,
   published: Boolean,
 })
