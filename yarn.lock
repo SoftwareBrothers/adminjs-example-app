@@ -49,9 +49,9 @@ acorn@^4.0.4, acorn@~4.0.2:
   version "4.0.13"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-4.0.13.tgz#105495ae5361d697bd195c825192e1ad7f253787"
 
-admin-bro-hapijs@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/admin-bro-hapijs/-/admin-bro-hapijs-0.1.4.tgz#075c43257812d38a1afb73ab0933be9298f2527b"
+admin-bro-hapijs@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/admin-bro-hapijs/-/admin-bro-hapijs-0.1.5.tgz#22d8de11023799f1045fc0a830dbdfb5ee9da7ee"
   dependencies:
     hapi-auth-cookie "^9.1.0"
     inert "^5.1.2"
