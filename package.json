@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "admin-bro": "^0.3.0",
-    "admin-bro-hapijs": "^0.1.4",
+    "admin-bro-hapijs": "^0.1.5",
     "admin-bro-mongoose": "^0.1.4",
     "admin-bro-sequelizejs": "^0.1.7",
     "axios": "^0.18.0",
