@@ -14,7 +14,7 @@
     "admin-bro": "^0.3.0",
     "admin-bro-hapijs": "^0.1.4",
     "admin-bro-mongoose": "^0.1.4",
-    "admin-bro-sequelizejs": "^0.1.6",
+    "admin-bro-sequelizejs": "^0.1.7",
     "axios": "^0.18.0",
     "bcrypt": "^3.0.2",
     "boom": "^7.3.0",

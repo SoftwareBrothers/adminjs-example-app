@@ -66,7 +66,8 @@ const start = async () => {
           return isValid && admin
         },
         cookiePassword: process.env.ADMIN_COOKIE_SECRET || 'yoursupersecretcookiepassword-veryveryverylong',
-        isSecure: false, // allows you to test the app with http
+        isSecure: false, // allows you to test the app with http,
+        defaultMessage: 'Login: test@example.com, Password: password',
       },
     }
     await server.register({
