@@ -13,6 +13,7 @@ const AdminModel = require('../mongoose/admin-model')
 const ArticleModel = require('../mongoose/article-model')
 const ArticleDecorator = require('./article-decorator')
 const AdminDecorator = require('./admin-decorator')
+const DashboardPage = require('./dashboard-page')
 
 const SequelizeDb = require('../sequelize/models')
 
@@ -56,6 +57,7 @@ const start = async () => {
       branding: {
         companyName: 'Amazing c.o.',
       },
+      dashboard: DashboardPage,
       rootPath: '/admin',
       auth: {
         authenticate: async (email, password) => {

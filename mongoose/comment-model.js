@@ -10,6 +10,7 @@ const CommentSchema = new Schema({
   createdAt: Date,
   createdBy: String,
   parentCommentId: String,
+  flagged: Boolean,
 })
 
 const Comment = mongoose.model('Comment', CommentSchema)
