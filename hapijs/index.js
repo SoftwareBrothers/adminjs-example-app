@@ -7,6 +7,8 @@ AdminBro.registerAdapter(AdminBroSequelizejs)
 const Hapi = require('hapi')
 const mongoose = require('mongoose')
 const Bcrypt = require('bcrypt')
+const inert = require('inert')
+const path = require('path')
 
 const AdminBroPlugin = require('admin-bro-hapijs')
 const AdminModel = require('../mongoose/admin-model')
@@ -45,6 +47,22 @@ const start = async () => {
 
     await createAdminIfNone()
 
+    server.route({
+      method: 'GET',
+      path: '/custom.css',
+      handler: function (request, h) {
+        return h.file(path.resolve(__dirname, 'assets/custom.css'))
+      }
+    })
+
+    server.route({
+      method: 'GET',
+      path: '/custom.js',
+      handler: function (request, h) {
+        return h.file(path.resolve(__dirname, 'assets/custom.js'))
+      }
+    })
+
     const adminBroOptions = {
       databases: [mongooseConnection, SequelizeDb],
       resources: [{
@@ -69,6 +87,10 @@ const start = async () => {
         isSecure: false, // allows you to test the app with http,
         defaultMessage: 'Login: test@example.com, Password: password',
       },
+      assets: {
+        styles: ['/custom.css'],
+        scripts: ['/custom.js']
+      }
     }
     await server.register({
       plugin: AdminBroPlugin,
