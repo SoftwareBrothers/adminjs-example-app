@@ -67,10 +67,43 @@ const start = async () => {
       databases: [mongooseConnection, SequelizeDb],
       resources: [{
         resource: ArticleModel,
-        decorator: ArticleDecorator,
+        options: {
+          name: 'Artykuł',
+          listProperties: ['title', 'content', 'publishedAt'],
+          showProperties: ['title', 'publishedAt'],
+          editProperties: ['title', 'publishedAt'],
+          parent: {
+            name: 'Knowledge',
+            icon: 'icon-bomb',
+          },
+          actions: [
+            {
+              id: 'publish',
+              icon: 'fas fa-share',
+              label: 'Publish',
+              enable: ['list', 'show'],
+              action: (request, response, view) => {
+                const { method } = request
+                if (method === 'GET') {
+                  return 'Some content or form which you want to place here'
+                }
+                return 'PUBLISH ACTION WORKS'
+              },
+            }
+          ]
+        }
       }, {
         resource: AdminModel,
-        decorator: AdminDecorator,
+        options: {
+          actions: {
+            edit: {
+              enable: false,
+            },
+            remove: {
+              enable: false
+            }
+          }
+        }
       }, new PostCode()],
       branding: {
         companyName: 'Amazing c.o.',
@@ -92,6 +125,7 @@ const start = async () => {
         scripts: ['/custom.js']
       }
     }
+
     await server.register({
       plugin: AdminBroPlugin,
       options: adminBroOptions,
