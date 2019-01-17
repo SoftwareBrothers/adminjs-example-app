@@ -14,7 +14,6 @@ const AdminBroPlugin = require('admin-bro-hapijs')
 const AdminModel = require('../mongoose/admin-model')
 const ArticleModel = require('../mongoose/article-model')
 const ArticleDecorator = require('./article-decorator')
-const AdminDecorator = require('./admin-decorator')
 const DashboardPage = require('./dashboard-page')
 
 const SequelizeDb = require('../sequelize/models')
@@ -76,21 +75,24 @@ const start = async () => {
             name: 'Knowledge',
             icon: 'icon-bomb',
           },
-          actions: [
-            {
+          actions: {
+            publish: {
               id: 'publish',
               icon: 'fas fa-share',
               label: 'Publish',
               enable: ['list', 'show'],
-              action: (request, response, view) => {
+              handler: (request, response, view) => {
                 const { method } = request
                 if (method === 'GET') {
                   return 'Some content or form which you want to place here'
                 }
                 return 'PUBLISH ACTION WORKS'
               },
+            },
+            remove: {
+              label: 'delete me'
             }
-          ]
+          }
         }
       }, {
         resource: AdminModel,
@@ -101,7 +103,7 @@ const start = async () => {
             },
             remove: {
               enable: false
-            }
+            },
           }
         }
       }, new PostCode()],
