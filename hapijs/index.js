@@ -13,8 +13,6 @@ const path = require('path')
 const AdminBroPlugin = require('admin-bro-hapijs')
 const AdminModel = require('../mongoose/admin-model')
 const ArticleModel = require('../mongoose/article-model')
-const ArticleDecorator = require('./article-decorator')
-const AdminDecorator = require('./admin-decorator')
 const DashboardPage = require('./dashboard-page')
 
 const SequelizeDb = require('../sequelize/models')
@@ -67,10 +65,26 @@ const start = async () => {
       databases: [mongooseConnection, SequelizeDb],
       resources: [{
         resource: ArticleModel,
-        decorator: ArticleDecorator,
+        options: {
+          parent: {name: 'Some custom menu', icon: 'fa fa-box'},
+          properties: {
+            _id: { isVisible: false },
+            published: { position: 2 },
+            custom: {
+              position: 1,
+              isVisible: { list: true },
+              render: { list: (property, record) => {
+                return 'This is custm field'
+              }}
+            },
+            content: {
+              type: 'richtext',
+            }
+          }
+        },
       }, {
         resource: AdminModel,
-        decorator: AdminDecorator,
+        options: {},
       }, new PostCode()],
       branding: {
         companyName: 'Amazing c.o.',
