@@ -56,15 +56,18 @@ admin-bro-hapijs@^0.1.5:
     hapi-auth-cookie "^9.1.0"
     inert "^5.1.2"
 
-admin-bro-mongoose@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/admin-bro-mongoose/-/admin-bro-mongoose-0.1.4.tgz#d0725caa3fc49236dff8e8a810f75e6917b95001"
+admin-bro-mongoose@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/admin-bro-mongoose/-/admin-bro-mongoose-0.1.5.tgz#e2b553f537d453201e30d728cc4a1a49ce46ddd8"
   dependencies:
+    escape-regexp "0.0.1"
     lodash "^4.17.11"
 
-admin-bro-sequelizejs@^0.1.7:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/admin-bro-sequelizejs/-/admin-bro-sequelizejs-0.1.7.tgz#7cfefe4aa22ce3b8a1b1f621be5a7f760e068a8b"
+admin-bro-sequelizejs@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/admin-bro-sequelizejs/-/admin-bro-sequelizejs-0.1.8.tgz#7e0575093f4fa9380ca6e54821468335c2c761ed"
+  dependencies:
+    escape-regexp "0.0.1"
 
 admin-bro@^0.4.0:
   version "0.4.0"
@@ -725,6 +728,10 @@ es6-weak-map@^2.0.2:
     es5-ext "^0.10.14"
     es6-iterator "^2.0.1"
     es6-symbol "^3.1.1"
+
+escape-regexp@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/escape-regexp/-/escape-regexp-0.0.1.tgz#f44bda12d45bbdf9cb7f862ee7e4827b3dd32254"
 
 escape-string-regexp@^1.0.5:
   version "1.0.5"
