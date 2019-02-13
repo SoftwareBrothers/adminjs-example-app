@@ -7,9 +7,6 @@ const CommentSchema = new Schema({
     type: String,
     required: true,
   },
-  createdAt: Date,
-  createdBy: String,
-  parentCommentId: String,
   flagged: Boolean,
 })
 

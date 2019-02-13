@@ -8,7 +8,7 @@ const CategorySchema = new Schema({
     required: true,
   },
   createdAt: Date,
-  parentCategoryId: String,
+  owner: String,
 })
 
 const Category = mongoose.model('Category', CategorySchema)

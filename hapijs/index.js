@@ -1,29 +1,11 @@
-const AdminBro = require('admin-bro')
-const AdminBroMongoose = require('admin-bro-mongoose')
-const AdminBroSequelizejs = require('admin-bro-sequelizejs')
-AdminBro.registerAdapter(AdminBroMongoose)
-AdminBro.registerAdapter(AdminBroSequelizejs)
+const AdminBroOptions = require('../admin')
 
 const Hapi = require('hapi')
 const mongoose = require('mongoose')
 const Bcrypt = require('bcrypt')
-const inert = require('inert')
-const path = require('path')
 
 const AdminBroPlugin = require('admin-bro-hapijs')
 const AdminModel = require('../mongoose/admin-model')
-const ArticleModel = require('../mongoose/article-model')
-const DashboardPage = require('./dashboard-page')
-
-const SequelizeDb = require('../sequelize/models')
-
-require('../mongoose/blog-post-model')
-require('../mongoose/comment-model')
-require('../mongoose/category-model')
-require('../mongoose/page-model')
-require('../mongoose/user-model')
-
-const PostCode = require('../rest/postcode')
 
 /**
  * Creates first admin test@example.com:password when there are no
@@ -45,70 +27,9 @@ const start = async () => {
 
     await createAdminIfNone()
 
-    server.route({
-      method: 'GET',
-      path: '/custom.css',
-      handler: function (request, h) {
-        return h.file(path.resolve(__dirname, 'assets/custom.css'))
-      }
-    })
-
-    server.route({
-      method: 'GET',
-      path: '/custom.js',
-      handler: function (request, h) {
-        return h.file(path.resolve(__dirname, 'assets/custom.js'))
-      }
-    })
-
-    const adminBroOptions = {
-      databases: [mongooseConnection, SequelizeDb],
-      resources: [{
-        resource: ArticleModel,
-        options: {
-          parent: {name: 'Some custom menu', icon: 'fa fa-box'},
-          properties: {
-            _id: { isVisible: false },
-            published: { position: 2 },
-            custom: {
-              position: 1,
-              isVisible: { list: true },
-              render: { list: (property, record) => {
-                return 'This is custm field'
-              }}
-            },
-            content: {
-              type: 'richtext',
-            }
-          }
-        },
-      }, {
-        resource: AdminModel,
-        options: {},
-      }, new PostCode()],
-      branding: {
-        companyName: 'Amazing c.o.',
-      },
-      dashboard: DashboardPage,
-      rootPath: '/admin',
-      auth: {
-        authenticate: async (email, password) => {
-          const admin = await AdminModel.findOne({ email })
-          const isValid = admin && await Bcrypt.compare(password, admin.password)
-          return isValid && admin
-        },
-        cookiePassword: process.env.ADMIN_COOKIE_SECRET || 'yoursupersecretcookiepassword-veryveryverylong',
-        isSecure: false, // allows you to test the app with http,
-        defaultMessage: 'Login: test@example.com, Password: password',
-      },
-      assets: {
-        styles: ['/custom.css'],
-        scripts: ['/custom.js']
-      }
-    }
     await server.register({
       plugin: AdminBroPlugin,
-      options: adminBroOptions,
+      options: AdminBroOptions,
     })
 
     await server.start()

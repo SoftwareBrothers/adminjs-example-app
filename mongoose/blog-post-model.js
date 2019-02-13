@@ -3,17 +3,16 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const BlogPostSchema = new Schema({
-  content: {
+  title: {
     type: String,
     required: true,
   },
-  title: {
+  content: {
     type: String,
     required: true,
   },
   createdAt: Date,
   createdBy: String,
-  tags: String,
 })
 
 const BlogPost = mongoose.model('BlogPost', BlogPostSchema)

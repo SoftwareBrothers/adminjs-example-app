@@ -3,22 +3,15 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const PageSchema = new Schema({
-  content: {
-    type: String,
-    required: true,
-  },
   title: {
     type: String,
     required: true,
   },
-  createdAt: Date,
-  createdBy: String,
-  tags: String,
-  seo: {
-    title: String,
-    keywords: String,
+  content: {
+    type: String,
+    required: true,
   },
-  sections: String,
+  createdAt: Date,
 })
 
 const Page = mongoose.model('Page', PageSchema)

@@ -69,9 +69,9 @@ admin-bro-sequelizejs@^0.1.8:
   dependencies:
     escape-regexp "0.0.1"
 
-admin-bro@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/admin-bro/-/admin-bro-0.4.0.tgz#1fa22d502c10ce5911fe89d490cef4ae686b40c6"
+admin-bro@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/admin-bro/-/admin-bro-0.5.0.tgz#1c9ef33bb93a8d5a047ac68d0410e6e686b60a50"
   dependencies:
     chart.js "^2.7.3"
     flat "^4.1.0"

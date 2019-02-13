@@ -1,7 +1,7 @@
 const { PageBuilder } = require('admin-bro')
-const ArticleModel = require('./../mongoose/article-model')
-const UserModel = require('./../mongoose/user-model')
-const CommentModel = require('./../mongoose/comment-model')
+const ArticleModel = require('../../mongoose/article-model')
+const UserModel = require('../../mongoose/user-model')
+const CommentModel = require('../../mongoose/comment-model')
 const moment = require('moment')
 
 class DashboardPage extends PageBuilder {
@@ -55,8 +55,11 @@ class DashboardPage extends PageBuilder {
     })
 
     this.addTextBox({
-      title: 'It could also have simple text',
-      content: this.infoText.map(row => `<p>${row}</p>`).join(''),
+      title: 'Next?',
+      content: '<div class="content"><ul>' + [
+        'Take a look at the sidebar on the left',
+        'There are couple of interesting options - check them out',
+      ].map(row => `<li>${row}</li>`).join('') + '</ul></div>' + this.infoText.map(row => `<p>${row}</p>`).join(''),
       columns: 6
     })
 
