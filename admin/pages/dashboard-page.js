@@ -8,7 +8,7 @@ class DashboardPage extends PageBuilder {
   constructor(props) {
     super(props)
     this.title = 'Welcome on the demo page'
-    this.subtitle = `This is just an example what can be done using AdminBro PageBuilder.
+    this.subtitle = `This is just an example of what can be done using AdminBro PageBuilder.
                      Check out the docs to see all the possibilities`
     this.infoText = [
       'AdminBro is an Admin Framework for nodejs apps.',
