@@ -15,9 +15,8 @@ const ArticleSchema = new Schema({
     type: String,
     required: true,
   },
-  createdAt: Date,
   published: Boolean,
-})
+}, { timestamps: true })
 
 const Article = mongoose.model('Article', ArticleSchema)
 
