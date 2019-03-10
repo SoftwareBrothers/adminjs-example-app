@@ -56,9 +56,9 @@ admin-bro-hapijs@^0.1.5:
     hapi-auth-cookie "^9.1.0"
     inert "^5.1.2"
 
-admin-bro-mongoose@^0.1.7:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/admin-bro-mongoose/-/admin-bro-mongoose-0.1.7.tgz#c0c15685c90157e05237fca6f9581b8c5931e50a"
+admin-bro-mongoose@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/admin-bro-mongoose/-/admin-bro-mongoose-0.2.0.tgz#11d750ea32433b16d88aa1b6f2162ca674bcd99c"
   dependencies:
     escape-regexp "0.0.1"
     lodash "^4.17.11"
@@ -69,9 +69,9 @@ admin-bro-sequelizejs@^0.1.8:
   dependencies:
     escape-regexp "0.0.1"
 
-admin-bro@^0.5.2:
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/admin-bro/-/admin-bro-0.5.2.tgz#0593ccabbed02908d1867aa1c3acf2bd29ebdde2"
+admin-bro@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/admin-bro/-/admin-bro-0.6.0.tgz#4099bd59e0103b191fd936a9aef63d808b236388"
   dependencies:
     chart.js "^2.7.3"
     flat "^4.1.0"

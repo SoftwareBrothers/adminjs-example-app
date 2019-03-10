@@ -1,3 +1,4 @@
+const Bcrypt = require('bcrypt')
 const AdminBro = require('admin-bro')
 const AdminBroMongoose = require('admin-bro-mongoose')
 const AdminBroSequelizejs = require('admin-bro-sequelizejs')
@@ -5,6 +6,7 @@ AdminBro.registerAdapter(AdminBroMongoose)
 AdminBro.registerAdapter(AdminBroSequelizejs)
 
 const ArticleModel = require('../mongoose/article-model')
+const AdminModel = require('../mongoose/admin-model')
 const DashboardPage = require('./pages/dashboard-page')
 
 const SequelizeDb = require('../sequelize/models')
@@ -29,6 +31,20 @@ module.exports = {
     { resource: require('../mongoose/article-model'), options: { parent: menu.customized, ...article } },
   ],
   dashboard: DashboardPage,
+  auth: {
+    authenticate: async (email, password) => {
+      const admin = await AdminModel.findOne({ email })
+      if (admin && Bcrypt.compare(password, admin.password)) {
+        return admin
+      }
+      return null
+    },
+    strategy: 'session',
+    cookieName: 'adminBroCookie',
+    cookiePassword: process.env.COOKIE_PASSWORD || 'makesurepasswordissecuremakesurepasswordissecure',
+    isSecure: false,
+    defaultMessage: 'Login: test@example.com, Password: password',
+  }
 }
 
 require('../mongoose/page-model')

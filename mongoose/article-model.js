@@ -12,8 +12,8 @@ const ArticleSchema = new Schema({
     required: true,
   },
   author: {
-    type: String,
-    required: true,
+    type: Schema.Types.ObjectId,
+    ref: 'User',
   },
   published: Boolean,
 }, { timestamps: true })

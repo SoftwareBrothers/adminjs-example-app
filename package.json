@@ -11,9 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "admin-bro": "^0.5.2",
+    "admin-bro": "^0.6.0",
     "admin-bro-hapijs": "^0.1.5",
-    "admin-bro-mongoose": "^0.1.7",
+    "admin-bro-mongoose": "^0.2.0",
     "admin-bro-sequelizejs": "^0.1.8",
     "axios": "^0.18.0",
     "bcrypt": "^3.0.2",
