@@ -11,6 +11,10 @@ const BlogPostSchema = new Schema({
     type: String,
     required: true,
   },
+  category: {
+    type: Schema.Types.ObjectId,
+    ref: 'Category',
+  },
   createdAt: Date,
   createdBy: String,
 })

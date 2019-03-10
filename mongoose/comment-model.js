@@ -8,6 +8,10 @@ const CommentSchema = new Schema({
     required: true,
   },
   flagged: Boolean,
+  category: {
+    type: Schema.Types.ObjectId,
+    ref: 'Category',
+  },
 })
 
 const Comment = mongoose.model('Comment', CommentSchema)
