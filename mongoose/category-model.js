@@ -9,6 +9,9 @@ const CategorySchema = new Schema({
   },
   createdAt: Date,
   owner: String,
+  nested: {
+    field: String,
+  },
 })
 
 const Category = mongoose.model('Category', CategorySchema)

@@ -29,7 +29,20 @@ const start = async () => {
 
     await server.register({
       plugin: AdminBroPlugin,
-      options: AdminBroOptions,
+      options: {...AdminBroOptions, auth: {
+        authenticate: async (email, password) => {
+          const admin = await AdminModel.findOne({ email })
+          if (admin && Bcrypt.compare(password, admin.password)) {
+            return admin
+          }
+          return null
+        },
+        strategy: 'session',
+        cookieName: 'adminBroCookie',
+        cookiePassword: process.env.COOKIE_PASSWORD || 'makesurepasswordissecuremakesurepasswordissecure',
+        isSecure: false,
+        defaultMessage: 'Login: test@example.com, Password: password',
+      }},
     })
 
     await server.start()
