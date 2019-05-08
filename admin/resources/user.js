@@ -1,4 +1,6 @@
-const { PageBuilder } = require('admin-bro')
+const AdminBro = require('admin-bro')
+
+const { PageBuilder } = AdminBro
 
 module.exports = {
   name: 'User (custom actions example)',
@@ -7,41 +9,17 @@ module.exports = {
       actionType: ['resource'],
       icon: 'fas fa-signal',
       label: 'Resource statistics',
+      component: AdminBro.require('../components/detailed-stats'),
       handler: async (request, response, data) => {
-        const page = new PageBuilder({ admin: data._admin })
-        page.addBlock({
-          title: 'Example statistic block',
-          value: 29,
-          icon: 'fas fa-newspaper fa-2x',
-          columns: 6,
-        })
-        page.addBlock({
-          title: 'Another example block',
-          value: 412,
-          icon: 'fas fa-ribbon fa-2x',
-          columns: 3,
-        })
-        page.addBlock({
-          title: 'Random stat',
-          value: 11,
-          icon: 'fas fa-certificate fa-2x',
-          columns: 3,
-        })
-        page.addTextBox({
-          content: 'As you can see we can add different widgets easily to any action.'
-        })
-        return page.toHTML()
+        return {true: 'ueas'}
       },
     },
     dontTouchThis: {
       actionType: ['record'],
       label: 'don\'t touch this!!!',
       icon: 'fas fa-exclamation',
-      guard: {
-        title: 'Example guard message',
-        content: 'You can setup guards before an action - just in case.',
-        button: 'Understood bro - Take me there',
-      },
+      guard: 'You can setup guards before an action - just in case.',
+      component: AdminBro.require('../components/dont-touch-this-action'),
       handler: async (request, response, data) => {
         const page = new PageBuilder({ admin: data._admin })
         page.addTextBox({

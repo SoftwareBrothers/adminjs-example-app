@@ -6,14 +6,9 @@ module.exports = {
     _id: { isVisible: false },
     published: {
       label: 'Published (custom render)',
-      render: {
-        list: (property, record, h) => {
-          const value = record.param(property.name())
-          return value ? '<i class="fas fa-thumbs-up"></i>' : '<i class="fas fa-thumbs-down"></i>'
-        }
+      components: {
+        list: AdminBro.require('../components/article-in-list')
       }
     }
   }
 }
-
-// 'user-ninja'

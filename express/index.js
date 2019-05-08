@@ -8,7 +8,13 @@ const app = express()
 
 const adminBro = new AdminBro(AdminBroOptions)
 
+const ADMIN = {
+  email: 'admin@example.com',
+  password: 'password',
+}
+
 const router = AdminBroExpress.buildRouter(adminBro)
+
 app.use(adminBro.options.rootPath, router)
 
 const run = async () => {
