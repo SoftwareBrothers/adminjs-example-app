@@ -24,11 +24,13 @@ const Header = (props) => {
           <p>
             This is an example AdminBro dashboard. 
           </p><p>
-            It it dynamically build for given database schema.
-            On the sidebar you can see different types of resources. some are mongoose and some are
-            sequelize.
+            It is dynamically build based on your database schema.
+            On the sidebar you can see different types of resources.
+            some are <a href="https://softwarebrothers.github.io/admin-bro-dev/module-admin-bro-mongoose.html">mongoose </a>
+            and some are
+            <a href="https://softwarebrothers.github.io/admin-bro-dev/module-admin-bro-sequelizejs.html"> sequelize</a>.
           </p><p>
-            And of course there is a rising graph :) ->
+            And of course there is a rising graph with no meaning at all :) ->
           </p>
         </Column>
         <Column width={6} style={{ marginBottom: '-90px'}}>
