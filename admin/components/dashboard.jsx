@@ -77,7 +77,7 @@ export default class Dashboard extends React.Component {
                             <td>
                               <StyledButton
                                 primary={true}
-                                to={this.h.recordActionUrl({ resourceId: 'Comment', recordId: c._id, actionName: 'show' })}
+                                to={this.h.recordActionUrl({ resourceId: 'Category', recordId: c._id, actionName: 'show' })}
                               >
                                 Show me this
                               </StyledButton>
