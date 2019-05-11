@@ -13,11 +13,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "admin-bro": "0.8.0",
+    "admin-bro": "0.8.1",
     "admin-bro-expressjs": "^0.1.5",
     "admin-bro-hapijs": "^0.1.5",
     "admin-bro-mongoose": "^0.2.2",
-    "admin-bro-sequelizejs": "^0.2.0",
+    "admin-bro-sequelizejs": "^0.2.2",
     "axios": "^0.18.0",
     "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
@@ -31,8 +31,7 @@
     "mongoose": "^5.3.15",
     "nodemon": "^1.18.8",
     "pg": "^7.7.1",
-    "recharts": "^1.5.0",
-    "sequelize": "^4.42.0",
+    "sequelize": "^5.8.5",
     "sequelize-cli": "^5.4.0"
   }
 }
