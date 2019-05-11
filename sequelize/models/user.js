@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
       validate: { len: [3, 20] },
     },
     lastName: DataTypes.STRING,
+    gender: DataTypes.ENUM('male', 'female'),
     email: {
       type: DataTypes.STRING,
       validate: { isEmail: true },
