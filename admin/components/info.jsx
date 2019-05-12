@@ -30,6 +30,10 @@ const Info = (props) => {
           <span className='fa fa-star' /> Star it on Github
         </StyledButton>
       </p>
+      <p>
+        Source code for this example also can be found
+        <a href="https://github.com/SoftwareBrothers/admin-bro-example-app"> on a github</a>
+      </p>
     </WrapperBox>
   )
 }
