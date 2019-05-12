@@ -8,7 +8,8 @@ AdminBro.registerAdapter(AdminBroSequelizejs)
 const SequelizeDb = require('../sequelize/models')
 
 const menu = {
-  default: { name: 'Default Resources', icon: 'fas fa-ad' },
+  mongoose: { name: 'Mongoose Resources', icon: 'fas fa-ad' },
+  sequelize: { name: 'Sequelize Resources', icon: 'fas fa-ad' },
   customized: { name: 'Customized Resources', icon: 'fas fa-marker' }
 }
 
@@ -24,13 +25,13 @@ const CommentModel = require('../mongoose/comment-model')
 
 module.exports = {
   resources: [
-    { resource: CommentModel, options: { parent: menu.default } },
-    { resource: CategoryModel, options: { parent: menu.default } },
-    { resource: SequelizeDb.sequelize.models.User, options: { parent: menu.default } },
-    { resource: SequelizeDb.sequelize.models.FavouritePlace, options: { parent: menu.default } },
+    { resource: CommentModel, options: { parent: menu.mongoose } },
+    { resource: CategoryModel, options: { parent: menu.mongoose } },
+    { resource: SequelizeDb.sequelize.models.User, options: { parent: menu.sequelize } },
+    { resource: SequelizeDb.sequelize.models.FavouritePlace, options: { parent: menu.sequelize } },
     { resource: UserModel, options: { parent: menu.customized, ...user } },
     { resource: PageModel, options: { parent: menu.customized, ...page } },
-    { resource: require('../mongoose/blog-post-model'), options: { parent: menu.default, ...blogPost } },
+    // { resource: require('../mongoose/blog-post-model'), options: { parent: menu.default, ...blogPost } },
     { resource: require('../mongoose/article-model'), options: { parent: menu.customized, ...article } },
   ],
   dashboard: {
@@ -40,7 +41,7 @@ module.exports = {
         usersCount: await UserModel.countDocuments(),
         pagesCount: await PageModel.countDocuments(),
         categories: await Promise.all(categories.map(async c => {
-          const comments = await CommentModel.countDocuments({ categoryId: c._id })
+          const comments = await CommentModel.countDocuments({ category: c._id })
           return {
             title: c.title,
             comments,
