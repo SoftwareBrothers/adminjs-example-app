@@ -8,8 +8,8 @@ AdminBro.registerAdapter(AdminBroSequelizejs)
 const SequelizeDb = require('../sequelize/models')
 
 const menu = {
-  mongoose: { name: 'Mongoose Resources', icon: 'fas fa-ad' },
-  sequelize: { name: 'Sequelize Resources', icon: 'fas fa-ad' },
+  mongoose: { name: 'Mongoose Resources', icon: 'icon-mongodb' },
+  sequelize: { name: 'Sequelize Resources', icon: 'icon-postgres' },
   customized: { name: 'Customized Resources', icon: 'fas fa-marker' }
 }
 
