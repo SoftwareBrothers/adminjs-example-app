@@ -755,9 +755,9 @@ admin-bro-sequelizejs@^0.2.2:
   dependencies:
     escape-regexp "0.0.1"
 
-admin-bro@0.8.1:
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/admin-bro/-/admin-bro-0.8.1.tgz#e1b69549b14a55702465d2c2cb89ad23ea3c2d8f"
+admin-bro@0.8.2:
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/admin-bro/-/admin-bro-0.8.2.tgz#1d206c58a7bce5aca58e31779db82d45c5e7f076"
   dependencies:
     "@babel/core" "^7.2.0"
     "@babel/plugin-transform-runtime" "^7.4.0"
