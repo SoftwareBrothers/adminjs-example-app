@@ -20,19 +20,19 @@ const Header = (props) => {
     <DashboardHeader style={ {paddingBottom: '100px'} }>
       <Columns>
         <Column width={6}>
-          <h1>Welcome in AdminBro</h1>
+          <h1>Welcome to AdminBro</h1>
           <p>
             This is an example AdminBro dashboard. 
           </p><p>
-            It is dynamically build based on your database schema.
+            It is dynamically built based on your database schema.
             On the sidebar you can see different types of resources.
-            some are <a href="https://softwarebrothers.github.io/admin-bro-dev/module-admin-bro-mongoose.html">mongoose </a>
+            Some are <a href="https://softwarebrothers.github.io/admin-bro-dev/module-admin-bro-mongoose.html">mongoose </a>
             and some are
             <a href="https://softwarebrothers.github.io/admin-bro-dev/module-admin-bro-sequelizejs.html"> sequelize</a>.
           </p><p>
             And of course there is a rising graph with no meaning at all :) ->
           </p>
-          <p>Database data is being reset every hour at :00</p>
+          <p>Database data is reset every hour at HH:00</p>
         </Column>
         <Column width={6} style={{ marginBottom: '-90px'}}>
           <div style={{ marginRight: '-29px' }}>
