@@ -735,9 +735,9 @@ admin-bro-expressjs@^0.1.5:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/admin-bro-expressjs/-/admin-bro-expressjs-0.1.5.tgz#92383df8391e1ebd06b9b99a4d3f0101a15d827a"
 
-admin-bro-hapijs@^0.1.5:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/admin-bro-hapijs/-/admin-bro-hapijs-0.1.5.tgz#22d8de11023799f1045fc0a830dbdfb5ee9da7ee"
+admin-bro-hapijs@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/admin-bro-hapijs/-/admin-bro-hapijs-0.1.8.tgz#9287a43911e3dfa812d755a16d8ce0cc91ab8571"
   dependencies:
     hapi-auth-cookie "^9.1.0"
     inert "^5.1.2"
@@ -755,9 +755,9 @@ admin-bro-sequelizejs@^0.2.2:
   dependencies:
     escape-regexp "0.0.1"
 
-admin-bro@0.8.2:
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/admin-bro/-/admin-bro-0.8.2.tgz#1d206c58a7bce5aca58e31779db82d45c5e7f076"
+admin-bro@0.8.5:
+  version "0.8.5"
+  resolved "https://registry.yarnpkg.com/admin-bro/-/admin-bro-0.8.5.tgz#508e7a6133a5bb19178b1961c29671b2b0f1875b"
   dependencies:
     "@babel/core" "^7.2.0"
     "@babel/plugin-transform-runtime" "^7.4.0"
