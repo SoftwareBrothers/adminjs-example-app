@@ -34,6 +34,9 @@ module.exports = {
     // { resource: require('../mongoose/blog-post-model'), options: { parent: menu.default, ...blogPost } },
     { resource: require('../mongoose/article-model'), options: { parent: menu.customized, ...article } },
   ],
+  version: {
+    admin: true,
+  },
   dashboard: {
     handler: async (request, response, data) => {
       const categories = await CategoryModel.find({}).limit(5)
