@@ -31,7 +31,7 @@ module.exports = {
     { resource: SequelizeDb.sequelize.models.FavouritePlace, options: { parent: menu.sequelize } },
     { resource: UserModel, options: { parent: menu.customized, ...user } },
     { resource: PageModel, options: { parent: menu.customized, ...page } },
-    // { resource: require('../mongoose/blog-post-model'), options: { parent: menu.default, ...blogPost } },
+    { resource: require('../mongoose/blog-post-model'), options: { parent: menu.default, ...blogPost } },
     { resource: require('../mongoose/article-model'), options: { parent: menu.customized, ...article } },
   ],
   version: {
