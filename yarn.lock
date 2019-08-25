@@ -742,11 +742,12 @@ admin-bro-hapijs@^0.2.0:
     hapi-auth-cookie "^9.1.0"
     inert "^5.1.2"
 
-admin-bro-mongoose@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/admin-bro-mongoose/-/admin-bro-mongoose-0.2.2.tgz#117eaafd87cab9b6918be4c6307535ca72332bd5"
+admin-bro-mongoose@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/admin-bro-mongoose/-/admin-bro-mongoose-0.3.0.tgz#49b49c28e0e300363a3bf720ce68b4d6b024fa22"
   dependencies:
     escape-regexp "0.0.1"
+    flat "^4.1.0"
     lodash "^4.17.11"
 
 admin-bro-sequelizejs@^0.2.2:
@@ -755,9 +756,9 @@ admin-bro-sequelizejs@^0.2.2:
   dependencies:
     escape-regexp "0.0.1"
 
-admin-bro@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/admin-bro/-/admin-bro-1.0.0.tgz#a56286dc7c2085b6374fb9baef3ea97a6cde4427"
+admin-bro@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/admin-bro/-/admin-bro-1.1.0.tgz#560c7e471d98da1be1745cab3e3f3c32ee6f7e51"
   dependencies:
     "@babel/core" "^7.2.0"
     "@babel/plugin-transform-runtime" "^7.4.0"
@@ -957,12 +958,12 @@ base@^0.11.1:
     mixin-deep "^1.2.0"
     pascalcase "^0.1.1"
 
-bcrypt@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/bcrypt/-/bcrypt-3.0.2.tgz#3c575c49ccbfdf0875eb42aa1453f5654092a33d"
+bcrypt@^3.0.6:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/bcrypt/-/bcrypt-3.0.6.tgz#f607846df62d27e60d5e795612c4f67d70206eb2"
   dependencies:
-    nan "2.11.1"
-    node-pre-gyp "0.11.0"
+    nan "2.13.2"
+    node-pre-gyp "0.12.0"
 
 big-time@2.x.x:
   version "2.0.1"
@@ -2735,7 +2736,11 @@ ms@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.1.tgz#30a5864eb3ebb0a66f2ebe6d727af06a09d86e0a"
 
-nan@2.11.1, nan@^2.9.2:
+nan@2.13.2:
+  version "2.13.2"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.13.2.tgz#f51dc7ae66ba7d5d55e1e6d4d8092e802c9aefe7"
+
+nan@^2.9.2:
   version "2.11.1"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.11.1.tgz#90e22bccb8ca57ea4cd37cc83d3819b52eea6766"
 
@@ -2793,9 +2798,9 @@ node-modules-regexp@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/node-modules-regexp/-/node-modules-regexp-1.0.0.tgz#8d9dbe28964a4ac5712e9131642107c71e90ec40"
 
-node-pre-gyp@0.11.0:
-  version "0.11.0"
-  resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.11.0.tgz#db1f33215272f692cd38f03238e3e9b47c5dd054"
+node-pre-gyp@0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.12.0.tgz#39ba4bb1439da030295f899e3b520b7785766149"
   dependencies:
     detect-libc "^1.0.2"
     mkdirp "^0.5.1"

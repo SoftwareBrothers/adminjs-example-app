@@ -11,6 +11,7 @@ const CategorySchema = new Schema({
   owner: String,
   nested: {
     field: String,
+    value: Number,
   },
 })
 

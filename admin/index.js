@@ -17,16 +17,19 @@ const user = require('./resources/user')
 const page = require('./resources/page')
 const blogPost = require('./resources/blog-post')
 const article = require('./resources/article')
+const complicated = require('./resources/complicated')
 
 const UserModel = require('../mongoose/user-model')
 const PageModel = require('../mongoose/page-model')
 const CategoryModel = require('../mongoose/category-model')
 const CommentModel = require('../mongoose/comment-model')
+const ComplicatedModel = require('../mongoose/complicated-model')
 
 module.exports = {
   resources: [
     { resource: CommentModel, options: { parent: menu.mongoose } },
     { resource: CategoryModel, options: { parent: menu.mongoose } },
+    { resource: ComplicatedModel, options: { parent: menu.mongoose, ...complicated } },
     { resource: SequelizeDb.sequelize.models.User, options: { parent: menu.sequelize } },
     { resource: SequelizeDb.sequelize.models.FavouritePlace, options: { parent: menu.sequelize } },
     { resource: UserModel, options: { parent: menu.customized, ...user } },
