@@ -13,17 +13,17 @@ const ADMIN = {
   password: 'password',
 }
 
-const router = AdminBroExpress.buildRouter(adminBro)
-// const router = AdminBroExpress.buildAuthenticatedRouter(adminBro, {
-//   authenticate: async (email, password) => {
-//     if (ADMIN.password === password && ADMIN.email === email) {
-//       return ADMIN
-//     }
-//     return null
-//   },
-//   cookieName: 'adminbro',
-//   cookiePassword: 'somepassword',
-// })
+// const router = AdminBroExpress.buildRouter(adminBro)
+const router = AdminBroExpress.buildAuthenticatedRouter(adminBro, {
+  authenticate: async (email, password) => {
+    if (ADMIN.password === password && ADMIN.email === email) {
+      return ADMIN
+    }
+    return null
+  },
+  cookieName: 'adminbro',
+  cookiePassword: 'somepassword',
+})
 
 app.use(adminBro.options.rootPath, router)
 
