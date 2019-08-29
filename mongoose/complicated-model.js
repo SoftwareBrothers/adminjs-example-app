@@ -1,10 +1,19 @@
 const mongoose = require('mongoose')
 
 const { Schema } = mongoose
+
+const Nested = new Schema({
+  extremelyNested: String,
+}, { _id: false })
+
 const NestedSchema = new Schema({
-  age: Number,
+  age: {
+    type: Number,
+    required: true,
+  },
   height: Number,
   placeOfBirth: String,
+  nested: Nested,
 }, { _id: false })
 
 const ParentSchema = new Schema({
