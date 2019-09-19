@@ -6,6 +6,20 @@ const Nested = new Schema({
   extremelyNested: String,
 }, { _id: false })
 
+const ImageVariant = new mongoose.Schema({
+  imageURL : String,
+  isApproved: Boolean,
+  dateCreated : {
+    type : Date,
+    default : Date.now
+  },
+  isDeleted: Boolean
+}, { _id: false });
+
+const Item = new mongoose.Schema({
+  imageVariants : [ImageVariant],
+}, { _id: false })
+
 const NestedSchema = new Schema({
   age: {
     type: Number,
@@ -34,7 +48,8 @@ const ComplicatedSchema = new Schema({
   nestedDetails: {
     type: NestedSchema
   },
-  parents: [ParentSchema]
+  parents: [ParentSchema],
+  Item : [Item],
 })
 
 const Complicated = mongoose.model('Complicated', ComplicatedSchema)
