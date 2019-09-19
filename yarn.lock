@@ -695,9 +695,9 @@
   version "10.12.15"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.15.tgz#20e85651b62fd86656e57c9c9bc771ab1570bc59"
 
-"@types/node@^11.13.9":
-  version "11.13.10"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.13.10.tgz#4df59e5966b56f512bac98898bcbee5067411f0f"
+"@types/node@^12.7.5":
+  version "12.7.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.7.5.tgz#e19436e7f8e9b4601005d73673b6dc4784ffcc2f"
 
 "@types/resolve@0.0.8":
   version "0.0.8"
@@ -727,9 +727,9 @@ accepts@~1.3.5:
     mime-types "~2.1.18"
     negotiator "0.6.1"
 
-acorn@^6.1.1:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.1.1.tgz#7d25ae05bb8ad1f9b699108e1094ecd7884adc1f"
+acorn@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.0.0.tgz#26b8d1cd9a9b700350b71c0905546f64d1284e7a"
 
 admin-bro-expressjs@^0.2.0:
   version "0.2.0"
@@ -756,9 +756,9 @@ admin-bro-sequelizejs@^0.2.2:
   dependencies:
     escape-regexp "0.0.1"
 
-admin-bro@1.1.5-beta.2:
-  version "1.1.5-beta.2"
-  resolved "https://registry.yarnpkg.com/admin-bro/-/admin-bro-1.1.5-beta.2.tgz#ebf5567b280d645a1e5bd901c3499b585d7bed46"
+admin-bro@1.2.0-beta.1:
+  version "1.2.0-beta.1"
+  resolved "https://registry.yarnpkg.com/admin-bro/-/admin-bro-1.2.0-beta.1.tgz#823884e3ac92f58ab61f9156375ecd0bf44e0dd3"
   dependencies:
     "@babel/core" "^7.2.0"
     "@babel/plugin-transform-runtime" "^7.4.0"
@@ -779,7 +779,7 @@ admin-bro@1.1.5-beta.2:
     react-router-dom "^5.0.0"
     react-select "^2.4.2"
     redux "^4.0.1"
-    rollup "^1.7.4"
+    rollup "^1.21.4"
     rollup-plugin-babel "^4.3.2"
     rollup-plugin-commonjs "^9.2.2"
     rollup-plugin-node-resolve "^4.0.1"
@@ -3548,13 +3548,13 @@ rollup-pluginutils@^2.3.0, rollup-pluginutils@^2.6.0:
     estree-walker "^0.6.0"
     micromatch "^3.1.10"
 
-rollup@^1.7.4:
-  version "1.11.3"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.11.3.tgz#6f436db2a2d6b63f808bf60ad01a177643dedb81"
+rollup@^1.21.4:
+  version "1.21.4"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.21.4.tgz#00a41a30f90095db890301b226cbe2918e4cf54d"
   dependencies:
     "@types/estree" "0.0.39"
-    "@types/node" "^11.13.9"
-    acorn "^6.1.1"
+    "@types/node" "^12.7.5"
+    acorn "^7.0.0"
 
 safe-buffer@5.1.2, safe-buffer@^5.0.1, safe-buffer@^5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"

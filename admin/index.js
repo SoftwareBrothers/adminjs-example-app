@@ -26,6 +26,9 @@ const CommentModel = require('../mongoose/comment-model')
 const ComplicatedModel = require('../mongoose/complicated-model')
 
 module.exports = {
+  assets: {
+    globalsFromCDN: false,
+  },
   resources: [
     { resource: CommentModel, options: { parent: menu.mongoose } },
     { resource: CategoryModel, options: { parent: menu.mongoose } },
