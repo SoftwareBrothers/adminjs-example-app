@@ -25,7 +25,6 @@ const start = async () => {
   try {
     const server = Hapi.server({
       port: process.env.PORT || 8080,
-      routes: { files: { relativeTo: path.join(__dirname, 'assets') }},
     })
     const mongooseConnection = await mongoose.connect(process.env.MONGO_URL)
 
