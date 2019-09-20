@@ -7,6 +7,7 @@ module.exports = {
     host: 'postgres',
     dialect: 'postgres',
   },
+  // Psql
   development: {
     username: process.env.POSTGRES_USER,
     password: process.env.POSTGRES_PASSWORD,
@@ -15,6 +16,15 @@ module.exports = {
     host: process.env.POSTGRES_HOST || 'postgres',
     dialect: 'postgres',
   },
+  // MYSQL
+  // development: {
+  //   username: 'root',
+  //   password: process.env.MYSQL_ROOT_PASSWORD,
+  //   port: process.env.MYSQL_PORT || 5432,
+  //   database: 'database_development',
+  //   host: 'mysql',
+  //   dialect: 'mysql',
+  // },
   production: {
     username: process.env.POSTGRES_USER,
     password: process.env.POSTGRES_PASSWORD,

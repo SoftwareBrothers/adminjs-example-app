@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     lastName: DataTypes.STRING,
     gender: DataTypes.ENUM('male', 'female'),
+    isMyFavourite: DataTypes.BOOLEAN,
     email: {
       type: DataTypes.STRING,
       validate: { isEmail: true },
