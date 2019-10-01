@@ -7,17 +7,17 @@ const Nested = new Schema({
 }, { _id: false })
 
 const ImageVariant = new mongoose.Schema({
-  imageURL : String,
+  imageURL: String,
   isApproved: Boolean,
-  dateCreated : {
-    type : Date,
-    default : Date.now
+  dateCreated: {
+    type: Date,
+    default: Date.now,
   },
   isDeleted: Boolean
 }, { _id: false });
 
 const Item = new mongoose.Schema({
-  imageVariants : [ImageVariant],
+  imageVariants: [ImageVariant],
 }, { _id: false })
 
 const NestedSchema = new Schema({
