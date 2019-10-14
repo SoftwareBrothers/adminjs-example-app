@@ -1,0 +1,8 @@
+{
+  "presets": ["@babel/preset-react", "@babel/preset-env", "@babel/preset-typescript"],
+  "only": ["./node_modules/admin-bro/src/", "spec/"],
+  "ignore": [
+    "node_modules/admin-bro/src/frontend/assets/scripts/global-bundle.js",
+    "node_modules/admin-bro/src/frontend/assets/scripts/app-bundle.js"
+  ]
+}

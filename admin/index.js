@@ -6,6 +6,7 @@ AdminBro.registerAdapter(AdminBroMongoose)
 AdminBro.registerAdapter(AdminBroSequelizejs)
 
 const SequelizeDb = require('../sequelize/models')
+const theme = require('admin-bro-theme-dark')
 
 const menu = {
   mongoose: { name: 'Mongoose Resources', icon: 'icon-mongodb' },
@@ -39,6 +40,10 @@ module.exports = {
   ],
   version: {
     admin: true,
+  },
+  branding: {
+    theme,
+    companyName: 'demo',
   },
   dashboard: {
     handler: async (request, response, data) => {
