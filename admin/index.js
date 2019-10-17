@@ -42,7 +42,6 @@ module.exports = {
     admin: true,
   },
   branding: {
-    theme,
     companyName: 'demo',
   },
   dashboard: {

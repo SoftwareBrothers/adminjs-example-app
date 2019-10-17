@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "admin-bro": "1.3.2",
+    "admin-bro": "1.3.3",
     "admin-bro-expressjs": "^0.2.0",
     "admin-bro-hapijs": "^0.2.2",
     "admin-bro-mongoose": "^0.3.0",
