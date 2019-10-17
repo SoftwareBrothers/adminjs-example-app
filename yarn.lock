@@ -1132,9 +1132,9 @@ admin-bro-theme-dark@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/admin-bro-theme-dark/-/admin-bro-theme-dark-1.0.0.tgz#20f831d19340959e621931d370126ca84120a23f"
 
-admin-bro@1.3.4:
-  version "1.3.4"
-  resolved "https://registry.yarnpkg.com/admin-bro/-/admin-bro-1.3.4.tgz#d39c26e694073ac2fb3ca7820861aad7dc36e501"
+admin-bro@1.3.5:
+  version "1.3.5"
+  resolved "https://registry.yarnpkg.com/admin-bro/-/admin-bro-1.3.5.tgz#528acc231787f1007dcf2252609a9e6d25806da6"
   dependencies:
     "@babel/core" "^7.2.0"
     "@babel/parser" "^7.6.2"
