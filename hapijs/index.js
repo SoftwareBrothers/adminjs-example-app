@@ -3,7 +3,6 @@ const AdminBroOptions = require('../admin')
 const Hapi = require('hapi')
 const mongoose = require('mongoose')
 const Bcrypt = require('bcrypt')
-const path = require('path')
 
 const AdminBroPlugin = require('admin-bro-hapijs')
 const AdminModel = require('../mongoose/admin-model')
@@ -26,8 +25,7 @@ const start = async () => {
     const server = Hapi.server({
       port: process.env.PORT || 8080,
     })
-    const mongooseConnection = await mongoose.connect(process.env.MONGO_URL)
-
+    await mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true })
     await createAdminIfNone()
 
     await server.register({

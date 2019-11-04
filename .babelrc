@@ -1,6 +1,10 @@
 {
   "presets": ["@babel/preset-react", "@babel/preset-env", "@babel/preset-typescript"],
-  "only": ["./node_modules/admin-bro/src/", "spec/"],
+  "only": ["./node_modules/admin-bro/src/", "spec/", "admin", "typeorm"],
+  "plugins": [[
+    "@babel/plugin-proposal-decorators", { "legacy": true }],
+    "babel-plugin-transform-class-properties"
+  ],
   "ignore": [
     "node_modules/admin-bro/src/frontend/assets/scripts/global-bundle.js",
     "node_modules/admin-bro/src/frontend/assets/scripts/app-bundle.js"
