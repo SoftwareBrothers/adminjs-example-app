@@ -13,7 +13,13 @@
       })
     }
 
-    require('./hapijs')
+    if (process.env.EXPRESS === 'true') {
+      require('./express')
+    } else {
+      require('./hapijs')
+    }
+    
+    
 
   //   }, {
   //   watch: ['./admin', '../admin-bro/src'],
