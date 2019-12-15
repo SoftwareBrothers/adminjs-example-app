@@ -31,6 +31,7 @@
     "express-formidable": "^1.2.0",
     "express-session": "^1.17.0",
     "faker": "^4.1.0",
+    "hapi": "^18.1.0",
     "hapi-auth-cookie": "^10.0.0",
     "inert": "^5.1.2",
     "mongoose": "^5.8.0",
