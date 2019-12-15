@@ -7,11 +7,14 @@ module.exports = {
     content: {
       type: 'richtext',
     },
+    photo: {
+      isDisabled: true,
+    },
     published: {
       label: 'Published (custom render)',
       components: {
-        list: AdminBro.require('../components/article-in-list')
+        list: AdminBro.bundle('../components/article-in-list')
       }
-    }
+    },
   }
 }

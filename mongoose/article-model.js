@@ -11,6 +11,10 @@ const ArticleSchema = new Schema({
     type: String,
     required: true,
   },
+  photo: {
+    type: String,
+    required: true,
+  },
   author: {
     type: Schema.Types.ObjectId,
     ref: 'User',

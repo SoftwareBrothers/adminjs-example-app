@@ -18,18 +18,21 @@ const page = require('./resources/page')
 const blogPost = require('./resources/blog-post')
 const article = require('./resources/article')
 const complicated = require('./resources/complicated')
+// const uploads = require('./resources/uploads')
 
 const UserModel = require('../mongoose/user-model')
 const PageModel = require('../mongoose/page-model')
 const CategoryModel = require('../mongoose/category-model')
 const CommentModel = require('../mongoose/comment-model')
 const ComplicatedModel = require('../mongoose/complicated-model')
+// const UploadsModel = require('../mongoose/uploads-model')
 
 module.exports = {
   resources: [
     { resource: CommentModel, options: { parent: menu.mongoose } },
     { resource: CategoryModel, options: { parent: menu.mongoose } },
     { resource: ComplicatedModel, options: { parent: menu.mongoose, ...complicated } },
+    // { resource: UploadsModel, options: { parent: menu.mongoose, ...uploads } },
     { resource: SequelizeDb.sequelize.models.User, options: { parent: menu.sequelize } },
     { resource: SequelizeDb.sequelize.models.FavouritePlace, options: { parent: menu.sequelize } },
     { resource: UserModel, options: { parent: menu.customized, ...user } },
@@ -41,7 +44,7 @@ module.exports = {
     admin: true,
   },
   branding: {
-    companyName: 'demo 2',
+    companyName: 'Some demo',
   },
   dashboard: {
     handler: async (request, response, data) => {
