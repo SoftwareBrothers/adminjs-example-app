@@ -14,10 +14,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "admin-bro": "1.5.0-beta.12",
-    "admin-bro-expressjs": "^0.4.0-beta.2",
+    "admin-bro": "1.5.0",
+    "admin-bro-expressjs": "^0.4.0",
     "admin-bro-hapijs": "^0.2.2",
-    "admin-bro-mongoose": "^0.3.1-beta.1",
+    "admin-bro-mongoose": "^0.3.1",
     "admin-bro-sequelizejs": "^0.2.7",
     "admin-bro-theme-dark": "^1.0.0",
     "axios": "^0.18.0",

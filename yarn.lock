@@ -1098,10 +1098,10 @@ acorn@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.0.0.tgz#26b8d1cd9a9b700350b71c0905546f64d1284e7a"
 
-admin-bro-expressjs@^0.4.0-beta.2:
-  version "0.4.0-beta.2"
-  resolved "https://registry.yarnpkg.com/admin-bro-expressjs/-/admin-bro-expressjs-0.4.0-beta.2.tgz#a09572728ec95785e3f5dc521e539968dbd4159a"
-  integrity sha512-KvhdNjxU7pJ4VVTUNJGO84xDQK9wpuK4pFCMAkrCCQ/0uaF4sY3uqLmDmkckFHcXBg0O6PC8pzH2OV4VcFdrTw==
+admin-bro-expressjs@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/admin-bro-expressjs/-/admin-bro-expressjs-0.4.0.tgz#c71ad445c1429690f6af74b9e70a2ca08806edca"
+  integrity sha512-duMrqEzWhcfzlynrB8OAOZLgaY8CeMSrXz/sA9I+czv1VuqLsfLFtinRNYzpnXN/yBeVOmwg6u8arl0FRC9nzQ==
 
 admin-bro-hapijs@^0.2.2:
   version "0.2.2"
@@ -1110,10 +1110,10 @@ admin-bro-hapijs@^0.2.2:
     hapi-auth-cookie "^9.1.0"
     inert "^5.1.2"
 
-admin-bro-mongoose@^0.3.1-beta.1:
-  version "0.3.1-beta.1"
-  resolved "https://registry.yarnpkg.com/admin-bro-mongoose/-/admin-bro-mongoose-0.3.1-beta.1.tgz#2aa1444839dcc302ebd9846d99e0eca08a8b90fb"
-  integrity sha512-JjYTpJCAVxllvkzcVvBSZtf9I1iWuxuxgyAh0UEl7XpyHBZJUIkIlnat75WLvPDQ/6HxHEuD6acoUJeRK7rb7Q==
+admin-bro-mongoose@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/admin-bro-mongoose/-/admin-bro-mongoose-0.3.1.tgz#8047a4e0de2f63ef2d93e03041723b867a3995a0"
+  integrity sha512-JNnVigcvUBtXh4Jlc+etRdId0pBoDGBJSL8rUofdxg0Kpnwu8u20LpEofF5A/Lpjek/MqpWg7lZxHMzvxMiL1A==
   dependencies:
     escape-regexp "0.0.1"
     flat "^4.1.0"
@@ -1130,10 +1130,10 @@ admin-bro-theme-dark@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/admin-bro-theme-dark/-/admin-bro-theme-dark-1.0.0.tgz#20f831d19340959e621931d370126ca84120a23f"
 
-admin-bro@1.5.0-beta.12:
-  version "1.5.0-beta.12"
-  resolved "https://registry.yarnpkg.com/admin-bro/-/admin-bro-1.5.0-beta.12.tgz#7cc09ea85252b3beb36d71f28273bd3a99bb6454"
-  integrity sha512-qpZqBGwBleU3emCmM//kSkkLSPicA/Oq1mKqBaEUGm/zZK7ewfryRFiOHLOkQAmYTqQxWDESWSRkQuxRENujPg==
+admin-bro@1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/admin-bro/-/admin-bro-1.5.0.tgz#3702fe79b4766c6d525cbfc8c1db4bce327ba25e"
+  integrity sha512-y9EiNOvbP0ztEti60x2M/2O55wXRqZ7YbagSxHWoRUYRxVqp2/jI3PlDuyUkgQk1ObxUM3Qe8rXUAqPB3IgnXg==
   dependencies:
     "@babel/core" "^7.2.0"
     "@babel/parser" "^7.6.2"
