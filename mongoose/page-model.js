@@ -11,8 +11,7 @@ const PageSchema = new Schema({
     type: String,
     required: true,
   },
-  createdAt: Date,
-})
+}, { timestamps: true })
 
 const Page = mongoose.model('Page', PageSchema)
 

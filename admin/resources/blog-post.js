@@ -1,7 +1,12 @@
 const AdminBro = require('admin-bro')
+const { sort, timestamps } = require('./sort')
 
 module.exports = {
   name: 'BlogPost (read only)',
+  sort,
+  properties: {
+    ...timestamps,
+  },
   actions: {
     show: {
       isAccessible: false,

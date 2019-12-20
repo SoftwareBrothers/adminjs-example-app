@@ -15,9 +15,8 @@ const BlogPostSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Category',
   },
-  createdAt: Date,
   createdBy: String,
-})
+}, { timestamps: true })
 
 const BlogPost = mongoose.model('BlogPost', BlogPostSchema)
 

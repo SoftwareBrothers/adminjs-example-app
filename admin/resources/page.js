@@ -1,13 +1,10 @@
-const { PageBuilder } = require('admin-bro')
-
-const { ACTIONS } = require('admin-bro')
+const { sort, timestamps } = require('./sort')
 
 module.exports = {
   name: 'Page (with WYSIWIG)',
-  sort: {
-    direction: 'desc',
-  },
+  sort: sort,
   properties: {
+    ...timestamps,
     content: {
       type: 'richtext'
     }

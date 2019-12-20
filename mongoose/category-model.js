@@ -13,7 +13,7 @@ const CategorySchema = new Schema({
     field: String,
     value: Number,
   },
-})
+}, { timestamps: true })
 
 const Category = mongoose.model('Category', CategorySchema)
 

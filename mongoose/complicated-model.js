@@ -50,7 +50,7 @@ const ComplicatedSchema = new Schema({
   },
   parents: [ParentSchema],
   Item : [Item],
-})
+}, { timestamps: true })
 
 const Complicated = mongoose.model('Complicated', ComplicatedSchema)
 

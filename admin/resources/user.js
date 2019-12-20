@@ -1,9 +1,12 @@
 const AdminBro = require('admin-bro')
-
-const { PageBuilder } = AdminBro
+const { sort, timestamps } = require('./sort')
 
 module.exports = {
   name: 'User (custom actions example)',
+  sort,
+  properties: {
+    ...timestamps,
+  },
   actions: {
     detailedStats: {
       actionType: ['resource'],

@@ -25,16 +25,16 @@ const PageModel = require('../mongoose/page-model')
 const CategoryModel = require('../mongoose/category-model')
 const CommentModel = require('../mongoose/comment-model')
 const ComplicatedModel = require('../mongoose/complicated-model')
-// const UploadsModel = require('../mongoose/uploads-model')
+const { sort, timestamps } = require('./resources/sort')
 
 module.exports = {
   resources: [
-    { resource: CommentModel, options: { parent: menu.mongoose } },
-    { resource: CategoryModel, options: { parent: menu.mongoose } },
+    { resource: CommentModel, options: { parent: menu.mongoose, sort, properties: timestamps } },
+    { resource: CategoryModel, options: { parent: menu.mongoose, sort, properties: timestamps } },
     { resource: ComplicatedModel, options: { parent: menu.mongoose, ...complicated } },
     // { resource: UploadsModel, options: { parent: menu.mongoose, ...uploads } },
-    { resource: SequelizeDb.sequelize.models.User, options: { parent: menu.sequelize } },
-    { resource: SequelizeDb.sequelize.models.FavouritePlace, options: { parent: menu.sequelize } },
+    { resource: SequelizeDb.sequelize.models.User, options: { parent: menu.sequelize, sort, properties: timestamps } },
+    { resource: SequelizeDb.sequelize.models.FavouritePlace, options: { parent: menu.sequelize, sort, properties: timestamps } },
     { resource: UserModel, options: { parent: menu.customized, ...user } },
     { resource: PageModel, options: { parent: menu.customized, ...page } },
     { resource: require('../mongoose/blog-post-model'), options: { parent: menu.default, ...blogPost } },

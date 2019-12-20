@@ -12,7 +12,7 @@ const CommentSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Category',
   },
-})
+}, { timestamps: true })
 
 const Comment = mongoose.model('Comment', CommentSchema)
 
