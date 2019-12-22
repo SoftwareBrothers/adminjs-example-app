@@ -46,6 +46,17 @@ module.exports = {
   branding: {
     companyName: 'Some demo',
   },
+  pages: {
+    customPage: {
+      label: "Custom page",
+      handler: async (request, response, context) => {
+        return {
+          text: 'I am fetched from the backend',
+        }
+      },
+      component: AdminBro.bundle('./components/some-stats'),
+    },
+  },
   dashboard: {
     handler: async (request, response, data) => {
       const categories = await CategoryModel.find({}).limit(5)
