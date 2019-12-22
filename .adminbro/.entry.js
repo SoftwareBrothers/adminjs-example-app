@@ -5,5 +5,7 @@ import Component2 from '../admin/components/dont-touch-this-action'
 AdminBro.UserComponents.Component2 = Component2
 import Component3 from '../admin/components/article-in-list'
 AdminBro.UserComponents.Component3 = Component3
-import Component4 from '../admin/components/dashboard'
+import Component4 from '../admin/components/some-stats'
 AdminBro.UserComponents.Component4 = Component4
+import Component5 from '../admin/components/dashboard'
+AdminBro.UserComponents.Component5 = Component5
