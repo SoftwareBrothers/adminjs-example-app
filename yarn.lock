@@ -1110,10 +1110,10 @@ admin-bro-hapijs@^0.2.2:
     hapi-auth-cookie "^9.1.0"
     inert "^5.1.2"
 
-admin-bro-mongoose@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/admin-bro-mongoose/-/admin-bro-mongoose-0.3.1.tgz#8047a4e0de2f63ef2d93e03041723b867a3995a0"
-  integrity sha512-JNnVigcvUBtXh4Jlc+etRdId0pBoDGBJSL8rUofdxg0Kpnwu8u20LpEofF5A/Lpjek/MqpWg7lZxHMzvxMiL1A==
+admin-bro-mongoose@^v0.4.0-beta.0:
+  version "0.4.0-beta.0"
+  resolved "https://registry.yarnpkg.com/admin-bro-mongoose/-/admin-bro-mongoose-0.4.0-beta.0.tgz#dfb55050c28467602e8e164b713d3c098dc73f73"
+  integrity sha512-r+9pYq9MIqaZ79OYzLERIgbUFG/hKSGSAmTgAeKv5jFVtKkZwc5+DW669Dcqhy9oE3ZGJI5fGRF42VJ8J8LmFg==
   dependencies:
     escape-regexp "0.0.1"
     flat "^4.1.0"
@@ -1130,10 +1130,10 @@ admin-bro-theme-dark@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/admin-bro-theme-dark/-/admin-bro-theme-dark-1.0.0.tgz#20f831d19340959e621931d370126ca84120a23f"
 
-admin-bro@1.6.0-beta.4:
-  version "1.6.0-beta.4"
-  resolved "https://registry.yarnpkg.com/admin-bro/-/admin-bro-1.6.0-beta.4.tgz#6c1fd478c3248b82766cf3d065ac442f51d47ebd"
-  integrity sha512-gGORgdNjWS/kZeO4m6v8pz+mASDjUIIpzhB2Nfex8pk5d7/ZbsaGFRJLzsazs6oSNDzNnym+A1St451eaEDLPw==
+admin-bro@1.6.0-beta.5:
+  version "1.6.0-beta.5"
+  resolved "https://registry.yarnpkg.com/admin-bro/-/admin-bro-1.6.0-beta.5.tgz#6059031b1b0e781de4ba84f7b42561868aa28496"
+  integrity sha512-O13ObMavLjlaQFK5UvxK+hMEgFNB4jq1Kmy/xGZ14vv8tMeZvCSPggJUsOhXsBn9CjyVE+87Gs/900ER7hGFbA==
   dependencies:
     "@babel/core" "^7.2.0"
     "@babel/parser" "^7.6.2"
