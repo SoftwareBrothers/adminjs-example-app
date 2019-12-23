@@ -18,6 +18,7 @@ const page = require('./resources/page')
 const blogPost = require('./resources/blog-post')
 const article = require('./resources/article')
 const complicated = require('./resources/complicated')
+const comment = require('./resources/comment')
 // const uploads = require('./resources/uploads')
 
 const UserModel = require('../mongoose/user-model')
@@ -29,7 +30,7 @@ const { sort, timestamps } = require('./resources/sort')
 
 module.exports = {
   resources: [
-    { resource: CommentModel, options: { parent: menu.mongoose, sort, properties: timestamps } },
+    { resource: CommentModel, options: { parent: menu.mongoose, ...comment } },
     { resource: CategoryModel, options: { parent: menu.mongoose, sort, properties: timestamps } },
     { resource: ComplicatedModel, options: { parent: menu.mongoose, ...complicated } },
     // { resource: UploadsModel, options: { parent: menu.mongoose, ...uploads } },
