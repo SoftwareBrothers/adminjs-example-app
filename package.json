@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "admin-bro": "1.6.0-beta.8",
+    "admin-bro": "1.6.0-beta.10",
     "admin-bro-expressjs": "^0.4.0",
     "admin-bro-hapijs": "^0.2.2",
     "admin-bro-mongoose": "^v0.4.0-beta.1",

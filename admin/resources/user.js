@@ -9,7 +9,7 @@ module.exports = {
   },
   actions: {
     detailedStats: {
-      actionType: ['resource'],
+      actionType: 'resource',
       icon: 'fas fa-signal',
       label: 'Resource statistics',
       component: AdminBro.require('../components/detailed-stats'),
@@ -18,7 +18,7 @@ module.exports = {
       },
     },
     dontTouchThis: {
-      actionType: ['record'],
+      actionType: 'record',
       label: 'don\'t touch this!!!',
       icon: 'fas fa-exclamation',
       guard: 'You can setup guards before an action - just in case.',

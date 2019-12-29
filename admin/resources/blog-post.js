@@ -27,7 +27,7 @@ module.exports = {
               title: 'Some hardcoded data',
               content: 'Content',
               category: '',
-            }, populated: {}, recordActions: []},
+            }, populated: {}, recordActions: [], bulkActions: []},
           ]
         }
       }

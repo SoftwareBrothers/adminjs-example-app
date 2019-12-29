@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { WrapperBox, ApiClient, Placeholder } from 'admin-bro'
+import { WrapperBox, ApiClient, Placeholder, withNotice, StyledButton} from 'admin-bro'
 
 const api = new ApiClient()
 
-const SomeStats = () => {
+const NOTICE_MESSAGE = {
+  message: 'I was clicked',
+  type: 'success',
+}
+
+const SomeStats = ({ addNotice }) => {
   const [text, setText] = useState('')
 
   useEffect(() => {
@@ -23,10 +28,14 @@ const SomeStats = () => {
           ) : (
             <Placeholder style={{ width: 400, height: 14 }} />
           )}
+          <p>and other interactions like toast :)</p>
+          <p>
+            <StyledButton onClick={() => addNotice(NOTICE_MESSAGE)}>Click me</StyledButton>
+          </p>
         </div>
       </WrapperBox>
     </WrapperBox>
   )
 }
 
-export default SomeStats
+export default withNotice(SomeStats)
