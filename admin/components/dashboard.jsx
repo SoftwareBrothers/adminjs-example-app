@@ -45,7 +45,7 @@ export default class Dashboard extends React.Component {
                     value={pagesCount}
                     icon="fas fa-file"
                     color={colors.error}
-                    href={this.h.listUrl({ resourceId: 'Page' })}
+                    href={this.h.resourceUrl({ resourceId: 'Page' })}
                     label="Number of pages"
                   />
                 </Column>
@@ -54,7 +54,7 @@ export default class Dashboard extends React.Component {
                     value={usersCount}
                     icon="fas fa-user"
                     color={colors.warning}
-                    href={this.h.listUrl({ resourceId: 'User' })}
+                    href={this.h.resourceUrl({ resourceId: 'User' })}
                     label="Number of Users"
                   />
                 </Column>
