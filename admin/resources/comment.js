@@ -8,5 +8,10 @@ module.exports = {
     content: {
       type: 'textarea',
     },
+  },
+  actions: {
+    show: {
+      isAccessible: false,
+    }
   }
 }
