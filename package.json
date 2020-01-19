@@ -47,13 +47,13 @@
     "typescript": "^3.7.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.2",
+    "@babel/core": "^7.8.3",
     "@babel/plugin-proposal-decorators": "^7.6.0",
-    "@babel/preset-env": "^7.6.2",
-    "@babel/preset-react": "^7.0.0",
-    "@babel/preset-typescript": "^7.6.0",
-    "@babel/register": "^7.6.2",
-    "@babel/runtime": "^7.6.2",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
+    "@babel/register": "^7.8.3",
+    "@babel/runtime": "^7.8.3",
     "babel-plugin-transform-class-properties": "^6.24.1"
   }
 }
