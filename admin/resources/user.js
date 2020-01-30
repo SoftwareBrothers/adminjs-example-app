@@ -6,6 +6,9 @@ module.exports = {
   sort,
   properties: {
     ...timestamps,
+    'auth.password': {
+      type: 'password'
+    }
   },
   actions: {
     detailedStats: {

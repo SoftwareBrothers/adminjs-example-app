@@ -8,6 +8,7 @@
     "start:express": "node express/index.js",
     "sequelize": "./node_modules/.bin/sequelize",
     "dev": "ADMIN_BRO_DEV_ENV=true nodemon --ext '.ts,.js' --watch ../admin-bro/src --watch ./ --ignore '*.spec.js' index.js",
+    "dev:watch": "nodemon --ext '.js' --watch ../admin-bro/lib --watch ./ --ignore '*.spec.js' index.js",
     "dev:new": "ADMIN_BRO_DEV_ENV=true node index.js",
     "dev:express": "EXPRESS=true ADMIN_BRO_DEV_ENV=true nodemon --ext '.ts,.js' --watch ../admin-bro/src --watch ./ --ignore '*.spec.js' index.js"
   },
@@ -15,7 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "@material-ui/core": "^4.8.2",
-    "admin-bro": "2.0.0-beta.2",
+    "admin-bro": "2.0.0-beta.4",
     "admin-bro-expressjs": "^0.4.0",
     "admin-bro-hapijs": "^0.2.2",
     "admin-bro-mongoose": "^v0.4.0",
