@@ -1275,10 +1275,10 @@ admin-bro-theme-dark@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/admin-bro-theme-dark/-/admin-bro-theme-dark-1.0.0.tgz#20f831d19340959e621931d370126ca84120a23f"
 
-admin-bro@2.0.0-beta.4:
-  version "2.0.0-beta.4"
-  resolved "https://registry.yarnpkg.com/admin-bro/-/admin-bro-2.0.0-beta.4.tgz#b9256d5c603f6a3eb407416236e4dc908ef984de"
-  integrity sha512-SawHg26SpxINVHo4tOBpAGKh0itxBsipkee9+F5IsxLiS9s9JPZXr4dTRzoHhLyQtzVINfd35GWinZ3PYUfe3w==
+admin-bro@2.0.0-beta.5:
+  version "2.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/admin-bro/-/admin-bro-2.0.0-beta.5.tgz#ee9be52dd92595a6a1d41fb22225d786ac7b910c"
+  integrity sha512-YqrYXejMepJXehwUohArwzsqfTzxGnEWxBZkf7R2eJMDq8Agj0+o+lXk4Kg33ybPKn5FcK/HLQdfFJJiEzMQ5g==
   dependencies:
     "@babel/core" "^7.8.3"
     "@babel/parser" "^7.6.2"
