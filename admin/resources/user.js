@@ -13,7 +13,7 @@ module.exports = {
   actions: {
     detailedStats: {
       actionType: 'resource',
-      icon: 'fas fa-signal',
+      icon: 'Apps',
       label: 'Resource statistics',
       component: AdminBro.require('../components/detailed-stats'),
       handler: async (request, response, data) => {
@@ -23,7 +23,7 @@ module.exports = {
     dontTouchThis: {
       actionType: 'record',
       label: 'don\'t touch this!!!',
-      icon: 'fas fa-exclamation',
+      icon: 'Exit',
       guard: 'You can setup guards before an action - just in case.',
       component: AdminBro.require('../components/dont-touch-this-action'),
       handler: async (request, response, data) => {
