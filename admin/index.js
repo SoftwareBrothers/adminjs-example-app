@@ -8,9 +8,9 @@ AdminBro.registerAdapter(AdminBroSequelizejs)
 const SequelizeDb = require('../sequelize/models')
 
 const menu = {
-  mongoose: { name: 'Mongoose Resources', icon: 'SpineLabel' },
-  sequelize: { name: 'Sequelize Resources', icon: 'Sql' },
-  customized: { name: 'Customized Resources', icon: 'NoodleBowl' }
+  mongoose: { name: 'mongooseResources', icon: 'SpineLabel' },
+  sequelize: { name: 'sequelizeResources', icon: 'Sql' },
+  customized: { name: 'customizedResources', icon: 'NoodleBowl' }
 }
 
 const user = require('./resources/user')
@@ -36,6 +36,7 @@ module.exports = {
     // { resource: UploadsModel, options: { parent: menu.mongoose, ...uploads } },
     { resource: SequelizeDb.sequelize.models.User, options: { parent: menu.sequelize, sort, properties: timestamps } },
     { resource: SequelizeDb.sequelize.models.FavouritePlace, options: { parent: menu.sequelize, sort, properties: timestamps } },
+    { resource: SequelizeDb.sequelize.models.UserProfile, options: { parent: menu.sequelize } },
     { resource: UserModel, options: { parent: menu.customized, ...user } },
     { resource: PageModel, options: { parent: menu.customized, ...page } },
     { resource: require('../mongoose/blog-post-model'), options: { parent: menu.default, ...blogPost } },
@@ -43,6 +44,7 @@ module.exports = {
   ],
   version: {
     admin: true,
+    app: '1.2.3-beta'
   },
   branding: {
     companyName: 'Some demo',
