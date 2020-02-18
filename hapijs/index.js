@@ -34,12 +34,15 @@ const start = async () => {
         authenticate: async (email, password) => {
           const admin = await AdminModel.findOne({ email })
           if (admin && Bcrypt.compare(password, admin.password)) {
-            return admin
+            return {
+              title: 'Administrator',
+              ...admin.toJSON(),
+            }
           }
           return null
         },
         strategy: 'session',
-        cookieName: 'adminBroCookie',
+        cookieName: 'admin-bro-cookie',
         cookiePassword: process.env.COOKIE_PASSWORD || 'makesurepasswordissecuremakesurepasswordissecure',
         isSecure: false,
         defaultMessage: 'Login: test@example.com, Password: password',

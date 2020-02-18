@@ -16,9 +16,9 @@
   "license": "ISC",
   "dependencies": {
     "@material-ui/core": "^4.8.2",
-    "admin-bro": "2.0.0-beta.21",
-    "admin-bro-expressjs": "^0.4.0",
-    "admin-bro-hapijs": "^0.2.2",
+    "admin-bro": "2.0.0-beta.22",
+    "admin-bro-expressjs": "^2.0.0-beta.1",
+    "admin-bro-hapijs": "^2.0.0-beta.1",
     "admin-bro-mongoose": "^v0.4.0",
     "admin-bro-sequelizejs": "^0.3.0",
     "admin-bro-theme-dark": "^1.0.0",

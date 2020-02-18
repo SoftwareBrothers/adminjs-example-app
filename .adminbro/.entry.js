@@ -9,5 +9,3 @@ import Component4 from '../admin/components/some-stats'
 AdminBro.UserComponents.Component4 = Component4
 import Component5 from '../admin/components/test-component'
 AdminBro.UserComponents.Component5 = Component5
-import Component6 from '../admin/components/dashboard'
-AdminBro.UserComponents.Component6 = Component6
