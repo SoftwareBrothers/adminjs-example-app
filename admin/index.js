@@ -47,7 +47,7 @@ module.exports = {
     app: '1.2.3-beta'
   },
   branding: {
-    companyName: 'Some demo',
+    companyName: 'AdminBro demo page',
   },
   pages: {
     customPage: {
@@ -64,23 +64,12 @@ module.exports = {
       component: AdminBro.bundle('./components/test-component'),
     },
   },
-  // dashboard: {
-  //   handler: async (request, response, data) => {
-  //     const categories = await CategoryModel.find({}).limit(5)
-  //     return {
-  //       usersCount: await UserModel.countDocuments(),
-  //       pagesCount: await PageModel.countDocuments(),
-  //       categories: await Promise.all(categories.map(async c => {
-  //         const comments = await CommentModel.countDocuments({ category: c._id })
-  //         return {
-  //           title: c.title,
-  //           comments,
-  //           _id: c._id,
-  //         }
-  //       }))
-  //     }
-  //   },
-  //   component: AdminBro.bundle('./components/dashboard'),
-  // },
+  locale: {
+    translations: {
+      messages: {
+        loginWelcome: "to the demo application made with AdminBro - the best admin framework for Node.js apps, based on React."
+      }
+    }
+  }
 }
 
