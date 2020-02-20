@@ -7,6 +7,7 @@ module.exports = {
     ...timestamps,
     content: {
       type: 'textarea',
+      isTitle: true,
     },
   },
   actions: {

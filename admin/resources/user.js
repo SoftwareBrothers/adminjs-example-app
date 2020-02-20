@@ -19,6 +19,7 @@ module.exports = {
       handler: async (request, response, data) => {
         return {true: 'ueas'}
       },
+      showInDrawer: true,
     },
     dontTouchThis: {
       actionType: 'record',

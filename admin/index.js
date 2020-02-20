@@ -59,10 +59,6 @@ module.exports = {
       },
       component: AdminBro.bundle('./components/some-stats'),
     },
-    anotherPage: {
-      label: "TypeScript page",
-      component: AdminBro.bundle('./components/test-component'),
-    },
   },
   locale: {
     translations: {

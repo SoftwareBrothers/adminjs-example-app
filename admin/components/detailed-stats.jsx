@@ -1,22 +1,17 @@
 import React from 'react'
-import { Box} from 'admin-bro'
+import { Box, H5, Text, Drawer, DrawerContent, ActionHeader } from 'admin-bro'
 
 
-export default class DetailedStats extends React.Component {
-  componentDidMount() {
-    api.resourceAction({
-      resourceId: this.props.resource.id, 
-      actionName: this.props.action.name,
-    }).then((data) => {
-      console.log(data)
-    })
-  }
-
-  render() {
-    return (
-      <Box>
-        <h1>Custom action example</h1>
-      </Box>
-    )
-  }
+const DetailedStats = (props) => {
+  return (
+    <Drawer>
+      <DrawerContent>
+        <ActionHeader {...props} omitActions={true} />
+        <H5 mt="xxl">Custom action example</H5>
+        <Text>Where you can do whatever you like...</Text>
+    </DrawerContent>
+    </Drawer>
+  )
 }
+
+export default DetailedStats
