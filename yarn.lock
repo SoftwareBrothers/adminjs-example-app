@@ -1243,15 +1243,15 @@ acorn@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.0.0.tgz#26b8d1cd9a9b700350b71c0905546f64d1284e7a"
 
-admin-bro-expressjs@^2.0.0-beta.1:
-  version "2.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/admin-bro-expressjs/-/admin-bro-expressjs-2.0.0-beta.1.tgz#23b608877e770d9deb0c479fdf1a545c7c038535"
-  integrity sha512-XD24BxPSK1v+6+949eIrBnVXuWLNkhmisJCse3OAJSp/vkjhk8vpi7htPXsrloRWiWNB/lMpayVoaAOuZNbMYg==
+admin-bro-expressjs@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/admin-bro-expressjs/-/admin-bro-expressjs-2.0.0.tgz#9f9319614b1d7fae3cd5a4f12dbf99c015e4517e"
+  integrity sha512-u8heuIVpdje5sFuh7vdAIviofBhmaFcnX8iLJkrq2Q1ohsxtNZ3b9SX4DR6LYciCDh5syjRykudmtRHCAyzNrw==
 
-admin-bro-hapijs@^2.0.0-beta.1:
-  version "2.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/admin-bro-hapijs/-/admin-bro-hapijs-2.0.0-beta.1.tgz#982c95e5f1d44afa6658fb63d97dfe6b0827a79a"
-  integrity sha512-E2+p/b4AOJLwkdBeC8S5art77xvKb14g/3dvnfDz0b5xLbZ/L2pkUVM5wajuknWU4BaEmLVsQh9Q/Y42UtnY4Q==
+admin-bro-hapijs@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/admin-bro-hapijs/-/admin-bro-hapijs-2.0.0.tgz#634616dbf6feb40090b6b5f8e321ef91c64c2436"
+  integrity sha512-v0zWQIU0oxdkf4wu9ec5FgJ+N3lRu+Y2fWzaqd/YyG6Jyt28GPsidb29r9g42RHQJrmWgPQ6yV4jOvUDPhGdEg==
   dependencies:
     hapi-auth-cookie "^9.1.0"
     inert "^5.1.2"
@@ -1276,10 +1276,10 @@ admin-bro-theme-dark@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/admin-bro-theme-dark/-/admin-bro-theme-dark-1.0.0.tgz#20f831d19340959e621931d370126ca84120a23f"
 
-admin-bro@2.0.0-beta.26:
-  version "2.0.0-beta.26"
-  resolved "https://registry.yarnpkg.com/admin-bro/-/admin-bro-2.0.0-beta.26.tgz#8bca8ee7460efa725617d63634b66d57d4616ede"
-  integrity sha512-rHNwsIB3MDzkL2NKP4YNoIJ38WAdqI2VNEWk7qQHSYFkFt7nbjKCVEEYFSASQCEetD+046hDGZNXiuzyzDodlg==
+admin-bro@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/admin-bro/-/admin-bro-2.0.0.tgz#c787a138fd9ce31c1a7c87d20b6f21072fdfa00d"
+  integrity sha512-PT3Nth86lMC3lTchPEqwgyhcawJzXnmYGWhUxoWhfBpdDbZ0iVQXfbRiOac4zjNCCIOW1iWnGwakaRHx2UEEhQ==
   dependencies:
     "@babel/core" "^7.8.3"
     "@babel/parser" "^7.6.2"

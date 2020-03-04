@@ -13,6 +13,9 @@ module.exports = {
   actions: {
     show: {
       isAccessible: false,
+    },
+    edit: {
+      showInDrawer: true,
     }
   }
 }
