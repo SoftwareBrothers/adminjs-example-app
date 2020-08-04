@@ -7,7 +7,7 @@ const AdminBroPlugin = require('@admin-bro/hapi')
 
 const ADMIN = {
   password: 'password',
-  email: 'admin@example.com',
+  email: 'test@example.com',
 }
 
 const start = async () => {
