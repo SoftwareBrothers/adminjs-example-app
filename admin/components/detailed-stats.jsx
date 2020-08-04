@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, H5, Text, Drawer, DrawerContent, ActionHeader } from 'admin-bro'
+import { Box, H5, Text, Drawer, DrawerContent, ActionHeader } from '@admin-bro/design-system'
 
 
 const DetailedStats = (props) => {

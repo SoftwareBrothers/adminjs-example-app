@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, H3 } from 'admin-bro'
+import { Box, H3 } from '@admin-bro/design-system'
 
 const DontTouchThis = (props) => {
   const { record } = props

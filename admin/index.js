@@ -1,6 +1,6 @@
 const AdminBro = require('admin-bro')
-const AdminBroMongoose = require('admin-bro-mongoose')
-const AdminBroSequelizejs = require('admin-bro-sequelizejs')
+const AdminBroMongoose = require('@admin-bro/mongoose')
+const AdminBroSequelizejs = require('@admin-bro/sequelize')
 const sequelize = require('sequelize')
 AdminBro.registerAdapter(AdminBroMongoose)
 AdminBro.registerAdapter(AdminBroSequelizejs)
@@ -20,6 +20,7 @@ const article = require('./resources/article')
 const complicated = require('./resources/complicated')
 const comment = require('./resources/comment')
 const category = require('./resources/category')
+const test = require('./resources/test')
 // const uploads = require('./resources/uploads')
 
 const UserModel = require('../mongoose/user-model')
@@ -38,6 +39,7 @@ module.exports = {
     { resource: SequelizeDb.sequelize.models.User, options: { parent: menu.sequelize, sort, properties: timestamps } },
     { resource: SequelizeDb.sequelize.models.FavouritePlace, options: { parent: menu.sequelize, sort, properties: timestamps } },
     { resource: SequelizeDb.sequelize.models.UserProfile, options: { parent: menu.sequelize } },
+    { resource: SequelizeDb.sequelize.models.Test, options: { parent: menu.sequelize, ...test} },
     { resource: UserModel, options: { parent: menu.customized, ...user } },
     { resource: PageModel, options: { parent: menu.customized, ...page } },
     { resource: require('../mongoose/blog-post-model'), options: { parent: menu.default, ...blogPost } },

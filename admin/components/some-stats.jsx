@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Box, H3, ApiClient, Placeholder, useNotice, Button} from 'admin-bro'
+import { Box, H3, ApiClient, Placeholder, useNotice, Button} from '@admin-bro/design-system'
 
 const api = new ApiClient()
 
