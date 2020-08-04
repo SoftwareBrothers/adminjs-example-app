@@ -16,7 +16,6 @@ const start = async () => {
       port: process.env.PORT || 8080,
     })
     await mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true })
-    await createAdminIfNone()
 
     await server.register({
       plugin: AdminBroPlugin,
