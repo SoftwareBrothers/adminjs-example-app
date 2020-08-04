@@ -24,7 +24,7 @@ const start = async () => {
           if (ADMIN.password === password && email === ADMIN.email ) {
             return {
               title: 'Administrator',
-              ...ADMIN.toJSON(),
+              ...ADMIN,
             }
           }
           return null
