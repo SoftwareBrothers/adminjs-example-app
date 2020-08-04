@@ -2,22 +2,12 @@ const AdminBroOptions = require('../admin')
 
 const Hapi = require('@hapi/hapi')
 const mongoose = require('mongoose')
-const Argon2 = require('argon2')
 
 const AdminBroPlugin = require('@admin-bro/hapi')
-const AdminModel = require('../mongoose/admin-model')
 
-/**
- * Creates first admin test@example.com:password when there are no
- * admins in the database
- */
-const createAdminIfNone = async () => {
-  const existingAdmin = await AdminModel.countDocuments() > 0
-  if (!existingAdmin) {
-    const password = await Argon2.hash('password')
-    const admin = new AdminModel({ email: 'test@example.com', password })
-    await admin.save()
-  }
+const ADMIN = {
+  password: 'password',
+  email: 'admin@example.com',
 }
 
 const start = async () => {
@@ -32,11 +22,10 @@ const start = async () => {
       plugin: AdminBroPlugin,
       options: {...AdminBroOptions, auth: {
         authenticate: async (email, password) => {
-          const admin = await AdminModel.findOne({ email })
-          if (admin && await Argon2.verify(admin.password, password)) {
+          if (ADMIN.password === password && email === ADMIN.email ) {
             return {
               title: 'Administrator',
-              ...admin.toJSON(),
+              ...ADMIN.toJSON(),
             }
           }
           return null
