@@ -22,7 +22,7 @@
     "admin-bro-sequelizejs": "^0.3.0",
     "admin-bro-theme-dark": "^1.0.0",
     "axios": "^0.18.0",
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.18.3",
     "boom": "^7.3.0",
     "chokidar": "^3.2.2",
