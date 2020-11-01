@@ -41,10 +41,10 @@
     "@hapi/cookie" "^11.0.0"
     "@hapi/inert" "^6.0.1"
 
-"@admin-bro/mongoose@^1.1.0-beta.2":
-  version "1.1.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@admin-bro/mongoose/-/mongoose-1.1.0-beta.2.tgz#9e581424a1254b16e23d756164ac5de68bfaa50e"
-  integrity sha512-NLpLjDcJEtYP4h431FmXKchaDLXhbLS1KfhQjXnHwph0/rcvSHe2UyfVs3z0hGWDs0Gb3HvbytjlFG+NLgBq3g==
+"@admin-bro/mongoose@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@admin-bro/mongoose/-/mongoose-1.1.0.tgz#c83c87bc587d4f46e860851de4c0a1f80a9e3c86"
+  integrity sha512-CMFfN12UV3VE3nZxvZMZK+deCqiU6hPvv6bDLuPzMV0KySPZLoEQe2rHuxgovEDn52bFXP0XPFMDHqW0FiNtfg==
   dependencies:
     escape-regexp "0.0.1"
     flat "^4.1.0"
