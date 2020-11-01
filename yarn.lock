@@ -2,23 +2,10 @@
 # yarn lockfile v1
 
 
-"@admin-bro/design-system@1.7.0":
+"@admin-bro/design-system@1.7.0", "@admin-bro/design-system@^1.7.0":
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/@admin-bro/design-system/-/design-system-1.7.0.tgz#1a5f46bff89db7aba33367db9a84cf00ddaaea5c"
   integrity sha512-pf+b/YkKoylvcg1wp1yUhbWv0e5MZHjKQdPqTt6UXutVgpqldimDv5be3i2avkqNSB5XrOXVZTIcW4vj0vy33g==
-  dependencies:
-    "@carbon/icons-react" "^10.14.0"
-    jw-paginate "^1.0.4"
-    lodash "^4.17.20"
-    polished "^3.6.5"
-    quill "^1.3.7"
-    react-datepicker "^3.1.3"
-    styled-system "^5.1.5"
-
-"@admin-bro/design-system@^1.7.0-beta.22":
-  version "1.7.0-beta.22"
-  resolved "https://registry.yarnpkg.com/@admin-bro/design-system/-/design-system-1.7.0-beta.22.tgz#3d0dba3003412c41bc7a38a326a05f1f6fa40c0f"
-  integrity sha512-cOyyyuZKIArzaGnzPtn+zb2hFmYL/MHt1m3Ted0N/xY9AuUPAYVoBHWxQrGCF3NcZQnsyhr1z8B+qo2N3oBTgA==
   dependencies:
     "@carbon/icons-react" "^10.14.0"
     jw-paginate "^1.0.4"
@@ -1633,12 +1620,12 @@ accepts@~1.3.7:
     mime-types "~2.1.24"
     negotiator "0.6.2"
 
-admin-bro@=3.3.0-beta.38:
-  version "3.3.0-beta.38"
-  resolved "https://registry.yarnpkg.com/admin-bro/-/admin-bro-3.3.0-beta.38.tgz#6757397c8be5d43f7089f337a565e91d1d0a87fb"
-  integrity sha512-3UCHcTXShObI6vFFJne4ZsH/yMCHFtTIqZE9ivLDeZ+PKemTEi0r/QVuuIiblTqmxkwtRJ9q27BXNaosxXI+bA==
+admin-bro@=3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/admin-bro/-/admin-bro-3.3.1.tgz#ef7710310f80b0c945fbb1dff49c6b2359c9a882"
+  integrity sha512-ObdiPDMA8u89U35fwRHxSaje2zBjPqkKlT+6oN80HIRdkQImQ+51hEU5YaQ/EEzWFQGqGYuSxAhkFtXY6ZLjhg==
   dependencies:
-    "@admin-bro/design-system" "^1.7.0-beta.22"
+    "@admin-bro/design-system" "^1.7.0"
     "@babel/core" "^7.10.2"
     "@babel/parser" "^7.10.2"
     "@babel/plugin-transform-runtime" "^7.10.1"

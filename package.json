@@ -15,7 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "admin-bro": "=3.3.0-beta.38",
+    "admin-bro": "=3.3.1",
     "@admin-bro/design-system": "1.7.0",
     "@admin-bro/express": "^3.0.1",
     "@admin-bro/hapi": "^3.0.0",
