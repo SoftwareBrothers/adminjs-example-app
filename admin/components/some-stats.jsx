@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { WrapperBox, ApiClient, Placeholder, withNotice, StyledButton} from 'admin-bro'
+import { Box, H3, Placeholder, Button} from '@admin-bro/design-system'
+import { ApiClient, useNotice} from 'admin-bro'
 
 const api = new ApiClient()
 
@@ -8,8 +9,9 @@ const NOTICE_MESSAGE = {
   type: 'success',
 }
 
-const SomeStats = ({ addNotice }) => {
+const SomeStats = () => {
   const [text, setText] = useState('')
+  const addNotice = useNotice()
 
   useEffect(() => {
     api.getPage({ pageName: 'customPage' }).then(res => {
@@ -18,10 +20,10 @@ const SomeStats = ({ addNotice }) => {
   })
 
   return (
-    <WrapperBox>
-      <WrapperBox border>
-        <h1>Here you can specify a totally custom page</h1>
-        <div>
+    <Box variant="grey">
+      <Box variant="white">
+        <H3>Here you can specify a totally custom page</H3>
+        <Box>
           <p>With some data fetched from the backend:</p>
           {text.length ? (
             <pre>{text}</pre>
@@ -30,12 +32,12 @@ const SomeStats = ({ addNotice }) => {
           )}
           <p>and other interactions like toast :)</p>
           <p>
-            <StyledButton onClick={() => addNotice(NOTICE_MESSAGE)}>Click me</StyledButton>
+            <Button onClick={() => addNotice(NOTICE_MESSAGE)}>Click me</Button>
           </p>
-        </div>
-      </WrapperBox>
-    </WrapperBox>
+        </Box>
+      </Box>
+    </Box>
   )
 }
 
-export default withNotice(SomeStats)
+export default SomeStats

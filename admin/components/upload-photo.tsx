@@ -1,4 +1,11 @@
-import { BasePropertyProps, PropertyInEdit, WrapperBox, DefaultTheme, Label, DropArea } from 'admin-bro'
+import {
+  BasePropertyProps,
+  PropertyInEdit,
+  WrapperBox,
+  DefaultTheme,
+  Label,
+  DropArea
+} from '@admin-bro/design-system'
 import React, { useState } from 'react'
 import { unflatten } from 'flat'
 

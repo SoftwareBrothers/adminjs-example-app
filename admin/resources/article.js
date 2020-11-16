@@ -2,8 +2,14 @@ const AdminBro = require('admin-bro')
 const { sort, timestamps } = require('./sort')
 
 module.exports = {
+  id: 'Article2',
   name: 'Article (customize field)',
   sort,
+  actions: {
+    list: {
+      isVisible: false,
+    },
+  },
   properties: {
     ...timestamps,
     _id: { isVisible: false },

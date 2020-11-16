@@ -7,6 +7,15 @@ module.exports = {
     ...timestamps,
     content: {
       type: 'textarea',
+      isTitle: true,
     },
+  },
+  actions: {
+    show: {
+      isAccessible: false,
+    },
+    edit: {
+      showInDrawer: true,
+    }
   }
 }

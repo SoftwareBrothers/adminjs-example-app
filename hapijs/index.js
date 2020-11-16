@@ -1,23 +1,13 @@
 const AdminBroOptions = require('../admin')
 
-const Hapi = require('hapi')
+const Hapi = require('@hapi/hapi')
 const mongoose = require('mongoose')
-const Bcrypt = require('bcrypt')
 
-const AdminBroPlugin = require('admin-bro-hapijs')
-const AdminModel = require('../mongoose/admin-model')
+const AdminBroPlugin = require('@admin-bro/hapi')
 
-/**
- * Creates first admin test@example.com:password when there are no
- * admins in the database
- */
-const createAdminIfNone = async () => {
-  const existingAdmin = await AdminModel.countDocuments() > 0
-  if (!existingAdmin) {
-    const password = await Bcrypt.hash('password', 10)
-    const admin = new AdminModel({ email: 'test@example.com', password })
-    await admin.save()
-  }
+const ADMIN = {
+  password: 'password',
+  email: 'test@example.com',
 }
 
 const start = async () => {
@@ -26,20 +16,21 @@ const start = async () => {
       port: process.env.PORT || 8080,
     })
     await mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true })
-    await createAdminIfNone()
 
     await server.register({
       plugin: AdminBroPlugin,
       options: {...AdminBroOptions, auth: {
         authenticate: async (email, password) => {
-          const admin = await AdminModel.findOne({ email })
-          if (admin && Bcrypt.compare(password, admin.password)) {
-            return admin
+          if (ADMIN.password === password && email === ADMIN.email ) {
+            return {
+              title: 'Administrator',
+              ...ADMIN,
+            }
           }
           return null
         },
         strategy: 'session',
-        cookieName: 'adminBroCookie',
+        cookieName: 'admin-bro-cookie',
         cookiePassword: process.env.COOKIE_PASSWORD || 'makesurepasswordissecuremakesurepasswordissecure',
         isSecure: false,
         defaultMessage: 'Login: test@example.com, Password: password',

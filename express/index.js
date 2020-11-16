@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const AdminBro = require('admin-bro')
-const AdminBroExpress = require('admin-bro-expressjs')
+const AdminBroExpress = require('@admin-bro/express')
 const AdminBroOptions = require('../admin')
 
 const express = require('express')
