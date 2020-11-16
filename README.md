@@ -1,13 +1,14 @@
-## Admin-bro-dev
+## Admin-bro-example-app
 
 Example application using [admin-bro](https://github.com/SoftwareBrothers/admin-bro)
 
 ## Demo
 
-You can check out the current version at:
+**THIS IS NO LONGER A DEMO APP**  
+Demo source has been migrated to https://github.com/SoftwareBrothers/admin-bro/tree/master/packages/admin-bro-demo  
+You can check out the current demo version at: https://admin-bro-app.firebaseapp.com/admin
 
-https://admin-bro-example-app.herokuapp.com/admin
-login: test@example.com
+login: admin@example.com  
 password: password
 
 ## Prerequisites
