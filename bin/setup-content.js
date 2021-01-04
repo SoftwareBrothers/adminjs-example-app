@@ -1,12 +1,12 @@
 const faker = require('faker')
-
-const Category = require('../mongoose/category-model')
-const Comment = require('../mongoose/comment-model')
-const User = require('../mongoose/user-model')
-const Page = require('../mongoose/page-model')
-const Article = require('../mongoose/article-model')
 const mongoose = require('mongoose')
-const SequelizeDb = require('../sequelize/models')
+
+const Category = require('../adapters/mongoose/category-model')
+const Comment = require('../adapters/mongoose/comment-model')
+const User = require('../adapters/mongoose/user-model')
+const Page = require('../adapters/mongoose/page-model')
+const Article = require('../adapters/mongoose/article-model')
+const SequelizeDb = require('../adapters/sequelize/models')
 
 const categories = Object.keys([...Array(100).keys()]
   .reduce((m, i) => ({ [faker.commerce.department()]: 1, ...m }), {}))

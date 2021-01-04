@@ -1,17 +1,12 @@
 const AdminBro = require('admin-bro')
 const AdminBroMongoose = require('@admin-bro/mongoose')
 const AdminBroSequelizejs = require('@admin-bro/sequelize')
-const sequelize = require('sequelize')
+
 AdminBro.registerAdapter(AdminBroMongoose)
 AdminBro.registerAdapter(AdminBroSequelizejs)
 
-const SequelizeDb = require('../sequelize/models')
-
-const menu = {
-  mongoose: { name: 'mongooseResources', icon: 'SpineLabel' },
-  sequelize: { name: 'sequelizeResources', icon: 'Sql' },
-  customized: { name: 'customizedResources', icon: 'NoodleBowl' }
-}
+const mongooseModels = require('../adapters/mongoose/models')
+const sequelizeDb = require('../adapters/sequelize/models')
 
 const user = require('./resources/user')
 const page = require('./resources/page')
@@ -21,29 +16,29 @@ const complicated = require('./resources/complicated')
 const comment = require('./resources/comment')
 const category = require('./resources/category')
 const test = require('./resources/test')
-// const uploads = require('./resources/uploads')
-
-const UserModel = require('../mongoose/user-model')
-const PageModel = require('../mongoose/page-model')
-const CategoryModel = require('../mongoose/category-model')
-const CommentModel = require('../mongoose/comment-model')
-const ComplicatedModel = require('../mongoose/complicated-model')
+const uploads = require('./resources/uploads')
 const { sort, timestamps } = require('./resources/sort')
+
+const menu = {
+  mongoose: { name: 'mongooseResources', icon: 'SpineLabel' },
+  sequelize: { name: 'sequelizeResources', icon: 'Sql' },
+}
 
 module.exports = {
   resources: [
-    { resource: CommentModel, options: { parent: menu.mongoose, ...comment } },
-    { resource: CategoryModel, options: { parent: menu.mongoose, ...category } },
-    { resource: ComplicatedModel, options: { parent: menu.mongoose, ...complicated } },
-    // { resource: UploadsModel, options: { parent: menu.mongoose, ...uploads } },
-    { resource: SequelizeDb.sequelize.models.User, options: { parent: menu.sequelize, sort, properties: timestamps } },
-    { resource: SequelizeDb.sequelize.models.FavouritePlace, options: { parent: menu.sequelize, sort, properties: timestamps } },
-    { resource: SequelizeDb.sequelize.models.UserProfile, options: { parent: menu.sequelize } },
-    { resource: SequelizeDb.sequelize.models.Test, options: { parent: menu.sequelize, ...test} },
-    { resource: UserModel, options: { parent: menu.customized, ...user } },
-    { resource: PageModel, options: { parent: menu.customized, ...page } },
-    { resource: require('../mongoose/blog-post-model'), options: { parent: menu.default, ...blogPost } },
-    { resource: require('../mongoose/article-model'), options: { parent: menu.customized, ...article } },
+    { resource: mongooseModels.Comment, options: { parent: menu.mongoose, ...comment } },
+    { resource: mongooseModels.Category, options: { parent: menu.mongoose, ...category } },
+    { resource: mongooseModels.Complicated, options: { parent: menu.mongoose, ...complicated } },
+    { resource: mongooseModels.Uploads, options: { parent: menu.mongoose, ...uploads } },
+    { resource: mongooseModels.User, options: { parent: menu.mongoose, ...user } },
+    { resource: mongooseModels.Page, options: { parent: menu.mongoose, ...page } },
+    { resource: mongooseModels.BlogPost, options: { parent: menu.mongoose, ...blogPost } },
+    { resource: mongooseModels.Article, options: { parent: menu.mongoose, ...article } },
+    { resource: mongooseModels.Thing, options: { parent: menu.mongoose } },
+    { resource: sequelizeDb.sequelize.models.User, options: { parent: menu.sequelize, sort, properties: timestamps } },
+    { resource: sequelizeDb.sequelize.models.FavouritePlace, options: { navigation: menu.sequelize, sort, properties: timestamps } },
+    { resource: sequelizeDb.sequelize.models.UserProfile, options: { parent: menu.sequelize } },
+    { resource: sequelizeDb.sequelize.models.Test, options: { parent: menu.sequelize, ...test} },
   ],
   version: {
     admin: true,

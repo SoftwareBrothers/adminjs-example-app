@@ -2,7 +2,21 @@
 # yarn lockfile v1
 
 
-"@admin-bro/design-system@1.7.0", "@admin-bro/design-system@^1.7.0":
+"@admin-bro/design-system@1.7.0-beta.24":
+  version "1.7.0-beta.24"
+  resolved "https://registry.yarnpkg.com/@admin-bro/design-system/-/design-system-1.7.0-beta.24.tgz#33ed8ffbcbe05589aa8a220a490cbf6597235148"
+  integrity sha512-8JwnldMesm01H+7PWq0HfZgj7WDZHwifrvLDXCo1QrhymZRdGNfEZllko4V9SwdapDhuGhWJgkA21Dy8NsNXxQ==
+  dependencies:
+    "@carbon/icons-react" "^10.14.0"
+    date-fns "2.15.0"
+    jw-paginate "^1.0.4"
+    lodash "^4.17.20"
+    polished "^3.6.5"
+    quill "^1.3.7"
+    react-datepicker "^3.1.3"
+    styled-system "^5.1.5"
+
+"@admin-bro/design-system@^1.7.0-beta.24":
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/@admin-bro/design-system/-/design-system-1.7.0.tgz#1a5f46bff89db7aba33367db9a84cf00ddaaea5c"
   integrity sha512-pf+b/YkKoylvcg1wp1yUhbWv0e5MZHjKQdPqTt6UXutVgpqldimDv5be3i2avkqNSB5XrOXVZTIcW4vj0vy33g==
@@ -15,10 +29,10 @@
     react-datepicker "^3.1.3"
     styled-system "^5.1.5"
 
-"@admin-bro/express@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@admin-bro/express/-/express-3.0.1.tgz#21e6693cce257da6f25e75be28b4e2b7ef387531"
-  integrity sha512-CNGZxdMBFhhr9WGDKmdEpuxYumryO9VNZN+HK93o+Xjqx7lDfFk7smUDFRxmfoHsmaI4QRpErmvswNwpGGzevA==
+"@admin-bro/express@3.1.0-beta.6":
+  version "3.1.0-beta.6"
+  resolved "https://registry.yarnpkg.com/@admin-bro/express/-/express-3.1.0-beta.6.tgz#5a620c78c795a60fc582d6afe2b38396246d25c7"
+  integrity sha512-qHARF5MjwNaLGo4ueGEet2BTIBVXclMfhk+cPN1wXUD84LhzigmCHTxAPYm7LPOO5Jq1g0Fun2zssQhOFCPmGg==
 
 "@admin-bro/hapi@^3.0.0":
   version "3.0.0"
@@ -28,19 +42,19 @@
     "@hapi/cookie" "^11.0.0"
     "@hapi/inert" "^6.0.1"
 
-"@admin-bro/mongoose@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@admin-bro/mongoose/-/mongoose-1.1.0.tgz#c83c87bc587d4f46e860851de4c0a1f80a9e3c86"
-  integrity sha512-CMFfN12UV3VE3nZxvZMZK+deCqiU6hPvv6bDLuPzMV0KySPZLoEQe2rHuxgovEDn52bFXP0XPFMDHqW0FiNtfg==
+"@admin-bro/mongoose@1.1.1-beta.1":
+  version "1.1.1-beta.1"
+  resolved "https://registry.yarnpkg.com/@admin-bro/mongoose/-/mongoose-1.1.1-beta.1.tgz#81930e50bdf2678c26cce97ec5d7555695d73c53"
+  integrity sha512-3I8CMRENmB3Knj8Ulq5h/8L72xk7dizqiWyZpVfAItH/CJDUMoz4wsqsszU9f/GH+PpWnzEGrrZ19eB23W8+kw==
   dependencies:
     escape-regexp "0.0.1"
     flat "^4.1.0"
     lodash "^4.17.11"
 
-"@admin-bro/sequelize@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@admin-bro/sequelize/-/sequelize-1.1.1.tgz#06308270a12fea13ebe42d56116e2b59c483f40c"
-  integrity sha512-CMcxIibZoqk1UhmFSw1xGhMPdQmpYBEYAQnB0E10WlFtixoEf8Gk3ILmmtt1wMeJyijCGb+foSsEAe+AXeJQsg==
+"@admin-bro/sequelize@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@admin-bro/sequelize/-/sequelize-1.1.2.tgz#503ce1a3e340e9df54d953f846f1e05d434c02a6"
+  integrity sha512-qjyPItD5Fc0YXiDv+ES7Bb4U3wND9omzMCDScoFCwVBvDMsaM/jPhe24XbfedoBGRP1OXmJC0rtuxsxYjRAnUw==
   dependencies:
     escape-regexp "0.0.1"
     flat "^5.0.0"
@@ -1620,12 +1634,12 @@ accepts@~1.3.7:
     mime-types "~2.1.24"
     negotiator "0.6.2"
 
-admin-bro@=3.3.1:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/admin-bro/-/admin-bro-3.3.1.tgz#ef7710310f80b0c945fbb1dff49c6b2359c9a882"
-  integrity sha512-ObdiPDMA8u89U35fwRHxSaje2zBjPqkKlT+6oN80HIRdkQImQ+51hEU5YaQ/EEzWFQGqGYuSxAhkFtXY6ZLjhg==
+admin-bro@3.3.2-beta.2:
+  version "3.3.2-beta.2"
+  resolved "https://registry.yarnpkg.com/admin-bro/-/admin-bro-3.3.2-beta.2.tgz#2caa575cc23269eb3171f4a918cdc866e4aaf409"
+  integrity sha512-MSPz0SiV8DDRkjZ/DnZC4n2TYJ9+gp47Bc8G+vDVfUmrN9ltTUw+zv5GW4JwRUpY9y694KO7jeEAXPVDliMuYg==
   dependencies:
-    "@admin-bro/design-system" "^1.7.0"
+    "@admin-bro/design-system" "^1.7.0-beta.24"
     "@babel/core" "^7.10.2"
     "@babel/parser" "^7.10.2"
     "@babel/plugin-transform-runtime" "^7.10.1"
@@ -2358,7 +2372,7 @@ d@1, d@^1.0.1:
     es5-ext "^0.10.50"
     type "^1.0.1"
 
-date-fns@^2.0.1:
+date-fns@2.15.0, date-fns@^2.0.1:
   version "2.15.0"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.15.0.tgz#424de6b3778e4e69d3ff27046ec136af58ae5d5f"
   integrity sha512-ZCPzAMJZn3rNUvvQIMlXhDr4A+Ar07eLeGsGREoWU19a3Pqf5oYa+ccd+B3F6XVtQY6HANMFdOQ8A+ipFnvJdQ==
