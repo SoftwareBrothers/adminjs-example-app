@@ -1,0 +1,9 @@
+export { default as Admin } from './admin-model';
+export { default as Article } from './article-model';
+export { default as BlogPost } from './blog-post-model';
+export { default as Category } from './category-model';
+export { default as Comment } from './comment-model';
+export { default as Complicated } from './complicated-model';
+export { default as Page } from './page-model';
+export { default as Thing } from './thing-model';
+export { default as User } from './user-model';

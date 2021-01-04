@@ -122,3 +122,4 @@ coverage
 .DS_store
 .adminbro
 public
+.vscode

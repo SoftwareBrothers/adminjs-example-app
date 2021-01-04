@@ -1,16 +1,19 @@
 {
-  "name": "example",
+  "name": "admin-bro-example-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "start:express": "node express/index.js",
+    "build": "tsc -p tsconfig.build.json",
+    "build-watch": "tsc -p tsconfig.build.json -w",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
+    "style": "prettier --check \"{src}/**/*.{{ts,js}?(x),json}\"",
     "sequelize": "./node_modules/.bin/sequelize",
-    "dev": "ADMIN_BRO_DEV_ENV=true nodemon --ext '.ts,.js' --watch ../admin-bro/src --watch ./ --ignore '*.spec.js' index.js",
-    "dev:watch": "nodemon --ext '.js' --watch ../admin-bro/lib --watch ./ --ignore '*.spec.js' index.js",
-    "dev:new": "ADMIN_BRO_DEV_ENV=true node index.js",
-    "dev:express": "EXPRESS=true nodemon --ext '.js' --watch ../admin-bro/lib --watch ./ --ignore '*.spec.js' index.js"
+    "dev": "ADMIN_BRO_DEV_ENV=true nodemon",
+    "dev:hapi": "ADMIN_BRO_DEV_ENV=true HAPI=true nodemon",
+    "start": "node dist/index.js",
+    "start:hapi": "HAPI=true node dist/index.js",
+    "semantic-release": "semantic-release"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +23,7 @@
     "@admin-bro/hapi": "^3.0.0",
     "@admin-bro/mongoose": "1.1.1-beta.1",
     "@admin-bro/sequelize": "^1.1.2",
+    "@admin-bro/typeorm": "1.4.1-rc-mlt.1",
     "@hapi/boom": "^9.1.0",
     "@hapi/cookie": "^11.0.0",
     "@hapi/hapi": "^19.2.0",
@@ -41,7 +45,25 @@
     "react-dom": "^16.13.1",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^5.21.2",
-    "sequelize-cli": "^5.5.1"
+    "sequelize-cli": "^5.5.1",
+    "typeorm": "^0.2.29"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/express": "^4.17.9",
+    "@types/flat": "^5.0.1",
+    "@types/node": "^14.14.19",
+    "@typescript-eslint/eslint-plugin": "^4.11.1",
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb-typescript": "^12.0.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-disable": "^2.0.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prefer-arrow": "^1.2.2",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.2.1",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^4.1.3"
+  }
 }
