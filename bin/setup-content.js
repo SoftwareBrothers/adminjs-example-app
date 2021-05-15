@@ -37,7 +37,13 @@ const run = async () => {
     await SequelizeDb.FavouritePlace.destroy({
       where: {},
     })
-    
+    await SequelizeDb.UserProfile.destroy({
+      where: {},
+    })
+    await SequelizeDb.Test.destroy({
+      where: {},
+    })
+
     await Promise.all(categories.map(async title => {
       const category = await Category.create({
         title,
@@ -48,7 +54,7 @@ const run = async () => {
 
       const comments = Object.keys([...Array(30).keys()]
         .reduce((m, i) => ({ [faker.lorem.paragraph()]: 1, ...m }), {}))
-      
+
       return Promise.all(comments.map(content => {
         return Comment.create({
           content,
