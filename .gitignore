@@ -122,3 +122,4 @@ coverage
 .DS_store
 .adminjs
 public
+.adminbro
