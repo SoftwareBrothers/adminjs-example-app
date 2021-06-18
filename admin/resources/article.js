@@ -1,4 +1,4 @@
-const AdminBro = require('admin-bro')
+const AdminJS = require('adminjs')
 const { sort, timestamps } = require('./sort')
 
 module.exports = {
@@ -19,7 +19,7 @@ module.exports = {
     published: {
       label: 'Published (custom render)',
       components: {
-        list: AdminBro.bundle('../components/article-in-list')
+        list: AdminJS.bundle('../components/article-in-list')
       }
     },
   }

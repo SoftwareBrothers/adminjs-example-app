@@ -5,7 +5,7 @@ import {
   DefaultTheme,
   Label,
   DropArea
-} from '@admin-bro/design-system'
+} from '@adminjs/design-system'
 import React, { useState } from 'react'
 import { unflatten } from 'flat'
 

@@ -1,9 +1,9 @@
-const AdminBro = require('admin-bro')
-const AdminBroMongoose = require('@admin-bro/mongoose')
-const AdminBroSequelizejs = require('@admin-bro/sequelize')
+const AdminJS = require('adminjs')
+const AdminJSMongoose = require('@adminjs/mongoose')
+const AdminJSSequelizejs = require('@adminjs/sequelize')
 const sequelize = require('sequelize')
-AdminBro.registerAdapter(AdminBroMongoose)
-AdminBro.registerAdapter(AdminBroSequelizejs)
+AdminJS.registerAdapter(AdminJSMongoose)
+AdminJS.registerAdapter(AdminJSSequelizejs)
 
 const SequelizeDb = require('../sequelize/models')
 
@@ -50,7 +50,7 @@ module.exports = {
     app: '1.2.3-beta'
   },
   branding: {
-    companyName: 'AdminBro demo page',
+    companyName: 'AdminJS demo page',
   },
   pages: {
     customPage: {
@@ -60,13 +60,13 @@ module.exports = {
           text: 'I am fetched from the backend',
         }
       },
-      component: AdminBro.bundle('./components/some-stats'),
+      component: AdminJS.bundle('./components/some-stats'),
     },
   },
   locale: {
     translations: {
       messages: {
-        loginWelcome: "to the demo application made with AdminBro - the best admin framework for Node.js apps, based on React."
+        loginWelcome: "to the demo application made with AdminJS - the best admin framework for Node.js apps, based on React."
       }
     }
   }

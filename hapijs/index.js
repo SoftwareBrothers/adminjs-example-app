@@ -1,9 +1,9 @@
-const AdminBroOptions = require('../admin')
+const AdminJSOptions = require('../admin')
 
 const Hapi = require('@hapi/hapi')
 const mongoose = require('mongoose')
 
-const AdminBroPlugin = require('@admin-bro/hapi')
+const AdminJSPlugin = require('@adminjs/hapi')
 
 const ADMIN = {
   password: 'password',
@@ -18,8 +18,8 @@ const start = async () => {
     await mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true })
 
     await server.register({
-      plugin: AdminBroPlugin,
-      options: {...AdminBroOptions, auth: {
+      plugin: AdminJSPlugin,
+      options: {...AdminJSOptions, auth: {
         authenticate: async (email, password) => {
           if (ADMIN.password === password && email === ADMIN.email ) {
             return {
@@ -30,7 +30,7 @@ const start = async () => {
           return null
         },
         strategy: 'session',
-        cookieName: 'admin-bro-cookie',
+        cookieName: 'adminjs-cookie',
         cookiePassword: process.env.COOKIE_PASSWORD || 'makesurepasswordissecuremakesurepasswordissecure',
         isSecure: false,
         defaultMessage: 'Login: test@example.com, Password: password',

@@ -1,12 +1,12 @@
-## Admin-bro-example-app
+## AdminJS-example-app
 
-Example application using [admin-bro](https://github.com/SoftwareBrothers/admin-bro)
+Example application using [adminjs](https://github.com/SoftwareBrothers/adminjs)
 
 ## Demo
 
 **THIS IS NO LONGER A DEMO APP**  
-Demo source has been migrated to https://github.com/SoftwareBrothers/admin-bro/tree/master/packages/admin-bro-demo  
-You can check out the current demo version at: https://admin-bro-app.firebaseapp.com/admin
+Demo source has been migrated to https://github.com/SoftwareBrothers/adminjs/tree/master/packages/adminjs-demo  
+You can check out the current demo version at: https://demo.adminjs.co
 
 login: admin@example.com  
 password: password
@@ -55,11 +55,11 @@ yarn start
 
 ## Developing the app
 
-The best way of developing the app is to do this via https://github.com/SoftwareBrothers/admin-bro-dev.
+The best way of developing the app is to do this via https://github.com/SoftwareBrothers/adminjs-dev.
 
 ## License
 
-AdminBro is Copyright © 2018 SoftwareBrothers.co. It is free software, and may be redistributed under the terms specified in the [LICENSE](LICENSE) file.
+AdminJS is Copyright © 2018 SoftwareBrothers.co. It is free software, and may be redistributed under the terms specified in the [LICENSE](LICENSE) file.
 
 ## About SoftwareBrothers.co
 

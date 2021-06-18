@@ -1,4 +1,4 @@
-const { BaseResource, BaseProperty, BaseRecord } = require('admin-bro')
+const { BaseResource, BaseProperty, BaseRecord } = require('adminjs')
 const axios = require('axios')
 
 class PostCode extends BaseResource {
