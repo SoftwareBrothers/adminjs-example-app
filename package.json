@@ -26,7 +26,7 @@
     "@hapi/inert": "^6.0.1",
     "adminjs": "^5.0.0",
     "argon2": "^0.26.2",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "cookie-parser": "^1.4.4",
     "express": "^4.17.1",
     "express-brute": "^1.0.1",
