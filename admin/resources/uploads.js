@@ -1,4 +1,4 @@
-const AdminBro = require('admin-bro')
+const AdminJS = require('adminjs')
 const { flatten, unflatten } = require('flat')
 
 const fs = require('fs')
@@ -11,7 +11,7 @@ const uploadPath = path.join('public', 'photos')
 
 const createTmpDir = async () => {
   try {
-    await util.promisify(fs.mkdir)(path.join(AdminBro.ADMIN_BRO_TMP_DIR, 'tmp'), { recursive: true })
+    await util.promisify(fs.mkdir)(path.join(AdminJS.ADMINJS_TMP_DIR, 'tmp'), { recursive: true })
   } catch (error) {
     if (error.code !== 'EEXIST') { throw error }
   }
@@ -61,7 +61,7 @@ const extractFileObject = (request) => {
 }
 
 const generateTmpFilePath = (fileObject) => {
-  return path.join(AdminBro.ADMIN_BRO_TMP_DIR, 'tmp', `${new Date().getTime()}${fileObject.name}`)
+  return path.join(AdminJS.ADMINJS_TMP_DIR, 'tmp', `${new Date().getTime()}${fileObject.name}`)
 }
 
 const uploadToTmpFolder = (fileObject) => {

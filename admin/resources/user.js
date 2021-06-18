@@ -1,9 +1,9 @@
-const AdminBro = require('admin-bro')
-const { ValidationError, bundle } = AdminBro
+const AdminJS = require('adminjs')
+const { ValidationError, bundle } = AdminJS
 const { sort, timestamps } = require('./sort')
 
 /**
- * @type {AdminBro.ResourceOptions}
+ * @type {AdminJS.ResourceOptions}
  */
 module.exports = {
   name: 'User (custom actions example)',

@@ -1,4 +1,4 @@
-const AdminBro = require('admin-bro')
+const AdminJS = require('adminjs')
 const { sort, timestamps } = require('./sort')
 
 module.exports = {

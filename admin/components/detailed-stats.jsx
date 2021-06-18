@@ -1,6 +1,6 @@
 import React from 'react'
-import { H5, Text, DrawerContent } from '@admin-bro/design-system'
-import { ActionHeader } from 'admin-bro'
+import { H5, Text, DrawerContent } from '@adminjs/design-system'
+import { ActionHeader } from 'adminjs'
 
 
 const DetailedStats = (props) => {
