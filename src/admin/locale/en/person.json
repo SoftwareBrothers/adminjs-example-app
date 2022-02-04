@@ -1,0 +1,8 @@
+{
+  "actions": {
+    "dontTouchThis": "Don't touch this!!!"
+  },
+  "properties": {
+    "organizationId": "Organization"
+  }
+}
