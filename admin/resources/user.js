@@ -1,5 +1,4 @@
 const AdminJS = require('adminjs')
-const { ValidationError, bundle } = AdminJS
 const { sort, timestamps } = require('./sort')
 
 /**
@@ -19,7 +18,7 @@ module.exports = {
       actionType: 'resource',
       icon: 'Apps',
       label: 'Resource statistics',
-      component: bundle('../components/detailed-stats'),
+      component: AdminJS.bundle('../components/detailed-stats'),
       handler: async (request, response, data) => {
         return {true: 'ueas'}
       },
@@ -28,7 +27,7 @@ module.exports = {
     edit: {
       before: async (request, response, context) => {
         if (request.method === "post") {
-          throw new ValidationError({
+          throw new AdminJS.ValidationError({
             email: {
               message: 'Has to be filled',
             }
@@ -42,7 +41,7 @@ module.exports = {
       label: 'don\'t touch this!!!',
       icon: 'Exit',
       guard: 'You can setup guards before an action - just in case.',
-      component: bundle('../components/dont-touch-this-action'),
+      component: AdminJS.bundle('../components/dont-touch-this-action'),
       handler: async (request, response, data) => {
         return {
           record: data.record.toJSON()
