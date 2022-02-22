@@ -1,8 +1,8 @@
-import {CreateResourceResult} from "../../../admin/create-resource-result.type";
-import {menu} from "../../../admin";
-import {Person} from "../models";
-import {DETAILED_STATS, DONT_TOUCH_THIS_ACTION} from "../../../admin/components.bundler";
-import {validateEmail} from "../handlers/validate-email.handler";
+import { CreateResourceResult } from '../../../admin/create-resource-result.type';
+import { menu } from '../../../admin';
+import { Person } from '../models';
+import { DETAILED_STATS, DONT_TOUCH_THIS_ACTION } from '../../../admin/components.bundler';
+import { validateEmail } from '../handlers/validate-email.handler';
 
 export const CreatePersonResource = (): CreateResourceResult<typeof Person> => ({
   resource: Person,
@@ -10,10 +10,10 @@ export const CreatePersonResource = (): CreateResourceResult<typeof Person> => (
     parent: menu.typeorm,
     actions: {
       new: {
-        before: [validateEmail]
+        before: [validateEmail],
       },
       edit: {
-        before: [validateEmail]
+        before: [validateEmail],
       },
       detailedStats: {
         actionType: 'resource',
@@ -21,7 +21,7 @@ export const CreatePersonResource = (): CreateResourceResult<typeof Person> => (
         name: 'Resource statistics',
         component: DETAILED_STATS,
         handler: async () => {
-          return {true: 'ueas'}
+          return { true: 'ueas' };
         },
         showInDrawer: true,
       },
@@ -32,10 +32,10 @@ export const CreatePersonResource = (): CreateResourceResult<typeof Person> => (
         component: DONT_TOUCH_THIS_ACTION,
         handler: async (request, response, context) => {
           return {
-            record: context.record.toJSON()
-          }
-        }
-      }
-    }
-  }
-})
+            record: context.record.toJSON(),
+          };
+        },
+      },
+    },
+  },
+});

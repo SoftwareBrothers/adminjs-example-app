@@ -1,5 +1,5 @@
-import {BaseEntity, Column, Entity, PrimaryGeneratedColumn} from "typeorm";
-import {CountryEnum} from "../enums/country.enum";
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { CountryEnum } from '../enums/country.enum';
 
 @Entity({ name: 'organizations' })
 export class Organization extends BaseEntity {
@@ -15,7 +15,7 @@ export class Organization extends BaseEntity {
   @Column()
   public city: string;
 
-  @Column({ name: 'postal_code'})
+  @Column({ name: 'postal_code' })
   public postalCode: string;
 
   @Column({

@@ -1,2 +1,2 @@
-export { CreateOrganizationResource } from './organization.resource'
-export { CreatePersonResource } from './person.resource'
+export { CreateOrganizationResource } from './organization.resource';
+export { CreatePersonResource } from './person.resource';

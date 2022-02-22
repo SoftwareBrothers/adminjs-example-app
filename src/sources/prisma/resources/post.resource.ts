@@ -1,10 +1,10 @@
-import {menu} from "../../../admin";
-import {client, dmmf } from "../config";
+import { menu } from '../../../admin';
+import { client, dmmf } from '../config';
 
 export const CreatePostResource = () => ({
   resource: {
     model: dmmf.modelMap.Post,
-    client
+    client,
   },
   options: {
     parent: menu.prisma,
@@ -15,5 +15,5 @@ export const CreatePostResource = () => ({
       'someJson.boolean': { type: 'boolean' },
       'someJson.date': { type: 'datetime' },
     },
-  }
-})
+  },
+});

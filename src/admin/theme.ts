@@ -12,5 +12,5 @@ export default {
     inputBck: '#192035',
     lightSuccess: '#008340',
     lightError: '#660040',
-  }
-}
+  },
+};

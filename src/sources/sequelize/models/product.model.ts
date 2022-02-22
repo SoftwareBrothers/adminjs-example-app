@@ -1,15 +1,15 @@
-import {DataTypes, Model, Optional, Association, HasOneGetAssociationMixin, NonAttribute} from "sequelize";
-import { sequelize } from "../index";
-import {CategoryModel} from "./category.model";
+import { DataTypes, Model, Optional, Association, HasOneGetAssociationMixin, NonAttribute } from 'sequelize';
+import { sequelize } from '../index';
+import { CategoryModel } from './category.model';
 
 type Product = {
-  id: number,
-  name: string,
-  price: number,
-  categoryId: number,
-  createdAt: Date,
-  updatedAt: Date,
-}
+  id: number;
+  name: string;
+  price: number;
+  categoryId: number;
+  createdAt: Date;
+  updatedAt: Date;
+};
 
 type ProductCreationAttributes = Optional<Product, 'id'>;
 
@@ -35,41 +35,41 @@ ProductModel.init(
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
-      primaryKey: true
+      primaryKey: true,
     },
     name: {
       type: new DataTypes.STRING(128),
-      allowNull: false
+      allowNull: false,
     },
     price: {
-      type: new DataTypes.INTEGER,
-      allowNull: false
+      type: new DataTypes.INTEGER(),
+      allowNull: false,
     },
     createdAt: {
-      type: DataTypes.DATE
+      type: DataTypes.DATE,
     },
     updatedAt: {
-      type: DataTypes.DATE
+      type: DataTypes.DATE,
     },
     categoryId: {
       type: DataTypes.INTEGER,
       references: {
         model: 'categories',
-        key: 'id'
+        key: 'id',
       },
-      allowNull: false
-    }
+      allowNull: false,
+    },
   },
   {
     sequelize,
     tableName: 'products',
-    modelName: 'product'
+    modelName: 'product',
   }
-)
+);
 
 ProductModel.belongsTo(CategoryModel, {
   foreignKey: 'categoryId',
   targetKey: 'id',
-  as: 'category'
+  as: 'category',
 });
-CategoryModel.hasMany(ProductModel, { sourceKey: 'id' })
+CategoryModel.hasMany(ProductModel, { sourceKey: 'id' });

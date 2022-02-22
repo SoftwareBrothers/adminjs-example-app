@@ -1,9 +1,9 @@
-import {CreateResourceResult} from "../../../admin/create-resource-result.type";
-import {menu} from "../../../admin";
-import {OrderModel} from "../models";
-import {PRODUCTS_LIST} from "../../../admin/components.bundler";
-import {getProducts} from "../hooks/get-products.hook";
-import {getSumForOrder} from "../hooks/get-sum.hook";
+import { CreateResourceResult } from '../../../admin/create-resource-result.type';
+import { menu } from '../../../admin';
+import { OrderModel } from '../models';
+import { PRODUCTS_LIST } from '../../../admin/components.bundler';
+import { getProducts } from '../hooks/get-products.hook';
+import { getSumForOrder } from '../hooks/get-sum.hook';
 
 export const CreateOrderResource = (): CreateResourceResult<typeof OrderModel> => ({
   resource: OrderModel,
@@ -11,16 +11,11 @@ export const CreateOrderResource = (): CreateResourceResult<typeof OrderModel> =
     parent: menu.sequelize,
     actions: {
       list: {
-        after: [
-          getSumForOrder()
-        ]
+        after: [getSumForOrder()],
       },
       show: {
-        after: [
-          getProducts(),
-          getSumForOrder()
-        ]
-      }
+        after: [getProducts(), getSumForOrder()],
+      },
     },
     properties: {
       sum: {
@@ -28,34 +23,34 @@ export const CreateOrderResource = (): CreateResourceResult<typeof OrderModel> =
           edit: false,
           list: true,
           filter: false,
-          show: true
+          show: true,
         },
-        position: 998
+        position: 998,
       },
       productsList: {
         isVisible: {
           edit: false,
           list: false,
           filter: false,
-          show: true
+          show: true,
         },
         components: {
-          show: PRODUCTS_LIST
+          show: PRODUCTS_LIST,
         },
-        position: 999
+        position: 999,
       },
       createdAt: {
         isVisible: {
           show: true,
-          edit: false
-        }
+          edit: false,
+        },
       },
       updatedAt: {
         isVisible: {
           show: true,
-          edit: false
-        }
-      }
-    }
-  }
-})
+          edit: false,
+        },
+      },
+    },
+  },
+});

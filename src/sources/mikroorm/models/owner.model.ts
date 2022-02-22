@@ -27,7 +27,11 @@ export class Owner extends BaseEntity<Owner, 'id'> {
   @Property({ fieldName: 'created_at', columnType: 'timestamptz' })
   createdAt: Date = new Date();
 
-  @Property({ fieldName: 'updated_at', columnType: 'timestamptz', onUpdate: () => new Date() })
+  @Property({
+    fieldName: 'updated_at',
+    columnType: 'timestamptz',
+    onUpdate: () => new Date(),
+  })
   updatedAt: Date = new Date();
 
   @OneToMany(() => Car, (car) => car.owner)

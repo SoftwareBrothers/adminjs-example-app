@@ -1,6 +1,6 @@
-import {CommentModel} from "../models";
-import {CreateResourceResult} from "../../../admin/create-resource-result.type";
-import {menu} from "../../../admin";
+import { CommentModel } from '../models';
+import { CreateResourceResult } from '../../../admin/create-resource-result.type';
+import { menu } from '../../../admin';
 
 export const CreateCommentResource = (): CreateResourceResult<typeof CommentModel> => ({
   resource: CommentModel,
@@ -12,15 +12,15 @@ export const CreateCommentResource = (): CreateResourceResult<typeof CommentMode
       },
       edit: {
         showInDrawer: true,
-      }
+      },
     },
     properties: {
       _id: {
-        isTitle: true
+        isTitle: true,
       },
       content: {
         type: 'textarea',
       },
-    }
-  }
-})
+    },
+  },
+});

@@ -1,14 +1,10 @@
-import {MikroORM} from "@mikro-orm/core";
-import {Owner, Car, Seller} from "./models";
-import {Options} from "@mikro-orm/core/utils";
-import {Configuration} from "@mikro-orm/core/utils/Configuration";
+import { MikroORM } from '@mikro-orm/core';
+import { Owner, Car, Seller } from './models';
+import { Options } from '@mikro-orm/core/utils';
+import { Configuration } from '@mikro-orm/core/utils/Configuration';
 
 const config: Options = {
-  entities: [
-    Owner,
-    Car,
-    Seller
-  ],
+  entities: [Owner, Car, Seller],
   dbName: process.env.MIKROORM_DATABASE,
   type: (process.env.MIKROORM_TYPE || 'postgresql') as keyof typeof Configuration.PLATFORMS,
   clientUrl: process.env.MIKROORM_HOST || 'localhost',
@@ -19,12 +15,12 @@ const config: Options = {
   migrations: {
     path: __dirname + '/migrations',
     emit: 'ts',
-  }
-}
+  },
+};
 
 export const init = async () => {
   orm = await MikroORM.init(config);
-}
+};
 
 export default config;
 export let orm;

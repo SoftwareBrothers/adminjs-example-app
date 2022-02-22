@@ -1,12 +1,12 @@
-import {menu} from "../../../admin";
-import {client, dmmf } from "../config";
+import { menu } from '../../../admin';
+import { client, dmmf } from '../config';
 
 export const CreatePublisherResource = () => ({
   resource: {
     model: dmmf.modelMap.Publisher,
-    client
+    client,
   },
   options: {
     parent: menu.prisma,
-  }
-})
+  },
+});

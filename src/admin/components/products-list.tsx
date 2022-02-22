@@ -1,10 +1,11 @@
-import React from 'react'
-import {Box, FormGroup, Label, Table, TableBody, TableCell, TableHead, TableRow} from '@adminjs/design-system'
-import {unflatten, useTranslation} from "adminjs";
+import React from 'react';
+import { Box, FormGroup, Label, Table, TableBody, TableCell, TableHead, TableRow } from '@adminjs/design-system';
+import { unflatten, useTranslation, BasePropertyProps } from 'adminjs';
+import { ProductListInterface } from '../../sources/sequelize/interfaces';
 
-const ProductsList = (props) => {
-  const params = unflatten(props.record.params);
-  const { translateLabel } = useTranslation()
+const ProductsList = (props: BasePropertyProps) => {
+  const { translateLabel } = useTranslation();
+  const params = unflatten<any, ProductListInterface>(props.record.params);
 
   return (
     <FormGroup mb={24}>
@@ -23,23 +24,26 @@ const ProductsList = (props) => {
           <TableBody>
             {!params.products.length && (
               <TableRow>
-                <TableCell colSpan={5} style={{ textAlign: 'center' }}>No records</TableCell>
+                <TableCell colSpan={5} style={{ textAlign: 'center' }}>
+                  No records
+                </TableCell>
               </TableRow>
             )}
-            {params.products.length > 0 && params.products.map(({quantity, product}) => (
-              <TableRow key={product.id}>
-                <TableCell>{product.id}</TableCell>
-                <TableCell>{product.name}</TableCell>
-                <TableCell>{quantity}</TableCell>
-                <TableCell>{product.price / 100}</TableCell>
-                <TableCell>{(product.price * quantity) / 100}</TableCell>
-              </TableRow>
-            ))}
+            {params.products.length > 0 &&
+              params.products.map(({ quantity, product }) => (
+                <TableRow key={product.id}>
+                  <TableCell>{product.id}</TableCell>
+                  <TableCell>{product.name}</TableCell>
+                  <TableCell>{quantity}</TableCell>
+                  <TableCell>{product.price / 100}</TableCell>
+                  <TableCell>{(product.price * quantity) / 100}</TableCell>
+                </TableRow>
+              ))}
           </TableBody>
         </Table>
       </Box>
     </FormGroup>
-  )
-}
+  );
+};
 
-export default ProductsList
+export default ProductsList;

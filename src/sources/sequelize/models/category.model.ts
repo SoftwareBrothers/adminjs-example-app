@@ -1,16 +1,12 @@
-import {
-  DataTypes,
-  Model,
-  Optional,
-} from "sequelize";
-import { sequelize } from "../index";
+import { DataTypes, Model, Optional } from 'sequelize';
+import { sequelize } from '../index';
 
 type Category = {
-  id: number,
-  name: string,
-  createdAt: Date,
-  updatedAt: Date,
-}
+  id: number;
+  name: string;
+  createdAt: Date;
+  updatedAt: Date;
+};
 
 type CategoryCreationAttributes = Optional<Category, 'id'>;
 
@@ -26,22 +22,22 @@ CategoryModel.init(
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
-      primaryKey: true
+      primaryKey: true,
     },
     name: {
       type: new DataTypes.STRING(128),
-      allowNull: false
+      allowNull: false,
     },
     createdAt: {
-      type: DataTypes.DATE
+      type: DataTypes.DATE,
     },
     updatedAt: {
-      type: DataTypes.DATE
+      type: DataTypes.DATE,
     },
   },
   {
     sequelize,
     tableName: 'categories',
-    modelName: 'category'
+    modelName: 'category',
   }
-)
+);

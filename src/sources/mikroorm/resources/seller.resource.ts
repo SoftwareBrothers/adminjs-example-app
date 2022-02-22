@@ -1,13 +1,13 @@
-import {menu} from "../../../admin";
-import {Seller} from "../models";
-import {orm} from "../config";
+import { menu } from '../../../admin';
+import { Seller } from '../models';
+import { orm } from '../config';
 
 export const CreateSellerResource = () => ({
   resource: {
     model: Seller,
-    orm
+    orm,
   },
   options: {
     parent: menu.mikroorm,
-  }
-})
+  },
+});

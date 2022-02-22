@@ -1,6 +1,6 @@
-import {CreateResourceResult} from "../../../admin/create-resource-result.type";
-import {menu} from "../../../admin";
-import {CategoryModel} from "../models";
+import { CreateResourceResult } from '../../../admin/create-resource-result.type';
+import { menu } from '../../../admin';
+import { CategoryModel } from '../models';
 
 export const CreateCategoryResource = (): CreateResourceResult<typeof CategoryModel> => ({
   resource: CategoryModel,
@@ -11,16 +11,16 @@ export const CreateCategoryResource = (): CreateResourceResult<typeof CategoryMo
         showInDrawer: true,
       },
       edit: {
-        showInDrawer: true
+        showInDrawer: true,
       },
       new: {
-        showInDrawer: true
-      }
+        showInDrawer: true,
+      },
     },
     properties: {
       _id: {
-        isTitle: true
-      }
-    }
-  }
-})
+        isTitle: true,
+      },
+    },
+  },
+});

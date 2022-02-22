@@ -1,21 +1,14 @@
-import {
-  DataTypes,
-  Model,
-  Optional,
-  Association,
-  NonAttribute,
-  HasManyGetAssociationsMixin
-} from "sequelize";
-import { sequelize } from "../index";
-import {CartModel} from "./cart.model";
+import { DataTypes, Model, Optional, Association, NonAttribute, HasManyGetAssociationsMixin } from 'sequelize';
+import { sequelize } from '../index';
+import { CartModel } from './cart.model';
 
 type Order = {
-  id: number,
-  isPaid: boolean,
+  id: number;
+  isPaid: boolean;
   delivery: string;
-  createdAt: Date,
-  updatedAt: Date,
-}
+  createdAt: Date;
+  updatedAt: Date;
+};
 
 type OrderCreationAttributes = Optional<Order, 'id'>;
 
@@ -40,25 +33,25 @@ OrderModel.init(
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
-      primaryKey: true
+      primaryKey: true,
     },
     isPaid: {
       type: DataTypes.BOOLEAN,
-      defaultValue: false
+      defaultValue: false,
     },
     delivery: {
       type: DataTypes.STRING,
     },
     createdAt: {
-      type: DataTypes.DATE
+      type: DataTypes.DATE,
     },
     updatedAt: {
-      type: DataTypes.DATE
+      type: DataTypes.DATE,
     },
   },
   {
     sequelize,
     tableName: 'orders',
-    modelName: 'order'
+    modelName: 'order',
   }
-)
+);

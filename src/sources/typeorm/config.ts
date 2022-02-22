@@ -1,5 +1,5 @@
 require('dotenv').config();
-const {createConnection} = require("typeorm");
+const { createConnection } = require('typeorm');
 
 const params = {
   type: process.env.TYPEORM_TYPE || 'postgres',
@@ -12,9 +12,9 @@ const params = {
   migrations: [`${__dirname}/migrations/*.ts`],
   migrationsRun: true,
   cli: {
-    migrationsDir: `${__dirname}/migrations`
+    migrationsDir: `${__dirname}/migrations`,
   },
-}
+};
 
 export default params;
-export const connection = createConnection(params)
+export const connection = createConnection(params);

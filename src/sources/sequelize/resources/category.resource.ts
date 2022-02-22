@@ -1,6 +1,6 @@
-import {CategoryModel} from "../models";
-import {CreateResourceResult} from "../../../admin/create-resource-result.type";
-import {menu} from "../../../admin";
+import { CategoryModel } from '../models';
+import { CreateResourceResult } from '../../../admin/create-resource-result.type';
+import { menu } from '../../../admin';
 
 export const CreateCategoryResource = (): CreateResourceResult<typeof CategoryModel> => ({
   resource: CategoryModel,
@@ -8,20 +8,20 @@ export const CreateCategoryResource = (): CreateResourceResult<typeof CategoryMo
     parent: menu.sequelize,
     properties: {
       name: {
-        isTitle: true
+        isTitle: true,
       },
       createdAt: {
         isVisible: {
           show: true,
-          edit: false
-        }
+          edit: false,
+        },
       },
       updatedAt: {
         isVisible: {
           show: true,
-          edit: false
-        }
-      }
-    }
-  }
-})
+          edit: false,
+        },
+      },
+    },
+  },
+});

@@ -1,9 +1,8 @@
-import {AdminModel} from "../models";
-import {CreateResourceResult} from "../../../admin/create-resource-result.type";
-import {menu} from "../../../admin";
-import {PASSWORD_EDIT} from "../../../admin/components.bundler";
-import {updatePassword} from "./hooks/update-password";
-import {movePasswordErrors} from "./hooks/move-password-errors";
+import { AdminModel } from '../models';
+import { CreateResourceResult } from '../../../admin/create-resource-result.type';
+import { menu } from '../../../admin';
+import passwordsFeature from '@adminjs/passwords';
+import argon2 from 'argon2';
 
 export const CreateAdminResource = (): CreateResourceResult<typeof AdminModel> => ({
   resource: AdminModel,
@@ -13,7 +12,14 @@ export const CreateAdminResource = (): CreateResourceResult<typeof AdminModel> =
       listProperties: ['_id', 'email'],
       showProperties: ['_id', 'email'],
       editProperties: ['email', 'newPassword'],
-    })
+    }),
+    passwordsFeature({
+      properties: {
+        password: 'newPassword',
+        encryptedPassword: 'password',
+      },
+      hash: argon2.hash,
+    }),
   ],
   options: {
     parent: menu.mongoose,
@@ -21,40 +27,5 @@ export const CreateAdminResource = (): CreateResourceResult<typeof AdminModel> =
       direction: 'asc',
       sortBy: 'email',
     },
-    actions: {
-      new: {
-        before: [
-          updatePassword
-        ],
-        after: [
-          movePasswordErrors
-        ]
-      },
-      edit: {
-        before: [
-          updatePassword
-        ],
-        after: [
-          movePasswordErrors
-        ]
-      }
-    },
-    properties: {
-      password: {
-        isVisible: {
-          list: false,
-          edit: false,
-          filter: false,
-          show: false
-        }
-      },
-      newPassword: {
-        components: {
-          edit: PASSWORD_EDIT,
-        },
-        isVisible: { show: false, edit: true, list: false },
-        type: 'string',
-      },
-    }
-  }
-})
+  },
+});

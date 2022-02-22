@@ -1,7 +1,7 @@
-import {CreateResourceResult} from "../../../admin/create-resource-result.type";
-import {menu} from "../../../admin";
-import {ArticleModel} from "../models";
-import {THUMB} from "../../../admin/components.bundler";
+import { CreateResourceResult } from '../../../admin/create-resource-result.type';
+import { menu } from '../../../admin';
+import { ArticleModel } from '../models';
+import { THUMB } from '../../../admin/components.bundler';
 
 export const CreateArticleResource = (): CreateResourceResult<typeof ArticleModel> => ({
   resource: ArticleModel,
@@ -9,16 +9,16 @@ export const CreateArticleResource = (): CreateResourceResult<typeof ArticleMode
     parent: menu.mongoose,
     properties: {
       _id: {
-        isTitle: true
+        isTitle: true,
       },
       content: {
-        type: 'richtext'
+        type: 'richtext',
       },
       published: {
         components: {
-          list: THUMB
-        }
+          list: THUMB,
+        },
       },
-    }
-  }
-})
+    },
+  },
+});

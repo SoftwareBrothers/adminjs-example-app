@@ -1,6 +1,6 @@
-import {CreateResourceResult} from "../../../admin/create-resource-result.type";
-import {menu} from "../../../admin";
-import {ComplicatedModel} from "../models";
+import { CreateResourceResult } from '../../../admin/create-resource-result.type';
+import { menu } from '../../../admin';
+import { ComplicatedModel } from '../models';
 
 export const CreateComplicatedResource = (): CreateResourceResult<typeof ComplicatedModel> => ({
   resource: ComplicatedModel,
@@ -8,8 +8,8 @@ export const CreateComplicatedResource = (): CreateResourceResult<typeof Complic
     parent: menu.mongoose,
     properties: {
       _id: {
-        isTitle: true
+        isTitle: true,
       },
-    }
-  }
-})
+    },
+  },
+});

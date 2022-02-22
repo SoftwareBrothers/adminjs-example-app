@@ -1,14 +1,14 @@
-import {DataTypes, Model, Optional, Association, HasOneGetAssociationMixin, NonAttribute} from "sequelize";
-import { sequelize } from "../index";
-import {ProductModel} from "./product.model";
-import {OrderModel} from "./order.model";
+import { DataTypes, Model, Optional, Association, HasOneGetAssociationMixin, NonAttribute } from 'sequelize';
+import { sequelize } from '../index';
+import { ProductModel } from './product.model';
+import { OrderModel } from './order.model';
 
 type Cart = {
-  id: number,
-  quantity: number,
-  createdAt: Date,
-  updatedAt: Date,
-}
+  id: number;
+  quantity: number;
+  createdAt: Date;
+  updatedAt: Date;
+};
 
 type CartCreationAttributes = Optional<Cart, 'id'>;
 
@@ -35,11 +35,11 @@ CartModel.init(
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
-      primaryKey: true
+      primaryKey: true,
     },
     quantity: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
     },
     createdAt: {
       type: DataTypes.DATE,
@@ -51,11 +51,23 @@ CartModel.init(
   {
     sequelize,
     tableName: 'cart_products',
-    modelName: 'cart'
+    modelName: 'cart',
   }
-)
+);
 
-CartModel.belongsTo(ProductModel, { targetKey: 'id', as: 'product', foreignKey: 'productId' });
+CartModel.belongsTo(ProductModel, {
+  targetKey: 'id',
+  as: 'product',
+  foreignKey: 'productId',
+});
 
-CartModel.belongsTo(OrderModel, { targetKey: 'id', as: 'order', foreignKey: 'orderId' });
-OrderModel.hasMany(CartModel, { sourceKey: 'id', as: 'carts', foreignKey: 'orderId' })
+CartModel.belongsTo(OrderModel, {
+  targetKey: 'id',
+  as: 'order',
+  foreignKey: 'orderId',
+});
+OrderModel.hasMany(CartModel, {
+  sourceKey: 'id',
+  as: 'carts',
+  foreignKey: 'orderId',
+});

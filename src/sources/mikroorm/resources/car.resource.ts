@@ -1,11 +1,11 @@
-import {menu} from "../../../admin";
-import {Car} from "../models";
-import {orm} from "../config";
+import { menu } from '../../../admin';
+import { Car } from '../models';
+import { orm } from '../config';
 
 export const CreateCarResource = () => ({
   resource: {
     model: Car,
-    orm
+    orm,
   },
   options: {
     parent: menu.mikroorm,
@@ -18,5 +18,5 @@ export const CreateCarResource = () => ({
         type: 'string',
       },
     },
-  }
-})
+  },
+});
