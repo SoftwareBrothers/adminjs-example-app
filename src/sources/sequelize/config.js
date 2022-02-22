@@ -1,10 +1,10 @@
 module.exports = {
   development: {
-    dialect: 'postgres',
-    username: process.env.POSTGRES_USER,
-    password: process.env.POSTGRES_PASSWORD,
-    host: process.env.POSTGRES_HOST,
-    port: +process.env.POSTGRES_PORT,
-    database: process.env.POSTGRES_DATABASE,
+    dialect: process.env.SEQUELIZE_TYPE || 'postgres',
+    username: process.env.SEQUELIZE_USERNAME,
+    password: process.env.SEQUELIZE_PASSWORD,
+    host: process.env.SEQUELIZE_HOST || 'localhost',
+    port: +process.env.SEQUELIZE_PORT || 5432,
+    database: process.env.SEQUELIZE_DATABASE,
   }
 }

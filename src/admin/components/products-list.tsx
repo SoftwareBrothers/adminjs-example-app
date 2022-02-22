@@ -1,9 +1,10 @@
 import React from 'react'
 import {Box, FormGroup, Label, Table, TableBody, TableCell, TableHead, TableRow} from '@adminjs/design-system'
-import {unflatten} from "adminjs";
+import {unflatten, useTranslation} from "adminjs";
 
 const ProductsList = (props) => {
   const params = unflatten(props.record.params);
+  const { translateLabel } = useTranslation()
 
   return (
     <FormGroup mb={24}>
@@ -12,11 +13,11 @@ const ProductsList = (props) => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell>Name</TableCell>
-              <TableCell>Quantity</TableCell>
-              <TableCell>Unit Price</TableCell>
-              <TableCell>Sum</TableCell>
+              <TableCell>{translateLabel('ID')}</TableCell>
+              <TableCell>{translateLabel('Name')}</TableCell>
+              <TableCell>{translateLabel('Quantity')}</TableCell>
+              <TableCell>{translateLabel('Unit price')}</TableCell>
+              <TableCell>{translateLabel('Sum')}</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
