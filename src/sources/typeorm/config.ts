@@ -1,3 +1,5 @@
+import { TypeOrmModuleOptions } from '@nestjs/typeorm/dist/interfaces/typeorm-options.interface';
+
 require('dotenv').config();
 const { createConnection } = require('typeorm');
 
@@ -16,5 +18,5 @@ const params = {
   },
 };
 
-export default params;
+export default params as TypeOrmModuleOptions;
 export const connection = createConnection(params);

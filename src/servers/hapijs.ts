@@ -1,7 +1,7 @@
 import { init } from '../sources/mikroorm/config';
 import { connection } from '../sources/typeorm/config';
 import { generateAdminJSConfig } from '../admin';
-import { router } from '../admin/router';
+import { expressAuthenticatedRouter } from '../admin/router';
 import AdminJS from 'adminjs';
 
 const Hapi = require('@hapi/hapi');
@@ -24,7 +24,7 @@ const start = async () => {
       plugin: AdminJSPlugin,
       options: {
         ...adminJS,
-        auth: router(new AdminJS(adminJS)),
+        auth: expressAuthenticatedRouter(new AdminJS(adminJS)),
       },
     });
 

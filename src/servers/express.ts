@@ -1,6 +1,6 @@
 import { createAdmin, generateAdminJSConfig } from '../admin';
 import mongoose from 'mongoose';
-import { router } from '../admin/router';
+import { expressAuthenticatedRouter } from '../admin/router';
 import { init } from '../sources/mikroorm/config';
 import { connection } from '../sources/typeorm/config';
 import AdminJS from 'adminjs';
@@ -11,7 +11,7 @@ const app = express();
 const attachAdminJS = async () => {
   const config = generateAdminJSConfig();
   const adminJS = new AdminJS(config);
-  app.use(adminJS.options.rootPath, router(adminJS));
+  app.use(adminJS.options.rootPath, expressAuthenticatedRouter(adminJS));
   await createAdmin();
 };
 

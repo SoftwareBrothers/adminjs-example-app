@@ -9,7 +9,7 @@ export interface Article {
   published: boolean;
 }
 
-const schema = new Schema<Article>({
+export const ArticleSchema = new Schema<Article>({
   title: { type: 'String', required: true },
   content: { type: 'String', required: true },
   photo: { type: 'String' },
@@ -18,4 +18,4 @@ const schema = new Schema<Article>({
   published: { type: 'Boolean' },
 });
 
-export const ArticleModel = model<Article>('Article', schema);
+export const ArticleModel = model<Article>('Article', ArticleSchema);

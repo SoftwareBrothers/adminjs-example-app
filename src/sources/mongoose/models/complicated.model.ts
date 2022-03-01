@@ -23,7 +23,7 @@ export interface Complicated {
   }[];
 }
 
-const schema = new Schema<Complicated>({
+export const ComplicatedSchema = new Schema<Complicated>({
   name: { type: 'String', required: true },
   stringArray: { type: ['String'] },
   authors: [{ type: Types.ObjectId, ref: 'User' }],
@@ -70,4 +70,4 @@ const schema = new Schema<Complicated>({
   ],
 });
 
-export const ComplicatedModel = model<Complicated>('Complicated', schema);
+export const ComplicatedModel = model<Complicated>('Complicated', ComplicatedSchema);

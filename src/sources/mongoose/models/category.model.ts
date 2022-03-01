@@ -11,7 +11,7 @@ export interface Category {
   updatedAt: Date;
 }
 
-const schema = new Schema<Category>(
+export const CategorySchema = new Schema<Category>(
   {
     title: { type: 'String', required: true },
     owner: { type: Schema.Types.ObjectId, ref: 'User' },
@@ -20,4 +20,4 @@ const schema = new Schema<Category>(
   { timestamps: true }
 );
 
-export const CategoryModel = model<Category>('Category', schema);
+export const CategoryModel = model<Category>('Category', CategorySchema);

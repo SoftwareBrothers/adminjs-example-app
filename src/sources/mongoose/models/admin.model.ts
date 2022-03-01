@@ -5,9 +5,9 @@ export interface Admin {
   password: string;
 }
 
-const schema = new Schema<Admin>({
+export const AdminSchema = new Schema<Admin>({
   email: { type: 'String', required: true },
   password: { type: 'String', required: true },
 });
 
-export const AdminModel = model<Admin>('Admin', schema);
+export const AdminModel = model<Admin>('Admin', AdminSchema);

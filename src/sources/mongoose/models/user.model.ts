@@ -13,7 +13,7 @@ export interface User {
   isMyFavourite: boolean;
 }
 
-const schema = new Schema<User>({
+export const UserSchema = new Schema<User>({
   firstName: { type: 'String', required: true },
   lastName: { type: 'String', required: true },
   gender: { type: 'String', required: true, enum: Gender },
@@ -21,4 +21,4 @@ const schema = new Schema<User>({
   isMyFavourite: { type: 'Boolean', required: true },
 });
 
-export const UserModel = model<User>('User', schema);
+export const UserModel = model<User>('User', UserSchema);
