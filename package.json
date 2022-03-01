@@ -21,7 +21,7 @@
   "dependencies": {
     "@adminjs/design-system": "^2.1.1",
     "@adminjs/express": "^4.0.1",
-    "@adminjs/fastify": "^1.0.1",
+    "@adminjs/fastify": "^1.1.0",
     "@adminjs/hapi": "^4.0.1",
     "@adminjs/mikroorm": "^1.1.0",
     "@adminjs/mongoose": "^2.0.0",
