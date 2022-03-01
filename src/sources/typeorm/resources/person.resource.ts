@@ -28,7 +28,7 @@ export const CreatePersonResource = (): CreateResourceResult<typeof Person> => (
       dontTouchThis: {
         actionType: 'record',
         icon: 'Exit',
-        guard: 'You can setup guards before an action - just in case.',
+        guard: 'youCanSetupGuards',
         component: DONT_TOUCH_THIS_ACTION,
         handler: async (request, response, context) => {
           return {
