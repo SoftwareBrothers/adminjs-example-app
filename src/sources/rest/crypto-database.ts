@@ -11,7 +11,7 @@ export class CryptoDatabase extends BaseResource {
       path: 'website_slug',
       type: 'string',
       isId: true,
-      isSortable: true,
+      isSortable: false,
       position: 1,
     }),
     new BaseProperty({

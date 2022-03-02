@@ -2290,10 +2290,10 @@ acorn@^8.4.1, acorn@^8.7.0:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.7.0.tgz#90951fde0f8f09df93549481e5fc141445b791cf"
   integrity sha512-V/LGr1APy+PXIwKebEWrkZPwoeoF+w1jiOBUmuxuiUIaOHtob8Qc9BTrYo7VuI5fR8tqsy+buA2WFooR5olqvQ==
 
-adminjs@^5.7.0:
-  version "5.7.0"
-  resolved "https://registry.yarnpkg.com/adminjs/-/adminjs-5.7.0.tgz#b760f3b5f80952c8f7e6566011bfa082406c8c7f"
-  integrity sha512-9yzURUv585yB4zN6cUqS/7j8mqBfMN6MMQlnSQtBN7grL07WDpMZ255SC72YBxsfErUAvhrEV9r68RFKrALiWQ==
+adminjs@^5.7.3:
+  version "5.7.3"
+  resolved "https://registry.yarnpkg.com/adminjs/-/adminjs-5.7.3.tgz#e5a42f7efb2d1772d340ffb66f14cf19a829d6e7"
+  integrity sha512-2fNfTDucKCK6FdLmNUbIrkidPA+9LUxX/XO1locoBS1UqlZNLArt+6XB0LqxtObbbENSAtSMJ7I10fg0rBxVYA==
   dependencies:
     "@adminjs/design-system" "^2.1.0"
     "@babel/core" "^7.10.2"
@@ -2320,9 +2320,9 @@ adminjs@^5.7.0:
     ora "^5.4.1"
     prop-types "^15.7.2"
     punycode "^2.1.1"
-    react "17.0.2"
+    react "^16.13.1"
     react-beautiful-dnd "^13.0.0"
-    react-dom "17.0.2"
+    react-dom "^16.13.1"
     react-i18next "^11.14.3"
     react-is "=16.13.1"
     react-redux "=7.2.0"
@@ -6175,7 +6175,17 @@ react-datepicker@^3.1.3:
     react-onclickoutside "^6.10.0"
     react-popper "^1.3.8"
 
-react-dom@17.0.2, react-dom@^17.0.2:
+react-dom@^16.13.1:
+  version "16.14.0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.14.0.tgz#7ad838ec29a777fb3c75c3a190f661cf92ab8b89"
+  integrity sha512-1gCeQXDLoIqMgqD3IO2Ah9bnf0w9kzhwN5q4FGnHZ67hBm9yePzB5JJAIQCc8x3pFnNlwFq4RidZggNAAkzWWw==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+    scheduler "^0.19.1"
+
+react-dom@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
   integrity sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==
@@ -6304,7 +6314,16 @@ react-transition-group@^4.3.0:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react@17.0.2, react@^17.0.2:
+react@^16.13.1:
+  version "16.14.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
+  integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+
+react@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
   integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
@@ -6640,6 +6659,14 @@ sax@>=0.6.0:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
   integrity sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
+
+scheduler@^0.19.1:
+  version "0.19.1"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.19.1.tgz#4f3e2ed2c1a7d65681f4c854fa8c5a1ccb40f196"
+  integrity sha512-n/zwRWRYSUj0/3g/otKDRPMh6qv2SYMWNq85IEa8iZyAv8od9zDYpGSnpBEjNgcMNq6Scbu5KfIPxNF72R/2EA==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
 
 scheduler@^0.20.2:
   version "0.20.2"
