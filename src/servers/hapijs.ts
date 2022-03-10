@@ -1,12 +1,11 @@
-import { init } from '../sources/mikroorm/config';
-import { connection } from '../sources/typeorm/config';
+import AdminJSPlugin from '@adminjs/hapi';
+import Hapi from '@hapi/hapi';
+import AdminJS from 'adminjs';
+import mongoose from 'mongoose';
 import { generateAdminJSConfig } from '../admin';
 import { expressAuthenticatedRouter } from '../admin/router';
-import AdminJS from 'adminjs';
-
-const Hapi = require('@hapi/hapi');
-const mongoose = require('mongoose');
-const AdminJSPlugin = require('@adminjs/hapi');
+import { init } from '../sources/mikroorm/config';
+import { connection } from '../sources/typeorm/config';
 
 const start = async () => {
   try {
