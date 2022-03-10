@@ -1,0 +1,13 @@
+{
+  "messages": {
+    "loginWelcome": "to the demo application made with AdminJS - the best admin framework for Node.js apps, based on React.",
+    "Has to be filled": "Has to be filled"
+  },
+  "labels": {
+    "ID": "ID",
+    "Name": "Product's name",
+    "Quantity": "Number of products",
+    "Unit price": "Price",
+    "Sum": "Sum"
+  }
+}

@@ -1,4 +1,3 @@
-.env
 # Logs
 logs
 *.log
@@ -69,10 +68,6 @@ web_modules/
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variables file
-.env
-.env.test
-
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 .parcel-cache
@@ -123,3 +118,4 @@ coverage
 .adminjs
 public
 .adminbro
+.idea
