@@ -6,7 +6,7 @@ import { Database as TypeormDatabase, Resource as TypeormResource } from '@admin
 import { Database as PrismaDatabase, Resource as PrismaResource } from '@adminjs/prisma';
 import argon2 from 'argon2';
 import locale from './locale';
-import theme from './theme';
+import theme, { themes } from './theme';
 import { AdminModel } from '../sources/mongoose/models';
 import {
   CreateAdminResource,
@@ -59,6 +59,7 @@ export const generateAdminJSConfig = () => ({
     companyName: 'AdminJS demo page',
     theme,
   },
+  brandings: themes.map(theme => ({ theme })),
   version: {
     admin: true,
     app: '2.0.0',
