@@ -1,11 +1,12 @@
-import AdminJSPlugin from '@adminjs/hapi';
-import Hapi from '@hapi/hapi';
-import AdminJS from 'adminjs';
-import mongoose from 'mongoose';
-import { generateAdminJSConfig } from '../admin';
-import { expressAuthenticatedRouter } from '../admin/router';
 import { init } from '../sources/mikroorm/config';
 import { connection } from '../sources/typeorm/config';
+import { generateAdminJSConfig } from '../admin';
+import { expressAuthenticatedRouter } from '../admin/router';
+import AdminJS from 'adminjs';
+
+import Hapi from '@hapi/hapi';
+import mongoose from 'mongoose';
+import AdminJSPlugin from '@adminjs/hapi';
 
 const start = async () => {
   try {
