@@ -59,7 +59,7 @@ export const generateAdminJSConfig = () => ({
     companyName: 'AdminJS demo page',
     theme,
   },
-  brandings: themes.map(theme => ({ theme })),
+  availableBrandings: themes.map(theme => ({ theme })),
   version: {
     admin: true,
     app: '2.0.0',
