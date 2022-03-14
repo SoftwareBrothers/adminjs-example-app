@@ -1,4 +1,4 @@
-import AdminJS from 'adminjs';
+import AdminJS, { CurrentAdmin } from 'adminjs';
 import AdminJSMongoose from '@adminjs/mongoose';
 import AdminJSSequelize from '@adminjs/sequelize';
 import { Database as MikroormDatabse, Resource as MikroormResource } from '@adminjs/mikroorm';
@@ -6,7 +6,7 @@ import { Database as TypeormDatabase, Resource as TypeormResource } from '@admin
 import { Database as PrismaDatabase, Resource as PrismaResource } from '@adminjs/prisma';
 import argon2 from 'argon2';
 import locale from './locale';
-import theme, { themes } from './theme';
+import { brandings } from './branding';
 import { AdminModel } from '../sources/mongoose/models';
 import {
   CreateAdminResource,
@@ -43,6 +43,32 @@ AdminJS.registerAdapter({
   Resource: PrismaResource,
 });
 
+const getDefaultBranding = async (currentAdmin: CurrentAdmin) => {
+  const commonSettings = { companyName: 'AdminJS demo page' };
+  const allBrandings = await Promise.all(brandings.map(async ({
+    isAvailable,
+    theme,
+    logo,
+  }) => {
+    if (typeof isAvailable === 'undefined') return { ...commonSettings, theme, logo };
+    if (typeof isAvailable === 'function' && await isAvailable(currentAdmin)) {
+      return { ...commonSettings, theme, logo };
+    }
+    return false;
+  }));
+
+  const accessibleBrandings = allBrandings.filter(Boolean);
+
+  const defaultBranding = accessibleBrandings[0];
+
+  if (!defaultBranding) {
+    console.error('ERROR: Currently logged in user cannot access any of the brandings');
+    return null;
+  }
+
+  return defaultBranding;
+};
+
 export const menu = {
   rest: { name: 'REST', icon: 'Purchase' },
   mongoose: { name: 'Mongoose Resources', icon: 'Tree' },
@@ -55,11 +81,8 @@ export const menu = {
 export const generateAdminJSConfig = () => ({
   locale,
   rootPath: '/admin',
-  branding: {
-    companyName: 'AdminJS demo page',
-    theme,
-  },
-  brandings: themes.map(theme => ({ theme })),
+  branding: getDefaultBranding,
+  availableBrandings: brandings,
   version: {
     admin: true,
     app: '2.0.0',

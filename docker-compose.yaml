@@ -12,7 +12,10 @@ services:
   postgres-for-sequelize:
     container_name: adminjs-example-postgres-for-sequelize
     image: postgres:12-alpine
-    env_file: .env
+    environment:
+      - POSTGRES_DB=adminjs
+      - POSTGRES_USER=adminjs
+      - POSTGRES_PASSWORD=adminjs
     ports:
       - "5435:5432"
     volumes:
@@ -44,6 +47,7 @@ services:
 
   mysql-for-prisma:
     container_name: adminjs-example-mysql-for-prisma
+    platform: linux/x86_64
     image: mysql
     environment:
       MYSQL_ROOT_PASSWORD: adminjs
