@@ -45,17 +45,15 @@ AdminJS.registerAdapter({
 
 const getDefaultBranding = async (currentAdmin: CurrentAdmin) => {
   const commonSettings = { companyName: 'AdminJS demo page' };
-  const allBrandings = await Promise.all(brandings.map(async ({
-    isAvailable,
-    theme,
-    logo,
-  }) => {
-    if (typeof isAvailable === 'undefined') return { ...commonSettings, theme, logo };
-    if (typeof isAvailable === 'function' && await isAvailable(currentAdmin)) {
-      return { ...commonSettings, theme, logo };
-    }
-    return false;
-  }));
+  const allBrandings = await Promise.all(
+    brandings.map(async ({ isAvailable, theme, logo }) => {
+      if (typeof isAvailable === 'undefined') return { ...commonSettings, theme, logo };
+      if (typeof isAvailable === 'function' && (await isAvailable(currentAdmin))) {
+        return { ...commonSettings, theme, logo };
+      }
+      return false;
+    })
+  );
 
   const accessibleBrandings = allBrandings.filter(Boolean);
 
