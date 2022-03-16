@@ -25,7 +25,7 @@ import {
 import { CreateOrganizationResource, CreatePersonResource } from '../sources/typeorm/resources';
 import { CreateOwnerResource, CreateSellerResource, CreateCarResource } from '../sources/mikroorm/resources';
 import { CreatePostResource, CreatePublisherResource, CreateProfileResource } from '../sources/prisma/resources';
-import { SOME_STATS } from './components.bundler';
+import { DESIGN_SYSTEM_EXAMPLE_PAGE, SOME_STATS } from './components.bundler';
 import { CryptoDatabase } from '../sources/rest/crypto-database';
 
 AdminJS.registerAdapter(AdminJSMongoose);
@@ -100,6 +100,10 @@ export const generateAdminJSConfig = () => ({
           text: 'I am fetched from the backend',
         };
       },
+    },
+    'Design system example': {
+      component: DESIGN_SYSTEM_EXAMPLE_PAGE,
+      icon: 'Workspace',
     },
   },
 });
