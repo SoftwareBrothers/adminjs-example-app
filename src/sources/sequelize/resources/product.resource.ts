@@ -10,6 +10,12 @@ export const CreateProductResource = (): CreateResourceResult<typeof ProductMode
       name: {
         isTitle: true,
       },
+      price: {
+        type: 'currency',
+        props: {
+          intlConfig: { locale: 'de-DE', currency: 'EUR' },
+        },
+      },
       createdAt: {
         isVisible: {
           show: true,
