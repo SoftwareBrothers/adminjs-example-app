@@ -13,9 +13,6 @@ export const CreateUserResource = (): CreateResourceResult<typeof UserModel> => 
       aboutRich: {
         type: 'richtext',
       },
-      aboutNewRich: {
-        type: 'newrichtext',
-      },
     },
   },
 });
