@@ -10,8 +10,11 @@ export const CreateUserResource = (): CreateResourceResult<typeof UserModel> => 
       _id: {
         isTitle: true,
       },
-      aboutRich: {
+      about: {
         type: 'richtext',
+        props: {
+          limit: 2000,
+        },
       },
     },
   },

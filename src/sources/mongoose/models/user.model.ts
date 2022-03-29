@@ -19,7 +19,7 @@ export const UserSchema = new Schema<User>({
   gender: { type: 'String', required: true, enum: Gender },
   email: { type: 'String', required: true },
   isMyFavourite: { type: 'Boolean', required: true },
-  aboutRich: { type: 'String' },
+  about: { type: 'String' },
 });
 
 export const UserModel = model<User>('User', UserSchema);
