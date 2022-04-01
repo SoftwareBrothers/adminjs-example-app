@@ -1,4 +1,4 @@
-import AdminJS from 'adminjs';
+import AdminJS, { AdminJSOptions } from 'adminjs';
 import AdminJSMongoose from '@adminjs/mongoose';
 import AdminJSSequelize from '@adminjs/sequelize';
 import { Database as MikroormDatabse, Resource as MikroormResource } from '@adminjs/mikroorm';
@@ -27,6 +27,7 @@ import { CreateOwnerResource, CreateSellerResource, CreateCarResource } from '..
 import { CreatePostResource, CreatePublisherResource, CreateProfileResource } from '../sources/prisma/resources';
 import { SOME_STATS } from './components.bundler';
 import { CryptoDatabase } from '../sources/rest/crypto-database';
+// import assetsManifest from '../assets-manifest.json';
 
 AdminJS.registerAdapter(AdminJSMongoose);
 AdminJS.registerAdapter(AdminJSSequelize);
@@ -52,9 +53,14 @@ export const menu = {
   prisma: { name: 'Prisma Resources', icon: 'Industry' },
 };
 
-export const generateAdminJSConfig = () => ({
+export const generateAdminJSConfig = (): AdminJSOptions => ({
   locale,
   rootPath: '/admin',
+  // Uncomment "assetsCDN" and "assets.coreScripts" to test js assets versioning
+  // assetsCDN: 'http://localhost:3000/',
+  // assets: {
+  //   coreScripts: assetsManifest,
+  // },
   branding: {
     companyName: 'AdminJS demo page',
     theme,
