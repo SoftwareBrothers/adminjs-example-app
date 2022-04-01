@@ -119,3 +119,5 @@ coverage
 public
 .adminbro
 .idea
+public/*.bundle.*.js
+src/assets-manifest.json

@@ -11,7 +11,8 @@
     "migration:up": "yarn sequelize db:migrate && yarn mikro-orm migration:up && yarn prisma migrate dev --schema src/sources/prisma/schema.prisma",
     "docker:up": "docker-compose -f docker-compose.yaml up -d",
     "start:dev": "nodemon --watch src",
-    "build": "tsc"
+    "build": "tsc",
+    "bundle-admin": "ts-node src/scripts/bundle-admin.ts"
   },
   "mikro-orm": {
     "useTsNode": true,
