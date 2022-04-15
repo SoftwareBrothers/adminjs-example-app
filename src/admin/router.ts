@@ -14,11 +14,19 @@ export const authenticateUser = async (email, password) => {
 };
 
 export const expressAuthenticatedRouter = (adminJs: AdminJS) =>
-  AdminJSExpress.buildAuthenticatedRouter(adminJs, {
-    authenticate: authenticateUser,
-    cookieName: 'adminjs',
-    cookiePassword: 'somepassword',
-  });
+  AdminJSExpress.buildAuthenticatedRouter(
+    adminJs,
+    {
+      authenticate: authenticateUser,
+      cookieName: 'adminjs',
+      cookiePassword: 'somepassword',
+    },
+    null,
+    {
+      resave: false,
+      saveUninitialized: false,
+    }
+  );
 
 export const fastifyAuthenticatedRouter = (adminJs: AdminJS, app: FastifyInstance) =>
   AdminJSFastify.buildAuthenticatedRouter(

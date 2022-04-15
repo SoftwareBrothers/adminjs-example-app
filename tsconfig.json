@@ -2,14 +2,14 @@
   "compilerOptions": {
     "jsx": "react",
     "module": "commonjs",
-    "declaration": true,
+    "declaration": false,
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
     "target": "es2017",
-    "sourceMap": true,
+    "sourceMap": false,
     "outDir": "./dist",
     "baseUrl": "./",
     "incremental": true,
@@ -24,6 +24,7 @@
     "**/src/**/*.ts",
     "**/src/**/*.tsx",
     "**/src/**/*.jsx",
+    "**/src/**/*.js",
     "**/test/**/*.*.ts"
   ]
 }

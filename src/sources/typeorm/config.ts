@@ -1,4 +1,4 @@
-import { TypeOrmModuleOptions } from '@nestjs/typeorm/dist/interfaces/typeorm-options.interface';
+import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 require('dotenv').config();
 const { createConnection } = require('typeorm');
@@ -10,11 +10,11 @@ const params = {
   username: process.env.TYPEORM_USERNAME,
   password: process.env.TYPEORM_PASSWORD,
   database: process.env.TYPEORM_DATABASE,
-  entities: [`${__dirname}/models/*.entity.ts`],
-  migrations: [`${__dirname}/migrations/*.ts`],
+  entities: [`${__dirname}/models/*.entity{.ts,.js}`],
+  migrations: [`${__dirname}/migrations/*{.ts,.js}`],
   migrationsRun: true,
   cli: {
-    migrationsDir: `${__dirname}/migrations`,
+    migrationsDir: `${process.cwd()}/src/sources/typeorm/migrations`,
   },
 };
 

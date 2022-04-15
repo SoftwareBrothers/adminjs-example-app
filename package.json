@@ -8,16 +8,20 @@
     "lint": "eslint src --ext .ts,.tsx",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js --config src/sources/typeorm/config.ts",
     "sequelize": "yarn sequelize-cli --config src/sources/sequelize/config.js",
-    "migration:up": "yarn sequelize db:migrate && yarn mikro-orm migration:up && yarn prisma migrate dev --schema src/sources/prisma/schema.prisma",
+    "migration:up": "yarn sequelize db:migrate && yarn mikro-orm migration:up && yarn prisma migrate dev --schema prisma/schema.prisma",
     "docker:up": "docker-compose -f docker-compose.yaml up -d",
-    "start:dev": "nodemon --watch src",
-    "build": "tsc"
+    "start:dev": "nodemon",
+    "start": "node dist/index.js",
+    "build": "rm -rf dist && tsc",
+    "build:watch": "rm -rf dist && tsc -w"
   },
   "mikro-orm": {
-    "useTsNode": true,
     "configPaths": [
-      "./src/sources/mikroorm/config.ts"
+      "./dist/sources/mikroorm/config.js"
     ]
+  },
+  "prisma": {
+    "schema": "prisma/schema.prisma"
   },
   "dependencies": {
     "@adminjs/design-system": "^2.2.4",
@@ -67,7 +71,6 @@
     "rxjs": "^7.5.4",
     "sequelize": "^6.16.1",
     "sequelize-cli": "^6.4.1",
-    "styled-components": "^5.2.0",
     "tslib": "^2.3.1",
     "typeorm": "~0.2.45",
     "uuid": "^8.3.2"

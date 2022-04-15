@@ -1,4 +1,6 @@
-require('dotenv').config();
+require('dotenv').config({
+  path: `${process.cwd()}/.env`,
+});
 
 switch (process.env.SERVER) {
   default:
