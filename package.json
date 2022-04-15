@@ -65,6 +65,7 @@
     "mongoose": "^6.2.1",
     "nodemon": "^2.0.15",
     "pg": "^8.7.3",
+    "prisma": "^3.12.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "reflect-metadata": "^0.1.12",
@@ -77,6 +78,7 @@
   },
   "devDependencies": {
     "@types/argon2": "^0.15.0",
+    "@types/express-session": "^1.17.4",
     "@types/node": "^16.10",
     "@typescript-eslint/eslint-plugin": "^5.11.0",
     "@typescript-eslint/parser": "^5.11.0",
