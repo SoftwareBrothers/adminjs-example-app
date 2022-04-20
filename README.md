@@ -49,7 +49,7 @@ Then create postgres database and run migrations:
 yarn sequelize db:migrate
 yarn typeorm migration:run
 yarn mikro-orm migration:up
-npx prisma migrate dev --schema src/sources/prisma/schema.prisma
+npx prisma migrate dev --schema prisma/schema.prisma
 ```
 
 In the end, you can launch the app
@@ -83,7 +83,7 @@ The best way of developing the app is to do this via https://github.com/Software
 - `yarn mikro-orm migration:down`
 
 #### prisma
-- `npx prisma migrate dev --schema src/sources/prisma/schema.prisma`
+- `npx prisma migrate dev --schema prisma/schema.prisma`
 
 ## License
 

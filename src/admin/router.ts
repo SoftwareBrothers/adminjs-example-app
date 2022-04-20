@@ -1,9 +1,10 @@
 import AdminJSExpress from '@adminjs/express';
 import AdminJSFastify from '@adminjs/fastify';
 import AdminJS from 'adminjs';
-import { AdminModel } from '../sources/mongoose/models';
 import argon2 from 'argon2';
 import { FastifyInstance } from 'fastify';
+
+import { AdminModel } from '../sources/mongoose/models';
 
 export const authenticateUser = async (email, password) => {
   const user = await AdminModel.findOne({ email });
@@ -14,11 +15,20 @@ export const authenticateUser = async (email, password) => {
 };
 
 export const expressAuthenticatedRouter = (adminJs: AdminJS) =>
-  AdminJSExpress.buildAuthenticatedRouter(adminJs, {
-    authenticate: authenticateUser,
-    cookieName: 'adminjs',
-    cookiePassword: 'somepassword',
-  });
+  AdminJSExpress.buildAuthenticatedRouter(
+    adminJs,
+    {
+      authenticate: authenticateUser,
+      cookieName: 'adminjs',
+      cookiePassword: 'somepassword',
+    },
+    null,
+    {
+      resave: false,
+      saveUninitialized: false,
+      secret: process.env.SESSION_SECRET ?? 'sessionsecret',
+    }
+  );
 
 export const fastifyAuthenticatedRouter = (adminJs: AdminJS, app: FastifyInstance) =>
   AdminJSFastify.buildAuthenticatedRouter(
