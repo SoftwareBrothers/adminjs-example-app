@@ -1,0 +1,48 @@
+name: Demo Release
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16.x"
+      - uses: actions/cache@v1
+        id: yarn-cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules-
+      - name: Install
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile
+      - name: Build
+        run: yarn build
+      - name: Set Version
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      - name: Docker Build
+        run: docker build --build-arg APPLICATION_TAG=${RELEASE_VERSION} -t adminjs-service:${RELEASE_VERSION} .
+      - name: Deploy
+        run: |
+          pip install awscli
+          aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $DOCKER_REGISTRY
+          docker tag adminjs-service:${RELEASE_VERSION} ${ECR_URL}:${RELEASE_VERSION}
+          docker tag adminjs-service:${RELEASE_VERSION} ${ECR_URL}:latest
+          docker push ${ECR_URL}:${RELEASE_VERSION}
+          docker push ${ECR_URL}:latest
+
+env:
+  ECR_URL: ${{secrets.ECR_URL}}
+  DOCKER_REGISTRY: ${{secrets.DOCKER_REGISTRY}}
+  AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+  AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+  AWS_DEFAULT_REGION: eu-west-1
