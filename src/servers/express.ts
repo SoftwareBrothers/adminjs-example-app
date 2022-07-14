@@ -2,7 +2,7 @@ import { createAdmin, generateAdminJSConfig } from '../admin';
 import mongoose from 'mongoose';
 import { expressAuthenticatedRouter } from '../admin/router';
 import { init } from '../sources/mikroorm/config';
-import { connection } from '../sources/typeorm/config';
+import dataSource from '../sources/typeorm/config';
 import AdminJS from 'adminjs';
 
 const express = require('express');
@@ -16,9 +16,9 @@ const attachAdminJS = async () => {
 };
 
 app.listen(process.env.PORT, async () => {
-  await mongoose.connect(process.env.MONGO_URL);
+  await mongoose.connect(process.env.MONGO_DATABASE_URL);
   await init();
-  await connection;
+  await dataSource.initialize();
 
   await attachAdminJS();
 

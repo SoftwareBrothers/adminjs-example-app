@@ -1,4 +1,5 @@
 import { Sequelize } from 'sequelize';
-const { development } = require('./config.js');
 
-export const sequelize = new Sequelize(development);
+export const sequelize = new Sequelize(process.env.POSTGRES_DATABASE_URL, {
+  dialect: 'postgres',
+});

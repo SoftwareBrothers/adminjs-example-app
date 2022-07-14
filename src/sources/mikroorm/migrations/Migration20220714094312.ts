@@ -1,6 +1,6 @@
 import { Migration } from '@mikro-orm/migrations';
 
-export class Migration20220214093223 extends Migration {
+export class Migration20220714094312 extends Migration {
   async up(): Promise<void> {
     this.addSql('create table "sellers" ("id" uuid not null, "name" text not null);');
     this.addSql('alter table "sellers" add constraint "sellers_pkey" primary key ("id");');
@@ -20,17 +20,5 @@ export class Migration20220214093223 extends Migration {
     this.addSql(
       'alter table "cars" add constraint "cars_seller_id_foreign" foreign key ("seller_id") references "sellers" ("id") on update cascade;'
     );
-  }
-
-  async down(): Promise<void> {
-    this.addSql('alter table "cars" drop constraint "cars_seller_id_foreign";');
-
-    this.addSql('alter table "cars" drop constraint "cars_owner_id_foreign";');
-
-    this.addSql('drop table if exists "sellers" cascade;');
-
-    this.addSql('drop table if exists "owners" cascade;');
-
-    this.addSql('drop table if exists "cars" cascade;');
   }
 }

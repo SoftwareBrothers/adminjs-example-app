@@ -11,57 +11,57 @@ password: password
 
 ## Prerequisites
 
-To run the demo locally you have to have installed:
+Install Docker if you don't have it: https://docs.docker.com/desktop/#download-and-install
 
-* mongodb
-* postgresql
+Run:
+```bash
+$ docker-compose up -d
+```
+to setup databases.
 
-or run `docker-compose up`
-
-Also in ENV you have to have following entries:
-
-* MONGO_URL
-* PORT - default to 3000
-* POSTGRES_USER
-* POSTGRES_PASSWORD
-* POSTGRES_PORT - default to 5432
-* POSTGRES_DATABASE - default to 'adminjs'
-* POSTGRES_HOST - default to 'localhost'
-* TYPEORM_USERNAME
-* TYPEORM_PASSWORD
-* TYPEORM_PORT - default to 5432
-* TYPEORM_DATABASE - default to 'adminjs'
-* TYPEORM_HOST - default to 'localhost'
+Make sure your `.env` file is configured. If you didn't do any changes to `docker-compose.yml` file,
+the default contents of the `.env` file should work for you.
 
 ## Starting the app
 
 First, install all dependencies
 
-```
-yarn install
+```bash
+yarn install --frozen-lockfile
 ```
 
 Make sure you have all environmental variables set up (read the previous paragraph).
 
 Then create postgres database and run migrations:
 
+```bash
+$ npx prisma generate     # # this sets up Prisma Client in your node_modules
+$ yarn migration:up
 ```
-yarn sequelize db:migrate
-yarn typeorm migration:run
-yarn mikro-orm migration:up
-npx prisma migrate dev --schema prisma/schema.prisma
+
+Note: If you see the error below when Prisma MySQL migration is run:
 ```
+Error: P1017: Server has closed the connection.
+```
+Please wait a minute or two for the MySQL server to start and retry.
 
 In the end, you can launch the app
 
-```
-yarn start:dev
+```bash
+$ yarn build:watch      # keep it running if developing
+$ yarn start:dev        # in a separate terminal tab, concurrently
 ```
 
 ## Developing the app
 
 The best way of developing the app is to do this via https://github.com/SoftwareBrothers/adminjs-dev.
 
+Alternatively, you can fork and clone each repository separately and link them using:
+
+* `yarn link`
+* `npm link`
+
+to see your local changes.
 
 #### Sequelize
 ##### migrations
@@ -87,13 +87,4 @@ The best way of developing the app is to do this via https://github.com/Software
 
 ## License
 
-AdminJS is Copyright © 2018 SoftwareBrothers.co. It is free software, and may be redistributed under the terms specified in the [LICENSE](LICENSE) file.
-
-## About SoftwareBrothers.co
-
-<img src="https://softwarebrothers.co/assets/images/software-brothers-logo-full.svg" width=240>
-
-We’re an open, friendly team that helps clients from all over the world to transform their businesses and create astonishing products.
-
-* We are available to [hire](https://softwarebrothers.co/contact).
-* If you want to work for us - check out the [career page](https://softwarebrothers.co/career).
+AdminJS is Copyright © 2022 SoftwareBrothers.co. It is free software, and may be redistributed under the terms specified in the [LICENSE](LICENSE) file.

@@ -1,22 +1,20 @@
-import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-
 require('dotenv').config();
-const { createConnection } = require('typeorm');
 
-const params = {
-  type: process.env.TYPEORM_TYPE || 'postgres',
-  host: process.env.TYPEORM_HOST || 'localhost',
-  port: +process.env.TYPEORM_PORT || 5432,
-  username: process.env.TYPEORM_USERNAME,
-  password: process.env.TYPEORM_PASSWORD,
-  database: process.env.TYPEORM_DATABASE,
-  entities: [`${__dirname}/models/*.entity{.ts,.js}`],
-  migrations: [`${__dirname}/migrations/*{.ts,.js}`],
+import { DataSource, DataSourceOptions } from 'typeorm';
+import { init1644569575919 } from './migrations/1644569575919-init';
+import { Organization, Person } from './models';
+
+export const params: DataSourceOptions = {
+  type: 'postgres' as const,
+  url: process.env.POSTGRES_DATABASE_URL,
+  synchronize: process.env.DATABASE_SYNC === 'true',
+  logging: process.env.DATABASE_LOGGING === 'true',
+  entities: [Organization, Person],
+  migrations: [init1644569575919],
   migrationsRun: true,
-  cli: {
-    migrationsDir: `${process.cwd()}/src/sources/typeorm/migrations`,
-  },
+  subscribers: [],
 };
 
-export default params as TypeOrmModuleOptions;
-export const connection = createConnection(params);
+const dataSource = new DataSource(params);
+
+export default dataSource;

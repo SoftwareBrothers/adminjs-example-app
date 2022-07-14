@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import { createAdmin, generateAdminJSConfig } from '../admin';
 import AdminJS from 'adminjs';
 import { init } from '../sources/mikroorm/config';
-import { connection } from '../sources/typeorm/config';
+import dataSource from '../sources/typeorm/config';
 import { fastifyAuthenticatedRouter } from '../admin/router';
 import fastifyStatic from 'fastify-static';
 import path from 'path';
@@ -21,7 +21,7 @@ const run = async (): Promise<void> => {
   try {
     await mongoose.connect(process.env.MONGO_URL);
     await init();
-    await connection;
+    await dataSource.initialize();
 
     app.register(fastifyStatic, {
       root: path.join(__dirname, '../assets'),

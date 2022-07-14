@@ -1,7 +1,7 @@
 version: '3.7'
 
 services:
-  mongo:
+  mongo_db:
     container_name: adminjs-example-mongo
     image: mongo:5.0.6
     ports:
@@ -9,8 +9,8 @@ services:
     volumes:
       - mongo_db:/data/db
 
-  postgres-for-sequelize:
-    container_name: adminjs-example-postgres-for-sequelize
+  postgres_db:
+    container_name: adminjs-example-postgres
     image: postgres:12-alpine
     environment:
       - POSTGRES_DB=adminjs
@@ -19,47 +19,23 @@ services:
     ports:
       - "5435:5432"
     volumes:
-      - postgres_for_sequelize_db:/var/lib/postgresql/data
+      - postgres_db:/var/lib/postgresql/data
 
-  postgres-for-typeorm:
-    container_name: adminjs-example-postgres-for-typeorm
-    image: postgres:12-alpine
-    environment:
-      - POSTGRES_DB=adminjs-typeorm
-      - POSTGRES_USER=adminjs
-      - POSTGRES_PASSWORD=adminjs
-    ports:
-      - "5436:5432"
-    volumes:
-      - postgres_for_typeorm_db:/var/lib/postgresql/data
-
-  postgres-for-mikroorm:
-    container_name: adminjs-example-postgres-for-mikroorm
-    image: postgres:12-alpine
-    environment:
-      - POSTGRES_DB=adminjs-mikroorm
-      - POSTGRES_USER=adminjs
-      - POSTGRES_PASSWORD=adminjs
-    ports:
-      - "5437:5432"
-    volumes:
-      - postgres_for_mikroorm_db:/var/lib/postgresql/data
-
-  mysql-for-prisma:
-    container_name: adminjs-example-mysql-for-prisma
+  mysql_db:
+    container_name: adminjs-example-mysql
     platform: linux/x86_64
     image: mysql
     environment:
+      MYSQL_USER: adminjs
+      MYSQL_PASSWORD: adminjs
       MYSQL_ROOT_PASSWORD: adminjs
       MYSQL_DATABASE: adminjs
     ports:
       - "3308:3306"
     volumes:
-      - mysql_for_prisma:/var/lib/mysql
+      - mysql_db:/var/lib/mysql
 
 volumes:
   mongo_db:
-  postgres_for_sequelize_db:
-  postgres_for_typeorm_db:
-  postgres_for_mikroorm_db:
-  mysql_for_prisma:
+  postgres_db:
+  mysql_db:
