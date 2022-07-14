@@ -1,19 +1,14 @@
 import { MikroORM } from '@mikro-orm/core';
-import { Owner, Car, Seller } from './models';
 import { Options } from '@mikro-orm/core/utils';
-import { Configuration } from '@mikro-orm/core/utils/Configuration';
+
+import { Owner, Car, Seller } from './models';
 
 const config: Options = {
   entities: [Owner, Car, Seller],
-  dbName: process.env.MIKROORM_DATABASE,
-  type: (process.env.MIKROORM_TYPE || 'postgresql') as keyof typeof Configuration.PLATFORMS,
-  clientUrl: process.env.MIKROORM_HOST || 'localhost',
-  port: +process.env.MIKROORM_PORT || 5432,
-  user: process.env.MIKROORM_USERNAME,
-  password: process.env.MIKROORM_PASSWORD,
-  allowGlobalContext: true,
+  type: 'postgresql' as const,
+  clientUrl: process.env.POSTGRES_DATABASE_URL,
   migrations: {
-    path: __dirname + '/migrations',
+    path: 'src/sources/mikroorm/migrations',
     emit: 'ts',
   },
 };

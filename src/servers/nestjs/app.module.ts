@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PrismaService } from './prisma/prisma.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import params from '../../sources/typeorm/config';
+import { params } from '../../sources/typeorm/config';
 import { MongooseSchemasModule } from './mongoose/mongoose.module';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
 import config from '../../sources/mikroorm/config';

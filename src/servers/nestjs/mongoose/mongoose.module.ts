@@ -9,7 +9,7 @@ import { ComplicatedSchema } from '../../../sources/mongoose/models/complicated.
 
 @Module({
   imports: [
-    MongooseModule.forRoot(process.env.MONGO_URL),
+    MongooseModule.forRoot(process.env.MONGO_DATABASE_URL),
     MongooseModule.forFeature([
       { name: 'Admin', schema: AdminSchema },
       { name: 'User', schema: UserSchema },
