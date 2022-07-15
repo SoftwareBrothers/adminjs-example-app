@@ -68,6 +68,7 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
     "connect-pg-simple": "^7.0.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "express-formidable": "^1.2.0",
@@ -91,6 +92,7 @@
   "devDependencies": {
     "@types/argon2": "^0.15.0",
     "@types/connect-pg-simple": "^7.0.0",
+    "@types/cors": "^2.8.12",
     "@types/express-session": "^1.17.4",
     "@types/node": "^16.10",
     "@typescript-eslint/eslint-plugin": "^5.11.0",
