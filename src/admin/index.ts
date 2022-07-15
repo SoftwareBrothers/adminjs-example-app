@@ -54,6 +54,9 @@ export const menu = {
 
 export const generateAdminJSConfig = () => ({
   locale,
+  assets: {
+    styles: ['/custom.css'],
+  },
   rootPath: '/admin',
   branding: {
     companyName: 'AdminJS demo page',

@@ -1,17 +1,23 @@
-import { createAdmin, generateAdminJSConfig } from '../admin';
+import path from 'path';
 import mongoose from 'mongoose';
+import express from 'express';
+import AdminJS from 'adminjs';
+import { createAdmin, generateAdminJSConfig } from '../admin';
 import { expressAuthenticatedRouter } from '../admin/router';
 import { init } from '../sources/mikroorm/config';
 import dataSource from '../sources/typeorm/config';
-import AdminJS from 'adminjs';
 
-const express = require('express');
 const app = express();
 
 const attachAdminJS = async () => {
   const config = generateAdminJSConfig();
   const adminJS = new AdminJS(config);
-  app.use(adminJS.options.rootPath, expressAuthenticatedRouter(adminJS));
+  const adminRouter = expressAuthenticatedRouter(adminJS);
+
+  app.use(adminJS.options.rootPath, adminRouter);
+  app.get('/', (req, res) => res.redirect(adminJS.options.rootPath));
+  app.use(express.static(path.join(__dirname, '../../public')));
+
   await createAdmin();
 };
 
