@@ -1,15 +1,13 @@
 import path from 'path';
 import mongoose from 'mongoose';
-import express from 'express';
+import express, { Express } from 'express';
 import AdminJS from 'adminjs';
 import { createAdmin, generateAdminJSConfig } from '../admin';
 import { expressAuthenticatedRouter } from '../admin/router';
 import { init } from '../sources/mikroorm/config';
 import dataSource from '../sources/typeorm/config';
 
-const app = express();
-
-const attachAdminJS = async () => {
+const attachAdminJS = async (app: Express) => {
   const config = generateAdminJSConfig();
   const adminJS = new AdminJS(config);
   const adminRouter = expressAuthenticatedRouter(adminJS);
@@ -21,12 +19,18 @@ const attachAdminJS = async () => {
   await createAdmin();
 };
 
-app.listen(process.env.PORT, async () => {
+const start = async () => {
+  const app = express();
+
   await mongoose.connect(process.env.MONGO_DATABASE_URL);
   await init();
   await dataSource.initialize();
 
-  await attachAdminJS();
+  await attachAdminJS(app);
 
-  console.log(`AdminJS is under localhost:${process.env.PORT}/admin`);
-});
+  app.listen(process.env.PORT, async () => {
+    console.log(`AdminJS is under localhost:${process.env.PORT}/admin`);
+  });
+};
+
+start();

@@ -13,6 +13,12 @@ export const params: DataSourceOptions = {
   migrations: [init1644569575919],
   migrationsRun: true,
   subscribers: [],
+  extra:
+    process.env.NODE_ENV === 'production'
+      ? {
+          ssl: true,
+        }
+      : undefined,
 };
 
 const dataSource = new DataSource(params);

@@ -12,6 +12,7 @@
     "typeorm": "./node_modules/typeorm/cli.js --dataSource dist/sources/typeorm/config.js",
     "sequelize": "yarn sequelize-cli --config src/sources/sequelize/config.js",
     "migration:up": "yarn sequelize db:migrate && yarn typeorm migration:run && yarn mikro-orm migration:up && yarn prisma migrate dev --schema prisma/schema.prisma",
+    "migration:up:production": "yarn sequelize db:migrate && yarn typeorm migration:run && yarn mikro-orm migration:up && yarn prisma migrate deploy --schema prisma/schema.prisma",
     "docker:up": "docker-compose -f docker-compose.yaml up -d",
     "start:dev": "nodemon",
     "start": "node dist/index.js",
