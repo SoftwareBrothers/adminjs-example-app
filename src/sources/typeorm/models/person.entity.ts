@@ -15,6 +15,9 @@ export class Person extends BaseEntity {
   @Column({ name: 'last_name' })
   public lastName: string;
 
+  @Column({ name: 'phone' })
+  public phone: string;
+
   @ManyToOne(() => Organization)
   @JoinColumn({ name: 'organization_id' })
   public organization: Organization;

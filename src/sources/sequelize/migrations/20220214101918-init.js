@@ -1,24 +1,24 @@
-const {DataTypes} = require("sequelize");
+const { DataTypes } = require('sequelize');
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     await queryInterface.createTable('categories', {
       id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
-        primaryKey: true
+        primaryKey: true,
       },
       name: {
-        type: new DataTypes.STRING,
-        allowNull: false
+        type: new DataTypes.STRING(),
+        allowNull: false,
       },
       createdAt: {
         type: DataTypes.DATE,
-        default: Date.now
+        default: Date.now,
       },
       updatedAt: {
         type: DataTypes.DATE,
-        default: Date.now
+        default: Date.now,
       },
     });
 
@@ -26,52 +26,52 @@ module.exports = {
       id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
-        primaryKey: true
+        primaryKey: true,
       },
       name: {
-        type: new DataTypes.STRING,
-        allowNull: false
+        type: new DataTypes.STRING(),
+        allowNull: false,
       },
       price: {
-        type: new DataTypes.INTEGER,
-        allowNull: false
+        type: new DataTypes.DECIMAL(15, 6),
+        allowNull: false,
       },
       createdAt: {
         type: DataTypes.DATE,
-        default: Date.now
+        default: Date.now,
       },
       updatedAt: {
         type: DataTypes.DATE,
-        default: Date.now
+        default: Date.now,
       },
       categoryId: {
         type: DataTypes.INTEGER,
         references: {
           model: 'categories',
-          key: 'id'
+          key: 'id',
         },
-        allowNull: false
-      }
+        allowNull: false,
+      },
     });
 
     await queryInterface.createTable('orders', {
       id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
-        primaryKey: true
+        primaryKey: true,
       },
       isPaid: {
         type: DataTypes.BOOLEAN,
-        defaultValue: false
+        defaultValue: false,
       },
       delivery: {
         type: DataTypes.STRING,
       },
       createdAt: {
-        type: DataTypes.DATE
+        type: DataTypes.DATE,
       },
       updatedAt: {
-        type: DataTypes.DATE
+        type: DataTypes.DATE,
       },
     });
 
@@ -79,43 +79,43 @@ module.exports = {
       id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
-        primaryKey: true
+        primaryKey: true,
       },
       quantity: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
       },
       createdAt: {
         type: DataTypes.DATE,
-        default: Date.now
+        default: Date.now,
       },
       updatedAt: {
         type: DataTypes.DATE,
-        default: Date.now
+        default: Date.now,
       },
       orderId: {
         type: DataTypes.INTEGER,
         references: {
           model: 'orders',
-          key: 'id'
+          key: 'id',
         },
-        allowNull: false
+        allowNull: false,
       },
       productId: {
         type: DataTypes.INTEGER,
         references: {
           model: 'products',
-          key: 'id'
+          key: 'id',
         },
-        allowNull: false
-      }
-    })
+        allowNull: false,
+      },
+    });
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('cart_products');
     await queryInterface.dropTable('orders');
     await queryInterface.dropTable('products');
     await queryInterface.dropTable('categories');
-  }
+  },
 };
