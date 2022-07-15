@@ -42,7 +42,7 @@ ProductModel.init(
       allowNull: false,
     },
     price: {
-      type: new DataTypes.INTEGER(),
+      type: new DataTypes.DECIMAL(15, 6),
       allowNull: false,
     },
     createdAt: {

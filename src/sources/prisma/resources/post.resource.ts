@@ -9,6 +9,7 @@ export const CreatePostResource = () => ({
   options: {
     parent: menu.prisma,
     properties: {
+      content: { type: 'richtext' },
       someJson: { type: 'mixed', isArray: true },
       'someJson.number': { type: 'number' },
       'someJson.string': { type: 'string' },

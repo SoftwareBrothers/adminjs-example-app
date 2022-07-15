@@ -9,6 +9,11 @@ const enLocale = {
     resources: {
       Complicated,
       Person,
+      products: {
+        properties: {
+          categoryId: 'Category',
+        },
+      },
     },
   },
 };

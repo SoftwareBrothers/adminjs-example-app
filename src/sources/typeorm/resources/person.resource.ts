@@ -8,6 +8,11 @@ export const CreatePersonResource = (): CreateResourceResult<typeof Person> => (
   resource: Person,
   options: {
     parent: menu.typeorm,
+    properties: {
+      phone: {
+        type: 'phone',
+      },
+    },
     actions: {
       new: {
         before: [validateEmail],

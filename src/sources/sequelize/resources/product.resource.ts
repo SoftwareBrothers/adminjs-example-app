@@ -7,6 +7,15 @@ export const CreateProductResource = (): CreateResourceResult<typeof ProductMode
   options: {
     parent: menu.sequelize,
     properties: {
+      price: {
+        type: 'currency',
+        props: {
+          decimalSeparator: '.',
+          disableGroupSeparators: true,
+          prefix: '$',
+          fixedDecimalLength: 2,
+        },
+      },
       name: {
         isTitle: true,
       },
