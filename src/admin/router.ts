@@ -22,6 +22,7 @@ export const expressAuthenticatedRouter = (adminJs: AdminJS) => {
   const sessionStore = new ConnectSession({
     conObject: {
       connectionString: process.env.POSTGRES_DATABASE_URL,
+      ssl: process.env.NODE_ENV === 'production',
     },
     tableName: 'session',
     createTableIfMissing: true,
