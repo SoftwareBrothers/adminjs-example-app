@@ -16,6 +16,7 @@ const config: Options = {
   migrations: {
     path: 'src/sources/mikroorm/migrations',
     emit: 'ts',
+    disableForeignKeys: false,
   },
   driverOptions,
 };
