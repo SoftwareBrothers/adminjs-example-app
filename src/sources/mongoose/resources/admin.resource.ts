@@ -27,5 +27,9 @@ export const CreateAdminResource = (): CreateResourceResult<typeof AdminModel> =
       direction: 'asc',
       sortBy: 'email',
     },
+    actions: {
+      delete: { isAccessible: false },
+      bulkDelete: { isAccessible: false },
+    },
   },
 });
