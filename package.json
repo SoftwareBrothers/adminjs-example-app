@@ -13,7 +13,11 @@
     "start:dev": "nodemon",
     "start": "node dist/index.js",
     "build": "rm -rf dist && tsc",
-    "build:watch": "rm -rf dist && tsc -w"
+    "build:watch": "rm -rf dist && tsc -w",
+    "postgres:clean": "node dist/scripts/truncate-postgres",
+    "mysql:clean": "prisma migrate reset --force && prisma migrate deploy",
+    "mongodb:clean": "node dist/scripts/truncate-mongodb",
+    "db:clean": "yarn postgres:clean && yarn mysql:clean && yarn mongodb:clean"
   },
   "mikro-orm": {
     "useTsNode": true,
@@ -59,6 +63,7 @@
     "argon2": "^0.28.4",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
+    "connect-pg-simple": "^7.0.0",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "express-formidable": "^1.2.0",
@@ -81,6 +86,7 @@
   },
   "devDependencies": {
     "@types/argon2": "^0.15.0",
+    "@types/connect-pg-simple": "^7.0.0",
     "@types/express-session": "^1.17.4",
     "@types/node": "^16.10",
     "@typescript-eslint/eslint-plugin": "^5.11.0",

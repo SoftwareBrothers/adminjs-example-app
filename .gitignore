@@ -116,6 +116,5 @@ node_modules
 coverage
 .DS_store
 .adminjs
-public
 .adminbro
 .idea

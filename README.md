@@ -6,7 +6,7 @@ Example application using [adminjs](https://github.com/SoftwareBrothers/adminjs)
 
 You can check out the current demo version at: https://admin-bro-example-app-staging.herokuapp.com/admin/login
 
-login: test@example.com  
+login: admin@example.com  
 password: password
 
 ## Prerequisites
@@ -51,6 +51,8 @@ In the end, you can launch the app
 $ yarn build:watch      # keep it running if developing
 $ yarn start:dev        # in a separate terminal tab, concurrently
 ```
+
+By default the app will be available under: `http://localhost:3000/admin`
 
 ## Developing the app
 

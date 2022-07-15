@@ -1,0 +1,14 @@
+form[action="/admin/login"] > h5::after {
+  background: lightskyblue;
+  border: 1px solid royalblue;
+  color: royalblue;
+  font-family: 'Roboto', Georgia;
+  box-sizing: border-box;
+  content: 'Login: admin@example.com | Password: password';
+  padding: 8px;
+  margin: 14px 0;
+  font-size: 0.8rem;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
