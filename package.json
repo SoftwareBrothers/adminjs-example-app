@@ -4,6 +4,9 @@
   "description": "",
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "16"
+  },
   "scripts": {
     "lint": "eslint src --ext .ts,.tsx",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js --dataSource src/sources/typeorm/config.ts",
