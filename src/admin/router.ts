@@ -33,18 +33,19 @@ export const expressAuthenticatedRouter = (adminJs: AdminJS) => {
     {
       authenticate: authenticateUser,
       cookieName: 'adminjs',
-      cookiePassword: 'somepassword',
+      cookiePassword: process.env.SESSION_SECRET ?? 'sessionsecret',
     },
     null,
     {
       store: sessionStore,
-      resave: false,
-      saveUninitialized: false,
+      resave: true,
+      saveUninitialized: true,
       secret: process.env.SESSION_SECRET ?? 'sessionsecret',
       cookie: {
         httpOnly: process.env.NODE_ENV === 'production',
         secure: process.env.NODE_ENV === 'production',
       },
+      name: 'adminjs',
     }
   );
 };

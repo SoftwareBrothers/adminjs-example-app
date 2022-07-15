@@ -15,7 +15,7 @@ const bootstrap = async () => {
     })
   );
 
-  await mongoose.connect(process.env.MONGO_URL);
+  await mongoose.connect(process.env.MONGO_DATABASE_URL);
   await init();
   await setupAdminJS(app);
 

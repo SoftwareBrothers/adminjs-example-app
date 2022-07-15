@@ -3,6 +3,12 @@ import { Options } from '@mikro-orm/core/utils';
 
 import { Owner, Car, Seller } from './models';
 
+const driverOptions: Options['driverOptions'] = {};
+
+if (process.env.NODE_ENV === 'production') {
+  driverOptions.connection = { ssl: true };
+}
+
 const config: Options = {
   entities: [Owner, Car, Seller],
   type: 'postgresql' as const,
@@ -11,6 +17,7 @@ const config: Options = {
     path: 'src/sources/mikroorm/migrations',
     emit: 'ts',
   },
+  driverOptions,
 };
 
 export const init = async () => {

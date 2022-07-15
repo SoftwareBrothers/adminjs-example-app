@@ -19,7 +19,7 @@ const attachAdminJS = async () => {
 
 const run = async (): Promise<void> => {
   try {
-    await mongoose.connect(process.env.MONGO_URL);
+    await mongoose.connect(process.env.MONGO_DATABASE_URL);
     await init();
     await dataSource.initialize();
 
