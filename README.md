@@ -4,7 +4,7 @@ Example application using [adminjs](https://github.com/SoftwareBrothers/adminjs)
 
 ## Demo
 
-You can check out the current demo version at: https://admin-bro-example-app-staging.herokuapp.com/admin/login
+You can check out the current demo version at: https://adminjs-demo.herokuapp.com
 
 login: admin@example.com  
 password: password
