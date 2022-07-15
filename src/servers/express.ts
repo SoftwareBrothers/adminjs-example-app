@@ -1,6 +1,7 @@
 import path from 'path';
 import mongoose from 'mongoose';
 import express, { Express } from 'express';
+import cors from 'cors';
 import AdminJS from 'adminjs';
 import { createAdmin, generateAdminJSConfig } from '../admin';
 import { expressAuthenticatedRouter } from '../admin/router';
@@ -21,6 +22,8 @@ const attachAdminJS = async (app: Express) => {
 
 const start = async () => {
   const app = express();
+  app.enable('trust proxy');
+  app.use(cors({ credentials: true, origin: true }));
 
   await mongoose.connect(process.env.MONGO_DATABASE_URL);
   await init();
