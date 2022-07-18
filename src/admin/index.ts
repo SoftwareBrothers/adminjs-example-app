@@ -56,6 +56,7 @@ export const generateAdminJSConfig = () => ({
   locale,
   assets: {
     styles: ['/custom.css'],
+    scripts: process.env.NODE_ENV === 'production' ? ['/gtm.js'] : [],
   },
   rootPath: '/admin',
   branding: {
