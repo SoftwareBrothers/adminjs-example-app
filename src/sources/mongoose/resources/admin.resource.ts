@@ -30,6 +30,8 @@ export const CreateAdminResource = (): CreateResourceResult<typeof AdminModel> =
     actions: {
       delete: { isAccessible: false },
       bulkDelete: { isAccessible: false },
+      edit: { isAccessible: false },
+      new: { isAccessible: false },
     },
   },
 });
