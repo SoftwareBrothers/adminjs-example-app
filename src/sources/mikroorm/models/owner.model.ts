@@ -2,13 +2,20 @@ import { v4 } from 'uuid';
 import { BaseEntity, Entity, Enum, OneToMany, PrimaryKey, Property } from '@mikro-orm/core';
 import { Car } from './car.model';
 
-enum UserRole {
+export enum UserRole {
   ADMIN = 'admin',
   CLIENT = 'client',
 }
 
+export interface IOwner {
+  firstName: string;
+  lastName: string;
+  age: number;
+  role: UserRole;
+}
+
 @Entity({ tableName: 'owners' })
-export class Owner extends BaseEntity<Owner, 'id'> {
+export class Owner extends BaseEntity<Owner, 'id'> implements IOwner {
   @PrimaryKey({ columnType: 'uuid' })
   id = v4();
 

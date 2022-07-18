@@ -6,11 +6,13 @@ import { OrderModel } from './order.model';
 type Cart = {
   id: number;
   quantity: number;
+  orderId: number;
+  productId: number;
   createdAt: Date;
   updatedAt: Date;
 };
 
-type CartCreationAttributes = Optional<Cart, 'id'>;
+export type CartCreationAttributes = Optional<Cart, 'id'>;
 
 export class CartModel extends Model<Cart, CartCreationAttributes> {
   declare id: number;
@@ -46,6 +48,22 @@ CartModel.init(
     },
     updatedAt: {
       type: DataTypes.DATE,
+    },
+    productId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'products',
+        key: 'id',
+      },
+      allowNull: false,
+    },
+    orderId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'orders',
+        key: 'id',
+      },
+      allowNull: false,
     },
   },
   {

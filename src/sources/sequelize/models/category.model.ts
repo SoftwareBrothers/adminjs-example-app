@@ -8,7 +8,7 @@ type Category = {
   updatedAt: Date;
 };
 
-type CategoryCreationAttributes = Optional<Category, 'id'>;
+export type CategoryCreationAttributes = Optional<Category, 'id'>;
 
 export class CategoryModel extends Model<Category, CategoryCreationAttributes> {
   declare id: number;

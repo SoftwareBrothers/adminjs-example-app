@@ -2,8 +2,15 @@ import { BaseEntity, Entity, ManyToOne, PrimaryKey, Property } from '@mikro-orm/
 import { Seller } from './seller.model';
 import { Owner } from './owner.model';
 
+export interface ICar {
+  name: string;
+  meta: Record<string, any>;
+  owner: Owner;
+  seller: Seller;
+}
+
 @Entity({ tableName: 'cars' })
-export class Car extends BaseEntity<Car, 'id'> {
+export class Car extends BaseEntity<Car, 'id'> implements ICar {
   @PrimaryKey()
   id: number;
 

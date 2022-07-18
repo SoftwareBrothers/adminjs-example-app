@@ -1,0 +1,49 @@
+require('dotenv').config({
+  path: `${process.cwd()}/.env`,
+});
+import flatten from 'lodash/flatten';
+import mongoose from 'mongoose';
+import { ArticleModel, CategoryModel, CommentModel, UserModel } from '../models';
+import { articles, categories, comments, users } from './data';
+
+const usersCount = 3;
+const categoriesPerUserCount = 1;
+const articlesPerCategoryCount = 1;
+const commentsPerArticleCount = 5;
+
+const run = async () => {
+  await mongoose.connect(process.env.MONGO_DATABASE_URL);
+
+  const createdUsers = await Promise.all(users(usersCount).map((u) => new UserModel(u).save()));
+  const createdCategories = flatten(
+    await Promise.all(
+      createdUsers.map((u) =>
+        Promise.all(categories(categoriesPerUserCount, { userId: u._id }).map((c) => new CategoryModel(c).save()))
+      )
+    )
+  );
+  const createdArticles = flatten(
+    await Promise.all(
+      createdUsers.map((u, idx) =>
+        Promise.all(
+          articles(articlesPerCategoryCount, { authorId: u._id, categoryId: createdCategories[idx]._id }).map((a) =>
+            new ArticleModel(a).save()
+          )
+        )
+      )
+    )
+  );
+  await Promise.all(
+    createdArticles.map((a) =>
+      Promise.all(comments(commentsPerArticleCount, { articleId: a._id }).map((c) => new CommentModel(c).save()))
+    )
+  );
+  // TODO: Add ComplicatedModel seeds
+};
+
+run()
+  .then(() => process.exit(0))
+  .catch((e) => {
+    console.log(e);
+    process.exit(1);
+  });

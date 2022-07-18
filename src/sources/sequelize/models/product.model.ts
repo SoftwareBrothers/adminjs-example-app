@@ -11,7 +11,7 @@ type Product = {
   updatedAt: Date;
 };
 
-type ProductCreationAttributes = Optional<Product, 'id'>;
+export type ProductCreationAttributes = Optional<Product, 'id'>;
 
 export class ProductModel extends Model<Product, ProductCreationAttributes> {
   declare id: number;
