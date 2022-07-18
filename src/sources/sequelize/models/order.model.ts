@@ -10,7 +10,7 @@ type Order = {
   updatedAt: Date;
 };
 
-type OrderCreationAttributes = Optional<Order, 'id'>;
+export type OrderCreationAttributes = Optional<Order, 'id'>;
 
 export class OrderModel extends Model<Order, OrderCreationAttributes> {
   declare id: number;

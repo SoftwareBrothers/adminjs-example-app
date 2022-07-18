@@ -19,6 +19,7 @@ const config: Options = {
     disableForeignKeys: false,
   },
   driverOptions,
+  debug: process.env.DATABASE_LOGGING === 'true',
 };
 
 export const init = async () => {
@@ -26,4 +27,4 @@ export const init = async () => {
 };
 
 export default config;
-export let orm;
+export let orm: MikroORM;
