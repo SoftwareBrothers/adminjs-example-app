@@ -3,9 +3,11 @@ import { menu } from '../../../admin';
 import { Person } from '../models';
 import { DETAILED_STATS, DONT_TOUCH_THIS_ACTION } from '../../../admin/components.bundler';
 import { validateEmail } from '../handlers/validate-email.handler';
+import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions';
 
 export const CreatePersonResource = (): CreateResourceResult<typeof Person> => ({
   resource: Person,
+  features: [useEnvironmentVariableToDisableActions()],
   options: {
     parent: menu.typeorm,
     properties: {

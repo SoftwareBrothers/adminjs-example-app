@@ -4,9 +4,11 @@ import { OrderModel } from '../models';
 import { PRODUCTS_LIST } from '../../../admin/components.bundler';
 import { getProducts } from '../hooks/get-products.hook';
 import { getSumForOrder } from '../hooks/get-sum.hook';
+import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions';
 
 export const CreateOrderResource = (): CreateResourceResult<typeof OrderModel> => ({
   resource: OrderModel,
+  features: [useEnvironmentVariableToDisableActions()],
   options: {
     parent: menu.sequelize,
     actions: {

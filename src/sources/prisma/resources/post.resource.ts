@@ -1,3 +1,4 @@
+import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions';
 import { menu } from '../../../admin';
 import { client, dmmf } from '../config';
 
@@ -6,6 +7,7 @@ export const CreatePostResource = () => ({
     model: dmmf.modelMap.Post,
     client,
   },
+  features: [useEnvironmentVariableToDisableActions()],
   options: {
     parent: menu.prisma,
     properties: {
