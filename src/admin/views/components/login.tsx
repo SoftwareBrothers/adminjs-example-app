@@ -42,6 +42,7 @@ const StyledLogo = styled.img`
 export type LoginProps = {
   credentials: Credentials;
   action: string;
+  errorMessage?: string;
 };
 
 export type Credentials = {
@@ -50,7 +51,7 @@ export type Credentials = {
 };
 
 export const Login: React.FC<LoginProps> = (props) => {
-  const { action, credentials } = props;
+  const { action, credentials, errorMessage } = props;
   const { translateLabel, translateButton, translateProperty, translateMessage } = useTranslation();
   const branding = useSelector((state: ReduxState) => state.branding);
   const message = `Email: ${credentials.email} | Password: ${credentials.password}`;
@@ -59,7 +60,7 @@ export const Login: React.FC<LoginProps> = (props) => {
     <React.Fragment>
       <GlobalStyle />
       <Wrapper flex variant="grey">
-        <Box bg="white" height="440px" flex boxShadow="login" width={[1, 2 / 3, 'auto']}>
+        <Box bg="white" height="480px" flex boxShadow="login" width={[1, 2 / 3, 'auto']}>
           <Box
             bg="primary100"
             color="white"
@@ -90,6 +91,13 @@ export const Login: React.FC<LoginProps> = (props) => {
               {branding.logo ? <StyledLogo src={branding.logo} alt={branding.companyName} /> : branding.companyName}
             </H5>
             <MessageBox my="lg" message={message} variant="info" />
+            {errorMessage && (
+              <MessageBox
+                my="lg"
+                message={errorMessage.split(' ').length > 1 ? errorMessage : translateMessage(errorMessage)}
+                variant="danger"
+              />
+            )}
             <FormGroup>
               <Label required>{translateProperty('email')}</Label>
               <Input name="email" placeholder={translateProperty('email')} defaultValue={credentials.email} />
