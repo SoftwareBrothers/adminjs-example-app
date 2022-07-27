@@ -5,6 +5,7 @@ import argon2 from 'argon2';
 import { FastifyInstance } from 'fastify';
 import ConnectPgSimple from 'connect-pg-simple';
 import session from 'express-session';
+import { Router } from 'express';
 
 import { AdminModel } from '../sources/mongoose/models';
 
@@ -16,7 +17,7 @@ export const authenticateUser = async (email, password) => {
   return null;
 };
 
-export const expressAuthenticatedRouter = (adminJs: AdminJS) => {
+export const expressAuthenticatedRouter = (adminJs: AdminJS, router: Router | null = null) => {
   const ConnectSession = ConnectPgSimple(session);
 
   const sessionStore = new ConnectSession({
@@ -35,7 +36,7 @@ export const expressAuthenticatedRouter = (adminJs: AdminJS) => {
       cookieName: 'adminjs',
       cookiePassword: process.env.SESSION_SECRET ?? 'sessionsecret',
     },
-    null,
+    router,
     {
       store: sessionStore,
       resave: true,

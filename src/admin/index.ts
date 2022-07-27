@@ -61,6 +61,7 @@ export const generateAdminJSConfig = () => ({
   rootPath: '/admin',
   branding: {
     companyName: 'AdminJS demo page',
+    favicon: '/favicon.ico',
     theme,
   },
   version: {
@@ -112,7 +113,7 @@ export const generateAdminJSConfig = () => ({
   },
 });
 
-const ADMIN = {
+export const ADMIN = {
   email: 'admin@example.com',
   password: 'password',
 };
