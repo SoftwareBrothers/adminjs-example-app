@@ -1,31 +1,28 @@
 import path from 'path';
 import mongoose from 'mongoose';
-import express, { Express, Router } from 'express';
+import express, { Express } from 'express';
 import cors from 'cors';
 import AdminJS from 'adminjs';
 import { ADMIN, createAdmin, generateAdminJSConfig } from '../../admin';
 import { expressAuthenticatedRouter } from '../../admin/router';
 import { init } from '../../sources/mikroorm/config';
 import dataSource from '../../sources/typeorm/config';
-import { ViewController } from './views/view.controller';
-
-const getAdminRelativePath = (admin: AdminJS, path: string) => {
-  const { rootPath } = admin.options;
-
-  return path.replace(rootPath, '');
-};
+import getHtml from '../../admin/views/get-html';
+import Login from '../../admin/views/components/login';
 
 const attachAdminJS = async (app: Express) => {
   const config = generateAdminJSConfig();
   const adminJS = new AdminJS(config);
 
-  const adminPredefinedRouter = Router();
-  const viewController = new ViewController(adminJS);
-  adminPredefinedRouter.get(
-    getAdminRelativePath(adminJS, adminJS.options.loginPath),
-    await viewController.serveLogin({ credentials: ADMIN, action: adminJS.options.loginPath })
-  );
-  const adminRouter = expressAuthenticatedRouter(adminJS, adminPredefinedRouter);
+  AdminJS.prototype.renderLogin = async function ({ action, errorMessage }) {
+    return getHtml(adminJS, Login, {
+      credentials: ADMIN,
+      action: action ?? adminJS.options.loginPath,
+      errorMessage,
+    });
+  };
+
+  const adminRouter = expressAuthenticatedRouter(adminJS);
 
   app.use(adminJS.options.rootPath, adminRouter);
   app.get('/', (req, res) => res.redirect(adminJS.options.rootPath));
