@@ -2632,10 +2632,10 @@ acorn@^8.4.1, acorn@^8.7.1:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.7.1.tgz#0197122c843d1bf6d0a5e83220a788f278f63c30"
   integrity sha512-Xx54uLJQZ19lKygFXOWsscKUbsBZW0CPykPhVQdhIeIwrbPmJzqeASDInc8nKBnp/JT6igTs82qPXz069H8I/A==
 
-adminjs@^6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/adminjs/-/adminjs-6.0.1.tgz#5fa58a285a5cec9fb29dc3aafcd244c08402c99d"
-  integrity sha512-y3E1khczIjFc1dNO8jBF36PZKQA4Fj0ar3ZHcIT/MdP+xAtLOrH5CfZw2Fxd/KzqPmi7amvG9GcO2msCfxPwTw==
+adminjs@^6.1.0-dev.1:
+  version "6.1.0-dev.1"
+  resolved "https://registry.yarnpkg.com/adminjs/-/adminjs-6.1.0-dev.1.tgz#b3003720aedc793e92ad8f3078d43a50433fcec3"
+  integrity sha512-fH856A8JrNnMKQBJ246gX0/pngNdZ3/WunfAOy/9ulpZofRmSUyJUR1k4FftUFuk+vAGri3wHtVyQFrajwno+A==
   dependencies:
     "@adminjs/design-system" "^3.0.0"
     "@babel/core" "^7.10.2"
