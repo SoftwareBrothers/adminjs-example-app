@@ -51,6 +51,10 @@ export const expressAuthenticatedRouter = (adminJs: AdminJS, router: Router | nu
   );
 };
 
+export const expressRouter = (adminJs: AdminJS, router: Router | null = null) => {
+  return AdminJSExpress.buildRouter(adminJs, router);
+};
+
 export const fastifyAuthenticatedRouter = (adminJs: AdminJS, app: FastifyInstance) =>
   AdminJSFastify.buildAuthenticatedRouter(
     adminJs,

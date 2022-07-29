@@ -4,7 +4,7 @@ import express, { Express } from 'express';
 import cors from 'cors';
 import AdminJS from 'adminjs';
 import { ADMIN, createAdmin, generateAdminJSConfig } from '../../admin';
-import { expressAuthenticatedRouter } from '../../admin/router';
+import { expressAuthenticatedRouter, expressRouter } from '../../admin/router';
 import { init } from '../../sources/mikroorm/config';
 import dataSource from '../../sources/typeorm/config';
 import getHtml from '../../admin/views/get-html';
@@ -22,7 +22,8 @@ const attachAdminJS = async (app: Express) => {
     });
   };
 
-  const adminRouter = expressAuthenticatedRouter(adminJS);
+  const adminRouter =
+    process.env.REQUIRE_AUTH === 'true' ? expressAuthenticatedRouter(adminJS) : expressRouter(adminJS);
 
   app.use(adminJS.options.rootPath, adminRouter);
   app.get('/', (req, res) => res.redirect(adminJS.options.rootPath));
