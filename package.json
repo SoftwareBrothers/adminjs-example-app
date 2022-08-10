@@ -70,7 +70,7 @@
     "@nestjs/platform-express": "^8.3.1",
     "@nestjs/typeorm": "^9.0.0",
     "@prisma/client": "^3.9.2",
-    "adminjs": "^6.0.6",
+    "adminjs": "^6.1.0-dev.1",
     "argon2": "^0.28.4",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
