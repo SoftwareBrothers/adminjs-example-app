@@ -43,6 +43,7 @@ export type LoginProps = {
   credentials: Credentials;
   action: string;
   errorMessage?: string;
+  children?: any;
 };
 
 export type Credentials = {

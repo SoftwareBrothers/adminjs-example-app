@@ -4,6 +4,7 @@ import AdminJSSequelize from '@adminjs/sequelize';
 import { Database as MikroormDatabse, Resource as MikroormResource } from '@adminjs/mikroorm';
 import { Database as TypeormDatabase, Resource as TypeormResource } from '@adminjs/typeorm';
 import { Database as PrismaDatabase, Resource as PrismaResource } from '@adminjs/prisma';
+import { Database as ObjectionDatabase, Resource as ObjectionResource } from '@adminjs/objection';
 import argon2 from 'argon2';
 import locale from './locale';
 import theme from './theme';
@@ -25,6 +26,7 @@ import {
 import { CreateOrganizationResource, CreatePersonResource } from '../sources/typeorm/resources';
 import { CreateOwnerResource, CreateSellerResource, CreateCarResource } from '../sources/mikroorm/resources';
 import { CreatePostResource, CreatePublisherResource, CreateProfileResource } from '../sources/prisma/resources';
+import { CreateOfficeResource, CreateManagerResource } from '../sources/objectionjs/resources';
 import { DESIGN_SYSTEM_EXAMPLE_PAGE, SOME_STATS } from './components.bundler';
 import { CryptoDatabase } from '../sources/rest/crypto-database';
 
@@ -42,6 +44,10 @@ AdminJS.registerAdapter({
   Database: PrismaDatabase,
   Resource: PrismaResource,
 });
+AdminJS.registerAdapter({
+  Database: ObjectionDatabase,
+  Resource: ObjectionResource,
+});
 
 export const menu = {
   rest: { name: 'REST', icon: 'Purchase' },
@@ -50,6 +56,7 @@ export const menu = {
   typeorm: { name: 'Typeorm Resources', icon: 'NoodleBowl' },
   mikroorm: { name: 'Mikroorm Resources', icon: 'Bee' },
   prisma: { name: 'Prisma Resources', icon: 'Industry' },
+  objection: { name: 'Objection Resources', icon: 'Monster' },
 };
 
 export const generateAdminJSConfig = () => ({
@@ -94,6 +101,9 @@ export const generateAdminJSConfig = () => ({
     CreatePublisherResource(),
     CreateProfileResource(),
     CreatePostResource(),
+    // objectionjs
+    CreateOfficeResource(),
+    CreateManagerResource(),
   ],
   pages: {
     'Custom Page': {
