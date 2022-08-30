@@ -2,6 +2,10 @@ import addFormats from 'ajv-formats';
 import { AjvValidator, Model } from 'objection';
 
 // https://github.com/Vincit/objection.js/issues/2249#issuecomment-1075898552
+// There is no support for Date type in JSONSchema, so this class does two things for us:
+// 1. It adds support to formats such as `format: "date-format"` in your "jsonSchema"
+// 2. It adds $beforeInsert and $beforeUpdate hooks to update your timestamps
+// AdminJS can not load your models properly without it.
 export abstract class BaseModel extends Model {
   createdAt: string;
 
