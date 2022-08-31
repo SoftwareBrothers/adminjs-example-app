@@ -9,7 +9,13 @@ export default {
   },
   production: {
     client: 'pg',
-    connection: process.env.POSTGRES_DATABASE_URL,
+    connection: {
+      connectionString: process.env.POSTGRES_DATABASE_URL,
+      ssl: {
+        rejectUnauthorized: false,
+        require: true,
+      },
+    },
     pool: {
       min: 2,
       max: 10,
