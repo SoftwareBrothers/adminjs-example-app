@@ -7,7 +7,7 @@ export const CreateComplicatedResource = (): CreateResourceResult<typeof Complic
   resource: ComplicatedModel,
   features: [useEnvironmentVariableToDisableActions()],
   options: {
-    parent: menu.mongoose,
+    navigation: menu.mongoose,
     properties: {
       _id: {
         isTitle: true,

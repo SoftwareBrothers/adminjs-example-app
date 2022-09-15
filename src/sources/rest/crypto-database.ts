@@ -1,6 +1,6 @@
 import { BaseResource, BaseProperty, BaseRecord, ResourceOptions } from 'adminjs';
 import axios from 'axios';
-import AdminJS from 'adminjs/types/src';
+import AdminJS from 'adminjs';
 import { menu } from '../../admin';
 
 export class CryptoDatabase extends BaseResource {
@@ -61,7 +61,7 @@ export class CryptoDatabase extends BaseResource {
   public assignDecorator(admin: AdminJS, options?: ResourceOptions) {
     super.assignDecorator(admin, {
       ...options,
-      parent: menu.rest,
+      navigation: menu.rest,
       listProperties: ['website_slug', 'name', 'symbol', 'quotes.USD.price'],
       actions: {
         list: {

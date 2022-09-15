@@ -7,7 +7,7 @@ export const CreateUserResource = (): CreateResourceResult<typeof UserModel> => 
   resource: UserModel,
   features: [useEnvironmentVariableToDisableActions()],
   options: {
-    parent: menu.mongoose,
+    navigation: menu.mongoose,
     properties: {
       _id: {
         isTitle: true,

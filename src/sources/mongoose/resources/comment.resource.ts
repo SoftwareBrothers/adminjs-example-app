@@ -7,7 +7,7 @@ export const CreateCommentResource = (): CreateResourceResult<typeof CommentMode
   resource: CommentModel,
   features: [useEnvironmentVariableToDisableActions()],
   options: {
-    parent: menu.mongoose,
+    navigation: menu.mongoose,
     actions: {
       show: {
         isAccessible: false,

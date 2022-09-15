@@ -10,7 +10,7 @@ export const CreateOrderResource = (): CreateResourceResult<typeof OrderModel> =
   resource: OrderModel,
   features: [useEnvironmentVariableToDisableActions()],
   options: {
-    parent: menu.sequelize,
+    navigation: menu.sequelize,
     actions: {
       list: {
         after: [getSumForOrder()],

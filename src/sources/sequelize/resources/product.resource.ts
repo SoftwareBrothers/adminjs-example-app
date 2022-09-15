@@ -7,7 +7,7 @@ export const CreateProductResource = (): CreateResourceResult<typeof ProductMode
   resource: ProductModel,
   features: [useEnvironmentVariableToDisableActions()],
   options: {
-    parent: menu.sequelize,
+    navigation: menu.sequelize,
     properties: {
       price: {
         type: 'currency',

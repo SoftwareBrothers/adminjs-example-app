@@ -8,7 +8,7 @@ export const CreateArticleResource = (): CreateResourceResult<typeof ArticleMode
   resource: ArticleModel,
   features: [useEnvironmentVariableToDisableActions()],
   options: {
-    parent: menu.mongoose,
+    navigation: menu.mongoose,
     properties: {
       _id: {
         isTitle: true,

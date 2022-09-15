@@ -7,6 +7,6 @@ export const CreateOrganizationResource = (): CreateResourceResult<typeof Organi
   resource: Organization,
   features: [useEnvironmentVariableToDisableActions()],
   options: {
-    parent: menu.typeorm,
+    navigation: menu.typeorm,
   },
 });

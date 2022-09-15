@@ -7,7 +7,7 @@ export const CreateCartResource = (): CreateResourceResult<typeof CartModel> => 
   resource: CartModel,
   features: [useEnvironmentVariableToDisableActions()],
   options: {
-    parent: menu.sequelize,
+    navigation: menu.sequelize,
     properties: {
       createdAt: {
         isVisible: {

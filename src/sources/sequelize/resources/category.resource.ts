@@ -7,7 +7,7 @@ export const CreateCategoryResource = (): CreateResourceResult<typeof CategoryMo
   resource: CategoryModel,
   features: [useEnvironmentVariableToDisableActions()],
   options: {
-    parent: menu.sequelize,
+    navigation: menu.sequelize,
     properties: {
       name: {
         isTitle: true,

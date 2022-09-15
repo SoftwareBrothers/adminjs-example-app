@@ -1,4 +1,6 @@
-import { flat, PropertyErrors, ValidationError, ActionRequest, ActionContext, Before } from 'adminjs';
+import { ActionRequest, ActionContext, Before } from 'adminjs';
+import { flat } from '@adminjs/common/utils';
+import { PropertyErrors, ValidationError } from '@adminjs/common/errors';
 import { isPOSTMethod } from '../../../admin/admin.utils';
 import { PostPayload } from '../interfaces';
 

@@ -1,4 +1,5 @@
-import { ActionRequest, ActionResponse, After, flat } from 'adminjs';
+import { ActionRequest, ActionResponse, After } from 'adminjs';
+import { flat } from '@adminjs/common/utils';
 import { isGETMethod } from '../../../admin/admin.utils';
 import { CartModel, OrderModel, ProductModel } from '../models';
 import { ProductListInterface } from '../interfaces';

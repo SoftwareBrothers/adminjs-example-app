@@ -3,30 +3,20 @@ import mongoose from 'mongoose';
 import express, { Express } from 'express';
 import cors from 'cors';
 import AdminJS from 'adminjs';
-import { ADMIN, createAdmin, generateAdminJSConfig } from '../../admin';
+import { createAdmin, generateAdminJSConfig } from '../../admin';
 import { expressAuthenticatedRouter, expressRouter } from '../../admin/router';
 import { init } from '../../sources/mikroorm/config';
 import dataSource from '../../sources/typeorm/config';
-import getHtml from '../../admin/views/get-html';
-import Login from '../../admin/views/components/login';
 
 const attachAdminJS = async (app: Express) => {
   const config = generateAdminJSConfig();
   const adminJS = new AdminJS(config);
 
-  AdminJS.prototype.renderLogin = async function ({ action, errorMessage }) {
-    return getHtml(adminJS, Login, {
-      credentials: ADMIN,
-      action: action ?? adminJS.options.loginPath,
-      errorMessage,
-    });
-  };
-
   const adminRouter =
     process.env.REQUIRE_AUTH === 'true' ? expressAuthenticatedRouter(adminJS) : expressRouter(adminJS);
 
-  app.use(adminJS.options.rootPath, adminRouter);
-  app.get('/', (req, res) => res.redirect(adminJS.options.rootPath));
+  app.use(adminJS.options.paths.rootPath, adminRouter);
+  app.get('/', (req, res) => res.redirect(adminJS.options.paths.rootPath));
   app.use(express.static(path.join(__dirname, '../../../public')));
 
   await createAdmin();

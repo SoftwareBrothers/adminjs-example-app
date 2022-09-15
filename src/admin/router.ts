@@ -1,11 +1,10 @@
-import AdminJSExpress from '@adminjs/express';
+import ExpressPlugin, { AuthService } from '@adminjs/express';
 import AdminJSFastify from '@adminjs/fastify';
 import AdminJS from 'adminjs';
 import argon2 from 'argon2';
 import { FastifyInstance } from 'fastify';
 import ConnectPgSimple from 'connect-pg-simple';
 import session from 'express-session';
-import { Router } from 'express';
 
 import { AdminModel } from '../sources/mongoose/models';
 
@@ -17,7 +16,7 @@ export const authenticateUser = async (email, password) => {
   return null;
 };
 
-export const expressAuthenticatedRouter = (adminJs: AdminJS, router: Router | null = null) => {
+export const expressAuthenticatedRouter = (adminJs: AdminJS) => {
   const ConnectSession = ConnectPgSimple(session);
 
   const sessionStore = new ConnectSession({
@@ -29,30 +28,35 @@ export const expressAuthenticatedRouter = (adminJs: AdminJS, router: Router | nu
     createTableIfMissing: true,
   });
 
-  return AdminJSExpress.buildAuthenticatedRouter(
-    adminJs,
-    {
-      authenticate: authenticateUser,
-      cookieName: 'adminjs',
-      cookiePassword: process.env.SESSION_SECRET ?? 'sessionsecret',
-    },
-    router,
-    {
+  const authService = new AuthService({
+    authenticate: authenticateUser,
+    cookiePassword: 'secret',
+    cookieName: 'adminjs',
+    session: {
       store: sessionStore,
-      resave: true,
       saveUninitialized: true,
+      resave: true,
       secret: process.env.SESSION_SECRET ?? 'sessionsecret',
       cookie: {
         httpOnly: process.env.NODE_ENV === 'production',
         secure: false,
       },
       name: 'adminjs',
-    }
-  );
+    },
+  });
+  const { router: adminRouter } = new ExpressPlugin(adminJs, {
+    authentication: {
+      required: true,
+      authService,
+    },
+  }).register();
+
+  return adminRouter;
 };
 
-export const expressRouter = (adminJs: AdminJS, router: Router | null = null) => {
-  return AdminJSExpress.buildRouter(adminJs, router);
+export const expressRouter = (adminJs: AdminJS) => {
+  const { router: adminRouter } = new ExpressPlugin(adminJs).register();
+  return adminRouter;
 };
 
 export const fastifyAuthenticatedRouter = (adminJs: AdminJS, app: FastifyInstance) =>

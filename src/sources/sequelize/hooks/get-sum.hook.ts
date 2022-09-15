@@ -1,4 +1,5 @@
-import { ActionRequest, ActionResponse, After, flat } from 'adminjs';
+import { ActionRequest, ActionResponse, After } from 'adminjs';
+import { flat } from '@adminjs/common/utils';
 import { isGETMethod } from '../../../admin/admin.utils';
 import { getSum } from '../functions/get-sum.function';
 import { ProductSumInterface } from '../interfaces';

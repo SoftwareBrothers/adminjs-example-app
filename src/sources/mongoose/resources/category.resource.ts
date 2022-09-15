@@ -7,7 +7,7 @@ export const CreateCategoryResource = (): CreateResourceResult<typeof CategoryMo
   resource: CategoryModel,
   features: [useEnvironmentVariableToDisableActions()],
   options: {
-    parent: menu.mongoose,
+    navigation: menu.mongoose,
     actions: {
       show: {
         showInDrawer: true,

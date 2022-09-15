@@ -9,7 +9,7 @@ export const CreatePersonResource = (): CreateResourceResult<typeof Person> => (
   resource: Person,
   features: [useEnvironmentVariableToDisableActions()],
   options: {
-    parent: menu.typeorm,
+    navigation: menu.typeorm,
     properties: {
       phone: {
         type: 'phone',
