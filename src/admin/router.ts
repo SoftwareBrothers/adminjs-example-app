@@ -11,7 +11,10 @@ import { AdminModel } from '../sources/mongoose/models';
 export const authenticateUser = async (email, password) => {
   const user = await AdminModel.findOne({ email });
   if (user && (await argon2.verify(user.password, password))) {
-    return user;
+    return {
+      id: user._id,
+      email: user.email,
+    };
   }
   return null;
 };
