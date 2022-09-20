@@ -5,8 +5,6 @@ import { Database as MikroormDatabse, Resource as MikroormResource } from '@admi
 import { Database as TypeormDatabase, Resource as TypeormResource } from '@adminjs/typeorm';
 import { Database as PrismaDatabase, Resource as PrismaResource } from '@adminjs/prisma';
 import argon2 from 'argon2';
-import locale from './locale';
-import theme from './theme';
 import { AdminModel } from '../sources/mongoose/models';
 import {
   CreateAdminResource,
@@ -25,7 +23,6 @@ import {
 import { CreateOrganizationResource, CreatePersonResource } from '../sources/typeorm/resources';
 import { CreateOwnerResource, CreateSellerResource, CreateCarResource } from '../sources/mikroorm/resources';
 import { CreatePostResource, CreatePublisherResource, CreateProfileResource } from '../sources/prisma/resources';
-import { DESIGN_SYSTEM_EXAMPLE_PAGE, SOME_STATS } from './components.bundler';
 import { CryptoDatabase } from '../sources/rest/crypto-database';
 
 AdminJS.registerAdapter(AdminJSMongoose);
@@ -53,21 +50,7 @@ export const menu = {
 };
 
 export const generateAdminJSConfig = () => ({
-  locale,
-  assets: {
-    styles: ['/custom.css'],
-    scripts: process.env.NODE_ENV === 'production' ? ['/gtm.js'] : [],
-  },
-  rootPath: '/admin',
-  branding: {
-    companyName: 'AdminJS demo page',
-    favicon: '/favicon.ico',
-    theme,
-  },
-  version: {
-    admin: true,
-    app: '2.0.0',
-  },
+  paths: { rootPath: '/admin' },
   resources: [
     // custom
     new CryptoDatabase(),
@@ -97,18 +80,12 @@ export const generateAdminJSConfig = () => ({
   ],
   pages: {
     'Custom Page': {
-      component: SOME_STATS,
-      icon: 'Purchase',
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       handler: async (request, response, context) => {
         return {
           text: 'I am fetched from the backend',
         };
       },
-    },
-    'Design system example': {
-      component: DESIGN_SYSTEM_EXAMPLE_PAGE,
-      icon: 'Workspace',
     },
   },
 });
