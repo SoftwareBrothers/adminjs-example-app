@@ -16,10 +16,10 @@
     flat "^4.1.0"
     lodash "^4.17.21"
 
-"@adminjs/express@^5.1.0-dev.1":
-  version "5.1.0-dev.1"
-  resolved "https://registry.yarnpkg.com/@adminjs/express/-/express-5.1.0-dev.1.tgz#8f7eb1fa233d646ff894f474b519d492c99294f9"
-  integrity sha512-sZaFN9ZdySd9T2EdEOf9JuPcOZ7sWH+DpwxTGcqqw7elS0G0/zTv5Co7bQX7GBGGTuR5yE0UauqyZIEbREF7ow==
+"@adminjs/express@^5.1.0-dev.2":
+  version "5.1.0-dev.2"
+  resolved "https://registry.yarnpkg.com/@adminjs/express/-/express-5.1.0-dev.2.tgz#e43a6d072ae3a16ed7418a73ea6e06aa175ecf1f"
+  integrity sha512-vjuk9CLTzOc10CfjZtCWijxIZGtXTGqWxz0aF1hO1lzuXK2O75kCKKzHfPkcCw2mXESZSgTVLuNhX8LeECW1iw==
   dependencies:
     jsonwebtoken "^8.5.1"
     path-to-regexp "^6.2.0"
@@ -2101,10 +2101,10 @@ acorn@^8.4.1, acorn@^8.7.1:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.7.1.tgz#0197122c843d1bf6d0a5e83220a788f278f63c30"
   integrity sha512-Xx54uLJQZ19lKygFXOWsscKUbsBZW0CPykPhVQdhIeIwrbPmJzqeASDInc8nKBnp/JT6igTs82qPXz069H8I/A==
 
-adminjs@^6.2.0-dev.2:
-  version "6.2.0-dev.2"
-  resolved "https://registry.yarnpkg.com/adminjs/-/adminjs-6.2.0-dev.2.tgz#2ac2a2ea6695d0a838307d5d16fbdd7b2a8c61a4"
-  integrity sha512-khFu1tK/DZRxeSj0QqlCt8T/5dIbhK01Xez0sp7SQ7qjOqjvl3e0TUqdOSRZVU/U5UHf14CBcjAAmS5UGTMmxQ==
+adminjs@^6.2.0-dev.3:
+  version "6.2.0-dev.3"
+  resolved "https://registry.yarnpkg.com/adminjs/-/adminjs-6.2.0-dev.3.tgz#0003d1cb7b2bc49d0a1a74c1dac6acbc1dc6c835"
+  integrity sha512-XiiR9+J3Ff/RxUIUoGDEQ7woJHGbbMwoSq2+1af14XqmFqvNAVtzofnWoygd0s4+t7EoQetpClWC39VCesF+ug==
   dependencies:
     flat "^4.1.0"
     lodash "^4.17.21"
