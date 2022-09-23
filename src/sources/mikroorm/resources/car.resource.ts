@@ -1,4 +1,3 @@
-import { menu } from '../../../admin';
 import { Car } from '../models';
 import { orm } from '../config';
 import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions';
@@ -10,7 +9,6 @@ export const CreateCarResource = () => ({
   },
   features: [useEnvironmentVariableToDisableActions()],
   options: {
-    parent: menu.mikroorm,
     properties: {
       meta: { type: 'mixed' },
       'meta.title': {

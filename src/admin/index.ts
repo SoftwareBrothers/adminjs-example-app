@@ -40,15 +40,6 @@ AdminJS.registerAdapter({
   Resource: PrismaResource,
 });
 
-export const menu = {
-  rest: { name: 'REST', icon: 'Purchase' },
-  mongoose: { name: 'Mongoose Resources', icon: 'Tree' },
-  sequelize: { name: 'Sequelize Resources', icon: 'Sql' },
-  typeorm: { name: 'Typeorm Resources', icon: 'NoodleBowl' },
-  mikroorm: { name: 'Mikroorm Resources', icon: 'Bee' },
-  prisma: { name: 'Prisma Resources', icon: 'Industry' },
-};
-
 export const generateAdminJSConfig = () => ({
   paths: { rootPath: '/admin' },
   resources: [

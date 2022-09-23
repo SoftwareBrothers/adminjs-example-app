@@ -1,13 +1,11 @@
 import { CategoryModel } from '../models';
 import { CreateResourceResult } from '../../../admin/create-resource-result.type';
-import { menu } from '../../../admin';
 import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions';
 
 export const CreateCategoryResource = (): CreateResourceResult<typeof CategoryModel> => ({
   resource: CategoryModel,
   features: [useEnvironmentVariableToDisableActions()],
   options: {
-    navigation: menu.sequelize,
     properties: {
       name: {
         isTitle: true,

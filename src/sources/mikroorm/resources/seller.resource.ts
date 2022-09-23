@@ -1,5 +1,4 @@
 import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions';
-import { menu } from '../../../admin';
 import { Seller } from '../models';
 import { orm } from '../config';
 
@@ -9,7 +8,5 @@ export const CreateSellerResource = () => ({
     orm,
   },
   features: [useEnvironmentVariableToDisableActions()],
-  options: {
-    parent: menu.mikroorm,
-  },
+  options: {},
 });

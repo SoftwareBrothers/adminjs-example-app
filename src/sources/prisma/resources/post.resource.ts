@@ -1,5 +1,4 @@
 import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions';
-import { menu } from '../../../admin';
 import { client, dmmf } from '../config';
 
 export const CreatePostResource = () => ({
@@ -9,7 +8,6 @@ export const CreatePostResource = () => ({
   },
   features: [useEnvironmentVariableToDisableActions()],
   options: {
-    parent: menu.prisma,
     properties: {
       content: { type: 'richtext' },
       someJson: { type: 'mixed', isArray: true },

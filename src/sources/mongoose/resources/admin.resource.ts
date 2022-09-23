@@ -1,6 +1,5 @@
 import { AdminModel } from '../models';
 import { CreateResourceResult } from '../../../admin/create-resource-result.type';
-import { menu } from '../../../admin';
 
 export const CreateAdminResource = (): CreateResourceResult<typeof AdminModel> => ({
   resource: AdminModel,
@@ -13,7 +12,6 @@ export const CreateAdminResource = (): CreateResourceResult<typeof AdminModel> =
     }),
   ],
   options: {
-    navigation: menu.mongoose,
     sort: {
       direction: 'asc',
       sortBy: 'email',
