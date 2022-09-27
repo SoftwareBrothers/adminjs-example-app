@@ -82,6 +82,10 @@ export class CryptoDatabase extends BaseResource {
     return 'crypto-database';
   }
 
+  public databaseName(): string {
+    return 'REST API';
+  }
+
   public name(): string {
     return 'Crypto Database';
   }
