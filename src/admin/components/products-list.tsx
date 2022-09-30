@@ -1,11 +1,11 @@
 import React from 'react';
 import { Box, FormGroup, Label, Table, TableBody, TableCell, TableHead, TableRow } from '@adminjs/design-system';
-import { unflatten, useTranslation, BasePropertyProps } from 'adminjs';
+import { flat, useTranslation, BasePropertyProps } from 'adminjs';
 import { ProductListInterface } from '../../sources/sequelize/interfaces';
 
 const ProductsList = (props: BasePropertyProps) => {
   const { translateLabel } = useTranslation();
-  const params = unflatten<any, ProductListInterface>(props.record.params);
+  const params = flat.unflatten<any, ProductListInterface>(props.record.params);
 
   return (
     <FormGroup mb={24}>

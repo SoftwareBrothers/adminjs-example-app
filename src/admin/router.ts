@@ -43,7 +43,7 @@ export const expressAuthenticatedRouter = (adminJs: AdminJS, router: Router | nu
       saveUninitialized: true,
       secret: process.env.SESSION_SECRET ?? 'sessionsecret',
       cookie: {
-        httpOnly: process.env.NODE_ENV === 'production',
+        httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
       },
       name: 'adminjs',
