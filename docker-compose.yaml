@@ -23,7 +23,6 @@ services:
 
   mysql_db:
     container_name: adminjs-example-mysql
-    platform: linux/x86_64
     image: mysql
     environment:
       MYSQL_USER: adminjs
