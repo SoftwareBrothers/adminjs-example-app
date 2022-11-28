@@ -1,6 +1,6 @@
-import { buildFeature } from 'adminjs';
+import { buildFeature, FeatureType } from 'adminjs';
 
-export const useEnvironmentVariableToDisableActions = () => {
+export const useEnvironmentVariableToDisableActions = (): FeatureType => {
   if (process.env.DISABLE_ADMINJS_ACTIONS === 'true') {
     return buildFeature({
       actions: {
