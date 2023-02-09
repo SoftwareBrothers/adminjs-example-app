@@ -121,7 +121,7 @@ export const createAdmin = async () => {
   if (!admin) {
     await AdminModel.create({
       email: ADMIN.email,
-      password: await argon2.hash(ADMIN.password),
+      password: await argon2.hash(ADMIN.password)
     });
   }
 };
