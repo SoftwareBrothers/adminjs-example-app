@@ -114,7 +114,7 @@ export const Login: React.FC<LoginProps> = (props) => {
               />
             </FormGroup>
             <Text mt="xl" textAlign="center">
-              <Button variant="primary">{translateButton('login')}</Button>
+              <Button variant="contained">{translateButton('login')}</Button>
             </Text>
           </Box>
         </Box>

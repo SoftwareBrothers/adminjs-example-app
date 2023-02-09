@@ -1,5 +1,5 @@
-import React, { FC, useCallback, useState } from 'react';
 import { Box, Button, Modal, ModalProps } from '@adminjs/design-system';
+import React, { FC, useCallback, useState } from 'react';
 
 const ModalExample: FC = () => {
   const [showModal, setShowModal] = useState(false);
@@ -8,10 +8,10 @@ const ModalExample: FC = () => {
   const modalProps: ModalProps = {
     variant: 'primary',
     label: 'Modal header',
-    icon: 'CollapseAll',
+    icon: 'Bookmark',
     title: 'Modal title',
     subTitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    buttons: [{ label: 'Cancel' }, { label: 'Delete', variant: 'danger' }],
+    buttons: [{ label: 'Cancel' }, { label: 'Delete', color: 'danger' }],
     onClose: () => setShowModal(false),
     onOverlayClick: () => setShowModal(false),
   };

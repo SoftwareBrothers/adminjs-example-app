@@ -1,13 +1,12 @@
-import AdminJS from 'adminjs';
-import AdminJSMongoose from '@adminjs/mongoose';
-import AdminJSSequelize from '@adminjs/sequelize';
 import { Database as MikroormDatabse, Resource as MikroormResource } from '@adminjs/mikroorm';
-import { Database as TypeormDatabase, Resource as TypeormResource } from '@adminjs/typeorm';
-import { Database as PrismaDatabase, Resource as PrismaResource } from '@adminjs/prisma';
+import AdminJSMongoose from '@adminjs/mongoose';
 import { Database as ObjectionDatabase, Resource as ObjectionResource } from '@adminjs/objection';
+import { Database as PrismaDatabase, Resource as PrismaResource } from '@adminjs/prisma';
+import AdminJSSequelize from '@adminjs/sequelize';
+import { Database as TypeormDatabase, Resource as TypeormResource } from '@adminjs/typeorm';
+import AdminJS from 'adminjs';
 import argon2 from 'argon2';
-import locale from './locale';
-import theme from './theme';
+import { CreateCarResource, CreateOwnerResource, CreateSellerResource } from '../sources/mikroorm/resources';
 import { AdminModel } from '../sources/mongoose/models';
 import {
   CreateAdminResource,
@@ -17,18 +16,28 @@ import {
   CreateComplicatedResource,
   CreateUserResource,
 } from '../sources/mongoose/resources';
+import { CreateManagerResource, CreateOfficeResource } from '../sources/objectionjs/resources';
+import { CreatePostResource, CreateProfileResource, CreatePublisherResource } from '../sources/prisma/resources';
+import { CryptoDatabase } from '../sources/rest/crypto-database';
 import {
-  CreateProductResource,
-  CreateCategoryResource as CreateSequelizeCategoryResource,
   CreateCartResource,
   CreateOrderResource,
+  CreateProductResource,
+  CreateCategoryResource as CreateSequelizeCategoryResource,
 } from '../sources/sequelize/resources';
 import { CreateOrganizationResource, CreatePersonResource } from '../sources/typeorm/resources';
-import { CreateOwnerResource, CreateSellerResource, CreateCarResource } from '../sources/mikroorm/resources';
-import { CreatePostResource, CreatePublisherResource, CreateProfileResource } from '../sources/prisma/resources';
-import { CreateOfficeResource, CreateManagerResource } from '../sources/objectionjs/resources';
-import { DESIGN_SYSTEM_EXAMPLE_PAGE, SOME_STATS } from './components.bundler';
-import { CryptoDatabase } from '../sources/rest/crypto-database';
+import {
+  BLOG_PAGE,
+  BUTTONS_PAGE,
+  FORMS_PAGE,
+  ICONS_PAGE,
+  ILLUSTRATIONS_PAGE,
+  MODAL_PAGE,
+  SOME_STATS,
+  TYPOGRAPHY_PAGE,
+} from './components.bundler';
+import locale from './locale';
+import theme from './theme';
 
 AdminJS.registerAdapter(AdminJSMongoose);
 AdminJS.registerAdapter(AdminJSSequelize);
@@ -50,13 +59,13 @@ AdminJS.registerAdapter({
 });
 
 export const menu = {
-  rest: { name: 'REST', icon: 'Purchase' },
-  mongoose: { name: 'Mongoose Resources', icon: 'Tree' },
-  sequelize: { name: 'Sequelize Resources', icon: 'Sql' },
-  typeorm: { name: 'Typeorm Resources', icon: 'NoodleBowl' },
-  mikroorm: { name: 'Mikroorm Resources', icon: 'Bee' },
-  prisma: { name: 'Prisma Resources', icon: 'Industry' },
-  objection: { name: 'Objection Resources', icon: 'Monster' },
+  rest: { name: 'REST', icon: 'Link' },
+  mongoose: { name: 'Mongoose Resources', icon: 'Database' },
+  sequelize: { name: 'Sequelize Resources', icon: 'Database' },
+  typeorm: { name: 'Typeorm Resources', icon: 'Database' },
+  mikroorm: { name: 'Mikroorm Resources', icon: 'Database' },
+  prisma: { name: 'Prisma Resources', icon: 'Database' },
+  objection: { name: 'Objection Resources', icon: 'Database' },
 };
 
 export const generateAdminJSConfig = () => ({
@@ -108,7 +117,7 @@ export const generateAdminJSConfig = () => ({
   pages: {
     'Custom Page': {
       component: SOME_STATS,
-      icon: 'Purchase',
+      icon: 'Layers',
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       handler: async (request, response, context) => {
         return {
@@ -116,16 +125,20 @@ export const generateAdminJSConfig = () => ({
         };
       },
     },
-    'Design system example': {
-      component: DESIGN_SYSTEM_EXAMPLE_PAGE,
-      icon: 'Workspace',
-    },
+    'Design system - Blog': { component: BLOG_PAGE },
+    'Design system - Buttons': { component: BUTTONS_PAGE },
+    'Design system - Form': { component: FORMS_PAGE },
+    'Design system - Icons': { component: ICONS_PAGE },
+    'Design system - Illustrations': { component: ILLUSTRATIONS_PAGE },
+    'Design system - Modal': { component: MODAL_PAGE },
+    'Design system - Typography': { component: TYPOGRAPHY_PAGE },
   },
 });
 
 export const ADMIN = {
   email: 'admin@example.com',
   password: 'password',
+  title: 'Admin'
 };
 
 export const createAdmin = async () => {
@@ -133,7 +146,7 @@ export const createAdmin = async () => {
   if (!admin) {
     await AdminModel.create({
       email: ADMIN.email,
-      password: await argon2.hash(ADMIN.password),
+      password: await argon2.hash(ADMIN.password)
     });
   }
 };
