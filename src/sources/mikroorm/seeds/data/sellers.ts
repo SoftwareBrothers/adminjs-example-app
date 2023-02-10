@@ -4,7 +4,7 @@ import { ISeller } from '../../models/seller.model';
 
 const sellers = (count: number): ISeller[] =>
   Array.from({ length: count }, () => ({
-    name: faker.company.companyName(),
+    name: faker.company.name(),
   }));
 
 export default sellers;
