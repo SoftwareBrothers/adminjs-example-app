@@ -6,7 +6,7 @@ import { Organization } from '../../models';
 
 const organizations = (count: number): DeepPartial<Organization>[] =>
   Array.from({ length: count }, () => ({
-    name: faker.company.companyName(),
+    name: faker.company.name(),
     city: faker.address.city(),
     address: `${faker.address.street()} ${faker.address.buildingNumber()}`,
     postalCode: faker.address.zipCode(),
