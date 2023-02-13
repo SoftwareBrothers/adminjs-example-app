@@ -43,7 +43,7 @@ const start = async () => {
   await attachAdminJS(app);
 
   app.listen(process.env.PORT, async () => {
-    console.log(`AdminJS is under localhost:${process.env.PORT}/admin`);
+    console.log(`AdminJS is under http://localhost:${process.env.PORT}/admin`);
   });
 };
 

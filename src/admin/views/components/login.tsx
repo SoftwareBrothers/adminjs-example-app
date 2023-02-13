@@ -39,6 +39,19 @@ const StyledLogo = styled.img`
   margin: ${themeGet('space', 'md')} 0;
 `;
 
+const IllustrationsWrapper = styled(Box)`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  & svg [stroke="#3B3552"] { 
+    stroke: rgba(255, 255, 255, 0.5)
+  }
+  & svg [fill="#3040D6"] { 
+    fill: rgba(255, 255, 255, 1);
+  }
+`
+
 export type LoginProps = {
   credentials: Credentials;
   action: string;
@@ -75,7 +88,7 @@ export const Login: React.FC<LoginProps> = (props) => {
             <Text fontWeight="lighter" mt="default">
               {translateMessage('loginWelcome')}
             </Text>
-            <Text textAlign="center" p="xxl">
+            <IllustrationsWrapper p="xxl">
               <Box display="inline" mr="default">
                 <Illustration variant="Planet" width={82} height={91} />
               </Box>
@@ -85,7 +98,7 @@ export const Login: React.FC<LoginProps> = (props) => {
               <Box display="inline" position="relative" top="-20px">
                 <Illustration variant="FlagInCog" width={82} height={91} />
               </Box>
-            </Text>
+            </IllustrationsWrapper>
           </Box>
           <Box as="form" action={action} method="POST" p="x3" flexGrow={1} width={['100%', '100%', '480px']}>
             <H5 marginBottom="xxl">
