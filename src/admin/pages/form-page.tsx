@@ -13,28 +13,13 @@ import {
 } from '@adminjs/design-system';
 import React, { useState } from 'react';
 
-const FormPage = (props) => {
+const FormPage = () => {
   const [value, setValue] = useState();
   const [date, setDate] = useState('2021-06-17');
-  const { property, record, onChange } = props;
   const options = [
     { value: '1', label: 'Office 1' },
-    { value: '2', label: 'Office 2' }
+    { value: '2', label: 'Office 2' },
   ];
-
-  const onUpload = (files) => {
-    const newRecord = { ...record };
-    const file = files.length && files[0];
-
-    onChange({
-      ...newRecord,
-      params: {
-        ...newRecord.params,
-        [property.name]: file,
-      },
-    });
-    event.preventDefault();
-  };
 
   return (
     <Box variant="grey">
@@ -42,16 +27,16 @@ const FormPage = (props) => {
       <Box variant="white">
         <Box p="xl" flex justifyContent="space-between" style={{ gap: 16 }}>
           <Box width="100%">
-            <Label htmlFor="name">First name</Label>
-            <Input id="name" width={1} />
+            <Label htmlFor="firstName">First name</Label>
+            <Input id="firstName" width={1} />
           </Box>
           <Box width="100%">
-            <Label htmlFor="surname">Last name</Label>
-            <Input id="surname" width={1} />
+            <Label htmlFor="lastName">Last name</Label>
+            <Input id="lastName" width={1} />
           </Box>
           <Box width="100%">
             <Label htmlFor="phone">Phone</Label>
-            <PhoneInput id="phone" onChange={(ev) => console.log(ev)} />
+            <PhoneInput id="phone" />
           </Box>
         </Box>
 
@@ -76,15 +61,15 @@ const FormPage = (props) => {
         </Box>
 
         <Box p="xl">
-          <CheckBox id="checkbox1" />
-          <Label inline htmlFor="checkbox1" ml="default">
+          <CheckBox id="isActive" />
+          <Label inline htmlFor="isActive" ml="default">
             Active
           </Label>
         </Box>
 
         <Box p="xl">
           <Label>Attachment</Label>
-          <DropZone onChange={onUpload} />
+          <DropZone />
         </Box>
       </Box>
     </Box>

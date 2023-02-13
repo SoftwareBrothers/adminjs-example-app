@@ -31,7 +31,7 @@ const run = async (): Promise<void> => {
     await attachAdminJS();
 
     await app.listen(process.env.PORT);
-    console.log(`AdminJS is under localhost:${process.env.PORT}/admin`);
+    console.log(`AdminJS is under http://localhost:${process.env.PORT}/admin`);
   } catch (err) {
     app.log.error(err);
     process.exit(1);

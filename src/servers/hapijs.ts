@@ -29,7 +29,7 @@ const start = async () => {
     });
 
     await server.start();
-    console.log(`AdminJS is under localhost:${process.env.PORT}/admin`);
+    console.log(`AdminJS is under http://localhost:${process.env.PORT}/admin`);
   } catch (error) {
     console.log(error);
     process.exit(1);
