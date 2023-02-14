@@ -4,7 +4,7 @@ import { Database as ObjectionDatabase, Resource as ObjectionResource } from '@a
 import { Database as PrismaDatabase, Resource as PrismaResource } from '@adminjs/prisma';
 import AdminJSSequelize from '@adminjs/sequelize';
 import { Database as TypeormDatabase, Resource as TypeormResource } from '@adminjs/typeorm';
-import AdminJS from 'adminjs';
+import AdminJS, { AdminJSOptions } from 'adminjs';
 import argon2 from 'argon2';
 import { CreateCarResource, CreateOwnerResource, CreateSellerResource } from '../sources/mikroorm/resources';
 import { AdminModel } from '../sources/mongoose/models';
@@ -68,7 +68,7 @@ export const menu = {
   objection: { name: 'Objection Resources', icon: 'Database' },
 };
 
-export const generateAdminJSConfig = () => ({
+export const generateAdminJSConfig: () => AdminJSOptions = () => ({
   locale,
   assets: {
     styles: ['/custom.css'],
