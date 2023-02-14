@@ -4,6 +4,7 @@ import {
   CurrencyInput,
   DatePicker,
   DropZone,
+  DropZoneProps,
   Header,
   Input,
   Label,
@@ -11,6 +12,7 @@ import {
   Select,
   TextArea,
 } from '@adminjs/design-system';
+import { useTranslation } from 'adminjs';
 import React, { useState } from 'react';
 
 const FormPage = () => {
@@ -20,6 +22,7 @@ const FormPage = () => {
     { value: '1', label: 'Office 1' },
     { value: '2', label: 'Office 2' },
   ];
+  const { translateComponent } = useTranslation();
 
   return (
     <Box variant="grey">
@@ -69,7 +72,11 @@ const FormPage = () => {
 
         <Box p="xl">
           <Label>Attachment</Label>
-          <DropZone />
+          <DropZone
+            validate={{ maxSize: 1 }}
+            translations={translateComponent('DropZone', { returnObjects: true }) as DropZoneProps['translations']}
+            // or translations={translate<DropZoneProps['translations']>('components.DropZone', { returnObjects: true })}
+          />
         </Box>
       </Box>
     </Box>

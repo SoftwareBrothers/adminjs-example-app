@@ -1,6 +1,6 @@
-import * as Common from './common.json';
-import * as Complicated from './complicated.json';
-import * as Person from './person.json';
+import Common from './common.json';
+import Complicated from './complicated.json';
+import Person from './person.json';
 
 const enLocale = {
   language: 'en',
