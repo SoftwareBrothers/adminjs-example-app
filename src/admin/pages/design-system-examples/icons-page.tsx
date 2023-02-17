@@ -2,7 +2,7 @@ import { Box, H6, Header, Icon } from '@adminjs/design-system';
 import React from 'react';
 import * as FeatherIcons from 'react-feather';
 
-const Icons = () => {
+const IconsPage = () => {
   const icons = [];
   for (const [key] of Object.entries(FeatherIcons)) {
     icons.push(key);
@@ -23,4 +23,4 @@ const Icons = () => {
   );
 };
 
-export default Icons;
+export default IconsPage;

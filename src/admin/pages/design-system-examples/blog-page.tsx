@@ -12,7 +12,7 @@ import {
 } from '@adminjs/design-system';
 import React, { useState } from 'react';
 
-const Blog: React.FC = () => {
+const BlogPage: React.FC = () => {
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
 
   const handler = (html) => {
@@ -62,4 +62,4 @@ const Blog: React.FC = () => {
   );
 };
 
-export default Blog;
+export default BlogPage;

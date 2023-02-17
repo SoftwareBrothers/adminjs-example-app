@@ -8,6 +8,7 @@
     "Name": "Product's name",
     "Quantity": "Number of products",
     "Unit price": "Price",
-    "Sum": "Sum"
+    "Sum": "Sum",
+    "navigation": ""
   }
 }

@@ -1,6 +1,6 @@
 import { Box, Header } from '@adminjs/design-system';
 import React, { FC } from 'react';
-import { ModalExample } from '../components/design-system-examples';
+import { ModalExample } from '../../components/design-system-examples';
 
 const ModalPage: FC = () => (
   <Box variant="grey">
