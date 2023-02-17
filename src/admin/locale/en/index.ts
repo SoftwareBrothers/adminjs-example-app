@@ -1,7 +1,7 @@
-import { Locale } from 'adminjs/types/src';
-import Common from './common.json';
-import Complicated from './complicated.json';
-import Person from './person.json';
+import type { Locale } from 'adminjs';
+import * as Common from './common.json';
+import * as Complicated from './complicated.json';
+import * as Person from './person.json';
 
 const enLocale: Omit<Locale, 'availableLanguages'> = {
   language: 'en',

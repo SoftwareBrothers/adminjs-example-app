@@ -26,17 +26,8 @@ import {
   CreateCategoryResource as CreateSequelizeCategoryResource,
 } from '../sources/sequelize/resources';
 import { CreateOrganizationResource, CreatePersonResource } from '../sources/typeorm/resources';
-import {
-  BLOG_PAGE,
-  BUTTONS_PAGE,
-  FORMS_PAGE,
-  ICONS_PAGE,
-  ILLUSTRATIONS_PAGE,
-  MODAL_PAGE,
-  SOME_STATS,
-  TYPOGRAPHY_PAGE,
-} from './components.bundler';
 import locale from './locale';
+import pages from './pages';
 import theme from './theme';
 
 AdminJS.registerAdapter(AdminJSMongoose);
@@ -59,17 +50,20 @@ AdminJS.registerAdapter({
 });
 
 export const menu = {
+  mongoose: { name: 'Mongoose Resources', icon: 'HardDrive' },
+  sequelize: { name: 'Sequelize Resources', icon: 'HardDrive' },
+  typeorm: { name: 'Typeorm Resources', icon: 'HardDrive' },
+  mikroorm: { name: 'Mikroorm Resources', icon: 'HardDrive' },
+  prisma: { name: 'Prisma Resources', icon: 'HardDrive' },
+  objection: { name: 'Objection Resources', icon: 'HardDrive' },
   rest: { name: 'REST', icon: 'Link' },
-  mongoose: { name: 'Mongoose Resources', icon: 'Database' },
-  sequelize: { name: 'Sequelize Resources', icon: 'Database' },
-  typeorm: { name: 'Typeorm Resources', icon: 'Database' },
-  mikroorm: { name: 'Mikroorm Resources', icon: 'Database' },
-  prisma: { name: 'Prisma Resources', icon: 'Database' },
-  objection: { name: 'Objection Resources', icon: 'Database' },
 };
 
 export const generateAdminJSConfig: () => AdminJSOptions = () => ({
-  locale,
+  locale: {
+    ...locale,
+    availableLanguages: ['en', 'de', 'it', 'pl', 'pt-br', 'ua', 'zh-cn'],
+  },
   assets: {
     styles: ['/custom.css'],
     scripts: process.env.NODE_ENV === 'production' ? ['/gtm.js'] : [],
@@ -80,10 +74,13 @@ export const generateAdminJSConfig: () => AdminJSOptions = () => ({
     favicon: '/favicon.ico',
     theme,
   },
+  availableThemes: [],
+  defaultTheme: 'light',
   version: {
     admin: true,
     app: '2.0.0',
   },
+  pages,
   resources: [
     // custom
     new CryptoDatabase(),
@@ -114,31 +111,12 @@ export const generateAdminJSConfig: () => AdminJSOptions = () => ({
     CreateOfficeResource(),
     CreateManagerResource(),
   ],
-  pages: {
-    'Custom Page': {
-      component: SOME_STATS,
-      icon: 'Layers',
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      handler: async (request, response, context) => {
-        return {
-          text: 'I am fetched from the backend',
-        };
-      },
-    },
-    'Design system - Blog': { component: BLOG_PAGE },
-    'Design system - Buttons': { component: BUTTONS_PAGE },
-    'Design system - Form': { component: FORMS_PAGE },
-    'Design system - Icons': { component: ICONS_PAGE },
-    'Design system - Illustrations': { component: ILLUSTRATIONS_PAGE },
-    'Design system - Modal': { component: MODAL_PAGE },
-    'Design system - Typography': { component: TYPOGRAPHY_PAGE },
-  },
 });
 
 export const ADMIN = {
   email: 'admin@example.com',
   password: 'password',
-  title: 'Admin'
+  title: 'Admin',
 };
 
 export const createAdmin = async () => {
@@ -146,7 +124,7 @@ export const createAdmin = async () => {
   if (!admin) {
     await AdminModel.create({
       email: ADMIN.email,
-      password: await argon2.hash(ADMIN.password)
+      password: await argon2.hash(ADMIN.password),
     });
   }
 };

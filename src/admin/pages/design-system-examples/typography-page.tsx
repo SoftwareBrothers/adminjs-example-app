@@ -1,7 +1,7 @@
 import { Box, H1, H2, H3, H4, H5, H6, Header, Text } from '@adminjs/design-system';
 import React from 'react';
 
-const TextPage = () => {
+const TypographyPage = () => {
   return (
     <Box variant="grey">
       <Header>Typography</Header>
@@ -51,4 +51,4 @@ const TextPage = () => {
   );
 };
 
-export default TextPage;
+export default TypographyPage;

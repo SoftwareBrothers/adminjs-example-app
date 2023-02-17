@@ -73,7 +73,7 @@ const FormPage = () => {
         <Box p="xl">
           <Label>Attachment</Label>
           <DropZone
-            validate={{ maxSize: 1 }}
+            validate={{ maxSize: 102400, mimeTypes: ['application/pdf', 'image/png'] }}
             translations={translateComponent('DropZone', { returnObjects: true }) as DropZoneProps['translations']}
             // or translations={translate<DropZoneProps['translations']>('components.DropZone', { returnObjects: true })}
           />
