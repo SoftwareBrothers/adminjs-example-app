@@ -22,7 +22,10 @@ const FormPage = () => {
     { value: '1', label: 'Office 1' },
     { value: '2', label: 'Office 2' },
   ];
-  const { translateComponent } = useTranslation();
+  const {
+    // translateComponent,
+    translate,
+  } = useTranslation();
 
   return (
     <Box variant="grey">
@@ -74,8 +77,8 @@ const FormPage = () => {
           <Label>Attachment</Label>
           <DropZone
             validate={{ maxSize: 102400, mimeTypes: ['application/pdf', 'image/png'] }}
-            translations={translateComponent('DropZone', { returnObjects: true }) as DropZoneProps['translations']}
-            // or translations={translate<DropZoneProps['translations']>('components.DropZone', { returnObjects: true })}
+            // translations={translateComponent('DropZone', { returnObjects: true }) as DropZoneProps['translations']}
+            translations={translate<DropZoneProps['translations']>('components.DropZone', { returnObjects: true })}
           />
         </Box>
       </Box>

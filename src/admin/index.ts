@@ -60,10 +60,7 @@ export const menu = {
 };
 
 export const generateAdminJSConfig: () => AdminJSOptions = () => ({
-  locale: {
-    ...locale,
-    availableLanguages: ['en', 'de', 'it', 'pl', 'pt-br', 'ua', 'zh-cn'],
-  },
+  locale,
   assets: {
     styles: ['/custom.css'],
     scripts: process.env.NODE_ENV === 'production' ? ['/gtm.js'] : [],
