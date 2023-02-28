@@ -1,6 +1,7 @@
-import en from './en';
+// import en from './en';
+import de from './de';
 
 export default {
-  ...en,
+  ...de,
   availableLanguages: ['en', 'de', 'it', 'pl', 'pt-br', 'ua', 'zh-cn'],
 };
