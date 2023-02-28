@@ -1,17 +1,18 @@
+import { Box, Button, H3, Placeholder } from '@adminjs/design-system';
+import { ApiClient, NoticeMessage, useNotice, useTranslation } from 'adminjs';
 import React, { useEffect, useState } from 'react';
-import { Box, H3, Placeholder, Button } from '@adminjs/design-system';
-import { ApiClient, NoticeMessage, useNotice } from 'adminjs';
 
 const api = new ApiClient();
 
 const NOTICE_MESSAGE: NoticeMessage = {
-  message: 'I was clicked',
+  message: 'SomeStats.message',
   type: 'success',
 };
 
 const SomeStats = () => {
   const [text, setText] = useState('');
   const addNotice = useNotice();
+  const { translateComponent } = useTranslation();
 
   useEffect(() => {
     api.getPage({ pageName: 'Custom Page' }).then((res) => {
@@ -22,14 +23,14 @@ const SomeStats = () => {
   return (
     <Box variant="grey">
       <Box variant="white">
-        <H3>Here you can specify a totally custom page</H3>
+        <H3>{translateComponent('SomeStats.header')}</H3>
         <Box>
-          <p>With some data fetched from the backend:</p>
+          <p>{translateComponent('SomeStats.introduction')}</p>
           {text?.length ? <pre>{text}</pre> : <Placeholder style={{ width: 400, height: 14 }} />}
-          <p>and other interactions like toast :)</p>
+          <p>{translateComponent('SomeStats.ending')}</p>
           <p>
             <Button mt="xl" onClick={() => addNotice(NOTICE_MESSAGE)}>
-              Click me
+              {translateComponent('SomeStats.button')}
             </Button>
           </p>
         </Box>
