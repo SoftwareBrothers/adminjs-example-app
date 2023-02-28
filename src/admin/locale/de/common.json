@@ -1,7 +1,5 @@
 {
   "messages": {
-    "SomeStats": {
-      "message": "Ich wurde angeklickt !!!"
-    }
+    "SomeStats.message": "Ich wurde angeklickt !!!"
   }
 }
