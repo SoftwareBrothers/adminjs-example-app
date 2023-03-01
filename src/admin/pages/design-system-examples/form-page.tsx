@@ -28,8 +28,10 @@ const FormPage = () => {
   } = useTranslation();
 
   return (
-    <Box variant="grey">
-      <Header>Form</Header>
+    <Box variant="grey" id="form">
+      <Header as="a" href="#form">
+        Form
+      </Header>
       <Box variant="white">
         <Box p="xl" flex justifyContent="space-between" style={{ gap: 16 }}>
           <Box width="100%">

@@ -24,7 +24,7 @@ export const CreatePersonResource = (): CreateResourceResult<typeof Person> => (
       },
       detailedStats: {
         actionType: 'resource',
-        icon: 'Apps',
+        icon: 'BarChart2',
         name: 'Resource statistics',
         component: DETAILED_STATS,
         handler: async () => {

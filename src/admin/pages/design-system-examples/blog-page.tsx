@@ -20,8 +20,10 @@ const BlogPage: React.FC = () => {
   };
 
   return (
-    <Box variant="grey">
-      <Header>Blog</Header>
+    <Box variant="grey" id="blog">
+      <Header as="a" href="#blog">
+        Blog
+      </Header>
       <Box width={1}>
         {isDrawerVisible && (
           <Drawer>

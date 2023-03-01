@@ -13,8 +13,10 @@ const Wrapper: FC<PropsWithChildren & { title: string }> = ({ children, title })
 const colors = ['primary', 'secondary', 'success', 'info', 'danger'] as const;
 
 const ButtonsPage = () => (
-  <Box variant="grey">
-    <Header>Buttons</Header>
+  <Box variant="grey" id="buttons">
+    <Header as="a" href="#buttons">
+      Buttons
+    </Header>
     <Box variant="white">
       <Wrapper title="Contained">
         {colors.map((color) => (
