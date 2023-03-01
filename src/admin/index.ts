@@ -26,6 +26,7 @@ import {
   CreateCategoryResource as CreateSequelizeCategoryResource,
 } from '../sources/sequelize/resources';
 import { CreateOrganizationResource, CreatePersonResource } from '../sources/typeorm/resources';
+import { componentLoader } from './components.bundler';
 import locale from './locale';
 import pages from './pages';
 import theme from './theme';
@@ -71,6 +72,7 @@ export const generateAdminJSConfig: () => AdminJSOptions = () => ({
     favicon: '/favicon.ico',
     theme,
   },
+  componentLoader,
   availableThemes: [],
   defaultTheme: 'light',
   version: {
@@ -121,7 +123,7 @@ export const createAdmin = async () => {
   if (!admin) {
     await AdminModel.create({
       email: ADMIN.email,
-      password: await argon2.hash(ADMIN.password)
+      password: await argon2.hash(ADMIN.password),
     });
   }
 };
