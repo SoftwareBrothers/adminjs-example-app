@@ -3,8 +3,10 @@ import React, { FC } from 'react';
 import { ModalExample } from '../../components/design-system-examples';
 
 const ModalPage: FC = () => (
-  <Box variant="grey">
-    <Header>Modal </Header>
+  <Box variant="grey" id="modal">
+    <Header as="a" href="#modal">
+      Modal
+    </Header>
     <Box variant="white">
       <ModalExample />
     </Box>

@@ -27,8 +27,10 @@ const variants = [
 ] as const;
 
 const IllustrationPage: FC = () => (
-  <Box variant="grey">
-    <Header>Illustrations</Header>
+  <Box variant="grey" id="illustrations">
+    <Header as="a" href="#illustrations">
+      Illustrations
+    </Header>
     <Box variant="white" flex flexWrap="wrap" style={{ rowGap: 32 }}>
       {variants.map((variant) => (
         <Box key={variant} width={200} height={200} style={{ textAlign: 'center' }}>

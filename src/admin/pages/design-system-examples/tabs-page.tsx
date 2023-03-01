@@ -5,8 +5,10 @@ const TabsPage: FC = () => {
   const [selectedTab, setSelectedTab] = useState('first');
 
   return (
-    <Box variant="grey">
-      <Header>Tabs</Header>
+    <Box variant="grey" id="tabs">
+      <Header as="a" href="#tabs">
+        Tabs
+      </Header>
       <Box variant="white">
         <Tabs currentTab={selectedTab} onChange={setSelectedTab}>
           <Tab id="first" label="First tab">
