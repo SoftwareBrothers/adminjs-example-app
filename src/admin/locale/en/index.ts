@@ -1,23 +1,20 @@
-import type { Locale } from 'adminjs';
+import type { LocaleTranslations } from 'adminjs';
 import common from './common.json';
 import Complicated from './complicated.json';
 import components from './components.json';
 import pages from './pages.json';
 import Person from './person.json';
 
-const enLocale: Omit<Locale, 'availableLanguages'> = {
-  language: 'en',
-  translations: {
-    ...common,
-    ...components,
-    ...pages,
-    resources: {
-      Complicated,
-      Person,
-      products: {
-        properties: {
-          categoryId: 'Category',
-        },
+const enLocale: LocaleTranslations = {
+  ...common,
+  ...components,
+  ...pages,
+  resources: {
+    Complicated,
+    Person,
+    products: {
+      properties: {
+        categoryId: 'Category',
       },
     },
   },

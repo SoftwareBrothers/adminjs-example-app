@@ -1,9 +1,11 @@
-import { Database as MikroormDatabse, Resource as MikroormResource } from '@adminjs/mikroorm';
-import AdminJSMongoose from '@adminjs/mongoose';
+// Adapters
+import { Database as MikroormDatabase, Resource as MikroormResource } from '@adminjs/mikroorm';
+import { Database as MongooseDatabase, Resource as MongooseResource } from '@adminjs/mongoose';
 import { Database as ObjectionDatabase, Resource as ObjectionResource } from '@adminjs/objection';
 import { Database as PrismaDatabase, Resource as PrismaResource } from '@adminjs/prisma';
-import AdminJSSequelize from '@adminjs/sequelize';
+import { Database as SequelizeDatabase, Resource as SequelizeResource } from '@adminjs/sequelize';
 import { Database as TypeormDatabase, Resource as TypeormResource } from '@adminjs/typeorm';
+
 import AdminJS, { AdminJSOptions } from 'adminjs';
 import argon2 from 'argon2';
 import { CreateCarResource, CreateOwnerResource, CreateSellerResource } from '../sources/mikroorm/resources';
@@ -21,34 +23,22 @@ import { CreatePostResource, CreateProfileResource, CreatePublisherResource } fr
 import { CryptoDatabase } from '../sources/rest/crypto-database';
 import {
   CreateCartResource,
+  CreateCategoryResource as CreateSequelizeCategoryResource,
   CreateOrderResource,
   CreateProductResource,
-  CreateCategoryResource as CreateSequelizeCategoryResource,
 } from '../sources/sequelize/resources';
 import { CreateOrganizationResource, CreatePersonResource } from '../sources/typeorm/resources';
 import { componentLoader } from './components.bundler';
-import locale from './locale';
+import { locale } from './locale';
 import pages from './pages';
 import theme from './theme';
 
-AdminJS.registerAdapter(AdminJSMongoose);
-AdminJS.registerAdapter(AdminJSSequelize);
-AdminJS.registerAdapter({
-  Database: TypeormDatabase,
-  Resource: TypeormResource,
-});
-AdminJS.registerAdapter({
-  Database: MikroormDatabse,
-  Resource: MikroormResource,
-});
-AdminJS.registerAdapter({
-  Database: PrismaDatabase,
-  Resource: PrismaResource,
-});
-AdminJS.registerAdapter({
-  Database: ObjectionDatabase,
-  Resource: ObjectionResource,
-});
+AdminJS.registerAdapter({ Database: MikroormDatabase, Resource: MikroormResource });
+AdminJS.registerAdapter({ Database: MongooseDatabase, Resource: MongooseResource });
+AdminJS.registerAdapter({ Database: ObjectionDatabase, Resource: ObjectionResource });
+AdminJS.registerAdapter({ Database: PrismaDatabase, Resource: PrismaResource });
+AdminJS.registerAdapter({ Database: SequelizeDatabase, Resource: SequelizeResource });
+AdminJS.registerAdapter({ Database: TypeormDatabase, Resource: TypeormResource });
 
 export const menu = {
   mongoose: { name: 'Mongoose Resources', icon: 'HardDrive' },
@@ -73,16 +63,12 @@ export const generateAdminJSConfig: () => AdminJSOptions = () => ({
     theme,
   },
   componentLoader,
-  availableThemes: [],
-  defaultTheme: 'light',
   version: {
     admin: true,
     app: '2.0.0',
   },
   pages,
   resources: [
-    // custom
-    new CryptoDatabase(),
     // mongo
     CreateAdminResource(),
     CreateUserResource(),
@@ -109,6 +95,8 @@ export const generateAdminJSConfig: () => AdminJSOptions = () => ({
     // objectionjs
     CreateOfficeResource(),
     CreateManagerResource(),
+    // custom
+    new CryptoDatabase(),
   ],
 });
 
