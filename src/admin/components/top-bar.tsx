@@ -1,7 +1,7 @@
 import { Box, Button, Icon } from '@adminjs/design-system';
-import React from 'react';
+import React, { FC } from 'react';
 
-const TopBar = () => (
+const TopBar: FC = () => (
   <Box flex flexGrow={1} justifyContent="end" alignItems="center">
     <Button color="text" as="a" href="https://adminjs.page.link/slack" target="_blank">
       <Icon icon="Slack" />
