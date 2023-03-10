@@ -3,7 +3,7 @@ import { AdminJSOptions } from 'adminjs/types/src';
 import { CUSTOM_PAGE, DESIGN_SYSTEM_PAGE } from '../components.bundler';
 
 const pages: AdminJSOptions['pages'] = {
-  'Custom page': {
+  customPage: {
     component: CUSTOM_PAGE,
     icon: 'File',
     handler: async (request, response, context) => {
@@ -12,7 +12,7 @@ const pages: AdminJSOptions['pages'] = {
       };
     },
   },
-  'Design System Examples': {
+  designSystemExamples: {
     component: DESIGN_SYSTEM_PAGE,
     icon: 'Layout',
   },

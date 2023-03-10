@@ -1,21 +1,19 @@
 import { Box, Button, H3, Placeholder, Text } from '@adminjs/design-system';
 import { ApiClient, NoticeMessage, useNotice, useTranslation } from 'adminjs';
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 const api = new ApiClient();
 
-const NOTICE_MESSAGE: NoticeMessage = {
-  message: 'CustomPage.message',
-  type: 'success',
-};
+const NOTICE_MESSAGE: NoticeMessage = { message: 'CustomPage.message', type: 'success' };
+type ApiGetPageResponse = { text: string };
 
-const CustomPage = () => {
+const CustomPage: FC = () => {
   const [text, setText] = useState<string>();
   const addNotice = useNotice();
   const { tc } = useTranslation();
 
   useEffect(() => {
-    api.getPage<{ text: string }>({ pageName: 'Custom page' }).then((res) => {
+    api.getPage<ApiGetPageResponse>({ pageName: 'customPage' }).then((res) => {
       setText(res.data.text);
     });
   }, []);
@@ -29,7 +27,7 @@ const CustomPage = () => {
           {text ? JSON.stringify(text, null, 2) : <Placeholder style={{ width: 400, height: 14 }} />}
           <Text>{tc('CustomPage.ending')}</Text>
         </Box>
-        <Button mt="xl" onClick={() => addNotice(NOTICE_MESSAGE)}>
+        <Button variant="contained" mt="xl" onClick={() => addNotice(NOTICE_MESSAGE)}>
           {tc('CustomPage.button')}
         </Button>
       </Box>
