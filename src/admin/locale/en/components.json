@@ -1,6 +1,6 @@
 {
   "components": {
-    "SomeStats": {
+    "CustomPage": {
       "header": "Here you can specify a totally custom page",
       "introduction": "With some data fetched from the backend:",
       "ending": "and other interactions like toast :)",

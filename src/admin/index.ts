@@ -41,11 +41,11 @@ AdminJS.registerAdapter({ Database: SequelizeDatabase, Resource: SequelizeResour
 AdminJS.registerAdapter({ Database: TypeormDatabase, Resource: TypeormResource });
 
 export const menu = {
-  mongoose: { name: 'Mongoose Resources', icon: 'HardDrive' },
-  sequelize: { name: 'Sequelize Resources', icon: 'HardDrive' },
-  typeorm: { name: 'Typeorm Resources', icon: 'HardDrive' },
-  mikroorm: { name: 'Mikroorm Resources', icon: 'HardDrive' },
-  prisma: { name: 'Prisma Resources', icon: 'HardDrive' },
+  mongoose: { name: 'Mongoose Resources' },
+  sequelize: { name: 'Sequelize Resources' },
+  typeorm: { name: 'Typeorm Resources' },
+  mikroorm: { name: 'Mikroorm Resources' },
+  prisma: { name: 'Prisma Resources' },
   objection: { name: 'Objection Resources', icon: 'HardDrive' },
   rest: { name: 'REST', icon: 'Link' },
 };
