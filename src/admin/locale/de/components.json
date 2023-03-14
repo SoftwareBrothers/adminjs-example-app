@@ -1,6 +1,6 @@
 {
   "components": {
-    "SomeStats": {
+    "CustomPage": {
       "header": "Hier können Sie eine vollständig benutzerdefinierte Seite angeben",
       "introduction": "Mit einigen Daten, die vom Backend abgerufen wurden:",
       "ending": "und andere Interaktionen wie Toast :)",

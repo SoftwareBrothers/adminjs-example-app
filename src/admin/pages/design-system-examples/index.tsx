@@ -1,38 +1,39 @@
-import React, { FC, useEffect } from 'react';
-import BlogPage from './blog-page';
-import ButtonsPage from './buttons-page';
-import FormPage from './form-page';
-import IconsPage from './icons-page';
-import IllustrationPage from './illustrations-page';
-import ModalPage from './modal-page';
-import TabsPage from './tabs-page';
-import TypographyPage from './typography-page';
+import { Box, Placeholder } from '@adminjs/design-system';
+import React, { FC, lazy, Suspense } from 'react';
 
-const DesignSystemPage: FC = () => {
-  useEffect(() => {
-    const element = document.getElementById(location.hash.replace('#', ''));
+const BlogPage = lazy(() => import('./blog-page'));
+const ButtonsPage = lazy(() => import('./buttons-page'));
+const FormPage = lazy(() => import('./form-page'));
+const IconsPage = lazy(() => import('./icons-page'));
+const IllustrationPage = lazy(() => import('./illustrations-page'));
+const ModalPage = lazy(() => import('./modal-page'));
+const TabsPage = lazy(() => import('./tabs-page'));
+const TypographyPage = lazy(() => import('./typography-page'));
 
-    const timeoutId = setTimeout(() => {
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 0);
+const DesignSystemPage: FC = () => (
+  <Suspense fallback={<DesignSytemPagePlaceholder />}>
+    <ButtonsPage />
+    <TypographyPage />
+    <ModalPage />
+    <TabsPage />
+    <IconsPage />
+    <IllustrationPage />
+    <FormPage />
+    <BlogPage />
+  </Suspense>
+);
 
-    return () => clearTimeout(timeoutId);
-  }, []);
-
-  return (
-    <>
-      <ButtonsPage />
-      <TypographyPage />
-      <ModalPage />
-      <TabsPage />
-      <IconsPage />
-      <IllustrationPage />
-      <FormPage />
-      <BlogPage />
-    </>
-  );
-};
+const DesignSytemPagePlaceholder = () => (
+  <>
+    {Array.from({ length: 3 }).map((_, index) => (
+      <Box variant="grey" key={index}>
+        <Placeholder height={33} width={240} />
+        <Box variant="white">
+          <Placeholder />
+        </Box>
+      </Box>
+    ))}
+  </>
+);
 
 export default DesignSystemPage;

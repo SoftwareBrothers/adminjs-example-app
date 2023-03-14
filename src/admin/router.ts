@@ -12,7 +12,7 @@ import { AdminModel } from '../sources/mongoose/models';
 export const authenticateUser = async (email, password) => {
   const user = await AdminModel.findOne({ email });
   if (user && (await argon2.verify(user.password, password))) {
-    return {...user.toObject(), title: 'Admin'};
+    return { ...user.toObject(), title: 'Admin' };
   }
   return null;
 };
@@ -47,7 +47,7 @@ export const expressAuthenticatedRouter = (adminJs: AdminJS, router: Router | nu
         secure: process.env.NODE_ENV === 'production',
       },
       name: 'adminjs',
-    }
+    },
   );
 };
 
@@ -58,5 +58,5 @@ export const fastifyAuthenticatedRouter = (adminJs: AdminJS, app: FastifyInstanc
       cookiePassword: 'secretsecretsecretsecretsecretsecretsecretsecret',
       authenticate: authenticateUser,
     },
-    app
+    app,
   );
