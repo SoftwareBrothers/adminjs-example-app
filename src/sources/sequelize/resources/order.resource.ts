@@ -1,16 +1,16 @@
-import { CreateResourceResult } from '../../../admin/create-resource-result.type';
 import { menu } from '../../../admin';
-import { OrderModel } from '../models';
 import { PRODUCTS_LIST } from '../../../admin/components.bundler';
+import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions';
+import { ResourceFunction } from '../../../admin/types';
 import { getProducts } from '../hooks/get-products.hook';
 import { getSumForOrder } from '../hooks/get-sum.hook';
-import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions';
+import { OrderModel } from '../models';
 
-export const CreateOrderResource = (): CreateResourceResult<typeof OrderModel> => ({
+export const CreateOrderResource: ResourceFunction<typeof OrderModel> = () => ({
   resource: OrderModel,
   features: [useEnvironmentVariableToDisableActions()],
   options: {
-    parent: menu.sequelize,
+    navigation: menu.sequelize,
     actions: {
       list: {
         after: [getSumForOrder()],

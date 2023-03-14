@@ -1,9 +1,9 @@
-import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions';
-import { CreateResourceResult } from '../../../admin/create-resource-result.type';
 import { menu } from '../../../admin';
+import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions';
+import { ResourceFunction } from '../../../admin/types';
 import { Manager } from '../models';
 
-export const CreateManagerResource = (): CreateResourceResult<typeof Manager> => ({
+export const CreateManagerResource: ResourceFunction<typeof Manager> = () => ({
   resource: Manager,
   features: [useEnvironmentVariableToDisableActions()],
   options: {

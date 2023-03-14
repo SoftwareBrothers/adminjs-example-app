@@ -1,15 +1,15 @@
-import { CreateResourceResult } from '../../../admin/create-resource-result.type';
 import { menu } from '../../../admin';
-import { Person } from '../models';
 import { DETAILED_STATS, DONT_TOUCH_THIS_ACTION } from '../../../admin/components.bundler';
-import { validateEmail } from '../handlers/validate-email.handler';
 import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions';
+import { ResourceFunction } from '../../../admin/types';
+import { validateEmail } from '../handlers/validate-email.handler';
+import { Person } from '../models';
 
-export const CreatePersonResource = (): CreateResourceResult<typeof Person> => ({
+export const CreatePersonResource: ResourceFunction<typeof Person> = () => ({
   resource: Person,
   features: [useEnvironmentVariableToDisableActions()],
   options: {
-    parent: menu.typeorm,
+    navigation: menu.typeorm,
     properties: {
       phone: {
         type: 'phone',

@@ -1,14 +1,18 @@
 import { menu } from '../../../admin';
-import { client, dmmf } from '../config';
 import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions';
+import { ResourceFunction } from '../../../admin/types';
+import { client, dmmf } from '../config';
 
-export const CreatePublisherResource = () => ({
+export const CreatePublisherResource: ResourceFunction<{
+  model: typeof dmmf.modelMap.Publisher;
+  client: typeof client;
+}> = () => ({
   resource: {
     model: dmmf.modelMap.Publisher,
     client,
   },
   features: [useEnvironmentVariableToDisableActions()],
   options: {
-    parent: menu.prisma,
+    navigation: menu.prisma,
   },
 });

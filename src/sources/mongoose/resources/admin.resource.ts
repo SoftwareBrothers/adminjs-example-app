@@ -1,10 +1,10 @@
-import { AdminModel } from '../models';
-import { CreateResourceResult } from '../../../admin/create-resource-result.type';
-import { menu } from '../../../admin';
 import passwordsFeature from '@adminjs/passwords';
 import argon2 from 'argon2';
+import { menu } from '../../../admin';
+import { ResourceFunction } from '../../../admin/types';
+import { AdminModel } from '../models';
 
-export const CreateAdminResource = (): CreateResourceResult<typeof AdminModel> => ({
+export const CreateAdminResource: ResourceFunction<typeof AdminModel> = () => ({
   resource: AdminModel,
   features: [
     (options): object => ({
@@ -22,7 +22,7 @@ export const CreateAdminResource = (): CreateResourceResult<typeof AdminModel> =
     }),
   ],
   options: {
-    parent: menu.mongoose,
+    navigation: menu.mongoose,
     sort: {
       direction: 'asc',
       sortBy: 'email',

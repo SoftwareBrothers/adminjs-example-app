@@ -1,9 +1,9 @@
-import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions';
-import { CreateResourceResult } from '../../../admin/create-resource-result.type';
 import { menu } from '../../../admin';
+import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions';
+import { ResourceFunction } from '../../../admin/types';
 import { Office } from '../models';
 
-export const CreateOfficeResource = (): CreateResourceResult<typeof Office> => ({
+export const CreateOfficeResource: ResourceFunction<typeof Office> = () => ({
   resource: Office,
   features: [useEnvironmentVariableToDisableActions()],
   options: {

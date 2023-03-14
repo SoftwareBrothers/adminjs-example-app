@@ -6,7 +6,7 @@ import { Database as PrismaDatabase, Resource as PrismaResource } from '@adminjs
 import { Database as SequelizeDatabase, Resource as SequelizeResource } from '@adminjs/sequelize';
 import { Database as TypeormDatabase, Resource as TypeormResource } from '@adminjs/typeorm';
 
-import AdminJS, { AdminJSOptions } from 'adminjs';
+import AdminJS, { AdminJSOptions, ResourceOptions } from 'adminjs';
 import argon2 from 'argon2';
 import { CreateCarResource, CreateOwnerResource, CreateSellerResource } from '../sources/mikroorm/resources';
 import { AdminModel } from '../sources/mongoose/models';
@@ -40,13 +40,13 @@ AdminJS.registerAdapter({ Database: PrismaDatabase, Resource: PrismaResource });
 AdminJS.registerAdapter({ Database: SequelizeDatabase, Resource: SequelizeResource });
 AdminJS.registerAdapter({ Database: TypeormDatabase, Resource: TypeormResource });
 
-export const menu = {
-  mongoose: { name: 'Mongoose Resources' },
-  sequelize: { name: 'Sequelize Resources' },
-  typeorm: { name: 'Typeorm Resources' },
-  mikroorm: { name: 'Mikroorm Resources' },
-  prisma: { name: 'Prisma Resources' },
-  objection: { name: 'Objection Resources', icon: 'HardDrive' },
+export const menu: Record<string, ResourceOptions['navigation']> = {
+  mongoose: { name: 'Mongoose', icon: 'Folder' },
+  sequelize: { name: 'Sequelize', icon: 'Folder' },
+  typeorm: { name: 'Typeorm', icon: 'Folder' },
+  mikroorm: { name: 'Mikroorm', icon: 'Folder' },
+  prisma: { name: 'Prisma', icon: 'Folder' },
+  objection: { name: 'Objection', icon: 'Folder' },
   rest: { name: 'REST', icon: 'Link' },
 };
 

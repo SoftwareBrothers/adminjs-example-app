@@ -1,13 +1,13 @@
-import { ProductModel } from '../models';
-import { CreateResourceResult } from '../../../admin/create-resource-result.type';
 import { menu } from '../../../admin';
 import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions';
+import { ResourceFunction } from '../../../admin/types';
+import { ProductModel } from '../models';
 
-export const CreateProductResource = (): CreateResourceResult<typeof ProductModel> => ({
+export const CreateProductResource: ResourceFunction<typeof ProductModel> = () => ({
   resource: ProductModel,
   features: [useEnvironmentVariableToDisableActions()],
   options: {
-    parent: menu.sequelize,
+    navigation: menu.sequelize,
     properties: {
       price: {
         type: 'currency',
