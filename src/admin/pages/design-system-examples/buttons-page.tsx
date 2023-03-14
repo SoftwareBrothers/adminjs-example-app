@@ -10,7 +10,7 @@ const Wrapper: FC<PropsWithChildren & { title: string }> = ({ children, title })
   </Box>
 );
 
-const colors = ['primary', 'secondary', 'success', 'info', 'danger'] as const;
+const colors = ['primary', 'secondary', 'success', 'info', 'danger', 'text'] as const;
 
 const ButtonsPage = () => (
   <Box variant="grey" id="buttons">
@@ -18,6 +18,20 @@ const ButtonsPage = () => (
       Buttons
     </Header>
     <Box variant="white">
+      <Wrapper title="Text (default)">
+        {colors.map((color) => (
+          <Button key={color} variant="text" color={color}>
+            {color}
+          </Button>
+        ))}
+      </Wrapper>
+      <Wrapper title="Text rounded">
+        {colors.map((color) => (
+          <Button key={color} variant="text" rounded color={color}>
+            {color}
+          </Button>
+        ))}
+      </Wrapper>
       <Wrapper title="Contained">
         {colors.map((color) => (
           <Button key={color} variant="contained" color={color}>
@@ -42,20 +56,6 @@ const ButtonsPage = () => (
       <Wrapper title="Outlined rounded">
         {colors.map((color) => (
           <Button key={color} variant="outlined" rounded color={color}>
-            {color}
-          </Button>
-        ))}
-      </Wrapper>
-      <Wrapper title="Text (default)">
-        {colors.map((color) => (
-          <Button key={color} variant="text" color={color}>
-            {color}
-          </Button>
-        ))}
-      </Wrapper>
-      <Wrapper title="Text rounded">
-        {colors.map((color) => (
-          <Button key={color} variant="text" rounded color={color}>
             {color}
           </Button>
         ))}

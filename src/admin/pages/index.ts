@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { AdminJSOptions } from 'adminjs/types/src';
-import { SOME_STATS, DESIGN_SYSTEM_PAGE } from '../components.bundler';
+import { CUSTOM_PAGE, DESIGN_SYSTEM_PAGE } from '../components.bundler';
 
 const pages: AdminJSOptions['pages'] = {
-  'Custom Page': {
-    component: SOME_STATS,
+  customPage: {
+    component: CUSTOM_PAGE,
     icon: 'File',
     handler: async (request, response, context) => {
       return {
@@ -12,7 +12,7 @@ const pages: AdminJSOptions['pages'] = {
       };
     },
   },
-  'Design System': {
+  designSystemExamples: {
     component: DESIGN_SYSTEM_PAGE,
     icon: 'Layout',
   },
