@@ -1,13 +1,13 @@
-import { UserModel } from '../models';
-import { CreateResourceResult } from '../../../admin/create-resource-result.type';
 import { menu } from '../../../admin';
 import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions';
+import { ResourceFunction } from '../../../admin/types';
+import { UserModel } from '../models';
 
-export const CreateUserResource = (): CreateResourceResult<typeof UserModel> => ({
+export const CreateUserResource: ResourceFunction<typeof UserModel> = () => ({
   resource: UserModel,
   features: [useEnvironmentVariableToDisableActions()],
   options: {
-    parent: menu.mongoose,
+    navigation: menu.mongoose,
     properties: {
       _id: {
         isTitle: true,

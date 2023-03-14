@@ -61,7 +61,7 @@ export class CryptoDatabase extends BaseResource {
   public assignDecorator(admin: AdminJS, options?: ResourceOptions) {
     super.assignDecorator(admin, {
       ...options,
-      parent: menu.rest,
+      navigation: menu.rest,
       listProperties: ['website_slug', 'name', 'symbol', 'quotes.USD.price'],
       actions: {
         list: {
@@ -126,7 +126,7 @@ export class CryptoDatabase extends BaseResource {
         ...record,
         last_updated: record.last_updated ? new Date(record.last_updated * 1000) : null,
       },
-      this
+      this,
     );
   }
 }

@@ -1,13 +1,13 @@
-import { CommentModel } from '../models';
-import { CreateResourceResult } from '../../../admin/create-resource-result.type';
 import { menu } from '../../../admin';
 import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions';
+import { ResourceFunction } from '../../../admin/types';
+import { CommentModel } from '../models';
 
-export const CreateCommentResource = (): CreateResourceResult<typeof CommentModel> => ({
+export const CreateCommentResource: ResourceFunction<typeof CommentModel> = () => ({
   resource: CommentModel,
   features: [useEnvironmentVariableToDisableActions()],
   options: {
-    parent: menu.mongoose,
+    navigation: menu.mongoose,
     actions: {
       show: {
         isAccessible: false,

@@ -1,13 +1,13 @@
-import { CreateResourceResult } from '../../../admin/create-resource-result.type';
 import { menu } from '../../../admin';
-import { CartModel } from '../models';
 import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions';
+import { ResourceFunction } from '../../../admin/types';
+import { CartModel } from '../models';
 
-export const CreateCartResource = (): CreateResourceResult<typeof CartModel> => ({
+export const CreateCartResource: ResourceFunction<typeof CartModel> = () => ({
   resource: CartModel,
   features: [useEnvironmentVariableToDisableActions()],
   options: {
-    parent: menu.sequelize,
+    navigation: menu.sequelize,
     properties: {
       createdAt: {
         isVisible: {
