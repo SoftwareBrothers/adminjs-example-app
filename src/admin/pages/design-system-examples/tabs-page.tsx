@@ -9,7 +9,7 @@ const TabsPage: FC = () => {
       <Header as="a" href="#tabs">
         Tabs
       </Header>
-      <Box variant="white">
+      <Box variant="container">
         <Tabs currentTab={selectedTab} onChange={setSelectedTab}>
           <Tab id="first" label="First tab">
             First

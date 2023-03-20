@@ -28,7 +28,7 @@ const DesignSytemPagePlaceholder = () => (
     {Array.from({ length: 3 }).map((_, index) => (
       <Box variant="grey" key={index}>
         <Placeholder height={33} width={240} />
-        <Box variant="white">
+        <Box variant="container">
           <Placeholder />
         </Box>
       </Box>

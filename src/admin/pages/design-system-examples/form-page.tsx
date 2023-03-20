@@ -32,7 +32,7 @@ const FormPage = () => {
       <Header as="a" href="#form">
         Form
       </Header>
-      <Box variant="white">
+      <Box variant="container">
         <Box p="xl" flex justifyContent="space-between" style={{ gap: 16 }}>
           <Box width="100%">
             <Label htmlFor="firstName">First name</Label>

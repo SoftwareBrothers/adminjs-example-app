@@ -20,7 +20,7 @@ const CustomPage: FC = () => {
 
   return (
     <Box variant="grey">
-      <Box variant="white">
+      <Box variant="container">
         <H3>{tc('CustomPage.header')}</H3>
         <Box flex flexDirection="column" style={{ gap: '1rem' }}>
           <Text>{tc('CustomPage.introduction')}</Text>

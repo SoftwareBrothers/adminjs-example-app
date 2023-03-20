@@ -7,7 +7,7 @@ const DontTouchThis = (props: BasePropertyProps) => {
 
   return (
     <Box flex>
-      <Box variant="white" width={1 / 2} boxShadow="card" mr="xxl" flexShrink={0}>
+      <Box variant="container" width={1 / 2} boxShadow="card" mr="xxl" flexShrink={0}>
         <H3>Example of a simple page</H3>
         <p>Where you can put almost everything</p>
         <p>like this:</p>
