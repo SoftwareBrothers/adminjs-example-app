@@ -39,7 +39,7 @@ const BlogPage: React.FC = () => {
             </DrawerContent>
           </Drawer>
         )}
-        <Box variant="white">
+        <Box variant="container">
           <Box flex flexDirection="row-reverse" mb="xl">
             <Button size="icon" onClick={() => setIsDrawerVisible(true)}>
               <Icon icon="Settings" />

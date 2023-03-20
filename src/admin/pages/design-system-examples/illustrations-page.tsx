@@ -31,7 +31,7 @@ const IllustrationPage: FC = () => (
     <Header as="a" href="#illustrations">
       Illustrations
     </Header>
-    <Box variant="white" flex flexWrap="wrap" style={{ rowGap: 32 }}>
+    <Box variant="container" flex flexWrap="wrap" style={{ rowGap: 32 }}>
       {variants.map((variant) => (
         <Box key={variant} width={200} height={200} style={{ textAlign: 'center' }}>
           <Illustration variant={variant} />

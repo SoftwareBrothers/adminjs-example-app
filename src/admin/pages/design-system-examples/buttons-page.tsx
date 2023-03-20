@@ -17,7 +17,7 @@ const ButtonsPage = () => (
     <Header as="a" href="#buttons">
       Buttons
     </Header>
-    <Box variant="white">
+    <Box variant="container">
       <Wrapper title="Text (default)">
         {colors.map((color) => (
           <Button key={color} variant="text" color={color}>

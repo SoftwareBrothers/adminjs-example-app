@@ -7,7 +7,7 @@ const ModalPage: FC = () => (
     <Header as="a" href="#modal">
       Modal
     </Header>
-    <Box variant="white">
+    <Box variant="container">
       <ModalExample />
     </Box>
   </Box>

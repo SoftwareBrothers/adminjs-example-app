@@ -18,7 +18,7 @@ const IconsPage = () => {
       <Header as="a" href="#icons">
         Icons
       </Header>
-      <Box variant="white" flex flexWrap="wrap" justifyContent="center" style={{ gap: '16px' }}>
+      <Box variant="container" flex flexWrap="wrap" justifyContent="center" style={{ gap: '16px' }}>
         {IconsSet}
       </Box>
     </Box>

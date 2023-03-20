@@ -6,7 +6,7 @@ const TypographyPage = () => (
     <Header as="a" href="#typography">
       Typography
     </Header>
-    <Box variant="white">
+    <Box variant="container">
       <H1>This is H1 header</H1>
       <H2>This is H2 header</H2>
       <H3>This is H3 header</H3>

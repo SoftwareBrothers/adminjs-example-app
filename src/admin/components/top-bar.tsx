@@ -7,7 +7,7 @@ const TopBar: FC = () => (
       <Icon icon="Slack" />
       Slack
     </Button>
-    <Button color="text" as="a" href="https://github.com/SoftwareBrothers/adminjs/issues" target="_blank">
+    <Button color="text" as="a" href="https://github.com/SoftwareBrothers/adminjs" target="_blank">
       <Icon icon="GitHub" />
       GitHub
     </Button>
