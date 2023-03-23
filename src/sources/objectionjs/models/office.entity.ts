@@ -1,6 +1,6 @@
-import { BaseModel } from '../utils/base-model';
+import { BaseModel } from '../utils/base-model.js';
 
-import Manager from './manager.entity';
+import Manager from './manager.entity.js';
 
 export interface OfficeAddress {
   street: string;

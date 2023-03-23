@@ -1,9 +1,10 @@
 import React from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import { styled, createGlobalStyle } from 'styled-components';
 
 import { useSelector } from 'react-redux';
 import {
   Box,
+  BoxProps,
   H5,
   H2,
   Label,
@@ -27,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const Wrapper = styled(Box)`
+const Wrapper = styled(Box)<BoxProps>`
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -39,18 +40,18 @@ const StyledLogo = styled.img`
   margin: ${themeGet('space', 'md')} 0;
 `;
 
-const IllustrationsWrapper = styled(Box)`
+const IllustrationsWrapper = styled(Box)<BoxProps>`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  & svg [stroke="#3B3552"] { 
-    stroke: rgba(255, 255, 255, 0.5)
+  & svg [stroke='#3B3552'] {
+    stroke: rgba(255, 255, 255, 0.5);
   }
-  & svg [fill="#3040D6"] { 
+  & svg [fill='#3040D6'] {
     fill: rgba(255, 255, 255, 1);
   }
-`
+`;
 
 export type LoginProps = {
   credentials: Credentials;

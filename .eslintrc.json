@@ -10,7 +10,8 @@
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
-    }
+    },
+    "ecmaVersion": 2022
   },
   "plugins": [
     "@typescript-eslint",

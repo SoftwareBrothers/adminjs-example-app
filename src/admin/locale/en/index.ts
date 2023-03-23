@@ -1,9 +1,10 @@
 import type { LocaleTranslations } from 'adminjs';
-import common from './common.json';
-import Complicated from './complicated.json';
-import components from './components.json';
-import pages from './pages.json';
-import Person from './person.json';
+
+import common from './common.json' assert { type: 'json' };
+import Complicated from './complicated.json' assert { type: 'json' };
+import components from './components.json' assert { type: 'json' };
+import pages from './pages.json' assert { type: 'json' };
+import Person from './person.json' assert { type: 'json' };
 
 const enLocale: LocaleTranslations = {
   ...common,

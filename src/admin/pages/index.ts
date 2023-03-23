@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { AdminJSOptions } from 'adminjs/types/src';
-import { CUSTOM_PAGE, DESIGN_SYSTEM_PAGE } from '../components.bundler';
+import { AdminJSOptions } from 'adminjs';
+
+import { CUSTOM_PAGE, DESIGN_SYSTEM_PAGE } from '../components.bundler.js';
 
 const pages: AdminJSOptions['pages'] = {
   customPage: {

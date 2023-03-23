@@ -1,2 +1,2 @@
-export { Organization } from './organization.entity';
-export { Person } from './person.entity';
+export { Organization } from './organization.entity.js';
+export { Person } from './person.entity.js';

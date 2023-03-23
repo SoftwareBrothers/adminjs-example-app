@@ -1,7 +1,7 @@
-import { menu } from '../../../admin';
-import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions';
-import { ResourceFunction } from '../../../admin/types';
-import { client, dmmf } from '../config';
+import { menu } from '../../../admin/index.js';
+import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions.js';
+import { ResourceFunction } from '../../../admin/types/index.js';
+import { client, dmmf } from '../config.js';
 
 export const CreatePublisherResource: ResourceFunction<{
   model: typeof dmmf.modelMap.Publisher;

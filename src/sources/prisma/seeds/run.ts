@@ -1,8 +1,10 @@
-require('dotenv').config({
+import dotenv from 'dotenv';
+dotenv.config({
   path: `${process.cwd()}/.env`,
 });
+
 import { PrismaClient } from '@prisma/client';
-import { publishers, posts, profiles } from './data';
+import { publishers, posts, profiles } from './data/index.js';
 
 const publishersCount = 5;
 const postsCount = 20;

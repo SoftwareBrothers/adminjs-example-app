@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 
-import { OrderCreationAttributes } from '../../models/order.model';
+import { OrderCreationAttributes } from '../../models/order.model.js';
 
 const orders = (count: number): OrderCreationAttributes[] =>
   Array.from({ length: count }, () => ({

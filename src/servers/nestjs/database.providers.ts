@@ -1,4 +1,4 @@
-import { sequelize } from '../../sources/sequelize';
+import { sequelize } from '../../sources/sequelize/index.js';
 
 export const databaseProviders = [
   {

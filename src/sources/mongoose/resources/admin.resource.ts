@@ -1,8 +1,9 @@
 import passwordsFeature from '@adminjs/passwords';
 import argon2 from 'argon2';
-import { menu } from '../../../admin';
-import { ResourceFunction } from '../../../admin/types';
-import { AdminModel } from '../models';
+
+import { menu } from '../../../admin/index.js';
+import { ResourceFunction } from '../../../admin/types/index.js';
+import { AdminModel } from '../models/index.js';
 
 export const CreateAdminResource: ResourceFunction<typeof AdminModel> = () => ({
   resource: AdminModel,

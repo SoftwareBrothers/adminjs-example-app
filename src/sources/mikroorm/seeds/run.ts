@@ -1,9 +1,11 @@
-require('dotenv').config({
+import dotenv from 'dotenv';
+dotenv.config({
   path: `${process.cwd()}/.env`,
 });
-import { init, orm } from '../config';
-import { Car, Owner, Seller } from '../models';
-import { cars, owners, sellers } from './data';
+
+import { init, orm } from '../config.js';
+import { Car, Owner, Seller } from '../models/index.js';
+import { cars, owners, sellers } from './data/index.js';
 
 const ownersCount = 4;
 const sellersCount = 4;

@@ -1,13 +1,14 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { PrismaService } from './prisma/prisma.service';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { params } from '../../sources/typeorm/config';
-import { MongooseSchemasModule } from './mongoose/mongoose.module';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
-import config from '../../sources/mikroorm/config';
-import { databaseProviders } from './database.providers';
+import { TypeOrmModule } from '@nestjs/typeorm';
+
+import { AppController } from './app.controller.js';
+import { AppService } from './app.service.js';
+import { PrismaService } from './prisma/prisma.service.js';
+import { params } from '../../sources/typeorm/config.js';
+import { MongooseSchemasModule } from './mongoose/mongoose.module.js';
+import config from '../../sources/mikroorm/config.js';
+import { databaseProviders } from './database.providers.js';
 
 @Module({
   imports: [MikroOrmModule.forRoot(config), TypeOrmModule.forRoot(params), MongooseSchemasModule],

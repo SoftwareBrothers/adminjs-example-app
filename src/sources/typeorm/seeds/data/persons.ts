@@ -1,7 +1,7 @@
 import { DeepPartial } from 'typeorm';
 import { faker } from '@faker-js/faker';
 
-import { Person } from '../../models';
+import { Person } from '../../models/index.js';
 
 const persons = (count: number, { organizationId }): DeepPartial<Person>[] =>
   Array.from({ length: count }, () => ({

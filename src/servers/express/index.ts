@@ -3,24 +3,26 @@ import mongoose from 'mongoose';
 import express, { Express } from 'express';
 import cors from 'cors';
 import AdminJS from 'adminjs';
-import { ADMIN, createAdmin, generateAdminJSConfig } from '../../admin';
-import { expressAuthenticatedRouter } from '../../admin/router';
-import { init } from '../../sources/mikroorm/config';
-import dataSource from '../../sources/typeorm/config';
-import getHtml from '../../admin/views/get-html';
-import Login from '../../admin/views/components/login';
+import * as url from 'url';
+
+import { ADMIN, createAdmin, generateAdminJSConfig } from '../../admin/index.js';
+import { expressAuthenticatedRouter } from '../../admin/router.js';
+import { init } from '../../sources/mikroorm/config.js';
+import dataSource from '../../sources/typeorm/config.js';
+import Login from '../../admin/views/components/login.js';
+
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 const attachAdminJS = async (app: Express) => {
   const config = generateAdminJSConfig();
   const adminJS = new AdminJS(config);
 
-  AdminJS.prototype.renderLogin = async function ({ action, errorMessage }) {
-    return getHtml(adminJS, Login, {
+  adminJS.overrideLogin({
+    component: Login,
+    props: {
       credentials: ADMIN,
-      action: action ?? adminJS.options.loginPath,
-      errorMessage,
-    });
-  };
+    },
+  });
 
   const adminRouter = expressAuthenticatedRouter(adminJS);
 

@@ -1,10 +1,10 @@
-import { menu } from '../../../admin';
-import { PRODUCTS_LIST } from '../../../admin/components.bundler';
-import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions';
-import { ResourceFunction } from '../../../admin/types';
-import { getProducts } from '../hooks/get-products.hook';
-import { getSumForOrder } from '../hooks/get-sum.hook';
-import { OrderModel } from '../models';
+import { menu } from '../../../admin/index.js';
+import { PRODUCTS_LIST } from '../../../admin/components.bundler.js';
+import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions.js';
+import { ResourceFunction } from '../../../admin/types/index.js';
+import { getProducts } from '../hooks/get-products.hook.js';
+import { getSumForOrder } from '../hooks/get-sum.hook.js';
+import { OrderModel } from '../models/index.js';
 
 export const CreateOrderResource: ResourceFunction<typeof OrderModel> = () => ({
   resource: OrderModel,

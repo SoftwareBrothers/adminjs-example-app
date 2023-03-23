@@ -1,7 +1,8 @@
 import { ActionRequest, ActionResponse, After, flat } from 'adminjs';
-import { isGETMethod } from '../../../admin/admin.utils';
-import { CartModel, OrderModel, ProductModel } from '../models';
-import { ProductListInterface } from '../interfaces';
+
+import { isGETMethod } from '../../../admin/admin.utils.js';
+import { CartModel, OrderModel, ProductModel } from '../models/index.js';
+import { ProductListInterface } from '../interfaces.js';
 
 export const getProducts =
   (): After<ActionResponse> =>

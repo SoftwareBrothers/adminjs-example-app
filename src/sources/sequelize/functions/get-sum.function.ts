@@ -1,4 +1,4 @@
-import { CartModel, OrderModel, ProductModel } from '../models';
+import { CartModel, OrderModel, ProductModel } from '../models/index.js';
 
 export const getSum = async (id: number): Promise<number> => {
   const order = await OrderModel.findByPk(id, {

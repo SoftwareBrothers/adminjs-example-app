@@ -1,7 +1,7 @@
-import { menu } from '../../../admin';
-import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions';
-import { ResourceFunction } from '../../../admin/types';
-import { CommentModel } from '../models';
+import { menu } from '../../../admin/index.js';
+import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions.js';
+import { ResourceFunction } from '../../../admin/types/index.js';
+import { CommentModel } from '../models/index.js';
 
 export const CreateCommentResource: ResourceFunction<typeof CommentModel> = () => ({
   resource: CommentModel,
