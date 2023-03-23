@@ -1,7 +1,9 @@
-require('dotenv').config({
+import dotenv from 'dotenv';
+dotenv.config({
   path: `${process.cwd()}/.env`,
 });
-import { sequelize } from '../sources/sequelize';
+
+import { sequelize } from '../sources/sequelize/index.js';
 
 const truncatePostgres = async () => {
   await sequelize.query(`

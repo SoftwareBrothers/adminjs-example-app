@@ -1,6 +1,7 @@
 import { DataTypes, Model, Optional, Association, HasOneGetAssociationMixin, NonAttribute } from 'sequelize';
-import { sequelize } from '../index';
-import { CategoryModel } from './category.model';
+
+import { sequelize } from '../index.js';
+import { CategoryModel } from './category.model.js';
 
 type Product = {
   id: number;

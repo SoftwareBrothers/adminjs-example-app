@@ -1,6 +1,7 @@
 import { BaseEntity, Entity, ManyToOne, PrimaryKey, Property } from '@mikro-orm/core';
-import { Seller } from './seller.model';
-import { Owner } from './owner.model';
+
+import type { Seller } from './seller.model.js';
+import type { Owner } from './owner.model.js';
 
 export interface ICar {
   name: string;
@@ -30,9 +31,9 @@ export class Car extends BaseEntity<Car, 'id'> implements ICar {
   })
   updatedAt: Date = new Date();
 
-  @ManyToOne(() => Owner, { mapToPk: true })
+  @ManyToOne('Owner', { mapToPk: true })
   owner: Owner;
 
-  @ManyToOne(() => Seller, { mapToPk: true })
+  @ManyToOne('Seller', { mapToPk: true })
   seller: Seller;
 }

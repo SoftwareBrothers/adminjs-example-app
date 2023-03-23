@@ -1,9 +1,11 @@
-require('dotenv').config({
+import dotenv from 'dotenv';
+dotenv.config({
   path: `${process.cwd()}/.env`,
 });
-import dataSource from '../config';
-import { Organization, Person } from '../models';
-import { organizations, persons } from './data';
+
+import dataSource from '../config.js';
+import { Organization, Person } from '../models/index.js';
+import { organizations, persons } from './data/index.js';
 
 const organizationsCount = 3;
 const personsPerOrganizationCount = 2;

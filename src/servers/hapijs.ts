@@ -1,10 +1,10 @@
-import { init } from '../sources/mikroorm/config';
-import dataSource from '../sources/typeorm/config';
-import { generateAdminJSConfig } from '../admin';
-import { expressAuthenticatedRouter } from '../admin/router';
+import { init } from '../sources/mikroorm/config.js';
+import dataSource from '../sources/typeorm/config.js';
+import { generateAdminJSConfig } from '../admin/index.js';
+import { expressAuthenticatedRouter } from '../admin/router.js';
 import AdminJS from 'adminjs';
 
-import Hapi from '@hapi/hapi';
+import Hapi, { ServerRegisterPluginObjectDirect } from '@hapi/hapi';
 import mongoose from 'mongoose';
 import AdminJSPlugin from '@adminjs/hapi';
 
@@ -26,7 +26,7 @@ const start = async () => {
         ...adminJS,
         auth: expressAuthenticatedRouter(new AdminJS(adminJS)),
       },
-    });
+    } as ServerRegisterPluginObjectDirect<any, any>);
 
     await server.start();
     console.log(`AdminJS is under http://localhost:${process.env.PORT}/admin`);

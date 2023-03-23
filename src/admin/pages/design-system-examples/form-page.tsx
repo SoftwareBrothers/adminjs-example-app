@@ -27,6 +27,8 @@ const FormPage = () => {
     translate,
   } = useTranslation();
 
+  const SelectComponent = Select as any;
+  const DropZoneComponent = DropZone as any;
   return (
     <Box variant="grey" id="form">
       <Header as="a" href="#form">
@@ -51,7 +53,7 @@ const FormPage = () => {
         <Box p="xl" flex justifyContent="space-between" style={{ gap: 16 }}>
           <Box width="100%">
             <Label>Select</Label>
-            <Select value={value} onChange={(selected) => setValue(selected)} options={options} />
+            <SelectComponent value={value} onChange={(selected) => setValue(selected)} options={options} />
           </Box>
           <Box width="100%">
             <Label>Date of birth</Label>
@@ -77,10 +79,10 @@ const FormPage = () => {
 
         <Box p="xl">
           <Label>Attachment</Label>
-          <DropZone
+          <DropZoneComponent
             validate={{ maxSize: 102400, mimeTypes: ['application/pdf', 'image/png'] }}
             // translations={translateComponent('DropZone', { returnObjects: true }) as DropZoneProps['translations']}
-            translations={translate<DropZoneProps['translations']>('components.DropZone', { returnObjects: true })}
+            translations={translate('components.DropZone', { returnObjects: true })}
           />
         </Box>
       </Box>

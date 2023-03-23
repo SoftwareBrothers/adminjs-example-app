@@ -1,3 +1,3 @@
-export { CreatePostResource } from './post.resource';
-export { CreateProfileResource } from './profile.resource';
-export { CreatePublisherResource } from './publisher.resource';
+export { CreatePostResource } from './post.resource.js';
+export { CreateProfileResource } from './profile.resource.js';
+export { CreatePublisherResource } from './publisher.resource.js';

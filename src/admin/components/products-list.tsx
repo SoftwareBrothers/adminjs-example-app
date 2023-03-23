@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box, FormGroup, Label, Table, TableBody, TableCell, TableHead, TableRow } from '@adminjs/design-system';
 import { flat, useTranslation, BasePropertyProps } from 'adminjs';
-import { ProductListInterface } from '../../sources/sequelize/interfaces';
+
+import { ProductListInterface } from '../../sources/sequelize/interfaces.js';
 
 const ProductsList = (props: BasePropertyProps) => {
   const { translateLabel } = useTranslation();

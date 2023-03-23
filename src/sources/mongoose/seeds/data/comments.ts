@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 
-import { Comment } from '../../models/comment.model';
+import { Comment } from '../../models/comment.model.js';
 
 const comments = (count: number, { articleId }): Comment[] =>
   Array.from({ length: count }, () => ({

@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 
-import { User, Gender } from '../../models/user.model';
+import { User, Gender } from '../../models/user.model.js';
 
 const users = (count: number): User[] =>
   Array.from({ length: count }, () => ({

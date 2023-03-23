@@ -8,8 +8,8 @@ import { Database as TypeormDatabase, Resource as TypeormResource } from '@admin
 
 import AdminJS, { AdminJSOptions, ResourceOptions } from 'adminjs';
 import argon2 from 'argon2';
-import { CreateCarResource, CreateOwnerResource, CreateSellerResource } from '../sources/mikroorm/resources';
-import { AdminModel } from '../sources/mongoose/models';
+import { CreateCarResource, CreateOwnerResource, CreateSellerResource } from '../sources/mikroorm/resources/index.js';
+import { AdminModel } from '../sources/mongoose/models/index.js';
 import {
   CreateAdminResource,
   CreateArticleResource,
@@ -17,21 +17,25 @@ import {
   CreateCommentResource,
   CreateComplicatedResource,
   CreateUserResource,
-} from '../sources/mongoose/resources';
-import { CreateManagerResource, CreateOfficeResource } from '../sources/objectionjs/resources';
-import { CreatePostResource, CreateProfileResource, CreatePublisherResource } from '../sources/prisma/resources';
-import { CryptoDatabase } from '../sources/rest/crypto-database';
+} from '../sources/mongoose/resources/index.js';
+import { CreateManagerResource, CreateOfficeResource } from '../sources/objectionjs/resources/index.js';
+import {
+  CreatePostResource,
+  CreateProfileResource,
+  CreatePublisherResource,
+} from '../sources/prisma/resources/index.js';
+import { CryptoDatabase } from '../sources/rest/crypto-database.js';
 import {
   CreateCartResource,
   CreateCategoryResource as CreateSequelizeCategoryResource,
   CreateOrderResource,
   CreateProductResource,
-} from '../sources/sequelize/resources';
-import { CreateOrganizationResource, CreatePersonResource } from '../sources/typeorm/resources';
-import { componentLoader } from './components.bundler';
-import { locale } from './locale';
-import pages from './pages';
-import theme from './theme';
+} from '../sources/sequelize/resources/index.js';
+import { CreateOrganizationResource, CreatePersonResource } from '../sources/typeorm/resources/index.js';
+import { componentLoader } from './components.bundler.js';
+import { locale } from './locale/index.js';
+import pages from './pages/index.js';
+import theme from './theme.js';
 
 AdminJS.registerAdapter({ Database: MikroormDatabase, Resource: MikroormResource });
 AdminJS.registerAdapter({ Database: MongooseDatabase, Resource: MongooseResource });

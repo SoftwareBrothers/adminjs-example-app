@@ -1,8 +1,8 @@
-import { CountryEnum } from './../../enums/country.enum';
 import { DeepPartial } from 'typeorm';
 import { faker } from '@faker-js/faker';
 
-import { Organization } from '../../models';
+import { Organization } from '../../models/index.js';
+import { CountryEnum } from './../../enums/country.enum.js';
 
 const organizations = (count: number): DeepPartial<Organization>[] =>
   Array.from({ length: count }, () => ({

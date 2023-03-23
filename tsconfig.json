@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
     "jsx": "react",
-    "module": "commonjs",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "declaration": false,
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
-    "target": "es2017",
+    "target": "ESNext",
     "sourceMap": false,
     "outDir": "./dist",
     "baseUrl": "./",
@@ -25,6 +26,7 @@
     "**/src/**/*.tsx",
     "**/src/**/*.jsx",
     "**/src/**/*.js",
+    "**/src/**/*.cjs",
     "**/test/**/*.*.ts"
   ]
 }

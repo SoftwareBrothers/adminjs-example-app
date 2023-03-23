@@ -1,3 +1,3 @@
-export { default as cars } from './cars';
-export { default as owners } from './owners';
-export { default as sellers } from './sellers';
+export { default as cars } from './cars.js';
+export { default as owners } from './owners.js';
+export { default as sellers } from './sellers.js';

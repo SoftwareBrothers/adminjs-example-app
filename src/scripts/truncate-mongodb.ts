@@ -1,6 +1,8 @@
-require('dotenv').config({
+import dotenv from 'dotenv';
+dotenv.config({
   path: `${process.cwd()}/.env`,
 });
+
 import mongoose from 'mongoose';
 import {
   AdminModel,
@@ -9,7 +11,7 @@ import {
   CommentModel,
   CategoryModel,
   ComplicatedModel,
-} from '../sources/mongoose/models';
+} from '../sources/mongoose/models/index.js';
 
 async function truncateMongodb() {
   await mongoose.connect(process.env.MONGO_DATABASE_URL);

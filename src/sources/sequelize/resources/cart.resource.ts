@@ -1,7 +1,7 @@
-import { menu } from '../../../admin';
-import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions';
-import { ResourceFunction } from '../../../admin/types';
-import { CartModel } from '../models';
+import { menu } from '../../../admin/index.js';
+import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions.js';
+import { ResourceFunction } from '../../../admin/types/index.js';
+import { CartModel } from '../models/index.js';
 
 export const CreateCartResource: ResourceFunction<typeof CartModel> = () => ({
   resource: CartModel,

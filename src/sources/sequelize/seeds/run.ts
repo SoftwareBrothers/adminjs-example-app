@@ -1,9 +1,11 @@
-require('dotenv').config({
+import dotenv from 'dotenv';
+dotenv.config({
   path: `${process.cwd()}/.env`,
 });
-import flatten from 'lodash/flatten';
-import { CategoryModel, CartModel, ProductModel, OrderModel } from '../models';
-import { categories, carts, products, orders } from './data';
+
+import flatten from 'lodash/flatten.js';
+import { CategoryModel, CartModel, ProductModel, OrderModel } from '../models/index.js';
+import { categories, carts, products, orders } from './data/index.js';
 
 const categoriesCount = 2;
 const productsPerCategory = 2;

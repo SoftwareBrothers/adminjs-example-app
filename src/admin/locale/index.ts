@@ -1,6 +1,7 @@
 import { Locale, locales as AdminJSLocales } from 'adminjs';
-import de from './de';
-import en from './en';
+
+import de from './de/index.js';
+import en from './en/index.js';
 
 const localeKey = process.env.LOCALE || 'en';
 const customLanguage = 'mk';

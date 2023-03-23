@@ -1,9 +1,7 @@
 import { faker } from '@faker-js/faker';
-import { Owner, Seller } from '../../models';
+import { Owner, Seller } from '../../models/index.js';
 
-import { ICar } from '../../models/car.model';
-
-const cars = (count: number, { owners, sellers }): ICar[] =>
+const cars = (count: number, { owners, sellers }) =>
   Array.from({ length: count }, () => ({
     name: `${faker.vehicle.manufacturer()} ${faker.vehicle.model()}`,
     owner: faker.helpers.arrayElement<Owner>(owners).id,

@@ -2,7 +2,7 @@ import { Body, Controller, Get, Post } from '@nestjs/common';
 import { IsString } from 'class-validator';
 import { Expose } from 'class-transformer';
 
-import { AppService } from './app.service';
+import { AppService } from './app.service.js';
 
 export class Hello {
   @Expose()

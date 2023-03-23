@@ -1,9 +1,9 @@
-import { menu } from '../../../admin';
-import { DETAILED_STATS, DONT_TOUCH_THIS_ACTION } from '../../../admin/components.bundler';
-import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions';
-import { ResourceFunction } from '../../../admin/types';
-import { validateEmail } from '../handlers/validate-email.handler';
-import { Person } from '../models';
+import { menu } from '../../../admin/index.js';
+import { DETAILED_STATS, DONT_TOUCH_THIS_ACTION } from '../../../admin/components.bundler.js';
+import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions.js';
+import { ResourceFunction } from '../../../admin/types/index.js';
+import { validateEmail } from '../handlers/validate-email.handler.js';
+import { Person } from '../models/index.js';
 
 export const CreatePersonResource: ResourceFunction<typeof Person> = () => ({
   resource: Person,

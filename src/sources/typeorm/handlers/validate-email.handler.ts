@@ -1,6 +1,7 @@
 import { flat, PropertyErrors, ValidationError, ActionRequest, ActionContext, Before } from 'adminjs';
-import { isPOSTMethod } from '../../../admin/admin.utils';
-import { PostPayload } from '../interfaces';
+
+import { isPOSTMethod } from '../../../admin/admin.utils.js';
+import { PostPayload } from '../interfaces.js';
 
 export const validateEmail: Before = async (request: ActionRequest, context: ActionContext): Promise<ActionRequest> => {
   if (!isPOSTMethod(request)) {

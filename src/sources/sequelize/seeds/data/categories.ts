@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 
-import { CategoryCreationAttributes } from '../../models/category.model';
+import { CategoryCreationAttributes } from '../../models/category.model.js';
 
 const categories = (count: number): CategoryCreationAttributes[] =>
   Array.from({ length: count }, () => ({

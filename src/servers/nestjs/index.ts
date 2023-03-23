@@ -1,9 +1,10 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
-import { AppModule } from './app.module';
-import { setupAdminJS } from './admin/admin.setup';
 import mongoose from 'mongoose';
-import { init } from '../../sources/mikroorm/config';
+
+import { AppModule } from './app.module.js';
+import { setupAdminJS } from './admin/admin.setup.js';
+import { init } from '../../sources/mikroorm/config.js';
 
 const bootstrap = async () => {
   const app = await NestFactory.create(AppModule);

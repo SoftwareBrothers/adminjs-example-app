@@ -1,12 +1,16 @@
 import fastify from 'fastify';
 import mongoose from 'mongoose';
-import { createAdmin, generateAdminJSConfig } from '../admin';
 import AdminJS from 'adminjs';
-import { init } from '../sources/mikroorm/config';
-import dataSource from '../sources/typeorm/config';
-import { fastifyAuthenticatedRouter } from '../admin/router';
 import fastifyStatic from 'fastify-static';
 import path from 'path';
+import * as url from 'url';
+
+import { createAdmin, generateAdminJSConfig } from '../admin/index.js';
+import { init } from '../sources/mikroorm/config.js';
+import dataSource from '../sources/typeorm/config.js';
+import { fastifyAuthenticatedRouter } from '../admin/router.js';
+
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 const app = fastify();
 
