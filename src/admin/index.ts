@@ -32,6 +32,7 @@ import {
   CreateProductResource,
 } from '../sources/sequelize/resources/index.js';
 import { CreateOrganizationResource, CreatePersonResource } from '../sources/typeorm/resources/index.js';
+import './components.bundler.js';
 import { componentLoader } from './components.bundler.js';
 import { locale } from './locale/index.js';
 import pages from './pages/index.js';

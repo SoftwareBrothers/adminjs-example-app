@@ -65,8 +65,13 @@ export type Credentials = {
   password: string;
 };
 
+const credentials: Credentials = {
+  email: 'admin@example.com',
+  password: 'password',
+};
+
 export const Login: React.FC<LoginProps> = (props) => {
-  const { action, credentials, errorMessage } = props;
+  const { action, errorMessage } = props;
   const { translateLabel, translateButton, translateProperty, translateMessage } = useTranslation();
   const branding = useSelector((state: ReduxState) => state.branding);
   const message = `Email: ${credentials.email} | Password: ${credentials.password}`;

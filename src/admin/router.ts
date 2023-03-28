@@ -47,7 +47,7 @@ export const expressAuthenticatedRouter = (adminJs: AdminJS, router: Router | nu
         secure: process.env.NODE_ENV === 'production',
       },
       name: 'adminjs',
-    }
+    },
   );
 };
 
@@ -58,5 +58,5 @@ export const fastifyAuthenticatedRouter = (adminJs: AdminJS, app: FastifyInstanc
       cookiePassword: 'secretsecretsecretsecretsecretsecretsecretsecret',
       authenticate: authenticateUser,
     },
-    app
+    app,
   );

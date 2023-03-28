@@ -5,11 +5,10 @@ import cors from 'cors';
 import AdminJS from 'adminjs';
 import * as url from 'url';
 
-import { ADMIN, createAdmin, generateAdminJSConfig } from '../../admin/index.js';
+import { createAdmin, generateAdminJSConfig } from '../../admin/index.js';
 import { expressAuthenticatedRouter } from '../../admin/router.js';
 import { init } from '../../sources/mikroorm/config.js';
 import dataSource from '../../sources/typeorm/config.js';
-import Login from '../../admin/views/components/login.js';
 
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
@@ -17,12 +16,8 @@ const attachAdminJS = async (app: Express) => {
   const config = generateAdminJSConfig();
   const adminJS = new AdminJS(config);
 
-  adminJS.overrideLogin({
-    component: Login,
-    props: {
-      credentials: ADMIN,
-    },
-  });
+  if (process.env.NODE_ENV === 'production') await adminJS.initialize();
+  else adminJS.watch();
 
   const adminRouter = expressAuthenticatedRouter(adminJS);
 
