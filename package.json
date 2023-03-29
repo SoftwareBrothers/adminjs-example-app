@@ -45,9 +45,10 @@
   },
   "dependencies": {
     "@adminjs/design-system": "^4.0.0-beta-v4.2",
-    "@adminjs/express": "^6.0.0-beta.2",
-    "@adminjs/fastify": "^4.0.0-beta.2",
-    "@adminjs/hapi": "^7.0.0-beta.3",
+    "@adminjs/express": "^6.0.0-beta.3",
+    "@adminjs/fastify": "^4.0.0-beta.3",
+    "@adminjs/hapi": "^7.0.0-beta.4",
+    "@adminjs/koa": "^4.0.0-beta.2",
     "@adminjs/mikroorm": "^3.0.0-beta.1",
     "@adminjs/mongoose": "^4.0.0-beta.4",
     "@adminjs/objection": "^2.0.0-beta.1",
