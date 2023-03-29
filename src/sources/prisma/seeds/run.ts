@@ -14,10 +14,12 @@ const run = async () => {
   await prisma.$connect();
 
   const createdPublishers = await prisma.$transaction(
-    publishers(publishersCount).map((publisher) => prisma.publisher.create({ data: publisher }))
+    publishers(publishersCount).map((publisher) => prisma.publisher.create({ data: publisher })),
   );
   await prisma.$transaction(
-    createdPublishers.map((publisher) => prisma.profile.create({ data: profiles(1, { publisherId: publisher.id })[0] }))
+    createdPublishers.map((publisher) =>
+      prisma.profile.create({ data: profiles(1, { publisherId: publisher.id })[0] }),
+    ),
   );
   await prisma.post.createMany({ data: posts(postsCount, { publishers: createdPublishers }) });
 };

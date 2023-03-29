@@ -126,7 +126,7 @@ export class CryptoDatabase extends BaseResource {
         ...record,
         last_updated: record.last_updated ? new Date(record.last_updated * 1000) : null,
       },
-      this
+      this,
     );
   }
 }

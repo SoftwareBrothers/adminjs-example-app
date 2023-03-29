@@ -40,5 +40,5 @@ CategoryModel.init(
     sequelize,
     tableName: 'categories',
     modelName: 'category',
-  }
+  },
 );

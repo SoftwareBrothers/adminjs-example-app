@@ -54,5 +54,5 @@ OrderModel.init(
     sequelize,
     tableName: 'orders',
     modelName: 'order',
-  }
+  },
 );

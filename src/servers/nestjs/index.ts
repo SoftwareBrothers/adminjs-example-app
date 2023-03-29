@@ -13,7 +13,7 @@ const bootstrap = async () => {
     new ValidationPipe({
       transform: true,
       whitelist: true,
-    })
+    }),
   );
 
   await mongoose.connect(process.env.MONGO_DATABASE_URL);

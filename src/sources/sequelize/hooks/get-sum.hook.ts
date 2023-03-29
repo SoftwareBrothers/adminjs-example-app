@@ -17,7 +17,7 @@ export const getSumForOrder =
           const params = flat.unflatten<any, ProductSumInterface>(record.params);
           params.sum = await getSum(params.id);
           record.params = flat.flatten(params);
-        })
+        }),
       );
     } else {
       const params = flat.unflatten<any, ProductSumInterface>(response.record.params);

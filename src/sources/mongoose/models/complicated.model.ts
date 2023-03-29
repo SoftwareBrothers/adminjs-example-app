@@ -36,10 +36,10 @@ export const ComplicatedSchema = new Schema<Complicated>({
         {
           extremelyNested: { type: 'String', required: true },
         },
-        { _id: false }
+        { _id: false },
       ),
     },
-    { _id: false }
+    { _id: false },
   ),
   parents: [
     new Schema(
@@ -47,7 +47,7 @@ export const ComplicatedSchema = new Schema<Complicated>({
         firstName: { type: 'String', required: true },
         lastName: { type: 'String', required: true },
       },
-      { _id: false }
+      { _id: false },
     ),
   ],
   items: [
@@ -61,11 +61,11 @@ export const ComplicatedSchema = new Schema<Complicated>({
               isDeleted: { type: 'Boolean' },
               dateCreated: { type: 'Date', default: Date.now },
             },
-            { _id: false }
+            { _id: false },
           ),
         ],
       },
-      { _id: false }
+      { _id: false },
     ),
   ],
 });

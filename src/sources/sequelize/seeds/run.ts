@@ -16,16 +16,16 @@ const run = async () => {
   const createdProducts = flatten(
     await Promise.all(
       createdCategories.map((cat) =>
-        ProductModel.bulkCreate(products(productsPerCategory, { categoryId: cat.get('id') }))
-      )
-    )
+        ProductModel.bulkCreate(products(productsPerCategory, { categoryId: cat.get('id') })),
+      ),
+    ),
   );
   // TODO: Look into Order/Cart relationship, it's a bit odd...
   const createdOrder = await OrderModel.create(orders(1)[0]);
   await Promise.all(
     createdProducts.map((p) =>
-      CartModel.bulkCreate(carts(cartsPerProduct, { orderId: createdOrder.get('id'), productId: p.get('id') }))
-    )
+      CartModel.bulkCreate(carts(cartsPerProduct, { orderId: createdOrder.get('id'), productId: p.get('id') })),
+    ),
   );
 };
 

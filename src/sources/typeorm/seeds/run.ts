@@ -20,8 +20,8 @@ const run = async () => {
 
   await Promise.all(
     createdOrganizations.identifiers.map(({ id: organizationId }) =>
-      personRepository.insert(persons(personsPerOrganizationCount, { organizationId }))
-    )
+      personRepository.insert(persons(personsPerOrganizationCount, { organizationId })),
+    ),
   );
 };
 

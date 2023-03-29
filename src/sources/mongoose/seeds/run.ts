@@ -20,25 +20,25 @@ const run = async () => {
   const createdCategories: Record<string, any>[] = flatten(
     await Promise.all(
       createdUsers.map((u) =>
-        Promise.all(categories(categoriesPerUserCount, { userId: u._id }).map((c) => new CategoryModel(c).save()))
-      )
-    )
+        Promise.all(categories(categoriesPerUserCount, { userId: u._id }).map((c) => new CategoryModel(c).save())),
+      ),
+    ),
   );
   const createdArticles: Record<string, any>[] = flatten(
     await Promise.all(
       createdUsers.map((u, idx) =>
         Promise.all(
           articles(articlesPerCategoryCount, { authorId: u._id, categoryId: createdCategories[idx]._id }).map((a) =>
-            new ArticleModel(a).save()
-          )
-        )
-      )
-    )
+            new ArticleModel(a).save(),
+          ),
+        ),
+      ),
+    ),
   );
   await Promise.all(
     createdArticles.map((a) =>
-      Promise.all(comments(commentsPerArticleCount, { articleId: a._id }).map((c) => new CommentModel(c).save()))
-    )
+      Promise.all(comments(commentsPerArticleCount, { articleId: a._id }).map((c) => new CommentModel(c).save())),
+    ),
   );
   // TODO: Add ComplicatedModel seeds
 };
