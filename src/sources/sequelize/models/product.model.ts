@@ -65,7 +65,7 @@ ProductModel.init(
     sequelize,
     tableName: 'products',
     modelName: 'product',
-  }
+  },
 );
 
 ProductModel.belongsTo(CategoryModel, {

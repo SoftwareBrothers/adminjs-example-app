@@ -71,7 +71,7 @@ CartModel.init(
     sequelize,
     tableName: 'cart_products',
     modelName: 'cart',
-  }
+  },
 );
 
 CartModel.belongsTo(ProductModel, {

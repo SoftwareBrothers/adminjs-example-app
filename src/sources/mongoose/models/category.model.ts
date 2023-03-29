@@ -17,7 +17,7 @@ export const CategorySchema = new Schema<Category>(
     owner: { type: Schema.Types.ObjectId, ref: 'User' },
     nested: new Schema({ field: 'String', value: 'String' }),
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 export const CategoryModel = model<Category>('Category', CategorySchema);
