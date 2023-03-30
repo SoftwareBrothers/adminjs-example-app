@@ -72,7 +72,7 @@ const credentials: Credentials = {
 
 export const Login: React.FC<LoginProps> = (props) => {
   const { action, errorMessage } = props;
-  const { translateLabel, translateButton, translateProperty, translateMessage } = useTranslation();
+  const { translateComponent, translateMessage } = useTranslation();
   const branding = useSelector((state: ReduxState) => state.branding);
   const message = `Email: ${credentials.email} | Password: ${credentials.password}`;
 
@@ -90,9 +90,9 @@ export const Login: React.FC<LoginProps> = (props) => {
             display={['none', 'none', 'block']}
             position="relative"
           >
-            <H2 fontWeight="lighter">{translateLabel('loginWelcome')}</H2>
+            <H2 fontWeight="lighter">{translateComponent('Login.welcomeHeader')}</H2>
             <Text fontWeight="lighter" mt="default">
-              {translateMessage('loginWelcome')}
+              {translateComponent('Login.welcomeMessage')}
             </Text>
             <IllustrationsWrapper p="xxl">
               <Box display="inline" mr="default">
@@ -119,21 +119,25 @@ export const Login: React.FC<LoginProps> = (props) => {
               />
             )}
             <FormGroup>
-              <Label required>{translateProperty('email')}</Label>
-              <Input name="email" placeholder={translateProperty('email')} defaultValue={credentials.email} />
+              <Label required>{translateComponent('Login.properties.email')}</Label>
+              <Input
+                name="email"
+                placeholder={translateComponent('Login.properties.email')}
+                defaultValue={credentials.email}
+              />
             </FormGroup>
             <FormGroup>
-              <Label required>{translateProperty('password')}</Label>
+              <Label required>{translateComponent('Login.properties.password')}</Label>
               <Input
                 type="password"
                 name="password"
-                placeholder={translateProperty('password')}
+                placeholder={translateComponent('Login.properties.password')}
                 autoComplete="new-password"
                 defaultValue={credentials.password}
               />
             </FormGroup>
             <Text mt="xl" textAlign="center">
-              <Button variant="contained">{translateButton('login')}</Button>
+              <Button variant="contained">{translateComponent('Login.loginButton')}</Button>
             </Text>
           </Box>
         </Box>
