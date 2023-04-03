@@ -1,5 +1,4 @@
 import React from 'react';
-import { styled, createGlobalStyle } from 'styled-components';
 
 import { useSelector } from 'react-redux';
 import {
@@ -17,6 +16,7 @@ import {
   MadeWithLove,
   themeGet,
 } from '@adminjs/design-system';
+import { styled, createGlobalStyle } from '@adminjs/design-system/styled-components';
 import { ReduxState, useTranslation } from 'adminjs';
 
 const GlobalStyle = createGlobalStyle`
