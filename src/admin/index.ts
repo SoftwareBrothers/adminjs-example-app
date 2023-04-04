@@ -4,6 +4,7 @@ import { Database as MongooseDatabase, Resource as MongooseResource } from '@adm
 import { Database as ObjectionDatabase, Resource as ObjectionResource } from '@adminjs/objection';
 import { Database as PrismaDatabase, Resource as PrismaResource } from '@adminjs/prisma';
 import { Database as SequelizeDatabase, Resource as SequelizeResource } from '@adminjs/sequelize';
+import { dark, light, noSidebar } from '@adminjs/themes';
 import { Database as TypeormDatabase, Resource as TypeormResource } from '@adminjs/typeorm';
 
 import AdminJS, { AdminJSOptions, ResourceOptions } from 'adminjs';
@@ -27,13 +28,14 @@ import {
 import { CryptoDatabase } from '../sources/rest/crypto-database.js';
 import {
   CreateCartResource,
-  CreateCategoryResource as CreateSequelizeCategoryResource,
   CreateOrderResource,
   CreateProductResource,
+  CreateCategoryResource as CreateSequelizeCategoryResource,
 } from '../sources/sequelize/resources/index.js';
 import { CreateOrganizationResource, CreatePersonResource } from '../sources/typeorm/resources/index.js';
 import './components.bundler.js';
 import { componentLoader } from './components.bundler.js';
+import { AuthUsers } from './constants/authUsers.js';
 import { locale } from './locale/index.js';
 import pages from './pages/index.js';
 import theme from './theme.js';
@@ -103,20 +105,16 @@ export const generateAdminJSConfig: () => AdminJSOptions = () => ({
     // custom
     new CryptoDatabase(),
   ],
+  defaultTheme: 'light',
+  availableThemes: [light, dark, noSidebar],
 });
 
-export const ADMIN = {
-  email: 'admin@example.com',
-  password: 'password',
-  title: 'Admin',
-};
-
-export const createAdmin = async () => {
-  const admin = await AdminModel.findOne({ email: ADMIN.email });
-  if (!admin) {
-    await AdminModel.create({
-      email: ADMIN.email,
-      password: await argon2.hash(ADMIN.password),
-    });
-  }
-};
+export const createAuthUsers = async () =>
+  Promise.all(
+    AuthUsers.map(async ({ email, password }) => {
+      const admin = await AdminModel.findOne({ email });
+      if (!admin) {
+        await AdminModel.create({ email, password: await argon2.hash(password) });
+      }
+    }),
+  );

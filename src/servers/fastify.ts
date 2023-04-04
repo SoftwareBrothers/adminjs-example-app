@@ -5,7 +5,7 @@ import fastifyStatic from 'fastify-static';
 import path from 'path';
 import * as url from 'url';
 
-import { createAdmin, generateAdminJSConfig } from '../admin/index.js';
+import { createAuthUsers, generateAdminJSConfig } from '../admin/index.js';
 import { init } from '../sources/mikroorm/config.js';
 import dataSource from '../sources/typeorm/config.js';
 import { fastifyAuthenticatedRouter } from '../admin/router.js';
@@ -18,7 +18,7 @@ const attachAdminJS = async () => {
   const config = generateAdminJSConfig();
   const adminJS = new AdminJS(config);
   await fastifyAuthenticatedRouter(adminJS, app);
-  await createAdmin();
+  await createAuthUsers();
 };
 
 const run = async (): Promise<void> => {
