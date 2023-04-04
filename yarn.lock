@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@adminjs/design-system@4.0.0-beta-v4.7", "@adminjs/design-system@^4.0.0-beta-v4.7":
+"@adminjs/design-system@4.0.0-beta-v4.7", "@adminjs/design-system@^4.0.0-beta-v4.7", "@adminjs/design-system@^4.0.0-beta-v4.8":
   version "4.0.0-beta-v4.7"
   resolved "https://registry.yarnpkg.com/@adminjs/design-system/-/design-system-4.0.0-beta-v4.7.tgz#1f2725052be5a02ab3c1c0654808d8f5c6cfffae"
   integrity sha512-9hPnPiOrahX46PDnOIfaOTIvZgtItBOzrkSL9QqeZei6myWenHCWDm/Q9zwB5UOCjbdOhIeSQlL+11YLCVZ6JA==
@@ -111,6 +111,13 @@
   integrity sha512-u9dhxWtu12KPC5ZBcqMmxRlhNcYMNukMbt/4qK5ESMaoOQVJ35ue4HpK8cVmdm0mxqMTAAhG7djwA+OO4iTc3g==
   dependencies:
     escape-regexp "0.0.1"
+
+"@adminjs/themes@^1.0.0-beta.1":
+  version "1.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@adminjs/themes/-/themes-1.0.0-beta.1.tgz#5c55309455b15bc33d66ebca89529a38282fc191"
+  integrity sha512-EYWcn2T1qNanYjwi0v+1LvDi7To/2I5yDOpV2p4ARGmR3C/eiXY3t/yykjf9nlhYZc0Q5tbDZFtASH3u4eqYgQ==
+  dependencies:
+    "@adminjs/design-system" "^4.0.0-beta-v4.8"
 
 "@adminjs/typeorm@5.0.0-beta.1", "@adminjs/typeorm@^5.0.0-beta.1":
   version "5.0.0-beta.1"
