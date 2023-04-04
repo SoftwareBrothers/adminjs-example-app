@@ -3,16 +3,15 @@ import React from 'react';
 import * as FeatherIcons from 'react-feather';
 
 const IconsPage = () => {
-  const icons = [];
-  for (const [key] of Object.entries(FeatherIcons)) {
-    icons.push(key);
-  }
-  const IconsSet = icons.map((iconName) => (
-    <Box width="120px" height="120px" key={iconName} style={{ textAlign: 'center' }}>
-      <H6>{iconName}</H6>
-      <Icon icon={iconName} size={32} />
-    </Box>
-  ));
+  const IconsSet = Object.keys(FeatherIcons)
+    .filter((name) => name !== 'default')
+    .map((iconName) => (
+      <Box width="120px" height="120px" key={iconName} style={{ textAlign: 'center' }}>
+        <H6>{iconName}</H6>
+        <Icon icon={iconName} size={32} />
+      </Box>
+    ));
+
   return (
     <Box variant="grey" id="icons">
       <Header as="a" href="#icons">
