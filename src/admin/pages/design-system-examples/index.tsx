@@ -3,7 +3,7 @@ import React, { FC, lazy, Suspense } from 'react';
 
 const BlogPage = lazy(() => import('./blog-page.js'));
 const ButtonsPage = lazy(() => import('./buttons-page.js'));
-const FormPage = lazy(() => import('./form-page.js'));
+// const FormPage = lazy(() => import('./form-page.js'));
 const IconsPage = lazy(() => import('./icons-page.js'));
 const IllustrationPage = lazy(() => import('./illustrations-page.js'));
 const ModalPage = lazy(() => import('./modal-page.js'));
@@ -18,7 +18,7 @@ const DesignSystemPage: FC = () => (
     <TabsPage />
     <IconsPage />
     <IllustrationPage />
-    <FormPage />
+    {/* <FormPage /> */}
     <BlogPage />
   </Suspense>
 );
