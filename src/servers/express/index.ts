@@ -5,7 +5,7 @@ import cors from 'cors';
 import AdminJS from 'adminjs';
 import * as url from 'url';
 
-import { createAdmin, generateAdminJSConfig } from '../../admin/index.js';
+import { createAuthUsers, generateAdminJSConfig } from '../../admin/index.js';
 import { expressAuthenticatedRouter } from '../../admin/router.js';
 import { init } from '../../sources/mikroorm/config.js';
 import dataSource from '../../sources/typeorm/config.js';
@@ -25,7 +25,7 @@ const attachAdminJS = async (app: Express) => {
   app.get('/', (req, res) => res.redirect(adminJS.options.rootPath));
   app.use(express.static(path.join(__dirname, '../../../public')));
 
-  await createAdmin();
+  await createAuthUsers();
 };
 
 const start = async () => {
@@ -40,7 +40,7 @@ const start = async () => {
   await attachAdminJS(app);
 
   app.listen(process.env.PORT, async () => {
-    console.log(`AdminJS is under http://localhost:${process.env.PORT}/admin`);
+    console.log(`AdminJS is under http://localhost:${process.env.PORT}`);
   });
 };
 

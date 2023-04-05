@@ -8,11 +8,13 @@ import session from 'express-session';
 import { Router } from 'express';
 
 import { AdminModel } from '../sources/mongoose/models/index.js';
+import { AuthUsers } from './constants/authUsers.js';
 
 export const authenticateUser = async (email, password) => {
   const user = await AdminModel.findOne({ email });
   if (user && (await argon2.verify(user.password, password))) {
-    return { ...user.toObject(), title: 'Admin' };
+    const userData = AuthUsers.find((au) => email === au.email);
+    return { ...userData, ...user.toObject() };
   }
   return null;
 };

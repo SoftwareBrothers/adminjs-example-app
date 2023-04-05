@@ -12,21 +12,12 @@
     "target": "ESNext",
     "sourceMap": false,
     "outDir": "./dist",
-    "baseUrl": "./",
+    "baseUrl": ".",
     "incremental": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "esModuleInterop": true
   },
-  "exclude": [
-    "node_modules",
-  ],
-  "include": [
-    "**/src/**/*.ts",
-    "**/src/**/*.tsx",
-    "**/src/**/*.jsx",
-    "**/src/**/*.js",
-    "**/src/**/*.cjs",
-    "**/test/**/*.*.ts"
-  ]
+  "exclude": ["node_modules", "src/**/theme.bundle.js"],
+  "include": ["src"]
 }

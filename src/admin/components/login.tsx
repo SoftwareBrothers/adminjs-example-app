@@ -16,17 +16,9 @@ import {
   MadeWithLove,
   themeGet,
 } from '@adminjs/design-system';
-import { styled, createGlobalStyle } from '@adminjs/design-system/styled-components';
+import { styled } from '@adminjs/design-system/styled-components';
 import { ReduxState, useTranslation } from 'adminjs';
-
-const GlobalStyle = createGlobalStyle`
-  html, body, #app {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-`;
+import { AuthUser, AuthUsers } from '../constants/authUsers.js';
 
 const Wrapper = styled(Box)<BoxProps>`
   align-items: center;
@@ -54,31 +46,21 @@ const IllustrationsWrapper = styled(Box)<BoxProps>`
 `;
 
 export type LoginProps = {
-  credentials: Credentials;
+  credentials: Pick<AuthUser, 'email' | 'password'>;
   action: string;
   errorMessage?: string;
   children?: any;
 };
 
-export type Credentials = {
-  email: string;
-  password: string;
-};
-
-const credentials: Credentials = {
-  email: 'admin@example.com',
-  password: 'password',
-};
-
 export const Login: React.FC<LoginProps> = (props) => {
   const { action, errorMessage } = props;
   const { translateComponent, translateMessage } = useTranslation();
+  const [defaultUser] = AuthUsers;
   const branding = useSelector((state: ReduxState) => state.branding);
-  const message = `Email: ${credentials.email} | Password: ${credentials.password}`;
+  const message = `Email: ${defaultUser.email}\nPassword: ${defaultUser.password}`;
 
   return (
     <React.Fragment>
-      <GlobalStyle />
       <Wrapper flex variant="grey">
         <Box bg="white" height="480px" flex boxShadow="login" width={[1, 2 / 3, 'auto']}>
           <Box
@@ -110,7 +92,7 @@ export const Login: React.FC<LoginProps> = (props) => {
             <H5 marginBottom="xxl">
               {branding.logo ? <StyledLogo src={branding.logo} alt={branding.companyName} /> : branding.companyName}
             </H5>
-            <MessageBox my="lg" message={message} variant="info" />
+            <MessageBox my="lg" message={message} variant="info" style={{ whiteSpace: 'pre-wrap' }} />
             {errorMessage && (
               <MessageBox
                 my="lg"
@@ -123,7 +105,7 @@ export const Login: React.FC<LoginProps> = (props) => {
               <Input
                 name="email"
                 placeholder={translateComponent('Login.properties.email')}
-                defaultValue={credentials.email}
+                defaultValue={defaultUser.email}
               />
             </FormGroup>
             <FormGroup>
@@ -133,7 +115,7 @@ export const Login: React.FC<LoginProps> = (props) => {
                 name="password"
                 placeholder={translateComponent('Login.properties.password')}
                 autoComplete="new-password"
-                defaultValue={credentials.password}
+                defaultValue={defaultUser.password}
               />
             </FormGroup>
             <Text mt="xl" textAlign="center">
