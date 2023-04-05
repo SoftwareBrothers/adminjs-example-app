@@ -113,10 +113,10 @@
   dependencies:
     escape-regexp "0.0.1"
 
-"@adminjs/themes@^1.0.0-beta.5":
-  version "1.0.0-beta.5"
-  resolved "https://registry.yarnpkg.com/@adminjs/themes/-/themes-1.0.0-beta.5.tgz#c714eaf43a767da5d07b71faebaf6c8216d4a988"
-  integrity sha512-3D5lrQcYvPshutGa2SgjMURsAsDkbYRWZcNDPw2CItPqHLlspzSODQp0I+xMbjfi6T2J9LEFHmc/VwsbJAyXdg==
+"@adminjs/themes@^1.0.0-beta.6":
+  version "1.0.0-beta.6"
+  resolved "https://registry.yarnpkg.com/@adminjs/themes/-/themes-1.0.0-beta.6.tgz#8fc3476d9f1eb16dee308698d672a1c246f56a53"
+  integrity sha512-30AI8jnh5YDHbkkQ7dHaH++bXARHx7scxc5FNKj9+WpA+texUD1nbromtqAvLSErIxBLsmHJEoYnxs6r1HeFAg==
   dependencies:
     "@babel/cli" "^7.21.0"
     "@babel/core" "^7.21.0"
