@@ -1,4 +1,4 @@
-type AuthUser = {
+export type AuthUser = {
   email: string;
   password: string;
   title: string;
@@ -23,5 +23,11 @@ export const AuthUsers: AuthUser[] = [
     password: 'password',
     title: 'AdminJS no-sidebar theme',
     theme: 'no-sidebar',
+  },
+  {
+    email: 'custom@example.com',
+    password: 'password',
+    title: 'AdminJS custom theme',
+    theme: 'custom-theme',
   },
 ];

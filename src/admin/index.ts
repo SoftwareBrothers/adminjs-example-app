@@ -38,7 +38,7 @@ import { componentLoader } from './components.bundler.js';
 import { AuthUsers } from './constants/authUsers.js';
 import { locale } from './locale/index.js';
 import pages from './pages/index.js';
-import theme from './theme.js';
+import { customTheme } from '../themes/index.js';
 
 AdminJS.registerAdapter({ Database: MikroormDatabase, Resource: MikroormResource });
 AdminJS.registerAdapter({ Database: MongooseDatabase, Resource: MongooseResource });
@@ -58,22 +58,23 @@ export const menu: Record<string, ResourceOptions['navigation']> = {
 };
 
 export const generateAdminJSConfig: () => AdminJSOptions = () => ({
+  version: { admin: true, app: '2.0.0' },
+  rootPath: '/admin',
   locale,
   assets: {
     styles: ['/custom.css'],
     scripts: process.env.NODE_ENV === 'production' ? ['/gtm.js'] : [],
   },
-  rootPath: '/admin',
   branding: {
     companyName: 'AdminJS demo page',
     favicon: '/favicon.ico',
-    theme,
+    theme: {
+      colors: { primary100: '#506EEF' },
+    },
   },
+  defaultTheme: 'light',
+  availableThemes: [light, dark, noSidebar, customTheme],
   componentLoader,
-  version: {
-    admin: true,
-    app: '2.0.0',
-  },
   pages,
   resources: [
     // mongo
@@ -105,8 +106,6 @@ export const generateAdminJSConfig: () => AdminJSOptions = () => ({
     // custom
     new CryptoDatabase(),
   ],
-  defaultTheme: 'light',
-  availableThemes: [light, dark, noSidebar],
 });
 
 export const createAuthUsers = async () =>
