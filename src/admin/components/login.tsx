@@ -16,18 +16,9 @@ import {
   MadeWithLove,
   themeGet,
 } from '@adminjs/design-system';
-import { styled, createGlobalStyle } from '@adminjs/design-system/styled-components';
+import { styled } from '@adminjs/design-system/styled-components';
 import { ReduxState, useTranslation } from 'adminjs';
 import { AuthUser, AuthUsers } from '../constants/authUsers.js';
-
-const GlobalStyle = createGlobalStyle`
-  html, body, #app {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-`;
 
 const Wrapper = styled(Box)<BoxProps>`
   align-items: center;
@@ -70,7 +61,6 @@ export const Login: React.FC<LoginProps> = (props) => {
 
   return (
     <React.Fragment>
-      <GlobalStyle />
       <Wrapper flex variant="grey">
         <Box bg="white" height="480px" flex boxShadow="login" width={[1, 2 / 3, 'auto']}>
           <Box
