@@ -78,6 +78,9 @@ export const generateAdminJSConfig: () => AdminJSOptions = () => ({
   pages,
   env: {
     STORYBOOK_URL: process.env.STORYBOOK_URL,
+    GITHUB_URL: process.env.GITHUB_URL,
+    SLACK_URL: process.env.SLACK_URL,
+    DOCUMENTATION_URL: process.env.DOCUMENTATION_URL,
   },
   resources: [
     // mongo
