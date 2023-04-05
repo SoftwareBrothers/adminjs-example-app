@@ -10,3 +10,7 @@ a {
 a:active {
   color: inherit;
 }
+
+a.adminjs_Header {
+  display: block;
+}

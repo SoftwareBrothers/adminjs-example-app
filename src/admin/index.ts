@@ -76,6 +76,9 @@ export const generateAdminJSConfig: () => AdminJSOptions = () => ({
   availableThemes: [light, dark, noSidebar, customTheme],
   componentLoader,
   pages,
+  env: {
+    STORYBOOK_URL: process.env.STORYBOOK_URL,
+  },
   resources: [
     // mongo
     CreateAdminResource(),
