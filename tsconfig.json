@@ -18,6 +18,6 @@
     "resolveJsonModule": true,
     "esModuleInterop": true
   },
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "src/**/theme.bundle.js"],
   "include": ["src"]
 }

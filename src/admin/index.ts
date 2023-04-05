@@ -69,7 +69,7 @@ export const generateAdminJSConfig: () => AdminJSOptions = () => ({
     companyName: 'AdminJS demo page',
     favicon: '/favicon.ico',
     theme: {
-      colors: { primary100: '#506EEF' },
+      colors: { primary100: '#4D70EB' },
     },
   },
   defaultTheme: 'light',

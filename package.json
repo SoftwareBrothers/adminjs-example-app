@@ -19,8 +19,8 @@
     "docker:up": "docker-compose -f docker-compose.yaml up -d",
     "start:dev": "nodemon",
     "start": "node dist/index.js",
-    "build": "rm -rf dist && tsc",
-    "build:watch": "rm -rf dist && tsc -w",
+    "build": "yarn clean && tsc && yarn copy-theme",
+    "build:watch": "tsc -w",
     "postgres:clean": "node dist/scripts/truncate-postgres",
     "mysql:clean": "prisma migrate reset --force && prisma migrate deploy",
     "mongodb:clean": "node dist/scripts/truncate-mongodb",
@@ -30,7 +30,9 @@
     "seed:mongoose": "node dist/sources/mongoose/seeds/run",
     "seed:mikro-orm": "node dist/sources/mikroorm/seeds/run",
     "seed:prisma": "node dist/sources/prisma/seeds/run",
-    "seed:all": "yarn seed:typeorm && yarn seed:sequelize && yarn seed:mongoose && yarn seed:mikro-orm && yarn seed:prisma"
+    "seed:all": "yarn seed:typeorm && yarn seed:sequelize && yarn seed:mongoose && yarn seed:mikro-orm && yarn seed:prisma",
+    "clean": "rimraf dist",
+    "copy-theme": "copyfiles -u 1 src/themes/**/theme.bundle.js src/themes/**/*.css dist/"
   },
   "mikro-orm": {
     "useTsNode": true,
@@ -71,7 +73,7 @@
     "@nestjs/platform-express": "^9.3.12",
     "@nestjs/typeorm": "^9.0.1",
     "@prisma/client": "^4.11.0",
-    "adminjs": "^7.0.0-beta-v7.4",
+    "adminjs": "^7.0.0-beta-v7.5",
     "ajv-formats": "^2.1.1",
     "argon2": "^0.30.3",
     "class-transformer": "^0.5.1",
@@ -110,6 +112,7 @@
     "@types/uuid": "^9.0.1",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
+    "copyfiles": "^2.4.1",
     "dotenv-cli": "^7.1.0",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.8.0",
@@ -117,12 +120,13 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^2.8.6",
+    "rimraf": "^4.4.1",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.1.2",
     "typescript": "^5.0.2"
   },
   "resolutions": {
-    "@adminjs/design-system": "4.0.0-beta-v4.7",
+    "@adminjs/design-system": "4.0.0-beta-v4.8",
     "@adminjs/express": "6.0.0-beta.3",
     "@adminjs/fastify": "4.0.0-beta.3",
     "@adminjs/hapi": "7.0.0-beta.4",
@@ -134,6 +138,6 @@
     "@adminjs/prisma": "4.0.0-beta.1",
     "@adminjs/sequelize": "4.0.0-beta.1",
     "@adminjs/typeorm": "5.0.0-beta.1",
-    "adminjs": "7.0.0-beta-v7.4"
+    "adminjs": "7.0.0-beta-v7.5"
   }
 }
