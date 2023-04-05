@@ -54,11 +54,10 @@ const FormPage = () => {
             <Label>Date of birth</Label>
             <DatePicker propertyType="date" onChange={setDate} value={date} />
           </Box>
-          {/* Hidden until currency input esm issue */}
-          {/* <Box width="100%">
+          <Box width="100%">
             <Label htmlFor="currency">Salary</Label>
             <CurrencyInput id="currency" intlConfig={{ locale: 'en-US', currency: 'GBP' }} />
-          </Box> */}
+          </Box>
         </Box>
 
         <Box p="xl">

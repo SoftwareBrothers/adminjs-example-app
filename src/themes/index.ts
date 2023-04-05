@@ -9,5 +9,5 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 export const customTheme: ThemeConfig = {
   ...themeConfig,
   bundlePath: path.join(__dirname, `./${themeConfig.id}`, '/theme.bundle.js'),
-  stylePath: path.join(__dirname, `./${themeConfig.id}`, '/style.css`'),
+  stylePath: path.join(__dirname, `./${themeConfig.id}`, '/style.css'),
 };
