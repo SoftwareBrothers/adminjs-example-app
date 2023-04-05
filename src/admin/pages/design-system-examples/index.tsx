@@ -6,6 +6,7 @@ const ButtonsPage = lazy(() => import('./buttons-page.js'));
 const FormPage = lazy(() => import('./form-page.js'));
 const IconsPage = lazy(() => import('./icons-page.js'));
 const IllustrationPage = lazy(() => import('./illustrations-page.js'));
+const MessagesPage = lazy(() => import('./messages-page.js'));
 const ModalPage = lazy(() => import('./modal-page.js'));
 const TabsPage = lazy(() => import('./tabs-page.js'));
 const TypographyPage = lazy(() => import('./typography-page.js'));
@@ -32,8 +33,9 @@ const DesignSystemPage: FC = () => {
         <TypographyPage />
         <ModalPage />
         <TabsPage />
-        <IconsPage />
+        <MessagesPage />
         <IllustrationPage />
+        <IconsPage />
         <FormPage />
         <BlogPage />
       </Suspense>

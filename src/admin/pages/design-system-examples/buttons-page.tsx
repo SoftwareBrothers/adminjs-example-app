@@ -1,4 +1,4 @@
-import { Box, Button, Header, Text } from '@adminjs/design-system';
+import { Box, Button, Header, Icon, Text } from '@adminjs/design-system';
 import React, { FC, PropsWithChildren } from 'react';
 
 const Wrapper: FC<PropsWithChildren & { title: string }> = ({ children, title }) => (
@@ -11,6 +11,7 @@ const Wrapper: FC<PropsWithChildren & { title: string }> = ({ children, title })
 );
 
 const colors = ['primary', 'secondary', 'success', 'info', 'danger', 'text'] as const;
+const [primary] = colors;
 
 const ButtonsPage = () => (
   <Box variant="grey" id="buttons">
@@ -74,31 +75,29 @@ const ButtonsPage = () => (
           </Button>
         ))}
       </Wrapper>
-      <Wrapper title="Small">
-        {colors.map((color) => (
-          <Button key={color} size="sm" color={color}>
-            {color}
-          </Button>
-        ))}
+      <Wrapper title="Sizes (small, medium, large)">
+        <Button variant="outlined" size="sm" color={primary}>
+          {primary}
+        </Button>
+        <Button variant="outlined" color={primary}>
+          {primary}
+        </Button>
+        <Button variant="outlined" size="lg" color={primary}>
+          {primary}
+        </Button>
       </Wrapper>
-      <Wrapper title="Medium (default)">
-        {colors.map((color) => (
-          <Button key={color} color={color}>
-            {color}
-          </Button>
-        ))}
-      </Wrapper>
-      <Wrapper title="Large">
-        {colors.map((color) => (
-          <Button key={color} size="lg" color={color}>
-            {color}
-          </Button>
-        ))}
-      </Wrapper>
-      <Wrapper title="Rounded">
+      <Wrapper title="With icon">
         {colors.map((color) => (
           <Button key={color} rounded color={color}>
+            <Icon icon="Plus" />
             {color}
+          </Button>
+        ))}
+      </Wrapper>
+      <Wrapper title="Icon only">
+        {colors.map((color) => (
+          <Button key={color} rounded size="icon" color={color}>
+            <Icon icon="Plus" />
           </Button>
         ))}
       </Wrapper>
