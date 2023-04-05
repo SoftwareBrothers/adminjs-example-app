@@ -4,6 +4,7 @@ import {
   CurrencyInput,
   DatePicker,
   DropZone,
+  DropZoneProps,
   Header,
   Input,
   Label,
@@ -21,10 +22,7 @@ const FormPage = () => {
     { value: '1', label: 'Office 1' },
     { value: '2', label: 'Office 2' },
   ];
-  const {
-    // translateComponent,
-    translate,
-  } = useTranslation();
+  const { translateComponent } = useTranslation();
 
   return (
     <Box variant="grey" id="form">
@@ -56,10 +54,11 @@ const FormPage = () => {
             <Label>Date of birth</Label>
             <DatePicker propertyType="date" onChange={setDate} value={date} />
           </Box>
-          <Box width="100%">
+          {/* Hidden until currency input esm issue */}
+          {/* <Box width="100%">
             <Label htmlFor="currency">Salary</Label>
             <CurrencyInput id="currency" intlConfig={{ locale: 'en-US', currency: 'GBP' }} />
-          </Box>
+          </Box> */}
         </Box>
 
         <Box p="xl">
@@ -78,8 +77,7 @@ const FormPage = () => {
           <Label>Attachment</Label>
           <DropZone
             validate={{ maxSize: 102400, mimeTypes: ['application/pdf', 'image/png'] }}
-            // translations={translateComponent('DropZone', { returnObjects: true }) as DropZoneProps['translations']}
-            translations={translate('components.DropZone', { returnObjects: true })}
+            translations={translateComponent('DropZone', { returnObjects: true }) as DropZoneProps['translations']}
           />
         </Box>
       </Box>
