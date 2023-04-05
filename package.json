@@ -45,7 +45,7 @@
     "schema": "prisma/schema.prisma"
   },
   "dependencies": {
-    "@adminjs/design-system": "^4.0.0-beta-v4.8",
+    "@adminjs/design-system": "^4.0.0-beta-v4.9",
     "@adminjs/express": "^6.0.0-beta.3",
     "@adminjs/fastify": "^4.0.0-beta.3",
     "@adminjs/hapi": "^7.0.0-beta.4",
@@ -126,7 +126,7 @@
     "typescript": "^5.0.2"
   },
   "resolutions": {
-    "@adminjs/design-system": "4.0.0-beta-v4.8",
+    "@adminjs/design-system": "^4.0.0-beta-v4.9",
     "@adminjs/express": "6.0.0-beta.3",
     "@adminjs/fastify": "4.0.0-beta.3",
     "@adminjs/hapi": "7.0.0-beta.4",
@@ -137,6 +137,7 @@
     "@adminjs/passwords": "4.0.0-beta.1",
     "@adminjs/prisma": "4.0.0-beta.1",
     "@adminjs/sequelize": "4.0.0-beta.1",
+    "@adminjs/themes": "^1.0.0-beta.6",
     "@adminjs/typeorm": "5.0.0-beta.1",
     "adminjs": "7.0.0-beta-v7.5"
   }
