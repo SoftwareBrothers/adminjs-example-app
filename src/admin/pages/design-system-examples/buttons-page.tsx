@@ -97,7 +97,14 @@ const ButtonsPage = () => (
       <Wrapper title="Icon only">
         {colors.map((color) => (
           <Button key={color} rounded size="icon" color={color}>
-            <Icon icon="Plus" />
+            <Icon icon="Home" />
+          </Button>
+        ))}
+      </Wrapper>
+      <Wrapper title="Icon only (outlined)">
+        {colors.map((color) => (
+          <Button key={color} variant="outlined" rounded size="icon" color={color}>
+            <Icon icon="Heart" />
           </Button>
         ))}
       </Wrapper>
