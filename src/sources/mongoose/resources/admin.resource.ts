@@ -1,6 +1,7 @@
 import passwordsFeature from '@adminjs/passwords';
 import argon2 from 'argon2';
 
+import { componentLoader } from '../../../admin/components.bundler.js';
 import { menu } from '../../../admin/index.js';
 import { ResourceFunction } from '../../../admin/types/index.js';
 import { AdminModel } from '../models/index.js';
@@ -20,6 +21,7 @@ export const CreateAdminResource: ResourceFunction<typeof AdminModel> = () => ({
         encryptedPassword: 'password',
       },
       hash: argon2.hash,
+      componentLoader,
     }),
   ],
   options: {

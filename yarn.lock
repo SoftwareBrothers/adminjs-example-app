@@ -2,50 +2,10 @@
 # yarn lockfile v1
 
 
-"@adminjs/design-system@4.0.0-beta-v4.8", "@adminjs/design-system@^4.0.0-beta-v4.8":
-  version "4.0.0-beta-v4.8"
-  resolved "https://registry.yarnpkg.com/@adminjs/design-system/-/design-system-4.0.0-beta-v4.8.tgz#8314e7e3275953c8b2fdebec7cf45b9663e2a9e3"
-  integrity sha512-CE0/hvvdJ21cwExE1jJ4k4OXtHzP62CMMKl5RLEHNhkW3bhPt42hJlYbjq2tELnSCjZN1RWzhiJYPuLh8ViPrw==
-  dependencies:
-    "@hypnosphi/create-react-context" "^0.3.1"
-    "@tiptap/core" "2.0.1"
-    "@tiptap/extension-bubble-menu" "2.0.1"
-    "@tiptap/extension-character-count" "2.0.1"
-    "@tiptap/extension-code" "2.0.1"
-    "@tiptap/extension-document" "2.0.1"
-    "@tiptap/extension-floating-menu" "2.0.1"
-    "@tiptap/extension-heading" "2.0.1"
-    "@tiptap/extension-image" "2.0.1"
-    "@tiptap/extension-link" "2.0.1"
-    "@tiptap/extension-table" "2.0.1"
-    "@tiptap/extension-table-cell" "2.0.1"
-    "@tiptap/extension-table-header" "2.0.1"
-    "@tiptap/extension-table-row" "2.0.1"
-    "@tiptap/extension-text" "2.0.1"
-    "@tiptap/extension-text-align" "2.0.1"
-    "@tiptap/extension-typography" "2.0.1"
-    "@tiptap/pm" "2.0.1"
-    "@tiptap/react" "2.0.1"
-    "@tiptap/starter-kit" "2.0.1"
-    date-fns "^2.29.3"
-    flat "^5.0.2"
-    jw-paginate "^1.0.4"
-    lodash "^4.17.21"
-    polished "^4.2.2"
-    react-currency-input-field "^3.6.10"
-    react-datepicker "^4.10.0"
-    react-feather "^2.0.10"
-    react-phone-input-2 "^2.15.1"
-    react-select "^5.7.2"
-    react-text-mask "^5.5.0"
-    styled-components "5.3.9"
-    styled-system "^5.1.5"
-    text-mask-addons "^3.8.0"
-
-"@adminjs/design-system@^4.0.0-beta-v4.9":
-  version "4.0.0-beta-v4.9"
-  resolved "https://registry.yarnpkg.com/@adminjs/design-system/-/design-system-4.0.0-beta-v4.9.tgz#63bac39573f728426b7d8c888fde89116ef4e6cf"
-  integrity sha512-YBWLLNsfJB+OurpVx7BDAqWEhM9245rqintS1PheRoAl6gDxMPMbJEZ7PXXxAFjsDrwtANa2PZK8J5/xctFK3Q==
+"@adminjs/design-system@4.0.0-beta-v4.10", "@adminjs/design-system@^4.0.0-beta-v4.10", "@adminjs/design-system@^4.0.0-beta-v4.8":
+  version "4.0.0-beta-v4.10"
+  resolved "https://registry.yarnpkg.com/@adminjs/design-system/-/design-system-4.0.0-beta-v4.10.tgz#c7761ca314e16a8e48cf2ef21eadc6adeb103381"
+  integrity sha512-zIsiEOxqeBLV1z2DqlxxTaXYPmX+GWB6sdASgnqkywKOeIuSOkcAUXENJTfesLXoSExt/jRpdARiBJA7pZstwA==
   dependencies:
     "@hypnosphi/create-react-context" "^0.3.1"
     "@tiptap/core" "2.0.1"
@@ -136,10 +96,10 @@
   dependencies:
     sqlstring "^2.3.3"
 
-"@adminjs/passwords@4.0.0-beta.1", "@adminjs/passwords@^4.0.0-beta.1":
-  version "4.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@adminjs/passwords/-/passwords-4.0.0-beta.1.tgz#9d5ee5616b26c3b1b0144056ab45733316f3c70f"
-  integrity sha512-Bbc/9lIwJ0SQD7Q5N+g8NIk/As2aeGFr5v1mpBWprYigt1u/KIJWy7LQKc28hd63Mwk7fK8Y35OMcXpVUEFFpA==
+"@adminjs/passwords@4.0.0-beta.2", "@adminjs/passwords@^4.0.0-beta.2":
+  version "4.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@adminjs/passwords/-/passwords-4.0.0-beta.2.tgz#24e77c056c2e7b99b422d3d08923f64a2d8045a1"
+  integrity sha512-skXXSavhonN2DD/8sV0qr4D6XWMDXl8d8zvt4cFUis2wahFMEDGiYwccTKqwyB6ymIS42S08cd3VCrCHptUYmA==
 
 "@adminjs/prisma@4.0.0-beta.1", "@adminjs/prisma@^4.0.0-beta.1":
   version "4.0.0-beta.1"
@@ -153,7 +113,7 @@
   dependencies:
     escape-regexp "0.0.1"
 
-"@adminjs/themes@^1.0.0-beta.6":
+"@adminjs/themes@1.0.0-beta.6", "@adminjs/themes@^1.0.0-beta.6":
   version "1.0.0-beta.6"
   resolved "https://registry.yarnpkg.com/@adminjs/themes/-/themes-1.0.0-beta.6.tgz#8fc3476d9f1eb16dee308698d672a1c246f56a53"
   integrity sha512-30AI8jnh5YDHbkkQ7dHaH++bXARHx7scxc5FNKj9+WpA+texUD1nbromtqAvLSErIxBLsmHJEoYnxs6r1HeFAg==
