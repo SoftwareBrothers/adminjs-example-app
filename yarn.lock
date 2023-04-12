@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@adminjs/design-system@4.0.0-beta-v4.10", "@adminjs/design-system@^4.0.0-beta-v4.10", "@adminjs/design-system@^4.0.0-beta-v4.8":
-  version "4.0.0-beta-v4.10"
-  resolved "https://registry.yarnpkg.com/@adminjs/design-system/-/design-system-4.0.0-beta-v4.10.tgz#c7761ca314e16a8e48cf2ef21eadc6adeb103381"
-  integrity sha512-zIsiEOxqeBLV1z2DqlxxTaXYPmX+GWB6sdASgnqkywKOeIuSOkcAUXENJTfesLXoSExt/jRpdARiBJA7pZstwA==
+"@adminjs/design-system@4.0.0-beta-v4.16", "@adminjs/design-system@^4.0.0-beta-v4.16":
+  version "4.0.0-beta-v4.16"
+  resolved "https://registry.yarnpkg.com/@adminjs/design-system/-/design-system-4.0.0-beta-v4.16.tgz#10f0a4a0029407179af233a243c05ce95f5b4c24"
+  integrity sha512-gkY/67CDdqMsiTrEQgli8XZmDFxYFBJunxLRTtwfyU+eu8+Aiz9UvL50w9T+RR5K8JsqUCm2xNf/S/wd3ikoSA==
   dependencies:
     "@hypnosphi/create-react-context" "^0.3.1"
     "@tiptap/core" "2.0.1"
@@ -1477,7 +1477,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.13.10", "@babel/runtime@^7.17.8", "@babel/runtime@^7.19.4", "@babel/runtime@^7.20.6":
+"@babel/runtime@^7.13.10", "@babel/runtime@^7.17.8", "@babel/runtime@^7.19.4", "@babel/runtime@^7.20.6", "@babel/runtime@^7.20.7":
   version "7.21.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.21.0.tgz#5b55c9d394e5fcf304909a8b00c07dc217b56673"
   integrity sha512-xwII0//EObnq89Ji5AKYQaRYiW/nZ3llSv29d49IuxPhKbtJoLP+9QUUZ4nVragQVtaVGeZrpB+ZtG/Pdy/POw==
@@ -2370,6 +2370,14 @@
   version "4.11.0"
   resolved "https://registry.yarnpkg.com/@prisma/engines/-/engines-4.11.0.tgz#c99749bfe20f58e8f4d2b5e04fee0785eba440e1"
   integrity sha512-0AEBi2HXGV02cf6ASsBPhfsVIbVSDC9nbQed4iiY5eHttW9ZtMxHThuKZE1pnESbr8HRdgmFSa/Kn4OSNYuibg==
+
+"@redux-devtools/extension@^3.2.5":
+  version "3.2.5"
+  resolved "https://registry.yarnpkg.com/@redux-devtools/extension/-/extension-3.2.5.tgz#a3daaf7b9edc82988366133f0c741b5266c4dcef"
+  integrity sha512-UhyDF7WmdnCrN1s++YC4sdQCo0z6YUnoB2eCh15nXDDq3QH1jDju1144UNRU6Nvi4inxhaIum4m9BXVYWVC1ng==
+  dependencies:
+    "@babel/runtime" "^7.20.7"
+    immutable "^4.2.2"
 
 "@remirror/core-constants@^2.0.0":
   version "2.0.0"
@@ -3272,12 +3280,12 @@ acorn@^8.4.1, acorn@^8.5.0, acorn@^8.8.0:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.8.0.tgz#88c0187620435c7f6015803f5539dae05a9dbea8"
   integrity sha512-QOxyigPVrpZ2GXT+PFyZTl6TtOFc5egxHIP9IlQ+RbupQuX4RkT/Bee4/kQuC02Xkzg84JcT7oLYtDIQxp+v7w==
 
-adminjs@7.0.0-beta-v7.5, adminjs@^7.0.0-beta-v7.5:
-  version "7.0.0-beta-v7.5"
-  resolved "https://registry.yarnpkg.com/adminjs/-/adminjs-7.0.0-beta-v7.5.tgz#87a0ac2d2335c47027e85c9ac252ad097437020d"
-  integrity sha512-uu83W2KF9ACxNuNDFjKGoqBGPny74BsKsm71i4/U7PDirRG/7Y4gWo3JgaC15bpcxeHxTKAVr8b5bLse9kqmxA==
+adminjs@7.0.0-beta-v7.11, adminjs@^7.0.0-beta-v7.11:
+  version "7.0.0-beta-v7.11"
+  resolved "https://registry.yarnpkg.com/adminjs/-/adminjs-7.0.0-beta-v7.11.tgz#fbc293783706cf56aaeff0c405638a1be4df615b"
+  integrity sha512-cCYUIIPHAQS0kar6oh7K6XxTLy7EXCriZm4Qd4i7hLOTuyFfgcmFlRkEM+6SWigpByEDnKbT9dd86N94f7Tmaw==
   dependencies:
-    "@adminjs/design-system" "^4.0.0-beta-v4.8"
+    "@adminjs/design-system" "^4.0.0-beta-v4.16"
     "@babel/core" "^7.21.0"
     "@babel/parser" "^7.21.0"
     "@babel/plugin-syntax-import-assertions" "^7.20.0"
@@ -3287,6 +3295,7 @@ adminjs@7.0.0-beta-v7.5, adminjs@^7.0.0-beta-v7.5:
     "@babel/preset-typescript" "^7.21.0"
     "@babel/register" "^7.21.0"
     "@hello-pangea/dnd" "^16.2.0"
+    "@redux-devtools/extension" "^3.2.5"
     "@rollup/plugin-babel" "^6.0.3"
     "@rollup/plugin-commonjs" "^24.0.1"
     "@rollup/plugin-json" "^6.0.0"
@@ -5479,6 +5488,11 @@ ignore@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.2.0.tgz#6d3bac8fa7fe0d45d9f9be7bac2fc279577e345a"
   integrity sha512-CmxgYGiEPCLhfLnpPp1MoRmifwEIOgjcHXxOBjv7mY96c+eWScsOP9c112ZyLdWHi0FxHjI+4uVhKYp/gcdRmQ==
+
+immutable@^4.2.2:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/immutable/-/immutable-4.3.0.tgz#eb1738f14ffb39fd068b1dbe1296117484dd34be"
+  integrity sha512-0AOCmOip+xgJwEVTQj1EfiDDOkPmuyllDuTuEX+DDXUgapLAsBIfkg3sxCYyCEA8mQqZrrxPUGjcOQ2JS3WLkg==
 
 import-fresh@^3.0.0, import-fresh@^3.2.1:
   version "3.3.0"

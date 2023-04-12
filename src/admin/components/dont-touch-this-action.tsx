@@ -1,23 +1,24 @@
-import React from 'react';
-import { Box, H3 } from '@adminjs/design-system';
+import { Box, H3, Text } from '@adminjs/design-system';
 import { BasePropertyProps } from 'adminjs';
+import React from 'react';
 
 const DontTouchThis = (props: BasePropertyProps) => {
   const { record } = props;
 
   return (
-    <Box flex>
-      <Box variant="container" width={1 / 2} boxShadow="card" mr="xxl" flexShrink={0}>
+    <Box flex flexDirection={['column', 'column', 'column', 'row']} style={{ gap: 16 }}>
+      <Box variant="container" boxShadow="card">
         <H3>Example of a simple page</H3>
-        <p>Where you can put almost everything</p>
-        <p>like this:</p>
-        <p>
+        <Text>Where you can put almost everything like this:</Text>
+        <Box as="div">
           <img src="https://i.redd.it/rd39yuiy9ns21.jpg" alt="stupid cat" width={300} />
-        </p>
+        </Box>
       </Box>
-      <Box>
-        <p>Or (more likely), operate on a returned record:</p>
-        <Box overflowX="auto">{JSON.stringify(record)}</Box>
+      <Box variant="container" boxShadow="card">
+        <Text>Or (more likely), operate on a returned record:</Text>
+        <Box maxHeight={500} overflowY="scroll">
+          <pre style={{ fontFamily: 'monospace' }}>{JSON.stringify(record, null, 2)}</pre>
+        </Box>
       </Box>
     </Box>
   );
