@@ -1,4 +1,7 @@
 {
+  "labels": {
+    "Person": "Staff"
+  },
   "actions": {
     "dontTouchThis": "Don't touch this!!!"
   },

@@ -19,7 +19,7 @@ export const AuthUsers: AuthUser[] = [
     theme: 'dark',
   },
   {
-    email: 'wide@example.com',
+    email: 'no-sidebar@example.com',
     password: 'password',
     title: 'AdminJS no-sidebar theme',
     theme: 'no-sidebar',

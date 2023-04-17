@@ -1,4 +1,4 @@
-import { OverridableComponent, ComponentLoader } from 'adminjs';
+import { ComponentLoader, OverridableComponent } from 'adminjs';
 import path from 'path';
 import * as url from 'url';
 
@@ -20,7 +20,6 @@ override('components/login', 'Login');
 /**
  * Common components
  */
-export const CUSTOM_PAGE = add('components/custom-page', 'CustomPage');
 export const PRODUCTS_LIST = add('components/products-list', 'ProductList');
 export const DONT_TOUCH_THIS_ACTION = add('components/dont-touch-this-action', 'CustomAction');
 export const DETAILED_STATS = add('components/detailed-stats', 'DetailedStats');
@@ -29,4 +28,5 @@ export const THUMB = add('components/thumb', 'Thumb');
 /**
  * Pages
  */
-export const DESIGN_SYSTEM_PAGE = add('./pages/design-system-examples/index', 'DesignSystemPage');
+export const CUSTOM_PAGE = add('pages/custom-page', 'CustomPage');
+export const DESIGN_SYSTEM_PAGE = add('pages/design-system-examples/index', 'DesignSystemPage');
