@@ -1,19 +1,20 @@
-require('dotenv').config({
+import dotenv from 'dotenv';
+dotenv.config({
   path: `${process.cwd()}/.env`,
 });
 
 switch (process.env.SERVER) {
   default:
   case 'EXPRESS':
-    require('./servers/express');
+    await import('./servers/express/index.js');
     break;
   case 'HAPIJS':
-    require('./servers/hapijs');
+    await import('./servers/hapijs.js');
     break;
   case 'FASTIFY':
-    require('./servers/fastify');
+    await import('./servers/fastify.js');
     break;
   case 'NESTJS':
-    require('./servers/nestjs');
+    await import('./servers/nestjs/index.js');
     break;
 }

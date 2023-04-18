@@ -1,9 +1,10 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
-import { AppModule } from './app.module';
-import { setupAdminJS } from './admin/admin.setup';
 import mongoose from 'mongoose';
-import { init } from '../../sources/mikroorm/config';
+
+import { AppModule } from './app.module.js';
+import { setupAdminJS } from './admin/admin.setup.js';
+import { init } from '../../sources/mikroorm/config.js';
 
 const bootstrap = async () => {
   const app = await NestFactory.create(AppModule);
@@ -12,7 +13,7 @@ const bootstrap = async () => {
     new ValidationPipe({
       transform: true,
       whitelist: true,
-    })
+    }),
   );
 
   await mongoose.connect(process.env.MONGO_DATABASE_URL);
@@ -20,7 +21,7 @@ const bootstrap = async () => {
   await setupAdminJS(app);
 
   await app.listen(process.env.PORT);
-  console.log(`AdminJS is under localhost:${process.env.PORT}/admin`);
+  console.log(`AdminJS is under http://localhost:${process.env.PORT}/admin`);
 };
 
 bootstrap();

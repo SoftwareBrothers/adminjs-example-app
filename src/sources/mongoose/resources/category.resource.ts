@@ -1,13 +1,13 @@
-import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions';
-import { CreateResourceResult } from '../../../admin/create-resource-result.type';
-import { menu } from '../../../admin';
-import { CategoryModel } from '../models';
+import { menu } from '../../../admin/index.js';
+import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions.js';
+import { ResourceFunction } from '../../../admin/types/index.js';
+import { CategoryModel } from '../models/index.js';
 
-export const CreateCategoryResource = (): CreateResourceResult<typeof CategoryModel> => ({
+export const CreateCategoryResource: ResourceFunction<typeof CategoryModel> = () => ({
   resource: CategoryModel,
   features: [useEnvironmentVariableToDisableActions()],
   options: {
-    parent: menu.mongoose,
+    navigation: menu.mongoose,
     actions: {
       show: {
         showInDrawer: true,

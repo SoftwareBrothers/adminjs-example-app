@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 
-import { IOwner, UserRole } from '../../models/owner.model';
+import { IOwner, UserRole } from '../../models/owner.model.js';
 
 const owners = (count: number): IOwner[] =>
   Array.from({ length: count }, () => ({

@@ -1,15 +1,15 @@
-import { CreateResourceResult } from '../../../admin/create-resource-result.type';
-import { menu } from '../../../admin';
-import { Person } from '../models';
-import { DETAILED_STATS, DONT_TOUCH_THIS_ACTION } from '../../../admin/components.bundler';
-import { validateEmail } from '../handlers/validate-email.handler';
-import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions';
+import { menu } from '../../../admin/index.js';
+import { DETAILED_STATS, DONT_TOUCH_THIS_ACTION } from '../../../admin/components.bundler.js';
+import { useEnvironmentVariableToDisableActions } from '../../../admin/features/useEnvironmentVariableToDisableActions.js';
+import { ResourceFunction } from '../../../admin/types/index.js';
+import { validateEmail } from '../handlers/validate-email.handler.js';
+import { Person } from '../models/index.js';
 
-export const CreatePersonResource = (): CreateResourceResult<typeof Person> => ({
+export const CreatePersonResource: ResourceFunction<typeof Person> = () => ({
   resource: Person,
   features: [useEnvironmentVariableToDisableActions()],
   options: {
-    parent: menu.typeorm,
+    navigation: menu.typeorm,
     properties: {
       phone: {
         type: 'phone',
@@ -24,7 +24,7 @@ export const CreatePersonResource = (): CreateResourceResult<typeof Person> => (
       },
       detailedStats: {
         actionType: 'resource',
-        icon: 'Apps',
+        icon: 'BarChart2',
         name: 'Resource statistics',
         component: DETAILED_STATS,
         handler: async () => {

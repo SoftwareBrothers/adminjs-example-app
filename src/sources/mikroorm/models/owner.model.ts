@@ -1,6 +1,7 @@
 import { v4 } from 'uuid';
 import { BaseEntity, Entity, Enum, OneToMany, PrimaryKey, Property } from '@mikro-orm/core';
-import { Car } from './car.model';
+
+import type { Car } from './car.model.js';
 
 export enum UserRole {
   ADMIN = 'admin',
@@ -41,6 +42,6 @@ export class Owner extends BaseEntity<Owner, 'id'> implements IOwner {
   })
   updatedAt: Date = new Date();
 
-  @OneToMany(() => Car, (car) => car.owner)
+  @OneToMany('Car', (car: Car) => car.owner)
   cars: Car[];
 }

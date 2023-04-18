@@ -1,5 +1,7 @@
-import addFormats from 'ajv-formats';
+import addFormatsPlugin from 'ajv-formats';
 import { AjvValidator, Model } from 'objection';
+
+const addFormats = addFormatsPlugin.default;
 
 // https://github.com/Vincit/objection.js/issues/2249#issuecomment-1075898552
 // There is no support for Date type in JSONSchema, so this class does two things for us:

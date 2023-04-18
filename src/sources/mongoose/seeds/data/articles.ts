@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 
-import { Article } from '../../models/article.model';
+import { Article } from '../../models/article.model.js';
 
 const articles = (count: number, { authorId, categoryId }): Article[] =>
   Array.from({ length: count }, () => ({

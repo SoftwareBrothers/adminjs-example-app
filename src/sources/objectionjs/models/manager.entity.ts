@@ -1,6 +1,6 @@
-import { BaseModel } from '../utils/base-model';
+import { BaseModel } from '../utils/base-model.js';
 
-import Office from './office.entity';
+import Office from './office.entity.js';
 
 class Manager extends BaseModel {
   id: number;

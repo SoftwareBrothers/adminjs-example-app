@@ -1,10 +1,12 @@
-import { AdminModel } from '../models';
-import { CreateResourceResult } from '../../../admin/create-resource-result.type';
-import { menu } from '../../../admin';
 import passwordsFeature from '@adminjs/passwords';
 import argon2 from 'argon2';
 
-export const CreateAdminResource = (): CreateResourceResult<typeof AdminModel> => ({
+import { componentLoader } from '../../../admin/components.bundler.js';
+import { menu } from '../../../admin/index.js';
+import { ResourceFunction } from '../../../admin/types/index.js';
+import { AdminModel } from '../models/index.js';
+
+export const CreateAdminResource: ResourceFunction<typeof AdminModel> = () => ({
   resource: AdminModel,
   features: [
     (options): object => ({
@@ -19,10 +21,11 @@ export const CreateAdminResource = (): CreateResourceResult<typeof AdminModel> =
         encryptedPassword: 'password',
       },
       hash: argon2.hash,
+      componentLoader,
     }),
   ],
   options: {
-    parent: menu.mongoose,
+    navigation: menu.mongoose,
     sort: {
       direction: 'asc',
       sortBy: 'email',

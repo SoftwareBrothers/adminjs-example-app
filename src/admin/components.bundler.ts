@@ -1,16 +1,32 @@
-import AdminJS, { OverridableComponent } from 'adminjs';
+import { ComponentLoader, OverridableComponent } from 'adminjs';
 import path from 'path';
+import * as url from 'url';
 
-export const bundle = (url: string, componentName?: OverridableComponent): string =>
-  AdminJS.bundle(path.join(__dirname, url), componentName);
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+export const componentLoader = new ComponentLoader();
+
+export const add = (url: string, componentName: string): string =>
+  componentLoader.add(componentName, path.join(__dirname, url));
+
+export const override = (url: string, componentName: OverridableComponent): string =>
+  componentLoader.override(componentName, path.join(__dirname, url));
+
+/**
+ * Overridable components
+ */
+override('components/top-bar', 'Version');
+override('components/login', 'Login');
 
 /**
  * Common components
  */
-export const SOME_STATS = bundle('components/some-stats');
-export const PRODUCTS_LIST = bundle('components/products-list');
-export const DONT_TOUCH_THIS_ACTION = bundle('components/dont-touch-this-action');
-export const DETAILED_STATS = bundle('components/detailed-stats');
-export const THUMB = bundle('components/thumb');
+export const PRODUCTS_LIST = add('components/products-list', 'ProductList');
+export const DONT_TOUCH_THIS_ACTION = add('components/dont-touch-this-action', 'CustomAction');
+export const DETAILED_STATS = add('components/detailed-stats', 'DetailedStats');
+export const THUMB = add('components/thumb', 'Thumb');
 
-export const DESIGN_SYSTEM_EXAMPLE_PAGE = bundle('pages/design-system-example');
+/**
+ * Pages
+ */
+export const CUSTOM_PAGE = add('pages/custom-page', 'CustomPage');
+export const DESIGN_SYSTEM_PAGE = add('pages/design-system-examples/index', 'DesignSystemPage');

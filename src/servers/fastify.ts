@@ -1,12 +1,16 @@
 import fastify from 'fastify';
 import mongoose from 'mongoose';
-import { createAdmin, generateAdminJSConfig } from '../admin';
 import AdminJS from 'adminjs';
-import { init } from '../sources/mikroorm/config';
-import dataSource from '../sources/typeorm/config';
-import { fastifyAuthenticatedRouter } from '../admin/router';
 import fastifyStatic from 'fastify-static';
 import path from 'path';
+import * as url from 'url';
+
+import { createAuthUsers, generateAdminJSConfig } from '../admin/index.js';
+import { init } from '../sources/mikroorm/config.js';
+import dataSource from '../sources/typeorm/config.js';
+import { fastifyAuthenticatedRouter } from '../admin/router.js';
+
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 const app = fastify();
 
@@ -14,7 +18,7 @@ const attachAdminJS = async () => {
   const config = generateAdminJSConfig();
   const adminJS = new AdminJS(config);
   await fastifyAuthenticatedRouter(adminJS, app);
-  await createAdmin();
+  await createAuthUsers();
 };
 
 const run = async (): Promise<void> => {
@@ -31,7 +35,7 @@ const run = async (): Promise<void> => {
     await attachAdminJS();
 
     await app.listen(process.env.PORT);
-    console.log(`AdminJS is under localhost:${process.env.PORT}/admin`);
+    console.log(`AdminJS is under http://localhost:${process.env.PORT}/admin`);
   } catch (err) {
     app.log.error(err);
     process.exit(1);

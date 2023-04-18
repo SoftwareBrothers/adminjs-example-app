@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { AdminSchema } from '../../../sources/mongoose/models/admin.model';
-import { UserSchema } from '../../../sources/mongoose/models/user.model';
-import { ArticleSchema } from '../../../sources/mongoose/models/article.model';
-import { CategorySchema } from '../../../sources/mongoose/models/category.model';
-import { CommentSchema } from '../../../sources/mongoose/models/comment.model';
-import { ComplicatedSchema } from '../../../sources/mongoose/models/complicated.model';
+
+import { AdminSchema } from '../../../sources/mongoose/models/admin.model.js';
+import { UserSchema } from '../../../sources/mongoose/models/user.model.js';
+import { ArticleSchema } from '../../../sources/mongoose/models/article.model.js';
+import { CategorySchema } from '../../../sources/mongoose/models/category.model.js';
+import { CommentSchema } from '../../../sources/mongoose/models/comment.model.js';
+import { ComplicatedSchema } from '../../../sources/mongoose/models/complicated.model.js';
 
 @Module({
   imports: [

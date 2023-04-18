@@ -1,6 +1,7 @@
 import { DataTypes, Model, Optional, Association, NonAttribute, HasManyGetAssociationsMixin } from 'sequelize';
-import { sequelize } from '../index';
-import { CartModel } from './cart.model';
+
+import { sequelize } from '../index.js';
+import { CartModel } from './cart.model.js';
 
 type Order = {
   id: number;
@@ -53,5 +54,5 @@ OrderModel.init(
     sequelize,
     tableName: 'orders',
     modelName: 'order',
-  }
+  },
 );

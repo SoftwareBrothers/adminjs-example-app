@@ -1,7 +1,7 @@
-import { BaseResource, BaseProperty, BaseRecord, ResourceOptions } from 'adminjs';
+import AdminJS, { BaseResource, BaseProperty, BaseRecord, ResourceOptions } from 'adminjs';
 import axios from 'axios';
-import AdminJS from 'adminjs/types/src';
-import { menu } from '../../admin';
+
+import { menu } from '../../admin/index.js';
 
 export class CryptoDatabase extends BaseResource {
   public totalCount = 0;
@@ -61,7 +61,7 @@ export class CryptoDatabase extends BaseResource {
   public assignDecorator(admin: AdminJS, options?: ResourceOptions) {
     super.assignDecorator(admin, {
       ...options,
-      parent: menu.rest,
+      navigation: menu.rest,
       listProperties: ['website_slug', 'name', 'symbol', 'quotes.USD.price'],
       actions: {
         list: {
@@ -126,7 +126,7 @@ export class CryptoDatabase extends BaseResource {
         ...record,
         last_updated: record.last_updated ? new Date(record.last_updated * 1000) : null,
       },
-      this
+      this,
     );
   }
 }

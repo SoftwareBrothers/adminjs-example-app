@@ -1,9 +1,9 @@
 import React from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
 
 import { useSelector } from 'react-redux';
 import {
   Box,
+  BoxProps,
   H5,
   H2,
   Label,
@@ -16,18 +16,11 @@ import {
   MadeWithLove,
   themeGet,
 } from '@adminjs/design-system';
+import { styled } from '@adminjs/design-system/styled-components';
 import { ReduxState, useTranslation } from 'adminjs';
+import { AuthUser, AuthUsers } from '../constants/authUsers.js';
 
-const GlobalStyle = createGlobalStyle`
-  html, body, #app {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-`;
-
-const Wrapper = styled(Box)`
+const Wrapper = styled(Box)<BoxProps>`
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -39,27 +32,35 @@ const StyledLogo = styled.img`
   margin: ${themeGet('space', 'md')} 0;
 `;
 
+const IllustrationsWrapper = styled(Box)<BoxProps>`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  & svg [stroke='#3B3552'] {
+    stroke: rgba(255, 255, 255, 0.5);
+  }
+  & svg [fill='#3040D6'] {
+    fill: rgba(255, 255, 255, 1);
+  }
+`;
+
 export type LoginProps = {
-  credentials: Credentials;
+  credentials: Pick<AuthUser, 'email' | 'password'>;
   action: string;
   errorMessage?: string;
   children?: any;
 };
 
-export type Credentials = {
-  email: string;
-  password: string;
-};
-
 export const Login: React.FC<LoginProps> = (props) => {
-  const { action, credentials, errorMessage } = props;
-  const { translateLabel, translateButton, translateProperty, translateMessage } = useTranslation();
+  const { action, errorMessage } = props;
+  const { translateComponent, translateMessage } = useTranslation();
+  const [defaultUser] = AuthUsers;
   const branding = useSelector((state: ReduxState) => state.branding);
-  const message = `Email: ${credentials.email} | Password: ${credentials.password}`;
+  const message = `Email: ${defaultUser.email}\nPassword: ${defaultUser.password}`;
 
   return (
     <React.Fragment>
-      <GlobalStyle />
       <Wrapper flex variant="grey">
         <Box bg="white" height="480px" flex boxShadow="login" width={[1, 2 / 3, 'auto']}>
           <Box
@@ -71,11 +72,11 @@ export const Login: React.FC<LoginProps> = (props) => {
             display={['none', 'none', 'block']}
             position="relative"
           >
-            <H2 fontWeight="lighter">{translateLabel('loginWelcome')}</H2>
+            <H2 fontWeight="lighter">{translateComponent('Login.welcomeHeader')}</H2>
             <Text fontWeight="lighter" mt="default">
-              {translateMessage('loginWelcome')}
+              {translateComponent('Login.welcomeMessage')}
             </Text>
-            <Text textAlign="center" p="xxl">
+            <IllustrationsWrapper p="xxl">
               <Box display="inline" mr="default">
                 <Illustration variant="Planet" width={82} height={91} />
               </Box>
@@ -85,13 +86,13 @@ export const Login: React.FC<LoginProps> = (props) => {
               <Box display="inline" position="relative" top="-20px">
                 <Illustration variant="FlagInCog" width={82} height={91} />
               </Box>
-            </Text>
+            </IllustrationsWrapper>
           </Box>
           <Box as="form" action={action} method="POST" p="x3" flexGrow={1} width={['100%', '100%', '480px']}>
             <H5 marginBottom="xxl">
               {branding.logo ? <StyledLogo src={branding.logo} alt={branding.companyName} /> : branding.companyName}
             </H5>
-            <MessageBox my="lg" message={message} variant="info" />
+            <MessageBox my="lg" message={message} variant="info" style={{ whiteSpace: 'pre-wrap' }} />
             {errorMessage && (
               <MessageBox
                 my="lg"
@@ -100,21 +101,25 @@ export const Login: React.FC<LoginProps> = (props) => {
               />
             )}
             <FormGroup>
-              <Label required>{translateProperty('email')}</Label>
-              <Input name="email" placeholder={translateProperty('email')} defaultValue={credentials.email} />
+              <Label required>{translateComponent('Login.properties.email')}</Label>
+              <Input
+                name="email"
+                placeholder={translateComponent('Login.properties.email')}
+                defaultValue={defaultUser.email}
+              />
             </FormGroup>
             <FormGroup>
-              <Label required>{translateProperty('password')}</Label>
+              <Label required>{translateComponent('Login.properties.password')}</Label>
               <Input
                 type="password"
                 name="password"
-                placeholder={translateProperty('password')}
+                placeholder={translateComponent('Login.properties.password')}
                 autoComplete="new-password"
-                defaultValue={credentials.password}
+                defaultValue={defaultUser.password}
               />
             </FormGroup>
             <Text mt="xl" textAlign="center">
-              <Button variant="primary">{translateButton('login')}</Button>
+              <Button variant="contained">{translateComponent('Login.loginButton')}</Button>
             </Text>
           </Box>
         </Box>

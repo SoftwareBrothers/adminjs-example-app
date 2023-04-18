@@ -1,7 +1,6 @@
-import { MikroORM } from '@mikro-orm/core';
-import { Options } from '@mikro-orm/core/utils';
+import { MikroORM, Options } from '@mikro-orm/core';
 
-import { Owner, Car, Seller } from './models';
+import { Owner, Car, Seller } from './models/index.js';
 
 const driverOptions: Options['driverOptions'] = {};
 

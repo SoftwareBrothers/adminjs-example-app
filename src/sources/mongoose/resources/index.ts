@@ -1,6 +1,6 @@
-export { CreateAdminResource } from './admin.resource';
-export { CreateUserResource } from './user.resource';
-export { CreateArticleResource } from './article.resource';
-export { CreateCategoryResource } from './category.resource';
-export { CreateCommentResource } from './comment.resource';
-export { CreateComplicatedResource } from './complicated.resource';
+export { CreateAdminResource } from './admin.resource.js';
+export { CreateUserResource } from './user.resource.js';
+export { CreateArticleResource } from './article.resource.js';
+export { CreateCategoryResource } from './category.resource.js';
+export { CreateCommentResource } from './comment.resource.js';
+export { CreateComplicatedResource } from './complicated.resource.js';

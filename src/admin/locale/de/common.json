@@ -1,0 +1,9 @@
+{
+  "messages": {
+    "CustomPage": {
+      "message": "Ich wurde angeklickt !!!",
+      "messageWithInterpolation": "Übersetzte Nachrichten mit Interpolation: {{someParams}}"
+    },
+    "I am fetched from the backend": "Ich werde aus dem Backend geholt"
+  }
+}

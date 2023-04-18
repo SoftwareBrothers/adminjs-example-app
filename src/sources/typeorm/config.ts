@@ -1,8 +1,9 @@
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
 import { DataSource, DataSourceOptions } from 'typeorm';
-import { init1644569575919 } from './migrations/1644569575919-init';
-import { Organization, Person } from './models';
+import { init1644569575919 } from './migrations/1644569575919-init.js';
+import { Organization, Person } from './models/index.js';
 
 export const params: DataSourceOptions = {
   type: 'postgres' as const,

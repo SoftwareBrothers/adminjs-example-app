@@ -1,14 +1,16 @@
-import AdminJS from 'adminjs';
-import AdminJSMongoose from '@adminjs/mongoose';
-import AdminJSSequelize from '@adminjs/sequelize';
-import { Database as MikroormDatabse, Resource as MikroormResource } from '@adminjs/mikroorm';
-import { Database as TypeormDatabase, Resource as TypeormResource } from '@adminjs/typeorm';
-import { Database as PrismaDatabase, Resource as PrismaResource } from '@adminjs/prisma';
+// Adapters
+import { Database as MikroormDatabase, Resource as MikroormResource } from '@adminjs/mikroorm';
+import { Database as MongooseDatabase, Resource as MongooseResource } from '@adminjs/mongoose';
 import { Database as ObjectionDatabase, Resource as ObjectionResource } from '@adminjs/objection';
+import { Database as PrismaDatabase, Resource as PrismaResource } from '@adminjs/prisma';
+import { Database as SequelizeDatabase, Resource as SequelizeResource } from '@adminjs/sequelize';
+import { dark, light, noSidebar } from '@adminjs/themes';
+import { Database as TypeormDatabase, Resource as TypeormResource } from '@adminjs/typeorm';
+
+import AdminJS, { AdminJSOptions, ResourceOptions } from 'adminjs';
 import argon2 from 'argon2';
-import locale from './locale';
-import theme from './theme';
-import { AdminModel } from '../sources/mongoose/models';
+import { CreateCarResource, CreateOwnerResource, CreateSellerResource } from '../sources/mikroorm/resources/index.js';
+import { AdminModel } from '../sources/mongoose/models/index.js';
 import {
   CreateAdminResource,
   CreateArticleResource,
@@ -16,68 +18,71 @@ import {
   CreateCommentResource,
   CreateComplicatedResource,
   CreateUserResource,
-} from '../sources/mongoose/resources';
+} from '../sources/mongoose/resources/index.js';
+import { CreateManagerResource, CreateOfficeResource } from '../sources/objectionjs/resources/index.js';
 import {
-  CreateProductResource,
-  CreateCategoryResource as CreateSequelizeCategoryResource,
+  CreatePostResource,
+  CreateProfileResource,
+  CreatePublisherResource,
+} from '../sources/prisma/resources/index.js';
+import { CryptoDatabase } from '../sources/rest/crypto-database.js';
+import {
   CreateCartResource,
   CreateOrderResource,
-} from '../sources/sequelize/resources';
-import { CreateOrganizationResource, CreatePersonResource } from '../sources/typeorm/resources';
-import { CreateOwnerResource, CreateSellerResource, CreateCarResource } from '../sources/mikroorm/resources';
-import { CreatePostResource, CreatePublisherResource, CreateProfileResource } from '../sources/prisma/resources';
-import { CreateOfficeResource, CreateManagerResource } from '../sources/objectionjs/resources';
-import { DESIGN_SYSTEM_EXAMPLE_PAGE, SOME_STATS } from './components.bundler';
-import { CryptoDatabase } from '../sources/rest/crypto-database';
+  CreateProductResource,
+  CreateCategoryResource as CreateSequelizeCategoryResource,
+} from '../sources/sequelize/resources/index.js';
+import { CreateOrganizationResource, CreatePersonResource } from '../sources/typeorm/resources/index.js';
+import './components.bundler.js';
+import { componentLoader } from './components.bundler.js';
+import { AuthUsers } from './constants/authUsers.js';
+import { locale } from './locale/index.js';
+import pages from './pages/index.js';
+import { customTheme } from '../themes/index.js';
 
-AdminJS.registerAdapter(AdminJSMongoose);
-AdminJS.registerAdapter(AdminJSSequelize);
-AdminJS.registerAdapter({
-  Database: TypeormDatabase,
-  Resource: TypeormResource,
-});
-AdminJS.registerAdapter({
-  Database: MikroormDatabse,
-  Resource: MikroormResource,
-});
-AdminJS.registerAdapter({
-  Database: PrismaDatabase,
-  Resource: PrismaResource,
-});
-AdminJS.registerAdapter({
-  Database: ObjectionDatabase,
-  Resource: ObjectionResource,
-});
+AdminJS.registerAdapter({ Database: MikroormDatabase, Resource: MikroormResource });
+AdminJS.registerAdapter({ Database: MongooseDatabase, Resource: MongooseResource });
+AdminJS.registerAdapter({ Database: ObjectionDatabase, Resource: ObjectionResource });
+AdminJS.registerAdapter({ Database: PrismaDatabase, Resource: PrismaResource });
+AdminJS.registerAdapter({ Database: SequelizeDatabase, Resource: SequelizeResource });
+AdminJS.registerAdapter({ Database: TypeormDatabase, Resource: TypeormResource });
 
-export const menu = {
-  rest: { name: 'REST', icon: 'Purchase' },
-  mongoose: { name: 'Mongoose Resources', icon: 'Tree' },
-  sequelize: { name: 'Sequelize Resources', icon: 'Sql' },
-  typeorm: { name: 'Typeorm Resources', icon: 'NoodleBowl' },
-  mikroorm: { name: 'Mikroorm Resources', icon: 'Bee' },
-  prisma: { name: 'Prisma Resources', icon: 'Industry' },
-  objection: { name: 'Objection Resources', icon: 'Monster' },
+export const menu: Record<string, ResourceOptions['navigation']> = {
+  mongoose: { name: 'Mongoose', icon: 'Folder' },
+  sequelize: { name: 'Sequelize', icon: 'Folder' },
+  typeorm: { name: 'Typeorm', icon: 'Folder' },
+  mikroorm: { name: 'Mikroorm', icon: 'Folder' },
+  prisma: { name: 'Prisma', icon: 'Folder' },
+  objection: { name: 'Objection', icon: 'Folder' },
+  rest: { name: 'REST', icon: 'Link' },
 };
 
-export const generateAdminJSConfig = () => ({
+export const generateAdminJSConfig: () => AdminJSOptions = () => ({
+  version: { admin: true, app: '2.0.0' },
+  rootPath: '/admin',
   locale,
   assets: {
     styles: ['/custom.css'],
     scripts: process.env.NODE_ENV === 'production' ? ['/gtm.js'] : [],
   },
-  rootPath: '/admin',
   branding: {
     companyName: 'AdminJS demo page',
     favicon: '/favicon.ico',
-    theme,
+    theme: {
+      colors: { primary100: '#4D70EB' },
+    },
   },
-  version: {
-    admin: true,
-    app: '2.0.0',
+  defaultTheme: 'light',
+  availableThemes: [light, dark, noSidebar, customTheme],
+  componentLoader,
+  pages,
+  env: {
+    STORYBOOK_URL: process.env.STORYBOOK_URL,
+    GITHUB_URL: process.env.GITHUB_URL,
+    SLACK_URL: process.env.SLACK_URL,
+    DOCUMENTATION_URL: process.env.DOCUMENTATION_URL,
   },
   resources: [
-    // custom
-    new CryptoDatabase(),
     // mongo
     CreateAdminResource(),
     CreateUserResource(),
@@ -104,36 +109,17 @@ export const generateAdminJSConfig = () => ({
     // objectionjs
     CreateOfficeResource(),
     CreateManagerResource(),
+    // custom
+    new CryptoDatabase(),
   ],
-  pages: {
-    'Custom Page': {
-      component: SOME_STATS,
-      icon: 'Purchase',
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      handler: async (request, response, context) => {
-        return {
-          text: 'I am fetched from the backend',
-        };
-      },
-    },
-    'Design system example': {
-      component: DESIGN_SYSTEM_EXAMPLE_PAGE,
-      icon: 'Workspace',
-    },
-  },
 });
 
-export const ADMIN = {
-  email: 'admin@example.com',
-  password: 'password',
-};
-
-export const createAdmin = async () => {
-  const admin = await AdminModel.findOne({ email: ADMIN.email });
-  if (!admin) {
-    await AdminModel.create({
-      email: ADMIN.email,
-      password: await argon2.hash(ADMIN.password),
-    });
-  }
-};
+export const createAuthUsers = async () =>
+  Promise.all(
+    AuthUsers.map(async ({ email, password }) => {
+      const admin = await AdminModel.findOne({ email });
+      if (!admin) {
+        await AdminModel.create({ email, password: await argon2.hash(password) });
+      }
+    }),
+  );

@@ -1,4 +1,4 @@
-export default {
+const config = {
   development: {
     client: 'pg',
     useNullAsDefault: true,
@@ -25,3 +25,5 @@ export default {
     },
   },
 };
+
+module.exports = config;

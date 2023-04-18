@@ -1,7 +1,8 @@
 import { DataTypes, Model, Optional, Association, HasOneGetAssociationMixin, NonAttribute } from 'sequelize';
-import { sequelize } from '../index';
-import { ProductModel } from './product.model';
-import { OrderModel } from './order.model';
+
+import { sequelize } from '../index.js';
+import { ProductModel } from './product.model.js';
+import { OrderModel } from './order.model.js';
 
 type Cart = {
   id: number;
@@ -70,7 +71,7 @@ CartModel.init(
     sequelize,
     tableName: 'cart_products',
     modelName: 'cart',
-  }
+  },
 );
 
 CartModel.belongsTo(ProductModel, {

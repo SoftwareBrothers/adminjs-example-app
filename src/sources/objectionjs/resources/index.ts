@@ -1,2 +1,2 @@
-export { CreateManagerResource } from './manager.resource';
-export { CreateOfficeResource } from './office.resource';
+export { CreateManagerResource } from './manager.resource.js';
+export { CreateOfficeResource } from './office.resource.js';

@@ -1,7 +1,8 @@
 import { ActionRequest, ActionResponse, After, flat } from 'adminjs';
-import { isGETMethod } from '../../../admin/admin.utils';
-import { getSum } from '../functions/get-sum.function';
-import { ProductSumInterface } from '../interfaces';
+
+import { isGETMethod } from '../../../admin/admin.utils.js';
+import { getSum } from '../functions/get-sum.function.js';
+import { ProductSumInterface } from '../interfaces.js';
 
 export const getSumForOrder =
   (): After<ActionResponse> =>
@@ -16,7 +17,7 @@ export const getSumForOrder =
           const params = flat.unflatten<any, ProductSumInterface>(record.params);
           params.sum = await getSum(params.id);
           record.params = flat.flatten(params);
-        })
+        }),
       );
     } else {
       const params = flat.unflatten<any, ProductSumInterface>(response.record.params);

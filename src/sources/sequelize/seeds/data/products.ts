@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 
-import { ProductCreationAttributes } from '../../models/product.model';
+import { ProductCreationAttributes } from '../../models/product.model.js';
 
 const products = (count: number, { categoryId }): ProductCreationAttributes[] =>
   Array.from({ length: count }, () => ({

@@ -7,12 +7,14 @@ import ConnectPgSimple from 'connect-pg-simple';
 import session from 'express-session';
 import { Router } from 'express';
 
-import { AdminModel } from '../sources/mongoose/models';
+import { AdminModel } from '../sources/mongoose/models/index.js';
+import { AuthUsers } from './constants/authUsers.js';
 
 export const authenticateUser = async (email, password) => {
   const user = await AdminModel.findOne({ email });
   if (user && (await argon2.verify(user.password, password))) {
-    return user;
+    const userData = AuthUsers.find((au) => email === au.email);
+    return { ...userData, ...user.toObject() };
   }
   return null;
 };
@@ -47,7 +49,7 @@ export const expressAuthenticatedRouter = (adminJs: AdminJS, router: Router | nu
         secure: process.env.NODE_ENV === 'production',
       },
       name: 'adminjs',
-    }
+    },
   );
 };
 
@@ -58,5 +60,5 @@ export const fastifyAuthenticatedRouter = (adminJs: AdminJS, app: FastifyInstanc
       cookiePassword: 'secretsecretsecretsecretsecretsecretsecretsecret',
       authenticate: authenticateUser,
     },
-    app
+    app,
   );

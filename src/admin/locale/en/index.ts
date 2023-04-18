@@ -1,18 +1,21 @@
-import * as Common from './common.json';
-import * as Complicated from './complicated.json';
-import * as Person from './person.json';
+import type { LocaleTranslations } from 'adminjs';
 
-const enLocale = {
-  language: 'en',
-  translations: {
-    ...Common,
-    resources: {
-      Complicated,
-      Person,
-      products: {
-        properties: {
-          categoryId: 'Category',
-        },
+import common from './common.json' assert { type: 'json' };
+import Complicated from './complicated.json' assert { type: 'json' };
+import components from './components.json' assert { type: 'json' };
+import pages from './pages.json' assert { type: 'json' };
+import Person from './person.json' assert { type: 'json' };
+
+const enLocale: LocaleTranslations = {
+  ...common,
+  ...components,
+  ...pages,
+  resources: {
+    Complicated,
+    Person,
+    products: {
+      properties: {
+        categoryId: 'Category',
       },
     },
   },
