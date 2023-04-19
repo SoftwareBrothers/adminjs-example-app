@@ -4,6 +4,7 @@ dotenv.config({
 });
 
 import mongoose from 'mongoose';
+import { AuthUsers } from '../admin/constants/authUsers.js';
 import {
   AdminModel,
   UserModel,
@@ -22,7 +23,7 @@ async function truncateMongodb() {
   await ComplicatedModel.deleteMany({});
   await AdminModel.deleteMany({
     email: {
-      $ne: 'admin@example.com',
+      $nin: AuthUsers.map((user) => user.email),
     },
   });
 }
