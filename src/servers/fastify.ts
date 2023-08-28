@@ -1,7 +1,7 @@
 import fastify from 'fastify';
 import mongoose from 'mongoose';
 import AdminJS from 'adminjs';
-import fastifyStatic from 'fastify-static';
+import fastifyStatic from '@fastify/static';
 import path from 'path';
 import * as url from 'url';
 
