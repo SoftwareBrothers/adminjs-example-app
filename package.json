@@ -6,7 +6,7 @@
   "type": "module",
   "license": "ISC",
   "engines": {
-    "node": ">=18"
+    "node": ">=22"
   },
   "scripts": {
     "lint": "eslint src --ext .ts,.tsx",
@@ -73,7 +73,7 @@
     "@nestjs/platform-express": "^9.3.12",
     "@nestjs/typeorm": "^9.0.1",
     "@prisma/client": "^4.11.0",
-    "adminjs": "^7.0.9",
+    "adminjs": "^7.8.17",
     "ajv-formats": "^2.1.1",
     "argon2": "^0.30.3",
     "class-transformer": "^0.5.1",

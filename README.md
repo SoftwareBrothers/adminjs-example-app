@@ -11,6 +11,8 @@ Password: password
 
 ## Prerequisites
 
+Use Node.js 22 or newer when running the app locally.
+
 Install Docker if you don't have it: https://docs.docker.com/desktop/#download-and-install
 
 Run:
