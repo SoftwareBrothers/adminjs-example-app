@@ -118,3 +118,4 @@ coverage
 .adminjs
 .adminbro
 .idea
+.env.production

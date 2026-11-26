@@ -1,8 +1,10 @@
 import type { LocaleTranslations } from 'adminjs';
+import { createRequire } from 'node:module';
 
-import common from './common.json' assert { type: 'json' };
-import components from './components.json' assert { type: 'json' };
-import pages from './pages.json' assert { type: 'json' };
+const require = createRequire(import.meta.url);
+const common = require('./common.json') as typeof import('./common.json');
+const components = require('./components.json') as typeof import('./components.json');
+const pages = require('./pages.json') as typeof import('./pages.json');
 
 const deLocale: LocaleTranslations = {
   ...common,
