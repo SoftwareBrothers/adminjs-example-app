@@ -14,7 +14,7 @@
     "sequelize": "yarn sequelize-cli --config src/sources/sequelize/config.js",
     "knex": "dotenv -c '.env' -- npx knex --knexpath dist/sources/objectionjs/index.js --knexfile dist/sources/objectionjs/knexfile.cjs",
     "mikroorm": "node --experimental-specifier-resolution=node --loader ts-node/esm ./node_modules/@mikro-orm/cli/cli.js",
-    "migration:up": "yarn sequelize db:migrate && yarn typeorm migration:run && yarn mikroorm migration:up && yarn prisma migrate dev --schema prisma/schema.prisma && yarn knex migrate:latest",
+    "migration:up": "yarn sequelize db:migrate && yarn typeorm migration:run && yarn mikroorm migration:up && yarn prisma migrate deploy --schema prisma/schema.prisma && yarn knex migrate:latest",
     "migration:up:production": "yarn sequelize db:migrate && yarn typeorm migration:run && yarn mikro-orm migration:up && yarn prisma migrate deploy --schema prisma/schema.prisma",
     "docker:up": "docker-compose -f docker-compose.yaml up -d",
     "start:dev": "nodemon",
