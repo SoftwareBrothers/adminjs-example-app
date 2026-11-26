@@ -32,12 +32,20 @@ yarn install --frozen-lockfile
 
 Make sure you have all environmental variables set up (read the previous paragraph).
 
-Then create postgres database and run migrations:
+Generate the Prisma Client and compile the app before running migrations. The
+TypeORM and Knex migration commands load their configuration from `dist`:
 
 ```bash
-$ npx prisma generate     # # this sets up Prisma Client in your node_modules
+$ npx prisma generate     # this sets up Prisma Client in your node_modules
+$ yarn build
 $ yarn migration:up
 ```
+
+`migration:up` applies the migrations committed in this repository. It does not
+create new Prisma migrations or require permission to create a shadow database.
+To create a Prisma migration while changing its schema, use
+`yarn prisma migrate dev --schema prisma/schema.prisma` with a database account
+that has the required shadow database permissions.
 
 Note: If you see the error below when Prisma MySQL migration is run:
 ```
