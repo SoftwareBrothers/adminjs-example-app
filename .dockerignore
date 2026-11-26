@@ -1,1 +1,9 @@
 node_modules
+dist
+.adminjs
+.adminbro
+.git
+.env
+.env.*
+*.log
+*.tsbuildinfo
